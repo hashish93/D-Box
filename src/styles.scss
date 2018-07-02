@@ -1,0 +1,33 @@
+$GE_SS_eot_font_path: "assets/fonts/GE_SS_Two_Light.eot";
+$GE_SS_woff_font_path: "assets/fonts/GE_SS_Two_Light.woff";
+$GE_SS_ttf_font_path: "assets/fonts/GE_SS_Two_Light.ttf";
+$GE_SS_svg_font_path: "assets/fonts/GE_SS_Two_Light.svg#GESSTwoLight-Light";
+$font-family-brand: 'GE_SS';
+
+@font-face {
+  font-family:$font-family-brand;
+  src:url($GE_SS_eot_font_path) format("eot"),
+  url($GE_SS_woff_font_path) format("woff"),
+  url($GE_SS_ttf_font_path) format("truetype"),
+  url($GE_SS_svg_font_path) format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+body , html{
+  font-family:$font-family-brand;
+}
+.m-bottom-5{margin-bottom: 5px;}
+.m-bottom-10{margin-bottom: 10px;}
+.m-bottom-15{margin-bottom: 15px;}
+.m-bottom-20{margin-bottom: 20px;}
+.m-bottom-25{margin-bottom: 25px;}
+.m-bottom-30{margin-bottom: 30px;}
+.m-bottom-35{margin-bottom: 35px;}
+
+.m-top-5{margin-top: 5px;}
+.m-top-10{margin-top: 10px;}
+.m-top-15{margin-top: 15px;}
+.m-top-20{margin-top: 20px;}
+.m-top-25{margin-top: 25px;}
+.m-top-30{margin-top: 30px;}
+.m-top-35{margin-top: 35px;}

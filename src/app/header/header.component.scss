@@ -1,0 +1,40 @@
+$background:#efefef;
+header{
+  background:$background;
+  display: inline-block;
+  width: 100%;
+  padding: 5px 10px;
+  .container-fluid{
+    text-align: center;
+  }
+}
+.logo{
+  display: inline-block;
+}
+.login-btn{
+  background: #3d5fc1;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  span{
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
+.register-btn{
+  border: 2px solid #ee4a41;
+  color: #ee4a41;
+  font-weight: bold;
+  padding: 3px 10px;
+}
+.input-group-prepend span{
+  background: #ee4a41;
+  color: #ae2018;
+}
+form input{
+  border:1px solid #ee4a41;
+  text-align: right;
+  &:focus{
+    box-shadow: none !important;
+  }
+}
