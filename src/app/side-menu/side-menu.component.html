@@ -1,0 +1,71 @@
+<aside class="sticky-sidebar">
+  <div *ngIf="loading">
+    <img class="m-top-20 m-bottom-20 loading" src="./assets/images/loading.gif">
+  </div>
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    <strong>error!</strong> {{error}}
+  </div>
+  <div *ngIf="!loading && !error">
+    <ul class="margin-0">
+      <li>
+        <a routerLink="/">
+          <img class="m-left-10" src="./assets/images/home.png">
+          <p class="inline-block">الرئيسية</p>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/side">
+          <img class="m-left-10" src="./assets/images/trend.png">
+          <p class="inline-block">الاعلى مشاهدة</p>
+        </a>
+      </li>
+    </ul>
+    <ul class="margin-0 bottom-border-child">
+      <li *ngFor="let category of categories">
+        <a routerLink="category/{{category._id}}">
+          <img class="m-left-10" *ngIf="category.icon" src="{{staticEndPoint}}{{category.icon}}">
+          <img class="m-left-10" *ngIf="!category.icon" src="./assets/images/games.png">
+          <p class="inline-block">{{category.title}}</p>
+        </a>
+      </li>
+    </ul>
+    <ul class="margin-0 text-center">
+      <li>
+        <a routerLink="/">
+          <p class="inline-block">جميع القوائم</p>
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li><img  src="./assets/images/computer.png"></li>
+      <li class="login-desc">سجل الدخول الآن لمشاهدة قنواتك المفضلة وتوصياتك</li>
+      <li class="login-btn-side"><a routerLink="/">تسجيل دخول</a></li>
+    </ul>
+    <ul class="margin-0">
+      <li>
+        <a routerLink="/">
+          <img class="m-left-10" src="./assets/images/settings.png">
+          <p class="inline-block">الاعدادات</p>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/">
+          <img class="m-left-10" src="./assets/images/info.png">
+          <p class="inline-block">المساعدة</p>
+        </a>
+      </li>
+    </ul>
+    <div class="text-center social-side">
+      <a href="#">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a href="#">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="#">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+
+</aside>

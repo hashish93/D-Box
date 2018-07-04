@@ -1,0 +1,40 @@
+.sticky-sidebar {
+  position: absolute;
+  max-width: 300px;
+  min-width: 200px;
+  /* height: 500px; */
+  right: 0;
+  background: #efefef;
+  padding: 20px 0;
+
+  ul{
+    list-style: none;
+    direction: rtl;
+    text-align: right;
+    padding: 10px 30px;
+    border-bottom: 1px solid #d4cece;
+    font-weight: normal;
+    li a{
+      color: #464545;
+      font-weight: bold;
+      img{
+        max-width: 30px;
+        max-height: 30px;
+      }
+    }
+  }
+}
+.bottom-border-child{
+  border-bottom: none !important;
+  li:last-child {
+    border-bottom: 1px solid #d4cece;
+  }
+}
+.login-desc{font-size: 15px}
+.login-btn-side a{color: #294fbf !important;font-weight: bold}
+.social-side a {
+  display: inline-block;
+  padding: 7px;
+  width: 35px;
+  color: #000;
+}
