@@ -15,6 +15,7 @@ $font-family-brand: 'GE_SS';
 }
 body , html{
   font-family:$font-family-brand;
+  background: #dddddd !important;
 }
 .m-bottom-5{margin-bottom: 5px;}
 .m-bottom-10{margin-bottom: 10px;}
@@ -62,3 +63,7 @@ body , html{
   margin-right: auto;
   display: block;
 }
+.relative{position: relative}
+.image-container img{max-width: 100%}
+.direction-ltr{direction: ltr}
+.max-width-100{max-width: 100%}

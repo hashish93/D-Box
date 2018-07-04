@@ -14,5 +14,6 @@ export interface Category {
   _index: string,
   _type: string,
   _score:any,
+  id:Number
 
 }

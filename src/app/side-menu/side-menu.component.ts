@@ -27,7 +27,7 @@ export class SideMenuComponent implements OnInit {
       this.loading = false;
     },error=>{
       this.loading = false;
-      this.error = 'error in loading categories'
+      this.error = 'خطأ في تحميل القائمة'
     })
   }
 

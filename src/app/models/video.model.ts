@@ -1,0 +1,20 @@
+import {Category} from "./category.model";
+/**
+ * Created by mohammed on 7/4/2018.
+ */
+export interface VideoPaginated {
+  count: Number,
+  next: any,
+  previous: any,
+  results: Video[]
+}
+
+export interface Video {
+  id: Number,
+  title: string,
+  likes: Number,
+  image: string,
+  thumbnail: string,
+  date: Date,
+  category: Category
+}

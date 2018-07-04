@@ -12,6 +12,10 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpInterceptorService} from "./services/http-interceptor.service";
+import { HomeVideosComponent } from './home-videos/home-videos.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { HomeCreatorComponent } from './home-creator/home-creator.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +24,8 @@ import {HttpInterceptorService} from "./services/http-interceptor.service";
     FooterComponent,
     SideMenuComponent,
     HomeComponent,
+    HomeVideosComponent,
+    HomeCreatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +33,7 @@ import {HttpInterceptorService} from "./services/http-interceptor.service";
     AngularFontAwesomeModule,
     FontAwesomeModule,
     HttpClientModule,
+    TabsModule.forRoot()
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
