@@ -67,3 +67,63 @@ body , html{
 .image-container img{max-width: 100%}
 .direction-ltr{direction: ltr}
 .max-width-100{max-width: 100%}
+.rtl{direction: rtl}
+.thin{font-weight: lighter}
+.bold{font-weight: bold}
+.text-right{text-align: right}
+.width100{width: 100%;}
+.bottom-border{
+  border-bottom: 1px solid #cac9c9;
+}
+
+.video-playlist-home{margin-bottom: 20px;}
+.category-span{position: absolute;top: 5px;right:15px;color: #fff;padding: 0 10px;font-size: 12px;background: #c8429d;z-index: 1}
+.ترفيه{
+  background: #c8429d;
+}
+.اخبار{
+  background: #213f97;
+}
+.برامج{
+  background: #fa1e1e;
+}
+.فن{
+  background: #fdb300;
+}
+.رياضة{
+  background: limegreen;
+}
+.video-playlist-home h3{
+  font-size: 15px;
+  margin-top: 2px;
+  line-height: 21px;
+  max-height: 42px;
+  overflow: hidden;
+  color: #7d7d7d;
+  text-align: right;
+}
+.video-playlist-home a{color: #212529}
+.video-playlist-home a:hover{color: #212529;text-decoration: none}
+.fa-heart-o{
+  color: red;
+}
+.video-likes {
+  max-width: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-flex;
+  direction: ltr;
+}
+.video-date{direction: ltr !important;color: #171717}
+.player-icon {
+  position: absolute;
+  left: 1px;
+  bottom: 0;
+  background: red;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 18px;
+  line-height: 8px;
+  border-radius: 3px;;
+}

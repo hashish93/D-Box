@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Video} from "../models/video.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,11 @@ export class PlaylistService {
   constructor(private http: HttpClient) { }
 
   public getPlaylistFromTypeLimited(type:string,limit:Number): Observable<any>{
-    return this.http.get("playlists/"+type+'?limit='+limit)
+    if(type=='watchnow'){
+      return this.http.get('videos/?limit='+limit+'&orderBy=desc');
+    }else if(type=='trend'){
+      return this.http.get('videos/?limit='+limit+'&order=views&orderBy=desc');
+    }else
+      return this.http.get("playlists/"+type+'?limit='+limit)
   }
 }

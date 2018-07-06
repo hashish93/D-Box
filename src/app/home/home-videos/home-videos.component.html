@@ -1,12 +1,12 @@
 <div class="tab-container">
   <tabset>
     <tab heading="الاحدث" id="watchnow" (select)="onSelect($event)">
-      <div *ngIf="playlist && playlist.videos" class="m-top-10 row">
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of playlist.videos">
+      <div *ngIf="videos" class="m-top-10 row">
+        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
-              <img src="{{staticEndPoint}}{{video.thumbnail}}">
+              <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">
                 <i class="fa fa-play" aria-hidden="true"></i>
               </span>
@@ -17,7 +17,7 @@
             <div>
             <div class="float-left">
               <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
-              <span class="video-likes">{{video.likes | number:'2.'}}</span>
+              <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
             </div>
             <div class="float-right direction-ltr">
               <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
@@ -30,12 +30,12 @@
 
     </tab>
     <tab heading="الاكثر مشاهدة" id="trend" (select)="onSelect($event)">
-      <div *ngIf="playlist && playlist.videos" class="m-top-10 row">
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of playlist.videos">
+      <div *ngIf="videos" class="m-top-10 row">
+        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
-              <img src="{{staticEndPoint}}{{video.thumbnail}}">
+              <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">
                 <i class="fa fa-play" aria-hidden="true"></i>
               </span>
@@ -46,7 +46,7 @@
             <div>
               <div class="float-left">
                 <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
-                <span class="video-likes">{{video.likes | number:'2.'}}</span>
+                <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
               </div>
               <div class="float-right direction-ltr">
                 <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
@@ -58,8 +58,8 @@
       </div>
     </tab>
     <tab heading="ترشيحاتنا" id="recommended" (select)="onSelect($event)">
-      <div *ngIf="playlist && playlist.videos" class="m-top-10 row">
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of playlist.videos">
+      <div *ngIf="videos" class="m-top-10 row">
+        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
@@ -74,7 +74,7 @@
             <div>
               <div class="float-left">
                 <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
-                <span class="video-likes">{{video.likes | number:'2.'}}</span>
+                <span class="video-likes">{{video.likes | number:'1.'}}</span>
               </div>
               <div class="float-right direction-ltr">
                 <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
@@ -86,8 +86,8 @@
       </div>
     </tab>
     <tab heading="الحصريات" id="exclusive" (select)="onSelect($event)">
-      <div *ngIf="playlist && playlist.videos" class="m-top-10 row">
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of playlist.videos">
+      <div *ngIf="videos" class="m-top-10 row">
+        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
@@ -102,7 +102,7 @@
             <div>
               <div class="float-left">
                 <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
-                <span class="video-likes">{{video.likes | number:'2.'}}</span>
+                <span class="video-likes">{{video.likes | number:'1.'}}</span>
               </div>
               <div class="float-right direction-ltr">
                 <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
@@ -114,10 +114,5 @@
       </div>
     </tab>
   </tabset>
-  <div *ngIf="loading">
-    <img class="m-top-20 m-bottom-20 loading" src="./assets/images/loading.gif">
-  </div>
-  <div *ngIf="error" class="alert alert-danger" role="alert">
-    <strong>error!</strong> {{error}}
-  </div>
+ <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 </div>

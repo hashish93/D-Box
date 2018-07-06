@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { TabDirective } from 'ngx-bootstrap/tabs';
-import {PlaylistService} from "../services/playlist.service";
-import {PlayList} from "../models/playlist.model";
-import {AppSettings} from "../app.settings";
+import {PlaylistService} from "../../services/playlist.service";
+import {AppSettings} from "../../app.settings";
+import {Video} from "../../models/video.model";
 
 @Component({
   selector: 'app-home-videos',
-  templateUrl: './home-videos.component.html',
-  styleUrls: ['./home-videos.component.scss']
+  templateUrl: 'home-videos.component.html',
+  styleUrls: ['home-videos.component.scss']
 })
 export class HomeVideosComponent implements OnInit {
   public staticEndPoint: string = "";
   public loading : boolean = false;
   public error : string = '';
-  public playlist : PlayList;
+  public videos : Video[];
   activeTab: string;
 
   constructor(public playlistService : PlaylistService) { }
@@ -25,7 +25,6 @@ export class HomeVideosComponent implements OnInit {
   }
 
   onSelect(data: TabDirective): void {
-    console.log(data)
     this.activeTab = data.id;
     this.getPlaylistFromTypeLimited(this.activeTab);
   }
@@ -33,9 +32,9 @@ export class HomeVideosComponent implements OnInit {
   public getPlaylistFromTypeLimited(type:string){
     this.loading = true;
     this.error = '';
-    this.playlist = null;
+    this.videos = [];
     this.playlistService.getPlaylistFromTypeLimited(type,6).subscribe(data=> {
-      this.playlist = data;
+      this.videos = data;
       this.loading = false;
       this.error = '';
     },error=>{

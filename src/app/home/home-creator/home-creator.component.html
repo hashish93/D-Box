@@ -1,0 +1,38 @@
+<div class="rtl creator-holder">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-lg-12">
+        <div class="container">
+          <h5 class="thin text-center relative m-top-20 left90">تعرف على ابطال الموقع</h5>
+          <h2 class="bold text-center relative m-bottom-20 left90">المبدعون</h2>
+          <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+          <div class="row">
+            <div class="col-lg-2 empty"></div>
+            <div class="col-lg-1"></div>
+            <div *ngFor="let creator of creators" class="col-lg-2">
+                <div class="creator-item">
+                  <a routerLink="creator/{{creator._id}}">
+                      <div class="image-container">
+                        <div class="rounded-border">
+                          <img src="{{staticEndPoint}}{{creator.avatar}}">
+                        </div>
+                      </div>
+                      <div class="relative rectangle-info">
+                            <h6 class="title">{{creator.title}}</h6>
+                            <h6 class="thin job">{{creator.job}}</h6>
+                      </div>
+                  </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 empty"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

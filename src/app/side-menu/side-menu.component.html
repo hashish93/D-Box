@@ -1,10 +1,5 @@
 <aside class="sticky-sidebar">
-  <div *ngIf="loading">
-    <img class="m-top-20 m-bottom-20 loading" src="./assets/images/loading.gif">
-  </div>
-  <div *ngIf="error" class="alert alert-danger" role="alert">
-    <strong>error!</strong> {{error}}
-  </div>
+  <app-loading [error]="error" [loading]="loading" class="block width100"></app-loading>
   <div *ngIf="!loading && !error">
     <ul class="margin-0">
       <li>

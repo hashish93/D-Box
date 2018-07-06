@@ -1,0 +1,31 @@
+.creator-holder{background: #1f377d;color: #fff}
+.creator-holder a{color: #fff;}
+.rounded-border {
+  border: 10px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.rounded-border img{
+  width: 160px;
+  height: 160px;
+  max-width: 500px;
+}
+.left90{left: -90px;}
+.image-container{
+  position: relative;
+  z-index: 1;
+}
+.rectangle-info{
+  background: #fff;
+  color: #000000;
+  border-radius: 3px;
+  padding: 50px 5px 15px 5px;
+  top: -50px;
+  text-align: center;
+  .title{
+    font-size: 13px;
+  }
+  .job{
+    font-size: 11px;
+  }
+}

@@ -15,6 +15,8 @@ export interface Video {
   likes: Number,
   image: string,
   thumbnail: string,
+  thumbnails: Object,
+  counter:Object,
   date: Date,
   category: Category
 }
