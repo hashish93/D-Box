@@ -4,7 +4,7 @@
 }
 .signup-side-title {
   color: #3d5fc1;
-  margin-top: 20px;
+  margin-top: 160px;
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #d8d8d8;
@@ -27,6 +27,8 @@
   top: 15%;
   left: 0;
 }
-.sign-as-creator-info {
-  color: #bfbfbf;
+.sign-as-creator-info a {
+  color: #868686 !important;
+  font-weight: bold;
 }
+

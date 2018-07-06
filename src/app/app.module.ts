@@ -19,9 +19,11 @@ import { LoadingComponent } from './comman-components/loading/loading.component'
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MoreViewsComponent } from './home/more-views/more-views.component';
 import { RecommendedVideosComponent } from './home/recommended-videos/recommended-videos.component';
-import { VistorSignupComponent } from './signup/vistor-signup/vistor-signup.component';
+import { VistorSignupComponent } from './signup/visitor-signup/vistor-signup.component';
 import { CreatorSignupComponent } from './signup/creator-signup/creator-signup.component';
 import { LoginComponent } from './login/login.component';
+import {FormsModule} from "@angular/forms";
+import {AlertModule} from "ngx-bootstrap";
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { LoginComponent } from './login/login.component';
     AngularFontAwesomeModule,
     FontAwesomeModule,
     HttpClientModule,
+    FormsModule,
+    AlertModule,
     TabsModule.forRoot()
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],

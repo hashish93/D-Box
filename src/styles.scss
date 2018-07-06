@@ -75,6 +75,23 @@ body , html{
 .bottom-border{
   border-bottom: 1px solid #cac9c9;
 }
+label {
+  color: #848484;
+}
+.form-control:focus {
+  border-color: #e4e4e4 !important;
+  box-shadow: 0 0 0 0.2rem rgba(222, 222, 222, 0.25) !important;;
+}
+.form-control::-webkit-input-placeholder { color: #d4d4d4 !important; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: #d4d4d4 !important; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #d4d4d4 !important; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #d4d4d4 !important; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: #d4d4d4 !important; }  /* Microsoft Edge */
+.form-control.ng-touched.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442 !important; /* red */
+  border-color: #a94442 !important;
+}
+
 
 .video-playlist-home{margin-bottom: 20px;}
 .category-span{position: absolute;top: 5px;right:15px;color: #fff;padding: 0 10px;font-size: 12px;background: #c8429d;z-index: 1}
