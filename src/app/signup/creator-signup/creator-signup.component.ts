@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Creator} from "../../models/creator.model";
 import {CreatorService} from "../../services/creator.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-creator-signup',
@@ -12,33 +13,45 @@ export class CreatorSignupComponent implements OnInit {
   public error: string = '';
   public loading: boolean = false;
   public success: boolean = false;
+  public matched_user : boolean = false;
   public validatePassword: boolean = false;
 
-  constructor(public creatorService: CreatorService) {
+  constructor(public creatorService: CreatorService,public router : Router) {
   }
 
   ngOnInit() {
-
+    this.creator.user_type = 2;
   }
 
   public check_password(event) {
     this.validatePassword = !!(this.creator.password && this.creator.password_confirmation && this.creator.password === this.creator.password_confirmation);
   }
 
+  public OnClick(creatorForm){
+    this.creator.upgrade_account = 1;
+    this.onFormSubmit(creatorForm);
+  }
   public onFormSubmit(creatorForm) {
     if (creatorForm.valid) {
       console.log(creatorForm);
       this.loading = true;
       this.error = '';
       this.success = false;
+      this.matched_user = false;
       this.creatorService.addVisitor(this.creator).subscribe(data=> {
         console.log(data);
         this.loading = false;
         this.success = true;
+        this.matched_user = false;
+        this.router.navigate(['/login']);
       }, err=> {
         this.loading = false;
         this.success = false;
         this.error = JSON.stringify(err.error);
+        if(err.status == 409){
+          this.matched_user = true;
+          this.error = ''
+        }
       })
     }
   }

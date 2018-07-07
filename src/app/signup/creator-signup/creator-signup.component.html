@@ -1,50 +1,72 @@
 <div class="container">
   <div class="m-top-30 m-bottom-35 offset-md-3 col-12 col-md-8 offset-lg-3 col-lg-6 relative rtl text-right signup">
+    <form #creatorForm="ngForm" novalidate (ngSubmit)="onFormSubmit(creatorForm)" autocomplete="off" class="m-top-20">
     <div class="row">
-      <div class="col-12 col-md-4">
-        <img class="width100 m-top-35 m-bottom-10" src="./assets/images/innovation.png">
-        <h6 class="signup-side-title">انشاء حساب مبدع</h6>
-        <p class="signup-side-main-desc">مرحبا بك في موقعنا</p>
-        <p class="signup-side-small-desc">من فضلك ادخل البيانات للأشتراك</p>
-        <div class="breaker"></div>
+        <div class="col-12 col-md-4">
+          <img class="width100 m-top-35 m-bottom-10" src="./assets/images/innovation.png">
+          <h6 class="signup-side-title">انشاء حساب مبدع</h6>
+          <p class="signup-side-main-desc">مرحبا بك في موقعنا</p>
+          <p class="signup-side-small-desc">من فضلك ادخل البيانات للأشتراك</p>
+          <div class="breaker"></div>
+        </div>
+        <div class="col-12 col-md-8 m-top-20">
+            {{creator | json}}
+            <div class="form-group">
+              <label for="name" >الاسم / اللقب</label>
+              <input id="name" name="name" [(ngModel)]="creator.fullname" autocomplete=”off” required class="form-control" placeholder="الاسم">
+            </div>
+
+            <div class="form-group">
+              <label for="email" >البريد الالكتروني</label>
+              <input id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" email="true" autocomplete=”off” [(ngModel)]="creator.email" required class="form-control" placeholder="البريد الالكتروني">
+            </div>
+
+            <div class="form-group">
+              <label for="password" >كلمة السر</label>
+              <input id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password" required class="form-control" placeholder="كلمة السر">
+            </div>
+
+            <div class="form-group">
+              <label for="password_confirmation" >اعادة كلمة السر</label>
+              <input (keyup)="check_password($event)" id="password_confirmation" name="password_confirmation" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password_confirmation" required class="form-control" placeholder="اعادة كلمة السر">
+            </div>
+            <div *ngIf="!validatePassword && creator.password && creator.password_confirmation" class="alert alert-danger">
+              كلمة السر غير متطابقة
+            </div>
+            <alert *ngIf="success" type="success" dismissOnTimeout="5000" (onClosed)="success = false">
+              تم اضافة العضو بنجاح
+            </alert>
+
+
+
+        </div>
+        <div class="col-12 col-md-8;">
+          <div class="form-group">
+            <label for="facebook" >رابط الفيس بوك</label>
+            <input id="facebook" name="facebook" [(ngModel)]="creator.facebook" autocomplete=”off” class="form-control" placeholder="رابط الفيس بوك">
+          </div>
+          <div class="form-group">
+            <label for="description">نبذة عن الفيديوهات</label>
+            <textarea class="form-control" id="description" name="description" [(ngModel)]="creator.description"  rows="3"></textarea>
+          </div>
+          <h6 *ngIf="matched_user">يبدو انك مسجل من قبل كزائر هل ترغب في تحويل الجساب لمبدع</h6>
+        </div>
+
+      <div class="col-12 ">
+        <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+        <button
+          (click)="OnClick(creatorForm);$event.preventDefault()"
+          class="btn block width100 btn-success m-bottom-20" *ngIf="matched_user"
+          [disabled]="!creatorForm.form.valid || !validatePassword || loading">نعم استمر</button>
+        <button
+          type="submit"
+          class="btn block width100 btn-danger m-bottom-20"
+          [disabled]="!creatorForm.form.valid || !validatePassword || loading">ارسل</button>
       </div>
-      <div class="col-12 col-md-8">
-        <form #visitorForm="ngForm" novalidate (ngSubmit)="onFormSubmit(visitorForm)" autocomplete="off" class="m-top-20">
-          <div class="form-group">
-            <label for="name" >الاسم / اللقب</label>
-            <input id="name" name="name" [(ngModel)]="creator.fullname" autocomplete=”off” required class="form-control" placeholder="الاسم">
-          </div>
-
-          <div class="form-group">
-            <label for="email" >البريد الالكتروني</label>
-            <input id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" email="true" autocomplete=”off” [(ngModel)]="creator.email" required class="form-control" placeholder="البريد الالكتروني">
-          </div>
-
-          <div class="form-group">
-            <label for="password" >كلمة السر</label>
-            <input id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password" required class="form-control" placeholder="كلمة السر">
-          </div>
-
-          <div class="form-group">
-            <label for="password_confirmation" >اعادة كلمة السر</label>
-            <input (keyup)="check_password($event)" id="password_confirmation" name="password_confirmation" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password_confirmation" required class="form-control" placeholder="اعادة كلمة السر">
-          </div>
-          <div *ngIf="!validatePassword && creator.password && creator.password_confirmation" class="alert alert-danger">
-            كلمة السر غير متطابقة
-          </div>
-          <alert *ngIf="success" type="success" dismissOnTimeout="5000" (onClosed)="success = false">
-            تم اضافة العضو بنجاح
-          </alert>
-          <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
-          <button
-            type="submit"
-            class="btn block width100 btn-danger m-bottom-20"
-            [disabled]="!visitorForm.form.valid || !validatePassword">ارسل</button>
-
-        </form>
 
 
-      </div>
+
     </div>
+    </form>
   </div>
 </div>

@@ -91,7 +91,10 @@ label {
   border-left: 5px solid #a94442 !important; /* red */
   border-color: #a94442 !important;
 }
-
+.form-control.ng-touched.ng-valid[required], .form-control.ng-touched.ng-valid.required:not(form)  {
+  border-left: 5px solid #42A948 !important; /* green */
+  border-color: #42A948 !important;
+}
 
 .video-playlist-home{margin-bottom: 20px;}
 .category-span{position: absolute;top: 5px;right:15px;color: #fff;padding: 0 10px;font-size: 12px;background: #c8429d;z-index: 1}

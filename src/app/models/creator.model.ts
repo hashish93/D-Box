@@ -33,5 +33,6 @@ export interface Creator {
   _index:string,
   _type:string,
   _score:Number,
-  user_type:string
+  user_type:Number,
+  upgrade_account:Number
 }

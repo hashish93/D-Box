@@ -50,7 +50,7 @@ import {AlertModule} from "ngx-bootstrap";
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    AlertModule,
+    AlertModule.forRoot(),
     TabsModule.forRoot()
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],

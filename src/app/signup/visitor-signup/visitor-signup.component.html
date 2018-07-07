@@ -11,24 +11,24 @@
           <form #visitorForm="ngForm" novalidate (ngSubmit)="onFormSubmit(visitorForm)" autocomplete="off" class="m-top-20">
             <div class="form-group">
               <label for="name" >الاسم / اللقب</label>
-              <input id="name" name="name" [(ngModel)]="creator.fullname" autocomplete=”off” required class="form-control" placeholder="الاسم">
+              <input id="name" name="name" [(ngModel)]="visitor.fullname" autocomplete=”off” required class="form-control" placeholder="الاسم">
             </div>
 
             <div class="form-group">
               <label for="email" >البريد الالكتروني</label>
-              <input id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" email="true" autocomplete=”off” [(ngModel)]="creator.email" required class="form-control" placeholder="البريد الالكتروني">
+              <input id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" email="true" autocomplete=”off” [(ngModel)]="visitor.email" required class="form-control" placeholder="البريد الالكتروني">
             </div>
 
             <div class="form-group">
               <label for="password" >كلمة السر</label>
-              <input id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password" required class="form-control" placeholder="كلمة السر">
+              <input id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="visitor.password" required class="form-control" placeholder="كلمة السر">
             </div>
 
             <div class="form-group">
               <label for="password_confirmation" >اعادة كلمة السر</label>
-              <input (keyup)="check_password($event)" id="password_confirmation" name="password_confirmation" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password_confirmation" required class="form-control" placeholder="اعادة كلمة السر">
+              <input (keyup)="check_password($event)" id="password_confirmation" name="password_confirmation" type="password" minlength="8" autocomplete=”off” [(ngModel)]="visitor.password_confirmation" required class="form-control" placeholder="اعادة كلمة السر">
             </div>
-            <div *ngIf="!validatePassword && creator.password && creator.password_confirmation" class="alert alert-danger">
+            <div *ngIf="!validatePassword && visitor.password && visitor.password_confirmation" class="alert alert-danger">
                 كلمة السر غير متطابقة
             </div>
             <alert *ngIf="success" type="success" dismissOnTimeout="5000" (onClosed)="success = false">
@@ -38,7 +38,7 @@
             <button
               type="submit"
               class="btn block width100 btn-danger m-bottom-20"
-              [disabled]="!visitorForm.form.valid || !validatePassword">ارسل</button>
+              [disabled]="!visitorForm.form.valid || !validatePassword || loading">ارسل</button>
 
           </form>
           <h6 class="sign-as-creator-info">هل ترغب في ربح الاموال ؟ <a routerLink="/register/creator">انشاء حساب مبدع</a></h6>
