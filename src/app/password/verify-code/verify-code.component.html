@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="m-top-30 m-bottom-35 offset-md-3 col-12 col-md-8 offset-lg-3 col-lg-6 relative rtl text-right signup">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <img class="width100 m-top-35 m-bottom-10" src="./assets/images/innovation3.png">
+
+        <p class="signup-side-main-desc">لاسترجاع كلمة السر الخاصة بك</p>
+        <p class="signup-side-small-desc">من فضلك ادخل الكود المرسل على البريد الالكتروني</p>
+        <div class="breaker"></div>
+      </div>
+      <div class="col-12 col-md-8 m-top-35">
+        <form #verifyCodeForm="ngForm" novalidate (ngSubmit)="onFormSubmit(verifyCodeForm)" autocomplete="off" class="m-top-20">
+
+          <div class="form-group">
+            <input id="email" name="code" type="text"  autocomplete=”off” [(ngModel)]="code" required class="form-control" placeholder="الكود">
+          </div>
+
+
+          <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+          <button
+            type="submit"
+            class="btn block width100 btn-danger m-bottom-20"
+            [disabled]="!verifyCodeForm.form.valid || loading">ارسل</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

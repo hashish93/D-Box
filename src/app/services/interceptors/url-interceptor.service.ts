@@ -8,12 +8,12 @@ import {HttpEvent} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class HttpInterceptorService implements HttpInterceptor{
+export class URLInterceptorService implements HttpInterceptor{
 
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const url = 'https://piksels-api.n-stream.tv/api/1.0/portal/';
+    const url = 'https://piksels-api.n-stream.tv/api/v1/portal/';
     req = req.clone({
       url: url + req.url
     });

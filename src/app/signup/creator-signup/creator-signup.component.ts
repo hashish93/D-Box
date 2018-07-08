@@ -44,10 +44,11 @@ export class CreatorSignupComponent implements OnInit {
         this.success = true;
         this.matched_user = false;
         this.router.navigate(['/login']);
-      }, err=> {
+      }, (err)=> {
         this.loading = false;
         this.success = false;
         this.error = JSON.stringify(err.error);
+        console.log(err);
         if(err.status == 409){
           this.matched_user = true;
           this.error = ''

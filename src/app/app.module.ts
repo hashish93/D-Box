@@ -11,7 +11,7 @@ import {AppRouting} from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {HttpInterceptorService} from "./services/http-interceptor.service";
+import {URLInterceptorService} from "./services/interceptors/url-interceptor.service";
 import { HomeVideosComponent } from './home/home-videos/home-videos.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { HomeCreatorComponent } from './home/home-creator/home-creator.component';
@@ -24,8 +24,24 @@ import { CreatorSignupComponent } from './signup/creator-signup/creator-signup.c
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {AlertModule} from "ngx-bootstrap";
+import { ProfileComponent } from './profile/profile.component';
+import {JwtModule, JwtModuleOptions} from "@auth0/angular-jwt";
+import {ErrorInterceptorService} from "./services/interceptors/error-interceptor.service";
+import {JwtInterceptorService} from "./services/interceptors/jwt-interceptor.service";
+import { ForgetPasswordComponent } from './password/forget-password/forget-password.component';
+import { VerifyCodeComponent } from './password/verify-code/verify-code.component';
+import { ResetPasswordComponent } from './password/reset-password/reset-password.component';
 
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
+const JWT_Module_Options: JwtModuleOptions = {
+  config: {
+    tokenGetter: tokenGetter,
+    whitelistedDomains: ['localhost:4200', 'https://piksels-api.n-stream.tv/api/v1/portal/']
+  }
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +57,10 @@ import {AlertModule} from "ngx-bootstrap";
     VistorSignupComponent,
     CreatorSignupComponent,
     LoginComponent,
+    ProfileComponent,
+    ForgetPasswordComponent,
+    VerifyCodeComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +71,14 @@ import {AlertModule} from "ngx-bootstrap";
     HttpClientModule,
     FormsModule,
     AlertModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    JwtModule.forRoot(JWT_Module_Options),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,7 +21,7 @@
 
             <div class="form-group">
               <label for="password" >كلمة السر</label>
-              <input id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="visitor.password" required class="form-control" placeholder="كلمة السر">
+              <input (keyup)="check_password($event)" id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="visitor.password" required class="form-control" placeholder="كلمة السر">
             </div>
 
             <div class="form-group">

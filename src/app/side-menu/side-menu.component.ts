@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CategoryService} from "../services/category.service";
 import {Category} from "../models/category.model"
 import {AppSettings} from "../app.settings";
+import {AuthService} from "../services/auth-service.service";
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
@@ -13,7 +14,7 @@ export class SideMenuComponent implements OnInit {
   public error : string = '';
   public categories : Category[] = []
 
-  constructor(public categoryService : CategoryService) { }
+  constructor(public categoryService : CategoryService , public authService : AuthService) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint()

@@ -10,7 +10,6 @@
           <div class="breaker"></div>
         </div>
         <div class="col-12 col-md-8 m-top-20">
-            {{creator | json}}
             <div class="form-group">
               <label for="name" >الاسم / اللقب</label>
               <input id="name" name="name" [(ngModel)]="creator.fullname" autocomplete=”off” required class="form-control" placeholder="الاسم">
@@ -23,7 +22,7 @@
 
             <div class="form-group">
               <label for="password" >كلمة السر</label>
-              <input id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password" required class="form-control" placeholder="كلمة السر">
+              <input (keyup)="check_password($event)" id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password" required class="form-control" placeholder="كلمة السر">
             </div>
 
             <div class="form-group">
