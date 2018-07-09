@@ -10,10 +10,12 @@ export interface VideoPaginated {
 }
 
 export interface Video {
-  id: Number,
+  id: Number
+  _id:Number,
   title: string,
   likes: Number,
   image: string,
+  description: string,
   thumbnail: string,
   thumbnails: Object,
   counter:Object,

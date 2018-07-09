@@ -28,4 +28,8 @@ export class CreatorService {
     });
     return this.http.post(this.apiKey,body.toString(),headers)
   }
+
+  getCreator(id: Number) : Observable<any> {
+    return this.http.get(this.apiKey+'/'+id)
+  }
 }

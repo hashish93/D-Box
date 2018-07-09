@@ -31,6 +31,8 @@ import {JwtInterceptorService} from "./services/interceptors/jwt-interceptor.ser
 import { ForgetPasswordComponent } from './password/forget-password/forget-password.component';
 import { VerifyCodeComponent } from './password/verify-code/verify-code.component';
 import { ResetPasswordComponent } from './password/reset-password/reset-password.component';
+import { VideoDetailsComponent } from './video-details/video-details.component';
+import { AboutCreatorComponent } from './video-details/about-creator/about-creator.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -61,6 +63,8 @@ const JWT_Module_Options: JwtModuleOptions = {
     ForgetPasswordComponent,
     VerifyCodeComponent,
     ResetPasswordComponent,
+    VideoDetailsComponent,
+    AboutCreatorComponent,
   ],
   imports: [
     BrowserModule,

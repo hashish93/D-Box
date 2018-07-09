@@ -1,0 +1,51 @@
+<div class="row margin-0">
+  <div class="col col-lg-2">
+    <div class="m-top-35">
+      <app-about-creator *ngIf="video.creator && video.creator.id" [creator_id]="video.creator.id"></app-about-creator>
+      <img class="max-width-100" src="./assets/images/test-image.png">
+    </div>
+  </div>
+  <div class="col col-lg-8 col-xs-12" id="main">
+    <div class="row margin-0" *ngIf="router.url != '/register/visitor'">
+      <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+        <img src="./assets/images/ad.png">
+      </div>
+      <div class="col col-lg-2"></div>
+    </div>
+    <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+    <div *ngIf="!loading">
+      <iframe width="100%" height="350px" frameBorder="0" [src]="url"></iframe>
+      <div class="video-details">
+          <div></div>
+          <div class="inner-details rtl text-right">
+            <h5>{{video.title}}</h5>
+            <p>{{video.description}}</p>
+          </div>
+          <div class="inner-details">
+            <div class="other-data rtl text-right">
+              <a class="inner-cat-link" routerLink="/category/{{video.category.id}}">
+                <span class="inner-cat {{video.category.title}}">{{video.category.title}}</span>
+              </a>
+              <div class="inline-block direction-ltr m-right-10">
+                <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+              </div>
+              <div class="inline-block m-right-10">
+                <i (click)="likeVideo()" class="m-left-5 fa mouse-click" [ngClass]="{'fa-heart': isLiked,'fa-heart-o': !isLiked}" aria-hidden="true"></i>
+                <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col col-lg-2">
+    <app-side-menu></app-side-menu>
+  </div>
+</div>
+
+<div class="rtl text-right">
+  <app-recommended-videos></app-recommended-videos>
+</div>
+

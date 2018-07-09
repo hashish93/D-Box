@@ -22,4 +22,16 @@ export class VideoService {
     }
     return this.http.get(this.apiKey+params)
   }
+
+  public getVideo(id?:Number): Observable<any>{
+    return this.http.get(this.apiKey+'/'+id);
+  }
+
+  likeVideo(id: Number): Observable<any> {
+    return this.http.get('auth/like/'+id);
+  }
+
+  isVideoLiked(id: Number): Observable<any> {
+    return this.http.get('auth/isliked/'+id);
+  }
 }

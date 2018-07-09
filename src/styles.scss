@@ -55,7 +55,9 @@ body , html{
 .block{display: block}
 .none{display: none}
 .inline-block{display: inline-block}
-
+.mouse-click{
+  cursor: pointer;
+}
 .loading{
   width: 50px;
   height: 50px;
@@ -126,9 +128,10 @@ label {
 }
 .video-playlist-home a{color: #212529}
 .video-playlist-home a:hover{color: #212529;text-decoration: none}
-.fa-heart-o{
+.fa-heart-o , .fa-heart{
   color: red;
 }
+.fa-heart
 .video-likes {
   max-width: 30px;
   white-space: nowrap;

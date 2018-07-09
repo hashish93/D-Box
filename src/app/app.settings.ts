@@ -10,4 +10,8 @@ export class AppSettings {
   static getStaticEndpoint(env?: string) {
     return environment.staticFilesEndPoint;
   }
+  static getVideoEndpoint(env?: string) {
+    return environment.videoEndPoint;
+  }
+
 }

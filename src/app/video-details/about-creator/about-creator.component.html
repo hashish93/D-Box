@@ -1,0 +1,22 @@
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+<div *ngIf="!loading" class="about-creator-container">
+  <div class="creator-img">
+    <div class="creator-summary">
+      <div>
+          <span>{{creator.counter.videos}}</span>
+        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+      </div>
+      <div>
+        <span>{{creator.counter.likes}}</span>
+        <i class="fa fa-heart-o"></i>
+      </div>
+    </div>
+    <img *ngIf="creator.avatar" src="{{staticEndPoint}}{{creator.avatar}}">
+    <p>{{creator.title}}</p>
+  </div>
+  <div class="about-creator-details">
+      <h6>عن المبدع</h6>
+      <p>{{creator.description}}</p>
+      <a routerLink="creator/{{creator_id}}">شاهد المزيد</a>
+  </div>
+</div>
