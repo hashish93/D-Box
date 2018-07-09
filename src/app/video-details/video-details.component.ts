@@ -57,8 +57,8 @@ export class VideoDetailsComponent implements OnInit {
   }
   public likeVideo(){
     if(this.authService.isAuthenticated()){
+      this.isLiked = !this.isLiked;
       this.videoService.likeVideo(this.video._id).subscribe(data=>{
-        this.isLiked = !this.isLiked;
         console.log(this.isLiked)
       })
     }else {
