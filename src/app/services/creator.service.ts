@@ -10,7 +10,7 @@ import {HttpParams} from "@angular/common/http";
 })
 export class CreatorService {
   readonly apiKey: string = 'creators';
-  constructor(private http: HttpClient) { }
+  constructor(public  http: HttpClient) { }
 
   public getCreators(limit?:Number): Observable<any>{
     let params : string = '';

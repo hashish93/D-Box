@@ -23,7 +23,7 @@ export class VideoDetailsComponent implements OnInit {
   public isLiked = false;
   public error : String= '';
   constructor(public authService : AuthService , public router : Router,
-              private route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer) { }
+              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer) { }
 
   ngOnInit() {
     this.videoEndPoint = AppSettings.getVideoEndpoint();

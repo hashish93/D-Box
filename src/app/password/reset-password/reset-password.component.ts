@@ -14,7 +14,7 @@ export class ResetPasswordComponent implements OnInit {
   public validatePassword : boolean = false;
   public user : Creator = {} as Creator
   public data : any;
-  constructor(public authService : AuthService , public router : Router,private route: ActivatedRoute) { }
+  constructor(public authService : AuthService , public router : Router,public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.user.email =  this.route.snapshot.paramMap.get('email');

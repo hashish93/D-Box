@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 })
 export class VideoService {
   readonly apiKey: string = 'videos';
-  constructor(private http: HttpClient) { }
+  constructor(public  http: HttpClient) { }
 
   public getVideos(limit?:Number,order?:String,orderBy?:string,filter?:Object): Observable<any>{
     let params : string = '';

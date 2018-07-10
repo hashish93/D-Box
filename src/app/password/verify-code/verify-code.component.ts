@@ -14,7 +14,7 @@ export class VerifyCodeComponent implements OnInit {
   public email : string = '';
   public code : string = '';
   public data : any;
-  constructor(public authService : AuthService , public router : Router,private route: ActivatedRoute) { }
+  constructor(public authService : AuthService , public router : Router,public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.email =  this.route.snapshot.paramMap.get('email');

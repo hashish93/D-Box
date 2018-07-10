@@ -21,7 +21,7 @@ export class SideMenuComponent implements OnInit {
     this.getCategories();
   }
 
-  private getCategories() {
+  public  getCategories() {
     this.loading = true;
     this.categoryService.getCategories().subscribe(data=> {
       this.categories = data;

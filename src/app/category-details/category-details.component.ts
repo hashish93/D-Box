@@ -48,7 +48,7 @@ export class CategoryDetailsComponent implements OnInit {
     })
   }
 
-  private getCategoryVideos(id: Number) {
+  public getCategoryVideos(id: Number) {
     this.loading = true;
     this.firstVideo = null;
     this.videoService.getVideos(null,null,null,{category_id:id}).subscribe(data=> {

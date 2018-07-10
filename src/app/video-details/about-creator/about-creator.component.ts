@@ -11,8 +11,8 @@ import {AppSettings} from "../../app.settings";
 export class AboutCreatorComponent implements OnInit {
   @Input()
   public creator_id : Number;
-  private loading : boolean = true;
-  private error : string;
+  public  loading : boolean = true;
+  public  error : string;
   public creator: Creator = {} as Creator;
   public staticEndPoint;
   @Output() onGetCreator: EventEmitter<any> = new EventEmitter<any>();

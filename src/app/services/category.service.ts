@@ -7,7 +7,7 @@ import { HttpClient , HttpResponse } from '@angular/common/http';
 })
 export class CategoryService {
   readonly apiKey: string = 'category';
-  constructor(private http: HttpClient) { }
+  constructor(public  http: HttpClient) { }
 
   public getCategories(): Observable<any>{
     return this.http.get("categories")

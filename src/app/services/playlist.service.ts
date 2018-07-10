@@ -8,7 +8,7 @@ import {Video} from "../models/video.model";
 })
 export class PlaylistService {
   readonly apiKey: string = 'playlist';
-  constructor(private http: HttpClient) { }
+  constructor(public  http: HttpClient) { }
 
   public getPlaylistFromTypeLimited(type:string,limit:Number): Observable<any>{
     if(type=='watchnow'){

@@ -13,10 +13,10 @@ import {Creator} from "../models/creator.model";
 export class AuthService {
 
   constructor(public jwtHelper: JwtHelperService, public http : HttpClient) { }
-  private  getHeaders(): any{
+  public  getHeaders(): any{
     return {headers: new  HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'})};
   }
-  private convertJsonToPostParams(obj) : any{
+  public convertJsonToPostParams(obj) : any{
     let body = new HttpParams();
     Object.keys(obj).forEach(function (key) {
       body = body.append(key, obj[key]);

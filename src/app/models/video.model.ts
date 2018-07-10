@@ -12,6 +12,7 @@ export interface VideoPaginated {
 export interface Video {
   id: Number
   _id:Number,
+  creator:any,
   title: string,
   likes: Number,
   image: string,

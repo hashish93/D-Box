@@ -7,8 +7,6 @@ import {AppSettings} from "../../app.settings";
   selector: 'app-more-views-details',
   templateUrl: './more-views-details.component.html',
   styleUrls: ['./more-views-details.component.scss'],
-  properties : ['categoryId']
-
 })
 export class MoreViewsDetailsComponent implements OnInit , OnChanges  {
   ngOnChanges(changes: any  ): void {
