@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {CreatorService} from "../../services/creator.service";
 import {Creator} from "../../models/creator.model";
 import {AppSettings} from "../../app.settings";
@@ -15,11 +15,13 @@ export class AboutCreatorComponent implements OnInit {
   private error : string;
   public creator: Creator = {} as Creator;
   public staticEndPoint;
+  @Output() onGetCreator: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(public creatorService : CreatorService) { }
 
   ngOnInit() {
     console.log(this.creator_id);
-    this.staticEndPoint = AppSettings.getStaticEndpoint()
+    this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getCreator(this.creator_id);
   }
 
@@ -29,10 +31,12 @@ export class AboutCreatorComponent implements OnInit {
       console.log(data);
       this.loading = false;
       this.creator = data;
+      this.onGetCreator.emit(this.creator);
     },err=>{
       this.loading = false;
       this.error = JSON.stringify(err.error);
     })
   }
+
 
 }

@@ -66,7 +66,7 @@ body , html{
   display: block;
 }
 .relative{position: relative}
-.image-container img{max-width: 100%}
+.image-container img{width: 100%}
 .direction-ltr{direction: ltr}
 .max-width-100{max-width: 100%}
 .rtl{direction: rtl}
@@ -155,4 +155,7 @@ label {
 
 .user-select-none{
   user-select: none;
+}
+.img-container img{
+  width: 100%;
 }

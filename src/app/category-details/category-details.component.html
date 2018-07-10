@@ -1,0 +1,92 @@
+<div class="row margin-0">
+  <div class="col col-lg-2">
+    <div class="m-top-35">
+      <img class="max-width-100" src="./assets/images/test-image.png">
+    </div>
+  </div>
+  <div class="col col-lg-8 col-xs-12 rtl text-right" id="main">
+      <div class="row margin-0" *ngIf="router.url != '/register/visitor'">
+        <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+          <img src="./assets/images/ad.png">
+        </div>
+        <div class="col col-lg-2"></div>
+      </div>
+      <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+
+      <div *ngIf="firstVideo" class="first-video">
+          <div class="col-sm-12 col-md-8">
+            <div class="category-title">
+              <img class="category-image" *ngIf="category" src="{{staticEndPoint}}{{category.icon}}">
+              <span>{{category.title}}</span>
+            </div>
+            <div class="video-container">
+              <div class="img-container relative">
+                <a routerLink="/video/{{firstVideo._id}}">
+                  <span class="category-span {{category.title}}">{{category.title}}</span>
+                  <img *ngIf="firstVideo.thumbnails" src="{{staticEndPoint}}{{firstVideo.thumbnails.large}}">
+                  <span class="video-span fa fa-youtube-play fa-3x"></span>
+                </a>
+              </div>
+              <div class="inner-content">
+                <h6><a routerLink="/video/{{firstVideo._id}}">{{firstVideo.title}}</a></h6>
+                <p>{{firstVideo.description}}</p>
+              </div>
+              <div>
+                <div class="float-left">
+                  <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
+                  <span class="video-likes" *ngIf="firstVideo.counter">{{firstVideo.counter.likes | number:'1.'}}</span>
+                </div>
+                <div class="float-right direction-ltr">
+                  <span class="m-right-5 video-date">{{firstVideo.date | date: 'dd, MMMM yyyy'}}</span>
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+  </div>
+  <div class="col col-lg-2">
+    <app-side-menu></app-side-menu>
+  </div>
+
+
+  <div class="m-bottom-35 m-top-35 col-md-8 text-right rtl">
+    <div class="row margin-0">
+      <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+      <a routerLink="/video/{{video._id}}">
+        <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+        <div class="image-container relative">
+          <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+          <span class="player-icon">
+              <i class="fa fa-play" aria-hidden="true"></i>
+            </span>
+        </div>
+        <h3>
+          {{video.title}}
+        </h3>
+        <div>
+          <div class="float-left">
+            <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
+            <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+          </div>
+          <div class="float-right direction-ltr">
+            <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+    </div>
+  </div>
+  <div class="col-md-2 m-top-35">
+    <img src="https://dummyimage.com/224x470/b3b3b3/fff">
+  </div>
+
+  <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+    <img src="./assets/images/ad.png">
+  </div>
+
+  <app-more-views-details class="rtl text-right width100" [categoryId]="category.id" [limit]="6"></app-more-views-details>
+
+</div>

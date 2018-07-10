@@ -14,6 +14,7 @@ import {GuestGuardService as GuestGuard} from "./services/guards/guest-guard.ser
 import {VerifyCodeComponent} from "./password/verify-code/verify-code.component";
 import {ResetPasswordComponent} from "./password/reset-password/reset-password.component";
 import {VideoDetailsComponent} from "./video-details/video-details.component";
+import {CategoryDetailsComponent} from "./category-details/category-details.component";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,5 +28,6 @@ export const routes: Routes = [
   { path: 'reset-password/:email', component: ResetPasswordComponent,canActivate: [GuestGuard]},
   { path: 'login', component: LoginComponent , canActivate: [GuestGuard]},
   { path: 'video/:id', component: VideoDetailsComponent },
+  { path: 'category/:id', component: CategoryDetailsComponent},
 ];
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });

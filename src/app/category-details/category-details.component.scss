@@ -1,0 +1,39 @@
+.category-image{
+  width: 50px;
+}
+.category-title{
+  color: #666666;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom: 2px solid #666666;
+  margin-bottom: 20px;
+  img{
+    margin-left: 10px;
+  }
+}
+.img-container a{color: #fff}
+.video-container{
+  .category-span{
+    position: absolute;
+    right: 5px;
+    top:5px;
+    padding: 0 5px;
+  }
+  .video-span{
+    position: absolute;
+    bottom: -7px;
+    left:0px;
+    color: red;
+  }
+}
+
+.inner-content{
+  margin-top: 20px;
+  padding: 0 15px;
+  a{
+    color: #171717;
+  }
+}
+

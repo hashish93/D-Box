@@ -9,7 +9,7 @@ export class VideoService {
   readonly apiKey: string = 'videos';
   constructor(private http: HttpClient) { }
 
-  public getVideos(limit?:Number,order?:String,orderBy?:string): Observable<any>{
+  public getVideos(limit?:Number,order?:String,orderBy?:string,filter?:Object): Observable<any>{
     let params : string = '';
     if(limit){
       params +='?limit='+limit
@@ -19,6 +19,14 @@ export class VideoService {
     }
     if(orderBy){
       params +='&orderBy='+orderBy
+    }
+    if(filter){
+      if(params){
+        params +="&"+Object.keys(filter)[0]+'='+filter[Object.keys(filter)[0]]
+      }else{
+        params +="?"+Object.keys(filter)[0]+'='+filter[Object.keys(filter)[0]]
+      }
+
     }
     return this.http.get(this.apiKey+params)
   }

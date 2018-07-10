@@ -1,7 +1,7 @@
 <div class="row margin-0">
   <div class="col col-lg-2">
     <div class="m-top-35">
-      <app-about-creator *ngIf="video.creator && video.creator.id" [creator_id]="video.creator.id"></app-about-creator>
+      <app-about-creator *ngIf="video.creator && video.creator.id" [creator_id]="video.creator.id" (onGetCreator)="getCreator($event)"></app-about-creator>
       <img class="max-width-100" src="./assets/images/test-image.png">
     </div>
   </div>
@@ -16,7 +16,12 @@
     <div *ngIf="!loading">
       <iframe width="100%" height="350px" frameBorder="0" [src]="url"></iframe>
       <div class="video-details">
-          <div></div>
+          <div *ngIf="creator" class="rtl text-right">
+            <a class="creator-link" routerLink="creator/{{creator._id}}">
+              <img class="m-left-10 creator_avatar" src="{{staticEndPoint}}{{creator.avatar}}">
+              <span>{{creator.title}}</span>
+            </a>
+          </div>
           <div class="inner-details rtl text-right">
             <h5>{{video.title}}</h5>
             <p>{{video.description}}</p>

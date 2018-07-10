@@ -33,6 +33,8 @@ import { VerifyCodeComponent } from './password/verify-code/verify-code.componen
 import { ResetPasswordComponent } from './password/reset-password/reset-password.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
 import { AboutCreatorComponent } from './video-details/about-creator/about-creator.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
+import {MoreViewsDetailsComponent} from "./comman-components/more-views-details/more-views-details.component";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -65,6 +67,8 @@ const JWT_Module_Options: JwtModuleOptions = {
     ResetPasswordComponent,
     VideoDetailsComponent,
     AboutCreatorComponent,
+    CategoryDetailsComponent,
+    MoreViewsDetailsComponent
   ],
   imports: [
     BrowserModule,

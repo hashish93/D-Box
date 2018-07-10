@@ -5,6 +5,7 @@ import {Video} from "../models/video.model";
 import {VideoService} from "../services/video.service";
 import {AppSettings} from "../app.settings";
 import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
+import {Creator} from "../models/creator.model";
 
 @Component({
   selector: 'app-video-details',
@@ -14,8 +15,10 @@ import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 })
 export class VideoDetailsComponent implements OnInit {
   public video : Video = {} as Video;
+  public creator : Creator = {} as Creator;
   public loading : boolean = true;
   public videoEndPoint;
+  public staticEndPoint;
   url: SafeResourceUrl;
   public isLiked = false;
   public error : String= '';
@@ -24,6 +27,7 @@ export class VideoDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.videoEndPoint = AppSettings.getVideoEndpoint();
+    this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.video.id =  parseInt(this.route.snapshot.paramMap.get('id'));
     if(this.video.id){
       this.getVideo(this.video.id);
@@ -65,5 +69,10 @@ export class VideoDetailsComponent implements OnInit {
       this.router.navigate(['login'])
     }
 
+  }
+
+  public getCreator(creator : any){
+    console.log('creator: ', creator);
+    this.creator = creator;
   }
 }

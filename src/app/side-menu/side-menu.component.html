@@ -9,7 +9,7 @@
         </a>
       </li>
       <li>
-        <a routerLink="/side">
+        <a routerLink="side">
           <img class="m-left-10" src="./assets/images/trend.png">
           <p class="inline-block">الاعلى مشاهدة</p>
         </a>
@@ -17,7 +17,7 @@
     </ul>
     <ul class="margin-0 bottom-border-child">
       <li *ngFor="let category of categories">
-        <a routerLink="category/{{category._id}}">
+        <a routerLink="/category/{{category._id}}">
           <img class="m-left-10" *ngIf="category.icon" src="{{staticEndPoint}}{{category.icon}}">
           <img class="m-left-10" *ngIf="!category.icon" src="./assets/images/games.png">
           <p class="inline-block">{{category.title}}</p>
