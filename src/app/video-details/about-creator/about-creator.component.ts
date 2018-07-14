@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output, OnChanges} from '@angular/core';
 import {CreatorService} from "../../services/creator.service";
 import {Creator} from "../../models/creator.model";
 import {AppSettings} from "../../app.settings";
@@ -8,7 +8,18 @@ import {AppSettings} from "../../app.settings";
   templateUrl: './about-creator.component.html',
   styleUrls: ['./about-creator.component.scss']
 })
-export class AboutCreatorComponent implements OnInit {
+
+export class AboutCreatorComponent implements OnInit , OnChanges{
+
+  ngOnChanges(changes: any  ): void {
+    console.log(changes);
+    if(changes && changes.creator_id && changes.creator_id.previousValue) {
+      console.log(changes.creator_id.previousValue); //SimpleChange {previousValue: 43, currentValue: 44}
+      this.creator_id = changes.creator_id.previousValue;
+      this.getCreator(this.creator_id);
+    }
+  }
+
   @Input()
   public creator_id : Number;
   public  loading : boolean = true;

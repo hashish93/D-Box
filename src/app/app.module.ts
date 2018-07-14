@@ -23,7 +23,7 @@ import { VistorSignupComponent } from './signup/visitor-signup/vistor-signup.com
 import { CreatorSignupComponent } from './signup/creator-signup/creator-signup.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
-import {AlertModule} from "ngx-bootstrap";
+import {AlertModule , CarouselModule} from "ngx-bootstrap";
 import { ProfileComponent } from './profile/profile.component';
 import {JwtModule, JwtModuleOptions} from "@auth0/angular-jwt";
 import {ErrorInterceptorService} from "./services/interceptors/error-interceptor.service";
@@ -35,6 +35,9 @@ import { VideoDetailsComponent } from './video-details/video-details.component';
 import { AboutCreatorComponent } from './video-details/about-creator/about-creator.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import {MoreViewsDetailsComponent} from "./comman-components/more-views-details/more-views-details.component";
+import { CreatorDetailsComponent } from './creator-details/creator-details.component';
+import { CreatorVideosComponent } from './creator-details/creator-videos/creator-videos.component';
+import { SideMoreViewsComponent } from './creator-details/side-more-views/side-more-views.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -68,7 +71,10 @@ const JWT_Module_Options: JwtModuleOptions = {
     VideoDetailsComponent,
     AboutCreatorComponent,
     CategoryDetailsComponent,
-    MoreViewsDetailsComponent
+    MoreViewsDetailsComponent,
+    CreatorDetailsComponent,
+    CreatorVideosComponent,
+    SideMoreViewsComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +86,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     FormsModule,
     AlertModule.forRoot(),
     TabsModule.forRoot(),
+    CarouselModule.forRoot(),
     JwtModule.forRoot(JWT_Module_Options),
   ],
   providers: [

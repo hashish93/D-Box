@@ -1,0 +1,150 @@
+<div class="row margin-0">
+  <div class="col col-lg-10 col-xs-12" id="main">
+    <div class="row margin-0">
+      <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-5  mid-ad">
+        <img src="./assets/images/ad.png">
+      </div>
+      <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+      <div class="m-top-5 rtl text-right creator-container">
+        <div *ngIf="!loading">
+          <div class="cover">
+            <img class="width100" src="{{staticEndPoint}}{{creator.cover}}">
+          </div>
+          <div class="avatar text-center">
+            <img src="{{staticEndPoint}}{{creator.avatar}}">
+            <h6 class="normal-weight">{{creator.title}}</h6>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-8">
+              <h6 class="m-right-5">الاحدث اضافة</h6>
+              <app-loading [error]="errorLatestVideos" [loading]="loadingLatestVideos" class="width100 block"></app-loading>
+              <carousel [noWrap]="false" *ngIf="latestVideos && latestVideos.length > 0">
+                <slide *ngIf="latestVideos.length > 0">
+                  <div class="row">
+                    <div class="col-md-5 col-sm-6 col-xs-12 custom-width relative video-playlist-home" *ngFor="let video of latestVideos;let i=index">
+                      <a routerLink="/video/{{video._id}}" *ngIf="i<4">
+                        <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+                        <div class="image-container relative">
+                          <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                          <span class="player-icon">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <h3>
+                          {{video.title}}
+                        </h3>
+                        <div>
+                          <div class="float-left">
+                            <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
+                            <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+                          </div>
+                          <div class="float-right direction-ltr">
+                            <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+
+                </slide>
+                <slide *ngIf="latestVideos.length >= 5 && latestVideos.length <= 8">
+                  <div class="row">
+                    <div class="col-md-5 col-sm-6 col-xs-12 custom-width relative video-playlist-home" *ngFor="let video of latestVideos;let i=index">
+                      <a routerLink="/video/{{video._id}}" *ngIf="i>=4 && i < 8">
+                        <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+                        <div class="image-container relative">
+                          <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                          <span class="player-icon">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <h3>
+                          {{video.title}}
+                        </h3>
+                        <div>
+                          <div class="float-left">
+                            <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
+                            <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+                          </div>
+                          <div class="float-right direction-ltr">
+                            <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </slide>
+                <slide *ngIf="latestVideos.length >= 9 && latestVideos.length <= 12">
+                  3
+                </slide>
+              </carousel>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <h6 class="about-title">عن المبدع</h6>
+              <div class="about-details relative">
+                  <div class="counter">
+                    <div class="followers">
+                      <i class="fa fa-youtube-play fa-2x" aria-hidden="true"></i>
+                      <div class="black">{{creator.counter.videos | number:'1.'}}</div>
+                    </div>
+                    <div class="likes">
+                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                      <div class="black">{{creator.counter.likes | number:'1.'}}</div>
+                    </div>
+                  </div>
+                  <div>
+                    <strong class="inline-block">الاسم : </strong>
+                    <span class="inline-block">{{creator.title}}</span>
+                  </div>
+                  <div>
+                    <strong class="inline-block">البلد : </strong>
+                    <span class="inline-block">{{creator.country}}</span>
+                  </div>
+                  <div>
+                    <strong class="inline-block">السن : </strong>
+                    <span class="inline-block">{{creator.age}}</span>
+                  </div>
+                  <p class="about-desc">
+                    {{creator.description}}
+                  </p>
+                  <div class="about-social text-center">
+                    <a *ngIf="creator.social.google" href="{{creator.social.google}}">
+                      <i class="fa fa-google"></i>
+                    </a>
+                    <a *ngIf="creator.social.instagram" href="{{creator.social.instagram}}">
+                      <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a *ngIf="creator.social.twitter" href="{{creator.social.twitter}}">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a *ngIf="creator.social.facebook" href="{{creator.social.facebook}}">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+
+                  </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col col-lg-2"></div>
+    </div>
+  </div>
+  <div class="col col-lg-2">
+    <app-side-menu></app-side-menu>
+  </div>
+
+  <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+    <img src="./assets/images/ad.png">
+  </div>
+  <div class="width100 inline-block" *ngIf="!loading">
+    <app-creator-videos class="width100 inline-block" [creatorId]="creator._id"></app-creator-videos>
+  </div>
+
+</div>
+

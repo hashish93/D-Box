@@ -6,6 +6,7 @@ export interface CreatorPaginated {
 }
 
 export interface Creator {
+  id:Number,
   _id: Number,
   email: string,
   password:string,

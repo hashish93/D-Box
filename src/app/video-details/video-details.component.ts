@@ -28,13 +28,17 @@ export class VideoDetailsComponent implements OnInit {
   ngOnInit() {
     this.videoEndPoint = AppSettings.getVideoEndpoint();
     this.staticEndPoint = AppSettings.getStaticEndpoint();
-    this.video.id =  parseInt(this.route.snapshot.paramMap.get('id'));
-    if(this.video.id){
-      this.getVideo(this.video.id);
-      this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoEndPoint+''+this.video.id.toString());
-    }else{
-      this.router.navigate(['']);
-    }
+
+    this.route.params.forEach(params => {
+      this.video.id =  parseInt(params["id"]);
+      if(this.video.id){
+        this.getVideo(this.video.id);
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoEndPoint+''+this.video.id.toString());
+      }else{
+        this.router.navigate(['']);
+      }
+    });
+
   }
 
   public getVideo(id : Number){
@@ -55,7 +59,6 @@ export class VideoDetailsComponent implements OnInit {
     if(this.authService.isAuthenticated()){
       this.videoService.isVideoLiked(id).subscribe(data=> {
         this.isLiked = data.message;
-        console.log(this.isLiked);
       })
     }
   }
@@ -63,7 +66,6 @@ export class VideoDetailsComponent implements OnInit {
     if(this.authService.isAuthenticated()){
       this.isLiked = !this.isLiked;
       this.videoService.likeVideo(this.video._id).subscribe(data=>{
-        console.log(this.isLiked)
       })
     }else {
       this.router.navigate(['login'])

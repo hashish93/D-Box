@@ -23,9 +23,8 @@ export class CategoryDetailsComponent implements OnInit {
     , public router : Router,public videoService : VideoService) { }
 
   ngOnInit() {
-    this.route.params.forEach(params => {;
+    this.route.params.forEach(params => {
       this.getCategoryDetails(params["id"]);
-      //call your function, like getUserInfo()
     });
     this.staticEndPoint = AppSettings.getStaticEndpoint();
   }

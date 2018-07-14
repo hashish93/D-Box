@@ -1,0 +1,108 @@
+.creator-container{
+  background: #f1f1f1;
+}
+.cover{height: 200px;overflow: hidden}
+.avatar{
+  img{
+    width: 100px;
+    height: 100px;
+    border:2px solid #eee;
+    border-radius: 50%;
+    margin-top: -7%;
+  }
+}
+#main{
+  padding-right: 0px;
+}
+:host ::ng-deep .carousel{right: 100px}
+.custom-width{margin: 0;}
+slide{margin-bottom: 40px}
+slide:nth-child(1){
+  .custom-width:nth-child(1),
+  .custom-width:nth-child(2),
+  .custom-width:nth-child(3),
+  .custom-width:nth-child(4){margin-bottom: 20px}
+}
+slide:nth-child(2){
+  .custom-width:nth-child(4),
+  .custom-width:nth-child(5),
+  .custom-width:nth-child(6),
+  .custom-width:nth-child(7){margin-bottom: 20px}
+}
+slide:nth-child(3){
+  .custom-width:nth-child(8),
+  .custom-width:nth-child(9),
+  .custom-width:nth-child(10),
+  .custom-width:nth-child(11){margin-bottom: 20px}
+}
+
+:host ::ng-deep .carousel-indicators li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #afafaf;
+}
+:host ::ng-deep  .carousel-indicators .active {
+  background-color: #ef423c;
+}
+:host ::ng-deep .carousel-control-next,
+:host ::ng-deep .carousel-control-prev{
+  color: #ef423c;
+  opacity: 1;
+  top: -120px;
+}
+:host ::ng-deep .carousel-control-next {
+  right: -80px;
+}
+:host ::ng-deep .carousel-control-prev {
+  left: 40px;
+}
+:host ::ng-deep .carousel-control-prev-icon{
+  background-image: url("../../assets/images/prev.png");
+}
+:host ::ng-deep .carousel-control-next-icon{
+  background-image: url("../../assets/images/next.png");
+}
+.about-title {
+  background: #fff;
+  display: inline-block;
+  padding: 15px 10px;
+  margin-bottom: 0;
+}
+.about-details{
+  background: #fff;
+  padding: 40px 30px 20px 30px;
+  > div{
+   margin-bottom: 20px;
+  }
+  strong{
+    margin-left: 20px;
+  }
+}
+.about-desc {
+  height: 120px;
+  overflow: hidden;
+}
+.about-social {
+  margin-bottom: 0 !important;
+  a{
+    color: #000;
+    display: inline-block;
+    margin: 0 7px;
+    transition: all .7s;
+  }
+  a:hover{
+    color: red;
+  }
+}
+.counter{
+  position: absolute;
+  left: 20px;
+  .followers , .likes {
+    background: #dddddd;
+    padding: 0 5px;
+    text-align: center;
+    color: red;
+    margin-bottom: 10px;
+  }
+}
