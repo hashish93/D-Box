@@ -35,11 +35,25 @@ export class VideoService {
     return this.http.get(this.apiKey+'/'+id);
   }
 
-  likeVideo(id: Number): Observable<any> {
+  public likeVideo(id: Number): Observable<any> {
     return this.http.get('auth/like/'+id);
   }
 
-  isVideoLiked(id: Number): Observable<any> {
+  public isVideoLiked(id: Number): Observable<any> {
     return this.http.get('auth/isliked/'+id);
   }
+
+  public getLikedVideos(page?:Number,limit?:Number,pagination?:Number): Observable<any>{
+  let params : string = '';
+  if(page){
+    params +='?page='+page
+  }
+  if(limit){
+    params +='&limit='+limit
+  }
+  if(pagination){
+    params +='&pagination='+pagination
+  }
+  return this.http.get('auth/liked/list'+params);
+}
 }

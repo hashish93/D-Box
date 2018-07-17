@@ -19,7 +19,11 @@ export interface Video {
   description: string,
   thumbnail: string,
   thumbnails: Object,
-  counter:Object,
+  counter:{
+    likes : number,
+    views : number
+  },
   date: Date,
-  category: Category
+  category: Category,
+  is_liked:boolean
 }

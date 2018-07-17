@@ -19,7 +19,7 @@
       <iframe width="100%" height="350px" frameBorder="0" [src]="url"></iframe>
       <div class="video-details">
           <div *ngIf="creator" class="rtl text-right">
-            <a class="creator-link" routerLink="creator/{{creator._id}}">
+            <a class="creator-link" routerLink="/creator/{{creator._id}}">
               <img class="m-left-10 creator_avatar" src="{{staticEndPoint}}{{creator.avatar}}">
               <span>{{creator.title}}</span>
             </a>
@@ -38,7 +38,7 @@
                 <i class="fa fa-clock-o" aria-hidden="true"></i>
               </div>
               <div class="inline-block m-right-10">
-                <i (click)="likeVideo()" class="m-left-5 fa mouse-click" [ngClass]="{'fa-heart': isLiked,'fa-heart-o': !isLiked}" aria-hidden="true"></i>
+                <i (click)="likeVideo()" class="m-left-5 fa mouse-click" [ngClass]="{'fa-heart': video.is_liked,'fa-heart-o': !video.is_liked}" aria-hidden="true"></i>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
               </div>
             </div>

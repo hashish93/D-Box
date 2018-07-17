@@ -1,0 +1,66 @@
+:host ::ng-deep .ngx-pagination{text-align: center;direction: ltr;padding-left: 0;}
+:host ::ng-deep .ngx-pagination li.pagination-next a,
+:host ::ng-deep .ngx-pagination li.pagination-previous a,
+:host ::ng-deep .ngx-pagination .pagination-next.disabled,
+:host ::ng-deep .ngx-pagination .pagination-previous.disabled
+{padding: 13px 15px;display: inline-block}
+:host ::ng-deep  .ngx-pagination .current{
+  color: #000;
+  background: #d7d7d7;
+  margin: 0 10px;
+}
+:host ::ng-deep  .ngx-pagination li.pagination-next{background: #ffffff}
+:host ::ng-deep  .ngx-pagination li.pagination-previous{background: #bcbcbc;color: #fff}
+
+.boxed-favorite{
+  background: #fff;
+  border-radius: 3px;
+  padding: 10px 10px;
+  box-shadow: 3px 3px 3px #d6d6d6;
+  .creator-header{
+    height: 31px;
+    overflow: hidden;
+    img{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+    span{
+      color: #1b1e21;
+      font-size: 12px;
+    }
+  }
+  .image-container{
+    margin-left: 10px;
+    img{
+    }
+  }
+
+  .title-video{
+    margin: 5px 0;
+    height: 40px;
+    overflow: hidden;
+  }
+
+  .video-likes {
+    max-width: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-flex;
+    direction: ltr;
+  }
+  .category-span {
+    top: 12px;
+    right: 0;
+  }
+  .player-icon {
+    position: absolute;
+    top: 47%;
+    bottom: auto;
+    left: 40%;
+    font-size: 22px;
+    padding: 5px 15px;
+    border-radius: 8px 10px;
+  }
+}

@@ -20,7 +20,6 @@ export class VideoDetailsComponent implements OnInit {
   public videoEndPoint;
   public staticEndPoint;
   url: SafeResourceUrl;
-  public isLiked = false;
   public error : String= '';
   constructor(public authService : AuthService , public router : Router,
               public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer) { }
@@ -44,27 +43,21 @@ export class VideoDetailsComponent implements OnInit {
   public getVideo(id : Number){
     this.loading = true;
     this.error = '';
-    this.videoService.getVideo(this.video.id).subscribe(data=> {
+    this.videoService.getVideo(id).subscribe(data=> {
       console.log(data);
       this.video = data;
       this.loading = false;
-      this.isVideoLiked(this.video._id);
     },err=>{
       this.loading = false;
       this.error = JSON.stringify(err.error);
     });
   }
 
-  public isVideoLiked(id : Number){
-    if(this.authService.isAuthenticated()){
-      this.videoService.isVideoLiked(id).subscribe(data=> {
-        this.isLiked = data.message;
-      })
-    }
-  }
+
   public likeVideo(){
     if(this.authService.isAuthenticated()){
-      this.isLiked = !this.isLiked;
+      this.video.is_liked = !this.video.is_liked;
+      this.video.is_liked ? this.video.counter.likes+=1 : this.video.counter.likes-=1;
       this.videoService.likeVideo(this.video._id).subscribe(data=>{
       })
     }else {

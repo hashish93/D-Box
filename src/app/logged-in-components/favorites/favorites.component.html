@@ -1,0 +1,43 @@
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+<div *ngIf="!loading">
+  <div *ngIf="total==0">
+    <h4 class="text-center">لا يوجد مفضلات</h4>
+  </div>
+  <div *ngIf="total>0">
+    <div class="row margin-0">
+      <div class="col-md-4 col-sm-6 m-top-10 m-bottom-10" *ngFor="let video of data | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }">
+        <div class="relative boxed-favorite">
+          <a *ngIf="video.creator" routerLink="/creator/{{video.creator.id}}" class="black width100 block m-bottom-5 creator-header">
+            <img class="m-left-5" src="{{staticEndPoint}}{{video.creator.avatar}}">
+            <span>{{video.creator.fullname}}</span>
+          </a>
+          <a class="black" routerLink="/video/{{video.id}}">
+            <div class="image-container relative">
+                <span *ngIf="video.category" class="{{video.category.name}} category-span">{{video.category.name}}</span>
+                <img src="{{staticEndPoint}}{{video.capturedImageUrl}}">
+                <span class="fa fa-play player-icon"></span>
+            </div>
+            <h6 class="title-video">{{video.title}}</h6>
+          </a>
+
+          <div class="width100 inline-block">
+            <div class="float-left">
+              <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
+              <span class="video-likes" *ngIf="video.counters">{{video.counters.likes | number:'1.'}}</span>
+            </div>
+            <div class="float-right direction-ltr">
+              <span class="m-right-5 video-date">{{video.created_at | date: 'dd, MMMM yyyy'}}</span>
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <pagination-controls (pageChange)="pageChanged($event)" previousLabel="السابق"
+                         nextLabel="التالي"
+                         screenReaderPageLabel="صفحة"
+                         screenReaderCurrentLabel="انت الان في صفحة "></pagination-controls>
+  </div>
+</div>

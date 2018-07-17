@@ -5,7 +5,7 @@ import {HomeComponent} from './home/home.component'
 import {VistorSignupComponent} from "./signup/visitor-signup/vistor-signup.component";
 import {CreatorSignupComponent} from "./signup/creator-signup/creator-signup.component";
 import {LoginComponent} from "./login/login.component";
-import {ProfileComponent} from "./profile/profile.component";
+import {ProfileComponent} from "./logged-in-components/profile/profile.component";
 import {
   AuthGuardService as AuthGuard
 } from './services/guards/auth-guard.service';

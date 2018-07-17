@@ -1,0 +1,52 @@
+<div class="row margin-0">
+  <div class="col col-lg-2">
+    <div class="custom-top rtl text-right">
+      <app-side-more-views></app-side-more-views>
+
+    </div>
+  </div>
+  <div class="col col-lg-8 col-xs-12" id="main">
+    <div class="row margin-0">
+      <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+        <img src="./assets/images/ad.png">
+      </div>
+
+
+      <div class="width100 inline-block rtl text-right">
+        <tabset>
+
+          <tab id="favorites" (select)="onSelect($event)">
+            <ng-template tabHeading>
+              <i class="fa fa-heart-o inline-block m-left-10" aria-hidden="true"></i>
+              <span>المفضلات</span>
+            </ng-template>
+            <div *ngIf="selected=='favorites'">
+                <app-favorites></app-favorites>
+            </div>
+
+          </tab>
+          <tab id="followers" (select)="onSelect($event)">
+            <ng-template tabHeading>
+              <i class="fa fa-user-plus inline-block m-left-10" aria-hidden="true"></i>
+              <span>المتابعات</span>
+            </ng-template>
+            <div *ngIf="selected=='followers'">
+              <app-followers></app-followers>
+            </div>
+
+          </tab>
+        </tabset>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="col col-lg-2">
+    <app-side-menu></app-side-menu>
+  </div>
+</div>
+
+<div class="rtl text-right">
+  <app-recommended-videos></app-recommended-videos>
+</div>
+

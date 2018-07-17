@@ -24,7 +24,7 @@ import { CreatorSignupComponent } from './signup/creator-signup/creator-signup.c
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {AlertModule , CarouselModule} from "ngx-bootstrap";
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './logged-in-components/profile/profile.component';
 import {JwtModule, JwtModuleOptions} from "@auth0/angular-jwt";
 import {ErrorInterceptorService} from "./services/interceptors/error-interceptor.service";
 import {JwtInterceptorService} from "./services/interceptors/jwt-interceptor.service";
@@ -38,6 +38,9 @@ import {MoreViewsDetailsComponent} from "./comman-components/more-views-details/
 import { CreatorDetailsComponent } from './creator-details/creator-details.component';
 import { CreatorVideosComponent } from './creator-details/creator-videos/creator-videos.component';
 import { SideMoreViewsComponent } from './creator-details/side-more-views/side-more-views.component';
+import { FavoritesComponent } from './logged-in-components/favorites/favorites.component';
+import { FollowersComponent } from './logged-in-components/followers/followers.component';
+import {NgxPaginationModule} from "ngx-pagination/dist/ngx-pagination";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -74,7 +77,9 @@ const JWT_Module_Options: JwtModuleOptions = {
     MoreViewsDetailsComponent,
     CreatorDetailsComponent,
     CreatorVideosComponent,
-    SideMoreViewsComponent
+    SideMoreViewsComponent,
+    FavoritesComponent,
+    FollowersComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +92,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     AlertModule.forRoot(),
     TabsModule.forRoot(),
     CarouselModule.forRoot(),
+    NgxPaginationModule,
     JwtModule.forRoot(JWT_Module_Options),
   ],
   providers: [

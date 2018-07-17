@@ -1,0 +1,65 @@
+:host ::ng-deep .ngx-pagination{text-align: center;direction: ltr;padding-left: 0;}
+:host ::ng-deep .ngx-pagination li.pagination-next a,
+:host ::ng-deep .ngx-pagination li.pagination-previous a,
+:host ::ng-deep .ngx-pagination .pagination-next.disabled,
+:host ::ng-deep .ngx-pagination .pagination-previous.disabled
+{padding: 13px 15px;display: inline-block}
+:host ::ng-deep  .ngx-pagination .current{
+  color: #000;
+  background: #d7d7d7;
+  margin: 0 10px;
+}
+:host ::ng-deep  .ngx-pagination li.pagination-next{background: #ffffff}
+:host ::ng-deep  .ngx-pagination li.pagination-previous{background: #bcbcbc;color: #fff}
+
+.boxed-follower{
+  background: #fff;
+  border-radius: 3px;
+  padding: 10px 10px;
+  box-shadow: 3px 3px 3px #d6d6d6;
+  .image-container{
+    display: inline-block;
+    margin-left: 10px;
+    img{
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+    }
+  }
+  .follower-info{
+    color: #716f6d;
+    width: 140px;
+    h6{
+      height: 17px;
+      overflow: hidden;
+    }
+    a{
+      color: #716f6d;
+    }
+  }
+  .fa-play{
+    background: red;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 11px;
+    position: relative;
+    top: -3px;
+  }
+  .follower-details span{
+    font-size: 11px;
+  }
+  .fa-user-times {
+    position: absolute;
+    left: 0;
+    top: -15px;
+    background: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: -1px 1px 0px #a9a9a9;
+    user-select: none;
+  }
+}

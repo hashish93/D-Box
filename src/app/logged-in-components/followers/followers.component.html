@@ -1,0 +1,42 @@
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+<div *ngIf="!loading">
+  <div *ngIf="total==0">
+      <h4 class="text-center">لا يوجد متابعين</h4>
+  </div>
+  <div *ngIf="total>0">
+    <div class="row margin-0">
+      <div class="col-md-4 col-sm-6 m-top-10 m-bottom-10" *ngFor="let follower of data | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }">
+        <div class="relative boxed-follower">
+          <i class="fa fa-user-times" (click)="unfollow(follower.id)"></i>
+          <div class="image-container">
+            <a routerLink="/creator/{{follower.id}}">
+              <img src="{{staticEndPoint}}{{follower.avatar}}">
+            </a>
+          </div>
+          <div class="inline-block follower-info">
+            <h6>
+              <a routerLink="/creator/{{follower.id}}" class="black">
+                {{follower.fullname}}
+              </a>
+            </h6>
+            <div  *ngIf="follower.counters" class="follower-details">
+              <div class="float-left">
+                <i class="fa fa-play" aria-hidden="true"></i>
+                <span class="m-right-5 ">{{follower.counters.videos | number:'1.'}}</span>
+              </div>
+              <div class="float-right m-left-10 direction-ltr">
+                <span class="follower-likes">{{follower.counters.likes | number:'1.'}}</span>
+                <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <pagination-controls (pageChange)="pageChanged($event)" previousLabel="السابق"
+                         nextLabel="التالي"
+                         screenReaderPageLabel="صفحة"
+                         screenReaderCurrentLabel="انت الان في صفحة "></pagination-controls>
+  </div>
+</div>
