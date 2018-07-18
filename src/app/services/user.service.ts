@@ -11,4 +11,7 @@ import {User} from "../models/user.model";
 export class UserService {
   constructor(public  http: HttpClient) { }
 
+  getRevenue(month: number, year: number) : Observable<any> {
+    return this.http.get("auth/statistics/revenue?month=" + month + '&year=' + year);
+  }
 }

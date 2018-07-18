@@ -1,0 +1,44 @@
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+<div *ngIf="!loading">
+ <div class="rtl text-right">
+   <div class="inline-block width100 m-bottom-20">
+     <h3 class="m-right-15 inline-block top-text"><i class="fa fa-dollar"></i> ارباح المبدع</h3>
+     <div class="pull-left gain">تحصيل</div>
+   </div>
+   <div class="row margin-0">
+     <div class="relative col-md-4 col-sm-12">
+       <div class="total-col">
+           <div class="left-side">
+             <i class="fa fa-dollar"></i>
+             <h6>اجمالي الارباح</h6>
+           </div>
+           <div class="splitter"></div>
+           <div class="right-side">{{revenue.revenue.total}}</div>
+       </div>
+     </div>
+
+     <div class="relative col-md-4 col-sm-12">
+       <div class="mobile-col">
+           <div class="left-side">
+             <i class="fa fa-mobile-phone"></i>
+             <h6>ارباح الموبايل</h6>
+           </div>
+           <div class="splitter"></div>
+           <div class="right-side">{{revenue.revenue.mobile }}</div>
+       </div>
+     </div>
+
+     <div class="relative col-md-4 col-sm-12">
+       <div class="lap-col">
+         <div class="left-side">
+           <i class="fa fa-laptop"></i>
+           <h6>ارباح الحاسوب</h6>
+         </div>
+         <div class="splitter"></div>
+         <div class="right-side">{{revenue.revenue.desktop }}</div>
+       </div>
+     </div>
+
+   </div>
+ </div>
+</div>

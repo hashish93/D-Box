@@ -41,6 +41,7 @@ import { SideMoreViewsComponent } from './creator-details/side-more-views/side-m
 import { FavoritesComponent } from './logged-in-components/favorites/favorites.component';
 import { FollowersComponent } from './logged-in-components/followers/followers.component';
 import {NgxPaginationModule} from "ngx-pagination/dist/ngx-pagination";
+import { RevenueComponent } from './logged-in-components/revenue/revenue.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -79,7 +80,8 @@ const JWT_Module_Options: JwtModuleOptions = {
     CreatorVideosComponent,
     SideMoreViewsComponent,
     FavoritesComponent,
-    FollowersComponent
+    FollowersComponent,
+    RevenueComponent
   ],
   imports: [
     BrowserModule,
