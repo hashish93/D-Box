@@ -37,12 +37,9 @@ export class RevenueComponent implements OnInit {
   }
 
   private getRevenue() {
-    if(this.first){
-      this.loading = true;
-      this.first = false;
-    }
+    this.loading = true;
     // this.ucCalendar.rer
-    this.calendarOptions = null;
+    // this.calendarOptions = null;
 
     this.userService.getRevenue(this.month,this.year).subscribe(data=>{
       this.revenue = data;
@@ -65,6 +62,7 @@ export class RevenueComponent implements OnInit {
       let obj = {title:'',start:''};
       obj.title = item.total;
       obj.start = item.date;
+
       result.push(obj);
     }
     console.log(result)
@@ -85,8 +83,8 @@ export class RevenueComponent implements OnInit {
   private initCalendarOptions(data?) {
     this.calendarOptions = {
       editable: false,
+      defaultDate: new Date(this.year, this.month-1),
       eventLimit: false,
-      lazyFetching:true,
       header: {
         left: 'prev',
         center: 'title',
