@@ -42,6 +42,7 @@ import { FavoritesComponent } from './logged-in-components/favorites/favorites.c
 import { FollowersComponent } from './logged-in-components/followers/followers.component';
 import {NgxPaginationModule} from "ngx-pagination/dist/ngx-pagination";
 import { RevenueComponent } from './logged-in-components/revenue/revenue.component';
+import {FullCalendarModule} from "ng-fullcalendar";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -95,6 +96,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     TabsModule.forRoot(),
     CarouselModule.forRoot(),
     NgxPaginationModule,
+    FullCalendarModule,
     JwtModule.forRoot(JWT_Module_Options),
   ],
   providers: [

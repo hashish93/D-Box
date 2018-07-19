@@ -4,6 +4,8 @@ $GE_SS_ttf_font_path: "assets/fonts/GE_SS_Two_Light.ttf";
 $GE_SS_svg_font_path: "assets/fonts/GE_SS_Two_Light.svg#GESSTwoLight-Light";
 $font-family-brand: 'GE_SS';
 
+@import "~fullcalendar/dist/fullcalendar.css";
+
 @font-face {
   font-family:$font-family-brand;
   src:url($GE_SS_eot_font_path) format("eot"),

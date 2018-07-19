@@ -39,6 +39,35 @@
        </div>
      </div>
 
+     <div class="calendar-container">
+       {{calendarOptions.events | json}}
+       <div class="m-top-10 width100 inline-block">
+         <div class="pull-right">
+           <div class="left-side width100 text-center" style="width: 100%">
+             <i class="fa fa-dollar"></i>
+             <h6>{{revenue.revenue.desktop + revenue.revenue.mobile}}</h6>
+           </div>
+         </div>
+         <div class="pull-left icons">
+           <div class="pull-left text-center m-right-10">
+             <i class="fa fa-laptop fa-3x"></i>
+             <h6>حاسوب</h6>
+           </div>
+           <div class="pull-left text-center">
+             <i class="fa fa-mobile-phone fa-3x"></i>
+             <h6>موبايل</h6>
+           </div>
+
+
+         </div>
+       </div>
+       <div *ngIf="calendarOptions" class="">
+         {{events}}
+         <ng-fullcalendar #ucCalendar  (clickButton)="clickButton($event.detail)" [options]="calendarOptions"></ng-fullcalendar>
+       </div>
+     </div>
+
+
    </div>
  </div>
 </div>

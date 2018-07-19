@@ -60,3 +60,43 @@
   right: 50%;
 }
 
+
+:host ::ng-deep .fc .fc-toolbar > * > :first-child {
+  margin-left: 0;
+  background: transparent;
+  border-radius: 50%;
+  height: 50px;
+  outline: none;
+}
+
+:host ::ng-deep tr:first-child > td > .fc-day-grid-event {
+  background: transparent;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+}
+:host ::ng-deep .fc-title:before {
+  font-family: FontAwesome;
+  content: "\f155";
+  display: block;
+  background: #fdc55e;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  font-size: 19px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+.icons .fa {
+  border: 3px solid #a7a7a7;
+  padding: 0 5px;
+  display: inline-block;
+}
+.calendar-container {
+  background: #fff;
+  padding: 10px;
+  margin: 20px 15px;
+  border-radius: 6px;
+}
