@@ -1,5 +1,4 @@
-<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
-<div *ngIf="!loading">
+<div *ngIf="!first">
  <div class="rtl text-right">
    <div class="inline-block width100 m-bottom-20">
      <h3 class="m-right-15 inline-block top-text"><i class="fa fa-dollar"></i> ارباح المبدع</h3>
@@ -60,8 +59,7 @@
 
          </div>
        </div>
-       <div *ngIf="calendarOptions" class="">
-         {{events}}
+       <div *ngIf="!loading && calendarOptions" class="">
          <ng-fullcalendar #ucCalendar  (clickButton)="clickButton($event.detail)" [options]="calendarOptions"></ng-fullcalendar>
        </div>
      </div>
@@ -70,3 +68,4 @@
    </div>
  </div>
 </div>
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>

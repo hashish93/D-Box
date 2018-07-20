@@ -26,4 +26,9 @@ export class UserService {
     }];
     return of(data);
   }
+
+  getUserData(): Observable<any> {
+    return this.http.get("auth/user");
+
+  }
 }

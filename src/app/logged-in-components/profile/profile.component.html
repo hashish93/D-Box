@@ -1,62 +1,117 @@
-<div class="row margin-0">
-  <div class="col col-lg-2">
-    <div class="custom-top rtl text-right">
-      <app-side-more-views></app-side-more-views>
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+<div>
+    <form #userForm="ngForm" novalidate (ngSubmit)="onFormSubmit(userForm)" autocomplete="off" class="m-top-10 m-bottom-10">
+        <div class="image-container profile-photo">
+          <img src="{{staticEndPoint}}/{{user.avatar}}">
+          <div class="change-photo">
+            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+            <span>تعديل</span>
+          </div>
+        </div>
+{{edit | json}}
+        <div [ngClass]="{'view-mode': !edit.section1}" class="section relative m-top-30">
+          <div (click)="OnClickSection('section1')" class="edit-option change-photo">
+            <div *ngIf="!edit.section1">
+              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <span>تعديل</span>
+            </div>
+            <div *ngIf="edit.section1">
+              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <span>حفظ</span>
+            </div>
+          </div>
+          <h6 class="section-title">البيانات الشخصية</h6>
+          <fieldset [disabled]="!edit.section1">
+            <div class="form-group">
+              <label for="name" >الاسم</label>
+              <input id="name" name="name" [(ngModel)]="user.fullname" autocomplete=”off” required class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="email" >البريد الالكتروني</label>
+              <input [disabled]="true" id="email" name="email" [(ngModel)]="user.email" autocomplete=”off” required class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="age" >تاريخ الميلاد</label>
+              <input id="age" name="age" [(ngModel)]="user.age" type="number" autocomplete=”off” class="form-control">
+            </div>
+            <div class="form-group">
+              <label>البلد</label>
+              <ng-select [items]="countries" required
+                         name="country" [(ngModel)]="user.country">
+              </ng-select>
+            </div>
+          </fieldset>
 
-    </div>
-  </div>
-  <div class="col col-lg-8 col-xs-12" id="main">
-    <div class="row margin-0">
-      <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
-        <img src="./assets/images/ad.png">
+
+        </div>
+
+        <div [ngClass]="{'view-mode': !edit.section2}" class="section relative m-top-30">
+        <div (click)="OnClickSection('section2')" class="edit-option change-photo">
+          <div *ngIf="!edit.section2">
+            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+            <span>تعديل</span>
+          </div>
+          <div *ngIf="edit.section2">
+            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+            <span>حفظ</span>
+          </div>
+        </div>
+        <h6 class="section-title">معلومات عامة</h6>
+        <fieldset [disabled]="!edit.section2">
+          <div class="form-group">
+            <label for="address" >االعنوان</label>
+            <input id="address" name="address" [(ngModel)]="user.address" autocomplete=”off” class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="mobile" >الهاتف</label>
+            <input id="mobile" name="mobile" [(ngModel)]="user.mobile" type="number" autocomplete=”off” class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="address" >الوظيفة</label>
+            <input id="job" name="job" [(ngModel)]="user.job" autocomplete=”off” class="form-control">
+          </div>
+        </fieldset>
+
+
       </div>
 
+        <div [ngClass]="{'view-mode': !edit.section3}" class="section relative m-top-30">
+        <div (click)="OnClickSection('section2')" class="edit-option change-photo">
+          <div *ngIf="!edit.section3">
+            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+            <span>تعديل</span>
+          </div>
+          <div *ngIf="edit.section3">
+            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+            <span>حفظ</span>
+          </div>
+        </div>
+        <h6 class="section-title">الحسابات</h6>
+        <fieldset [disabled]="!edit.section3">
 
-      <div class="width100 inline-block rtl text-right">
-        <tabset>
+          <div class="form-group">
+            <label for="facebook" >فيس بوك</label>
+            <input id="facebook" name="facebook" [(ngModel)]="user.facebook" pattern="https?://.+" autocomplete=”off” class="form-control">
+          </div>
 
-          <tab id="favorites" (select)="onSelect($event)">
-            <ng-template tabHeading>
-              <i class="fa fa-heart-o inline-block m-left-10" aria-hidden="true"></i>
-              <span>المفضلات</span>
-            </ng-template>
-            <div *ngIf="selected=='favorites'">
-                <app-favorites></app-favorites>
-            </div>
-          </tab>
+          <div class="form-group">
+            <label for="twitter" >تويتر</label>
+            <input id="twitter" name="twitter" [(ngModel)]="user.twitter" pattern="https?://.+" autocomplete=”off” class="form-control">
+          </div>
 
-          <tab id="followers" (select)="onSelect($event)">
-            <ng-template tabHeading>
-              <i class="fa fa-user-plus inline-block m-left-10" aria-hidden="true"></i>
-              <span>المتابعات</span>
-            </ng-template>
-            <div *ngIf="selected=='followers'">
-              <app-followers></app-followers>
-            </div>
-          </tab>
+          <div class="form-group">
+            <label for="instagram" >انستاجرام</label>
+            <input id="instagram" name="instagram" [(ngModel)]="user.instagram" pattern="https?://.+" autocomplete=”off” class="form-control">
+          </div>
 
-          <tab id="revenue" (select)="onSelect($event)">
-            <ng-template tabHeading>
-              <i class="fa fa-dollar inline-block m-left-10" aria-hidden="true"></i>
-              <span>الارباح</span>
-            </ng-template>
-            <div *ngIf="selected=='revenue'">
-              <app-revenue></app-revenue>
-            </div>
-          </tab>
+          <div class="form-group">
+            <label for="google" >جوجل</label>
+            <input id="google" name="google" [(ngModel)]="user.google" pattern="https?://.+" autocomplete=”off” class="form-control">
+          </div>
+        </fieldset>
 
-        </tabset>
+
       </div>
-
-    </div>
-
-  </div>
-  <div class="col col-lg-2">
-    <app-side-menu></app-side-menu>
-  </div>
-</div>
-
-<div class="rtl text-right">
-  <app-recommended-videos></app-recommended-videos>
+    </form>
 </div>
 

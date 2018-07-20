@@ -38,18 +38,19 @@ export class RevenueComponent implements OnInit {
 
   private getRevenue() {
     this.loading = true;
-    // this.ucCalendar.rer
-    // this.calendarOptions = null;
-
     this.userService.getRevenue(this.month,this.year).subscribe(data=>{
       this.revenue = data;
       console.log(this.revenue.revenues);
       this.initCalendarOptions(this.mapDataToCalendar(this.revenue.revenues));
-      // if(this.ucCalendar)
-      //   this.ucCalendar.renderEvents(this.mapDataToCalendar(this.revenue.revenues));
       this.loading = false;
       this.error = '';
+      if(this.first){
+        this.first = false;
+      }
     },err=>{
+      if(this.first){
+        this.first = false;
+      }
       this.loading = false;
       this.error = JSON.stringify(err.error);
     })

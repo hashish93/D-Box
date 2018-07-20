@@ -24,7 +24,7 @@ import { CreatorSignupComponent } from './signup/creator-signup/creator-signup.c
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {AlertModule , CarouselModule} from "ngx-bootstrap";
-import { ProfileComponent } from './logged-in-components/profile/profile.component';
+import { SettingsComponent } from './logged-in-components/settings/settings.component';
 import {JwtModule, JwtModuleOptions} from "@auth0/angular-jwt";
 import {ErrorInterceptorService} from "./services/interceptors/error-interceptor.service";
 import {JwtInterceptorService} from "./services/interceptors/jwt-interceptor.service";
@@ -43,6 +43,8 @@ import { FollowersComponent } from './logged-in-components/followers/followers.c
 import {NgxPaginationModule} from "ngx-pagination/dist/ngx-pagination";
 import { RevenueComponent } from './logged-in-components/revenue/revenue.component';
 import {FullCalendarModule} from "ng-fullcalendar";
+import { ProfileComponent } from './logged-in-components/profile/profile.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -69,7 +71,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     VistorSignupComponent,
     CreatorSignupComponent,
     LoginComponent,
-    ProfileComponent,
+    SettingsComponent,
     ForgetPasswordComponent,
     VerifyCodeComponent,
     ResetPasswordComponent,
@@ -82,7 +84,8 @@ const JWT_Module_Options: JwtModuleOptions = {
     SideMoreViewsComponent,
     FavoritesComponent,
     FollowersComponent,
-    RevenueComponent
+    RevenueComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +100,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     CarouselModule.forRoot(),
     NgxPaginationModule,
     FullCalendarModule,
+    NgSelectModule,
     JwtModule.forRoot(JWT_Module_Options),
   ],
   providers: [
