@@ -5,6 +5,9 @@ $GE_SS_svg_font_path: "assets/fonts/GE_SS_Two_Light.svg#GESSTwoLight-Light";
 $font-family-brand: 'GE_SS';
 
 @import "~fullcalendar/dist/fullcalendar.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+
 
 @font-face {
   font-family:$font-family-brand;
@@ -169,3 +172,8 @@ label {
   width: 100%;
 }
 a.black{color: black}
+
+ng-select.ng-invalid.ng-touched .ng-select-container {
+  border-left: 5px solid #a94442 !important;
+  border: 1px solid #a94442 !important;
+}

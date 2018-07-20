@@ -6,7 +6,7 @@
     </div>
     <div class="float-left m-top-35" *ngIf="authService.isAuthenticated()">
       <a class="float-left register-btn out" routerLink="/" (click)="logout($event);$event.preventDefault()">الخروج</a>
-      <a class="float-left register-btn m-left-10 out" routerLink="/profile" >الملف الشخصي</a>
+      <a class="float-left register-btn m-left-10 out" routerLink="/settings" >الملف الشخصي</a>
     </div>
     <div class="logo">
       <a routerLink="/">

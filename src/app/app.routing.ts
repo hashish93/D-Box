@@ -5,7 +5,7 @@ import {HomeComponent} from './home/home.component'
 import {VistorSignupComponent} from "./signup/visitor-signup/vistor-signup.component";
 import {CreatorSignupComponent} from "./signup/creator-signup/creator-signup.component";
 import {LoginComponent} from "./login/login.component";
-import {ProfileComponent} from "./logged-in-components/profile/profile.component";
+import {SettingsComponent} from "./logged-in-components/settings/settings.component";
 import {
   AuthGuardService as AuthGuard
 } from './services/guards/auth-guard.service';
@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'register/visitor', component: VistorSignupComponent },
   { path: 'register/creator', component: CreatorSignupComponent },
   { path: 'register/creator', component: CreatorSignupComponent },
-  {path: 'profile',component: ProfileComponent,canActivate: [AuthGuard]},
+  {path: 'settings',component: SettingsComponent,canActivate: [AuthGuard]},
   { path: 'forget-password', component: ForgetPasswordComponent,canActivate: [GuestGuard]},
   { path: 'verify-code/:email', component: VerifyCodeComponent,canActivate: [GuestGuard]},
   { path: 'reset-password/:email', component: ResetPasswordComponent,canActivate: [GuestGuard]},

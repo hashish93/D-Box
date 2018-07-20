@@ -1,0 +1,10 @@
+:host ::ng-deep .nav-tabs{padding: 0;border-bottom: 0;}
+:host ::ng-deep .nav-tabs li a{color: #fff;font-weight: 400;border: none;background: #d1d1d1}
+:host ::ng-deep .nav-tabs li a i{color: #fff;font-size: 22px}
+:host ::ng-deep .nav-tabs li.active a i{color: black}
+:host ::ng-deep .nav-tabs li.active a{color: #000;border: none;font-weight: bold;background: #f4f4f4}
+:host ::ng-deep .tab-content{background: #f4f4f4;padding: 20px 10px;}
+
+.custom-top {
+  margin-top: 165px;
+}
