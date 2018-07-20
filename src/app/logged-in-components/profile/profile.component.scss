@@ -21,6 +21,13 @@
   top: -17px;
   color: #969696;
   font-weight: bold;
+  cursor: pointer;
+}
+.edit-option.change-photo.not_valid{
+  background: red;
+  color: #fff;
+  border:1px solid red;
+  cursor: not-allowed;
 }
 
 .section-title {
@@ -40,6 +47,8 @@
   display: inline-block;
   width: auto;
   margin-right: 20px;
+  text-align: left;
+  direction: ltr;
 }
 
 .ng-select {

@@ -27,6 +27,7 @@
     "@ng-select/ng-select": "^2.3.5",
     "@ngu/carousel": "^1.4.8",
     "angular-font-awesome": "^3.1.2",
+    "angular2-notifications": "^1.0.2",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",

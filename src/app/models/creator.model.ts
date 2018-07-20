@@ -8,7 +8,9 @@ export interface CreatorPaginated {
 export interface Creator {
   id:Number,
   _id: Number,
+  _method:string,
   email: string,
+  cpassword:string,
   password:string,
   password_confirmation:string,
   fullname:string,
@@ -35,5 +37,6 @@ export interface Creator {
   _type:string,
   _score:Number,
   user_type:Number,
-  upgrade_account:Number
+  upgrade_account:Number,
+  file:File
 }

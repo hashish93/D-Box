@@ -45,6 +45,7 @@ import { RevenueComponent } from './logged-in-components/revenue/revenue.compone
 import {FullCalendarModule} from "ng-fullcalendar";
 import { ProfileComponent } from './logged-in-components/profile/profile.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {SimpleNotificationsModule} from "angular2-notifications";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -101,6 +102,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     NgxPaginationModule,
     FullCalendarModule,
     NgSelectModule,
+    SimpleNotificationsModule.forRoot(),
     JwtModule.forRoot(JWT_Module_Options),
   ],
   providers: [

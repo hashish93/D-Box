@@ -32,4 +32,28 @@ export class CreatorService {
   getCreator(id: Number) : Observable<any> {
     return this.http.get(this.apiKey+'/'+id)
   }
+
+  getFormData(object) {
+  const formData = new FormData();
+  Object.keys(object).forEach(key => formData.append(key, object[key]));
+  return formData;
+  }
+
+  updateCreator(user: Creator,file: any) : Observable<any> {
+    console.log(user);
+    user._method = 'put';
+    delete user.email;
+    if(file){
+      user.avatar=file;
+    }
+    let userData = this.getFormData(user);
+    // console.log(userData);
+    // if(file){
+    //   var options = { content: userData };
+    //   console.log(file);
+    //   console.log(userData);
+    //   return this.http.post('auth/user',options)
+    // }
+    return this.http.post('auth/user',userData)
+  }
 }

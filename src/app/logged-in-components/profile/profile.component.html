@@ -2,24 +2,32 @@
 <div>
     <form #userForm="ngForm" novalidate (ngSubmit)="onFormSubmit(userForm)" autocomplete="off" class="m-top-10 m-bottom-10">
         <div class="image-container profile-photo">
-          <img src="{{staticEndPoint}}/{{user.avatar}}">
-          <div class="change-photo">
+          <img *ngIf="!fileView" [src]="staticEndPoint+'/'+user.avatar">
+          <img *ngIf="fileView" [src]="fileView">
+          <div tooltip="الحد الاقصى 3 ميجا بايت " class="change-photo" (click)="!edit.section1 && !edit.section2 && !edit.section3 && !edit.section4 && userForm.valid && fileInput.click()">
             <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
             <span>تعديل</span>
           </div>
+          <input #fileInput
+                  style="display: none"
+                 (change)="onFileChanged($event)" type="file">
         </div>
-{{edit | json}}
+      <!--{{userForm.valid}}-->
+      <!--<br>-->
+      <!--{{user | json}}-->
         <div [ngClass]="{'view-mode': !edit.section1}" class="section relative m-top-30">
-          <div (click)="OnClickSection('section1')" class="edit-option change-photo">
-            <div *ngIf="!edit.section1">
-              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
-              <span>تعديل</span>
-            </div>
-            <div *ngIf="edit.section1">
+
+          <div [ngClass]="{'not_valid': edit.section1 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section1')" class="edit-option change-photo">
+              <div *ngIf="!edit.section1">
+                <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+                <span>تعديل</span>
+              </div>
+              <div *ngIf="edit.section1">
               <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
               <span>حفظ</span>
             </div>
           </div>
+
           <h6 class="section-title">البيانات الشخصية</h6>
           <fieldset [disabled]="!edit.section1">
             <div class="form-group">
@@ -31,12 +39,12 @@
               <input [disabled]="true" id="email" name="email" [(ngModel)]="user.email" autocomplete=”off” required class="form-control">
             </div>
             <div class="form-group">
-              <label for="age" >تاريخ الميلاد</label>
+              <label for="age" >السن</label>
               <input id="age" name="age" [(ngModel)]="user.age" type="number" autocomplete=”off” class="form-control">
             </div>
             <div class="form-group">
               <label>البلد</label>
-              <ng-select [items]="countries" required
+              <ng-select [items]="countries" required [disabled]="!edit.section1"
                          name="country" [(ngModel)]="user.country">
               </ng-select>
             </div>
@@ -46,15 +54,17 @@
         </div>
 
         <div [ngClass]="{'view-mode': !edit.section2}" class="section relative m-top-30">
-        <div (click)="OnClickSection('section2')" class="edit-option change-photo">
-          <div *ngIf="!edit.section2">
-            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
-            <span>تعديل</span>
-          </div>
-          <div *ngIf="edit.section2">
+        <div [ngClass]="{'not_valid': edit.section2 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section2')" class="edit-option change-photo">
+          <fieldset [disabled]="!userForm.valid">
+            <div *ngIf="!edit.section2">
+              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <span>تعديل</span>
+            </div>
+            <div *ngIf="edit.section2">
             <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
             <span>حفظ</span>
           </div>
+          </fieldset>
         </div>
         <h6 class="section-title">معلومات عامة</h6>
         <fieldset [disabled]="!edit.section2">
@@ -64,7 +74,7 @@
           </div>
           <div class="form-group">
             <label for="mobile" >الهاتف</label>
-            <input id="mobile" name="mobile" [(ngModel)]="user.mobile" type="number" autocomplete=”off” class="form-control">
+            <input id="mobile" name="mobile" [(ngModel)]="user.mobile" required type="number" autocomplete=”off” class="form-control">
           </div>
           <div class="form-group">
             <label for="address" >الوظيفة</label>
@@ -76,42 +86,86 @@
       </div>
 
         <div [ngClass]="{'view-mode': !edit.section3}" class="section relative m-top-30">
-        <div (click)="OnClickSection('section2')" class="edit-option change-photo">
-          <div *ngIf="!edit.section3">
-            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
-            <span>تعديل</span>
-          </div>
-          <div *ngIf="edit.section3">
+        <div [ngClass]="{'not_valid': edit.section3 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section3')" class="edit-option change-photo">
+          <fieldset [disabled]="!userForm.valid">
+            <div *ngIf="!edit.section3">
+              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <span>تعديل</span>
+            </div>
+            <div *ngIf="edit.section3">
             <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
             <span>حفظ</span>
           </div>
+          </fieldset>
         </div>
         <h6 class="section-title">الحسابات</h6>
         <fieldset [disabled]="!edit.section3">
 
           <div class="form-group">
             <label for="facebook" >فيس بوك</label>
-            <input id="facebook" name="facebook" [(ngModel)]="user.facebook" pattern="https?://.+" autocomplete=”off” class="form-control">
+            <input id="facebook" name="facebook" [(ngModel)]="user.facebook" pattern="^.*(?:facebook|fb\.me).*$" autocomplete=”off” class="form-control">
           </div>
 
           <div class="form-group">
             <label for="twitter" >تويتر</label>
-            <input id="twitter" name="twitter" [(ngModel)]="user.twitter" pattern="https?://.+" autocomplete=”off” class="form-control">
+            <input id="twitter" name="twitter" [(ngModel)]="user.twitter" pattern="^.*(?:twitter).*$" autocomplete=”off” class="form-control">
           </div>
 
           <div class="form-group">
             <label for="instagram" >انستاجرام</label>
-            <input id="instagram" name="instagram" [(ngModel)]="user.instagram" pattern="https?://.+" autocomplete=”off” class="form-control">
+            <input id="instagram" name="instagram" [(ngModel)]="user.instagram" pattern="^.*(?:instagram).*$" autocomplete=”off” class="form-control">
           </div>
 
           <div class="form-group">
             <label for="google" >جوجل</label>
-            <input id="google" name="google" [(ngModel)]="user.google" pattern="https?://.+" autocomplete=”off” class="form-control">
+            <input id="google" name="google" [(ngModel)]="user.google" pattern="^.*(?:google).*$" autocomplete=”off” class="form-control">-
           </div>
         </fieldset>
 
 
       </div>
+
+        <div [ngClass]="{'view-mode': !edit.section4}" class="section relative m-top-30">
+        <div [ngClass]="{'not_valid': edit.section4 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section4')" class="edit-option change-photo">
+          <fieldset [disabled]="!userForm.valid">
+            <div *ngIf="!edit.section4">
+              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <span>تعديل</span>
+            </div>
+            <div *ngIf="edit.section4">
+
+            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+            <span>حفظ</span>
+          </div>
+          </fieldset>
+        </div>
+        <h6 class="section-title">كلمة السر</h6>
+        <fieldset [disabled]="!edit.section4">
+
+          <div class="form-group">
+            <label for="cpassword" >كلمة السر القديمة</label>
+            <input id="cpassword" name="cpassword" type="password" [required]="user.password ? true : false" [(ngModel)]="user.cpassword" autocomplete=”off” class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="password" >كلمة السر الجديدة</label>
+            <input (keyup)="check_password($event)" id="password" name="password" type="password" [(ngModel)]="user.password" autocomplete=”off” class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="password_confirmation" >كلمة السر الجديدة</label>
+            <input (keyup)="check_password($event)" id="password_confirmation" name="password_confirmation" type="password" [(ngModel)]="user.password_confirmation" autocomplete=”off” class="form-control">
+          </div>
+
+          <div *ngIf="!validatePassword && user.password && user.password_confirmation" class="alert alert-danger">
+            كلمة السر غير متطابقة
+          </div>
+
+        </fieldset>
+
+
+      </div>
+
     </form>
 </div>
 
