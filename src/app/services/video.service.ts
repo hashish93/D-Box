@@ -68,7 +68,24 @@ export class VideoService {
     return formData;
   }
   public postVideo(video: Video):Observable<any> {
-    let videoData = this.getFormData(video);
+    console.log(video);
+
+    let uploaded= Object.create(video);
+    if(uploaded.blob){
+      let file = new File([uploaded.file], video.file.name, { type: video.file.type });
+      let blob= new File([uploaded.blob], file.name,{type:file.type});
+      uploaded.file = file;
+      uploaded.title = video.title;
+      uploaded.description = video.description;
+      uploaded.blob = blob;
+      uploaded.file = uploaded.blob;
+      uploaded.category_id = video.category_id;
+      uploaded.num = video.num;
+      uploaded.num_chunks = video.num_chunks;
+      delete uploaded.blob;
+    }
+    console.log(uploaded);
+    let videoData = this.getFormData(uploaded);
     return this.http.post('auth/videos',videoData)
   }
 }

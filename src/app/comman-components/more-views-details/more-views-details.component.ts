@@ -11,7 +11,6 @@ import {AppSettings} from "../../app.settings";
 export class MoreViewsDetailsComponent implements OnInit , OnChanges  {
   ngOnChanges(changes: any  ): void {
       if(changes && changes.categoryId && changes.categoryId.previousValue) {
-        console.log(changes.categoryId.previousValue); //SimpleChange {previousValue: 43, currentValue: 44}
         this.categoryId = changes.categoryId.previousValue
         this.getVideos();
       }

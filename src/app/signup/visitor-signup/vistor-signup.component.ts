@@ -28,12 +28,10 @@ export class VistorSignupComponent implements OnInit {
 
   public onFormSubmit(visitorForm){
     if(visitorForm.valid){
-      console.log(visitorForm);
       this.loading = true;
       this.error = '';
       this.success = false;
       this.creatorService.addVisitor(this.visitor).subscribe(data=> {
-        console.log(data);
         this.loading = false;
         this.success = true;
         this.router.navigate(['/login']);

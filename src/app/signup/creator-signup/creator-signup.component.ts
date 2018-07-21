@@ -33,13 +33,11 @@ export class CreatorSignupComponent implements OnInit {
   }
   public onFormSubmit(creatorForm) {
     if (creatorForm.valid) {
-      console.log(creatorForm);
       this.loading = true;
       this.error = '';
       this.success = false;
       this.matched_user = false;
       this.creatorService.addVisitor(this.creator).subscribe(data=> {
-        console.log(data);
         this.loading = false;
         this.success = true;
         this.matched_user = false;
@@ -48,7 +46,6 @@ export class CreatorSignupComponent implements OnInit {
         this.loading = false;
         this.success = false;
         this.error = JSON.stringify(err.error);
-        console.log(err);
         if(err.status == 409){
           this.matched_user = true;
           this.error = ''

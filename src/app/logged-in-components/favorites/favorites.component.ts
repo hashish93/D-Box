@@ -19,13 +19,11 @@ export class FavoritesComponent implements OnInit {
   constructor(public videoService : VideoService) { }
 
   ngOnInit() {
-    console.log("init fav");
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getLikedVideos()
   }
 
   public pageChanged(event){
-    console.log(event);
     this.current_page = event;
     this.getLikedVideos();
   }
@@ -33,7 +31,6 @@ export class FavoritesComponent implements OnInit {
   public getLikedVideos() {
     this.loading = true;
     this.videoService.getLikedVideos(this.current_page , this.limit , 2).subscribe(data=>{
-      console.log(data);
       this.data = data.data;
       this.total = data.total;
       this.loading = false;

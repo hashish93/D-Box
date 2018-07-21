@@ -40,7 +40,6 @@ export class CreatorService {
   }
 
   updateCreator(user: Creator,file: any) : Observable<any> {
-    console.log(user);
     user._method = 'put';
     delete user.email;
     if(file){

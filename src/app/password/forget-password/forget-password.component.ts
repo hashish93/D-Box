@@ -18,11 +18,9 @@ export class ForgetPasswordComponent implements OnInit {
 
   public onFormSubmit(visitorForm){
     if(visitorForm.valid){
-      console.log(visitorForm);
       this.loading = true;
       this.error = '';
       this.authService.forgetPassword(this.email).subscribe(data=> {
-        console.log(data);
         this.loading = false;
         this.router.navigate(['/verify-code',this.email]);
       },err=>{

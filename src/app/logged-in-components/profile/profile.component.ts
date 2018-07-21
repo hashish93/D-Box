@@ -55,7 +55,6 @@ export class ProfileComponent implements OnInit {
   }
 
   public OnClickSection(section:any){
-    console.log(section);
     switch(section) {
       case 'section1':
         if (!this.edit.section2 && !this.edit.section3 && !this.edit.section4){
@@ -112,8 +111,6 @@ export class ProfileComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       this.file = event.target.files[0];
       var extn = this.file.name.split(".").pop();
-      console.log(this.file);
-      console.log(extn);
       if (event.target.files[0].size / 1024 / 1024 > 3)
         this.notificationService.error("الحد الاقصى للصورة 3 ميجا بايت",'',{timeOut: 3000});
       if(extn == 'jpg' || extn == 'gif' || extn == 'png'){

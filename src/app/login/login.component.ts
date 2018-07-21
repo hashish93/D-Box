@@ -21,11 +21,9 @@ export class LoginComponent implements OnInit {
 
   public onFormSubmit(loginForm){
     if(loginForm.valid){
-      console.log(loginForm);
       this.loading = true;
       this.error = '';
       this.authService.login(this.user).subscribe(data=> {
-        console.log(data);
         this.loading = false;
         localStorage.setItem('access_token',data.access_token);
         this.router.navigate(['/']);

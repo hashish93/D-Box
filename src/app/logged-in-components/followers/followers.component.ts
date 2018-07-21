@@ -18,22 +18,18 @@ export class FollowersComponent implements OnInit {
   constructor(public followerService : FollowerService) { }
 
   ngOnInit() {
-    console.log("init followers");
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getFollowers()
   }
 
   public pageChanged(event){
-    console.log(event);
     this.current_page = event;
     this.getFollowers();
   }
 
   public unfollow(id){
-      console.log(id);
       this.followerService.unfollow(id).subscribe()
       this.data.forEach((item,i)=>{
-        console.log(i);
         if(item.id == id){
           this.data.splice(i, 1);
           return
@@ -44,7 +40,6 @@ export class FollowersComponent implements OnInit {
   public getFollowers() {
     this.loading = true;
     this.followerService.getFollowers(this.current_page , this.limit , 2).subscribe(data=>{
-      console.log(data);
       this.data = data.data;
       this.total = data.total;
       this.loading = false;

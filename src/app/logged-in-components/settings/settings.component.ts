@@ -24,10 +24,8 @@ export class SettingsComponent implements OnInit {
   }
 
   public onSelect(event){
-    console.log(event);
     if(event && event.id){
       this.selected = event.id;
-      console.log("on select")
     }
   }
 

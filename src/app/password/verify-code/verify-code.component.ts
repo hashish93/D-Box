@@ -22,11 +22,9 @@ export class VerifyCodeComponent implements OnInit {
 
   public onFormSubmit(verifyCodeForm){
     if(verifyCodeForm.valid){
-      console.log(verifyCodeForm);
       this.loading = true;
       this.error = '';
       this.authService.verifyCode(this.email,this.code).subscribe(data=> {
-        console.log(data);
         this.loading = false;
         this.router.navigate(['/reset-password',this.email]);
       },err=>{

@@ -38,7 +38,6 @@ export class CreatorDetailsComponent implements OnInit {
   public getCreator(id : Number){
     this.loading = true;
     this.creatorService.getCreator(id).subscribe(data=> {
-      console.log(data);
       this.loading = false;
       this.error = '';
       this.creator = data;
@@ -51,7 +50,6 @@ export class CreatorDetailsComponent implements OnInit {
   private getLatestVideos(id: Number) {
     this.loadingLatestVideos = true;
     this.videoService.getVideos(12,'views','desc',{creator_id:this.creator._id}).subscribe(data=> {
-      console.log(data);
       this.loadingLatestVideos = false;
       this.errorLatestVideos = '';
       this.latestVideos = data;

@@ -38,7 +38,6 @@ export class CategoryDetailsComponent implements OnInit {
   public getCategory(id : Number){
     this.loading = true;
     this.categoryService.getCategory(id).subscribe(data=> {
-      console.log(data);
       this.loading = false;
       this.category = data;
     },err=>{
@@ -51,13 +50,11 @@ export class CategoryDetailsComponent implements OnInit {
     this.loading = true;
     this.firstVideo = null;
     this.videoService.getVideos(null,null,null,{category_id:id}).subscribe(data=> {
-      console.log(data);
       this.loading = false;
       this.videos = data;
       if(this.videos && this.videos.length > 0){
         this.firstVideo =  this.videos[0];
         this.videos = this.videos.splice(1);
-        console.log(this.videos)
       }
 
     },err=>{

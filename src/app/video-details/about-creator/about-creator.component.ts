@@ -12,9 +12,7 @@ import {AppSettings} from "../../app.settings";
 export class AboutCreatorComponent implements OnInit , OnChanges{
 
   ngOnChanges(changes: any  ): void {
-    console.log(changes);
     if(changes && changes.creator_id && changes.creator_id.previousValue) {
-      console.log(changes.creator_id.previousValue); //SimpleChange {previousValue: 43, currentValue: 44}
       this.creator_id = changes.creator_id.previousValue;
       this.getCreator(this.creator_id);
     }
@@ -31,7 +29,6 @@ export class AboutCreatorComponent implements OnInit , OnChanges{
   constructor(public creatorService : CreatorService) { }
 
   ngOnInit() {
-    console.log(this.creator_id);
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getCreator(this.creator_id);
   }
@@ -39,7 +36,6 @@ export class AboutCreatorComponent implements OnInit , OnChanges{
   public getCreator(id : Number){
     this.loading = true;
     this.creatorService.getCreator(id).subscribe(data=> {
-      console.log(data);
       this.loading = false;
       this.creator = data;
       this.onGetCreator.emit(this.creator);

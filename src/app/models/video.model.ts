@@ -28,5 +28,8 @@ export interface Video {
   category_id: number,
   is_liked:boolean,
   tags:any,
-  file:any
+  file:any,
+  num: number,
+  num_chunks: number,
+  blob: any
 }

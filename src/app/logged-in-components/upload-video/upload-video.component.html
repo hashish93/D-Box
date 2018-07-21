@@ -46,9 +46,20 @@
           </div>
 
           <div class="m-top-35">
-            <button  [disabled]="!videoForm.valid || !video.file" (click)="submit(videoForm)" class="btn btn-success">
+            <button  [disabled]="!videoForm.valid || !video.file || loading" (click)="submit(videoForm)" class="btn btn-success">
               حفظ
             </button>
+          </div>
+          <div *ngIf="video.file">
+            loaded {{loaded}}
+            <br>
+            next {{loaded+step}}
+            <br>
+            {{video.file.size | json}}
+            <br>
+            حجم الملف : {{video.file.size / 1024 / 1024 | number }}
+            <br>
+            رفع {{video.num}} / {{video.num_chunks}}
           </div>
           <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 

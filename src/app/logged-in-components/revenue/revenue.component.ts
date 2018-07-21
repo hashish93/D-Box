@@ -30,8 +30,6 @@ export class RevenueComponent implements OnInit {
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
-    console.log(this.year);
-    console.log(this.month);
     this.getRevenue();
     this.initCalendarOptions();
   }
@@ -40,7 +38,6 @@ export class RevenueComponent implements OnInit {
     this.loading = true;
     this.userService.getRevenue(this.month,this.year).subscribe(data=>{
       this.revenue = data;
-      console.log(this.revenue.revenues);
       this.initCalendarOptions(this.mapDataToCalendar(this.revenue.revenues));
       this.loading = false;
       this.error = '';
@@ -66,7 +63,6 @@ export class RevenueComponent implements OnInit {
 
       result.push(obj);
     }
-    console.log(result)
     return result;
   }
 
@@ -75,8 +71,6 @@ export class RevenueComponent implements OnInit {
     dateString = model.data._d;
     this.year = new Date(dateString).getUTCFullYear();
     this.month = new Date(dateString).getUTCMonth() + 1;
-    console.log(this.year);
-    console.log(this.month);
     this.getRevenue();
   }
 

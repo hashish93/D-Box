@@ -44,7 +44,6 @@ export class VideoDetailsComponent implements OnInit {
     this.loading = true;
     this.error = '';
     this.videoService.getVideo(id).subscribe(data=> {
-      console.log(data);
       this.video = data;
       this.loading = false;
     },err=>{
@@ -67,7 +66,6 @@ export class VideoDetailsComponent implements OnInit {
   }
 
   public getCreator(creator : any){
-    console.log('creator: ', creator);
     this.creator = creator;
   }
 }
