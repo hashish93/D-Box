@@ -1,6 +1,6 @@
 <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 <div>
-    <form #userForm="ngForm" novalidate (ngSubmit)="onFormSubmit(userForm)" autocomplete="off" class="m-top-10 m-bottom-10">
+    <form #userForm="ngForm" novalidate autocomplete="off" class="m-top-10 m-bottom-10">
         <div class="image-container profile-photo">
           <img *ngIf="!fileView" [src]="staticEndPoint+'/'+user.avatar">
           <img *ngIf="fileView" [src]="fileView">

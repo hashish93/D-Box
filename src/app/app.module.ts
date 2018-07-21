@@ -46,6 +46,7 @@ import {FullCalendarModule} from "ng-fullcalendar";
 import { ProfileComponent } from './logged-in-components/profile/profile.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {SimpleNotificationsModule} from "angular2-notifications";
+import { UploadVideoComponent } from './logged-in-components/upload-video/upload-video.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -86,7 +87,8 @@ const JWT_Module_Options: JwtModuleOptions = {
     FavoritesComponent,
     FollowersComponent,
     RevenueComponent,
-    ProfileComponent
+    ProfileComponent,
+    UploadVideoComponent
   ],
   imports: [
     BrowserModule,

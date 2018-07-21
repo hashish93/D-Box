@@ -37,6 +37,7 @@ export interface Creator {
   _type:string,
   _score:Number,
   user_type:Number,
+  is_creator:Number,
   upgrade_account:Number,
   file:File
 }

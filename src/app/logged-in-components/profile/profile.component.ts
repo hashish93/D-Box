@@ -2,7 +2,6 @@ import {Component, OnInit, Input, Output, EventEmitter, AfterViewInit} from '@an
 import {User} from "../../models/user.model";
 import {UserService} from "../../services/user.service";
 import {AppSettings} from "../../app.settings";
-import {PrettyPrintPipe} from "../../pipes/pretty-print-pipe";
 import {Creator} from "../../models/creator.model";
 import {SettingsComponent} from "../settings/settings.component";
 import {CountryService} from "../../services/country.service";

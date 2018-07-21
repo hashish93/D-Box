@@ -11,9 +11,11 @@
         <img src="./assets/images/ad.png">
       </div>
 
-      <div class="width100 inline-block rtl text-right">
+      <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+
+      <div *ngIf="!loading" class="width100 inline-block rtl text-right">
         <tabset>
-            <tab id="favorites" (select)="onSelect($event)">
+            <tab id="favorites"  (select)="onSelect($event)">
               <ng-template tabHeading>
                 <i class="fa fa-heart-o inline-block m-left-10" aria-hidden="true"></i>
                 <span>المفضلات</span>
@@ -33,25 +35,39 @@
               </div>
             </tab>
 
-            <tab id="revenue" (select)="onSelect($event)">
-              <ng-template tabHeading>
-                <i class="fa fa-dollar inline-block m-left-10" aria-hidden="true"></i>
-                <span>الارباح</span>
-              </ng-template>
-              <div *ngIf="selected=='revenue'">
-                <app-revenue></app-revenue>
-              </div>
-            </tab>
-
             <tab id="profile" (select)="onSelect($event)">
-              <ng-template tabHeading>
-                <i class="fa fa-cog inline-block m-left-10" aria-hidden="true"></i>
-                <span>الاعدادات</span>
-              </ng-template>
-              <div *ngIf="selected=='profile'">
-                <app-profile></app-profile>
-              </div>
-            </tab>
+            <ng-template tabHeading>
+              <i class="fa fa-cog inline-block m-left-10" aria-hidden="true"></i>
+              <span>الاعدادات</span>
+            </ng-template>
+            <div *ngIf="selected=='profile'">
+              <app-profile></app-profile>
+            </div>
+          </tab>
+
+            <tab id="revenue" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
+            <ng-template tabHeading>
+              <i class="fa fa-dollar inline-block m-left-10" aria-hidden="true"></i>
+              <span>الارباح</span>
+            </ng-template>
+            <div *ngIf="selected=='revenue'">
+              <app-revenue></app-revenue>
+            </div>
+          </tab>
+
+            <tab id="upload" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
+            <ng-template tabHeading>
+              <i class="fa fa-cloud-upload inline-block m-left-10" aria-hidden="true"></i>
+              <span>اضافة</span>
+            </ng-template>
+            <div *ngIf="selected=='upload'">
+              <app-upload-video></app-upload-video>
+            </div>
+          </tab>
+
+
+
+
 
         </tabset>
       </div>
