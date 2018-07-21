@@ -17,8 +17,11 @@
   font-weight: 400;
 }
 .btn.btn-success {
-  background: #3c92d7;
+  background: #3c92d7 !important;
+  border : 1px solid #3c92d7 !important;
   border-radius: 0;
   padding: 2px 30px;
   font-weight: bold;
+  box-shadow: none;
 }
+.white-bg{background-color: #fff}

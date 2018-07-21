@@ -47,13 +47,6 @@ export class CreatorService {
       user.avatar=file;
     }
     let userData = this.getFormData(user);
-    // console.log(userData);
-    // if(file){
-    //   var options = { content: userData };
-    //   console.log(file);
-    //   console.log(userData);
-    //   return this.http.post('auth/user',options)
-    // }
     return this.http.post('auth/user',userData)
   }
 }

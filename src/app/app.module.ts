@@ -47,6 +47,7 @@ import { ProfileComponent } from './logged-in-components/profile/profile.compone
 import { NgSelectModule } from '@ng-select/ng-select';
 import {SimpleNotificationsModule} from "angular2-notifications";
 import { UploadVideoComponent } from './logged-in-components/upload-video/upload-video.component';
+import {TagInputModule} from "ngx-chips";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -105,6 +106,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     FullCalendarModule,
     NgSelectModule,
     SimpleNotificationsModule.forRoot(),
+    TagInputModule,
     JwtModule.forRoot(JWT_Module_Options),
   ],
   providers: [

@@ -132,18 +132,4 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  // public onFileChanged(event) {
-  //   const file = event.target.files[0];
-  //   if(file){
-  //     var extn = file.name.split(".").pop();
-  //     console.log(file);
-  //     console.log(extn);
-  //     if(extn == 'jpg' || extn == 'gif' || extn == 'png'){
-  //       // this.fileView = URL.createObjectURL(file);
-  //       var reader = new FileReader();
-  //       this.fileView = reader.readAsDataURL(file);
-  //       console.log(this.fileView)
-  //     }
-  //   }
-  // }
 }

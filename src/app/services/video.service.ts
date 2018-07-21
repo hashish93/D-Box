@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Video} from "../models/video.model";
 
 @Injectable({
   providedIn: 'root'
@@ -44,16 +45,30 @@ export class VideoService {
   }
 
   public getLikedVideos(page?:Number,limit?:Number,pagination?:Number): Observable<any>{
-  let params : string = '';
-  if(page){
-    params +='?page='+page
+    let params : string = '';
+    if(page){
+      params +='?page='+page
+    }
+    if(limit){
+      params +='&limit='+limit
+    }
+    if(pagination){
+      params +='&pagination='+pagination
+    }
+    return this.http.get('auth/liked/list'+params);
   }
-  if(limit){
-    params +='&limit='+limit
+
+  public getTags = (text: string): Observable<any> => {
+    return this.http.get('tags/search?keyword='+text);
+  };
+
+  public getFormData(object) {
+    const formData = new FormData();
+    Object.keys(object).forEach(key => formData.append(key, object[key]));
+    return formData;
   }
-  if(pagination){
-    params +='&pagination='+pagination
+  public postVideo(video: Video):Observable<any> {
+    let videoData = this.getFormData(video);
+    return this.http.post('auth/videos',videoData)
   }
-  return this.http.get('auth/liked/list'+params);
-}
 }

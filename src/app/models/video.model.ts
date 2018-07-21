@@ -25,5 +25,8 @@ export interface Video {
   },
   date: Date,
   category: Category,
-  is_liked:boolean
+  category_id: number,
+  is_liked:boolean,
+  tags:any,
+  file:any
 }
