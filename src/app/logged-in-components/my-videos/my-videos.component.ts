@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {Video} from "../../models/video.model";
 import {VideoService} from "../../services/video.service";
 import {AppSettings} from "../../app.settings";
+import {Observable} from "rxjs";
+import {NotExpr} from "@angular/compiler";
+import {NotificationsService} from "angular2-notifications";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-my-videos',
@@ -16,7 +20,8 @@ export class MyVideosComponent implements OnInit {
   public current_page : number = 1;
   public limit : number = 10;
   public staticEndPoint : string = '';
-  constructor(public videoService : VideoService) { }
+  public checked:boolean = false;
+  constructor(public videoService : VideoService,public notificationService : NotificationsService) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
@@ -40,4 +45,40 @@ export class MyVideosComponent implements OnInit {
       this.error = JSON.stringify(err.error);
     })
   }
+
+
+
+
+  public deleteVideo(id){
+    this.videoService.deleteVideo(id).subscribe(data=>{
+      this.notificationService.success("تم حذف الفيديو بنجاح","",{timeOut:3000})
+      this.getMyVideos()
+    },err=>{
+      this.notificationService.error("خطأ في حذف الفيديو","",{timeOut:3000})
+    })
+
+  }
+
+  public toggleCheck(){
+    this.checked = !this.checked;
+    for(let video of this.videos){
+        video.checked = this.checked;
+    }
+  }
+  public deleteMultiple(){
+    let  IDS = [];
+    for(let video of this.videos){
+      if(video.checked)
+        IDS.push(video.id);
+    }
+    if(IDS.length > 0){
+      this.videoService.deleteVideos(IDS).subscribe(data=>{
+        this.notificationService.success("تم حذف الفيديو بنجاح","",{timeOut:3000})
+        this.getMyVideos()
+      },err=>{
+        this.notificationService.error("خطأ في حذف الفيديو","",{timeOut:3000})
+      })
+    }
+  }
+
 }

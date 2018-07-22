@@ -1,0 +1,79 @@
+<div class="row margin-0">
+  <div class="col col-lg-2">
+
+
+  </div>
+  <div class="col col-lg-8 col-xs-12" id="main">
+    <div class="row margin-0" *ngIf="router.url != '/register/visitor'">
+      <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+        <img src="./assets/images/ad.png">
+      </div>
+      <div class="col col-lg-2"></div>
+    </div>
+    <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+    <div class="rtl text-right" *ngIf="!loading">
+      <div class="video_upload_container">
+        <h5 class="video-header">تعديل الفيديو</h5>
+        <form #videoForm="ngForm" novalidate autocomplete="off">
+          <div class="row margin-0">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <div class="image-container m-top-10 m-bottom-10">
+                <img style="cursor: pointer" *ngIf="!fileView && !video.thumbnails && !video.thumbnails.small" src="../../../assets/images/upload2.png" (click)="fileInput.click()">
+                <img style="cursor: pointer" *ngIf="!fileView && video.thumbnails && video.thumbnails.small" [src]="staticEndPoint+'/'+video.thumbnails.small" (click)="fileInput.click()">
+                <img style="cursor: pointer" *ngIf="fileView" [src]="fileView" (click)="fileInput.click()">
+                <input #fileInput
+                       style="display: none" accept="image/*"
+                       (change)="onFileChanged($event)" type="file">
+              </div>
+              <div class="image-container">
+                <img src="../../../assets/images/upload.png">
+              </div>
+
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <h6 class="video-header">عنوان الفيديو</h6>
+                <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+                <textarea id="title" name="title" [(ngModel)]="video.title" autocomplete=”off” required class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <h6 class="video-header">وصف الفيديو</h6>
+                <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+                <textarea id="description" name="description" [(ngModel)]="video.description" rows="5" autocomplete=”off” required class="form-control"></textarea>
+              </div>
+              <div *ngIf="categories" class="form-group">
+                <h6 class="video-header">القسم</h6>
+                <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+                <ng-select required
+                           name="category" [(ngModel)]="video.category_id">
+                  <ng-option *ngFor="let category of categories" [value]="category._id" >{{category.title}}</ng-option>
+                </ng-select>
+              </div>
+              <div class="form-group">
+                <h6 class="video-header">الوسوم</h6>
+                <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+                <!--<input id="tags" name="tags" [(ngModel)]="video.tags" autocomplete=”off” required class="form-control">-->
+                <tag-input class="white-bg" name="tags" [secondaryPlaceholder]="'اضف تاج'" [placeholder]="'اضف تاج'"   (onAdd)="onItemAdded($event)" [(ngModel)]='video.tags'>
+                  <tag-input-dropdown [autocompleteObservable]='AutocompleteTags'>
+                  </tag-input-dropdown>
+                </tag-input>
+              </div>
+
+              <div class="m-top-35">
+                <button  [disabled]="!videoForm.valid || loading" (click)="submit(videoForm)" class="btn btn-success">
+                  حفظ
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="col col-lg-2">
+    <app-side-menu></app-side-menu>
+  </div>
+</div>

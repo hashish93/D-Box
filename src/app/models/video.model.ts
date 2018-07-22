@@ -31,5 +31,6 @@ export interface Video {
   file:any,
   num: number,
   num_chunks: number,
-  blob: any
+  blob: any,
+  checked:any
 }

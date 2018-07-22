@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Video} from "../models/video.model";
+import {RequestOptions} from "@angular/http";
+import {HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -101,5 +103,13 @@ export class VideoService {
       params += '&pagination=' + pagination
     }
     return this.http.get('auth/videos' + params);
+  }
+
+  deleteVideo(id: any) : Observable<any> {
+    return this.http.delete('auth/videos/'+id);
+  }
+
+  deleteVideos(IDS: any) {
+    return this.http.delete('auth/videos/delete/bulk',{ body: {"ids":IDS} });
   }
 }

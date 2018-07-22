@@ -4,7 +4,11 @@
     <h4 class="text-center">لا يوجد مفضلات</h4>
   </div>
   <div *ngIf="total>0">
-
+    <form #myVideosForm="ngForm" novalidate autocomplete="off" >
+      <div class="group-order">
+        <button class="btn btn-light" (click)="toggleCheck()">اجراء جماعي</button>
+        <button class="btn btn-dark" (click)="deleteMultiple()">تطبيق</button>
+      </div>
       <table class="table">
         <thead>
         <tr>
@@ -18,27 +22,46 @@
         </tr>
         </thead>
         <tbody *ngIf="!loading">
-        <tr *ngFor="let video of videos | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }">
-          <th scope="row"></th>
+        <tr *ngFor="let video of videos | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total}">
+          <td scope="row"><input type="checkbox" name="checked" [(ngModel)]="video.checked"></td>
           <td>{{video.created_at | date: 'dd MMMM'}}</td>
-          <td class="image-container"><img src="{{staticEndPoint}}/{{video.capturedImageUrl}}"></td>
-          <td>{{video.title}}</td>
-          <td>{{video.description}}</td>
-          <td>{{video.tags | json}}</td>
+          <td class="image-container relative" >
+            <img src="{{staticEndPoint}}/{{video.capturedImageUrl}}">
+
+            <span class="player-icon">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </span>
+          </td>
           <td>
-            <button class="btn btn-light">
-              <i class="fa fa-edit"></i>
-              <span>تعديل</span>
-            </button>
-            <button class="btn btn-danger">
-              <i class="fa fa-delete"></i>
-              <span>حذف</span>
-            </button>
+            <div>{{video.title}}</div>
+          </td>
+          <td>
+            <div>{{video.description}}</div>
+          </td>
+
+          <td>
+            <div>{{video.tags}}</div>
+          </td>
+          <td>
+            <div>
+              <button class="btn btn-light">
+                <a style="color: #272727;" routerLink="/edit-video/{{video.id}}">
+                  <i class="fa fa-edit"></i>
+                  <span>تعديل</span>
+                </a>
+              </button>
+            </div>
+            <div>
+              <button class="btn btn-danger" (click)="deleteVideo(video.id)">
+                <i class="fa fa-trash"></i>
+                <span>حذف</span>
+              </button>
+            </div>
           </td>
         </tr>
         </tbody>
       </table>
-
+    </form>
 
     <pagination-controls (pageChange)="pageChanged($event)" previousLabel="السابق"
                          nextLabel="التالي"

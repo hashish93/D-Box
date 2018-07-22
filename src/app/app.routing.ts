@@ -16,6 +16,7 @@ import {ResetPasswordComponent} from "./password/reset-password/reset-password.c
 import {VideoDetailsComponent} from "./video-details/video-details.component";
 import {CategoryDetailsComponent} from "./category-details/category-details.component";
 import {CreatorDetailsComponent} from "./creator-details/creator-details.component";
+import {EditVideoComponent} from "./logged-in-components/edit-video/edit-video.component";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,5 +32,6 @@ export const routes: Routes = [
   { path: 'video/:id', component: VideoDetailsComponent },
   { path: 'category/:id', component: CategoryDetailsComponent},
   { path: 'creator/:id', component: CreatorDetailsComponent},
+  { path: 'edit-video/:id', component: EditVideoComponent,canActivate:[AuthGuard]},
 ];
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });
