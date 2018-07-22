@@ -22,9 +22,10 @@ export class UploadVideoComponent implements OnInit {
   public error : string = '';
 
   public loaded = 0;
-  public step = 1048576 / 1024//1024*1024; size of one chunk
+  public step = 1048576 //1024*1024; size of one chunk
   public total = 0;  // total size of file
   public start = 0;          // starting position
+  public failture = 0;
 
 
   constructor(public videoService: VideoService,
@@ -55,7 +56,6 @@ export class UploadVideoComponent implements OnInit {
         this.notificationService.error("الحد الاقصى للصورة 1 جيجا بايت", '', {timeOut: 3000});
       if (extn.toLowerCase() == 'mp4' || extn.toLowerCase() == 'avi' ||
         extn.toLowerCase() == 'flv' || extn.toLowerCase() == 'mov' ||
-        extn.toLowerCase() == 'flv' || extn.toLowerCase() == 'wmv' ||
         extn.toLowerCase() == 'wmv') {
         var reader = new FileReader();
         reader.onload = (event: ProgressEvent) => {
@@ -64,7 +64,7 @@ export class UploadVideoComponent implements OnInit {
 
         reader.readAsDataURL(this.video.file);
         this.loaded = 0;
-        this.step = 1048576//1024*1024; size of one chunk
+        this.step = 10485760//1024*1024; size of one chunk
         this.total = this.video.file.size;  // total size of file
         this.start = 0;          // starting position
         this.video.blob = this.video.file.slice(this.start, this.step); //a single chunk in starting of step size
@@ -78,7 +78,7 @@ export class UploadVideoComponent implements OnInit {
   }
 
   public submit(videoForm){
-    if(this.video.file.size / 1024 / 1024 > 1)
+    if(this.video.file.size / 1024 / 1024 > 10)
       this.uploadVideoWithChunks();
     else
       this.uploadVideo();
@@ -90,22 +90,28 @@ export class UploadVideoComponent implements OnInit {
     let video = this.video;
     this.videoService.postVideo(video)
       .subscribe(data=> {
-      this.loaded += this.step;                 //increasing loaded which is being used as start position for next chunk
-      this.video.num+=1;
-      if(this.loaded <= this.total){            // if file is not completely uploaded
-        this.video.blob = this.video.file.slice(this.loaded,this.loaded+this.step);  // getting next chunk
-        this.uploadVideoWithChunks();
-      } else {                       // if file is uploaded completely
-        this.loaded = this.total;            // just changed loaded which could be used to show status.
-        this.loading = false;
-        this.error ='';
-        this.notificationService.success("تم رفع الفيديو بنجاح", '', {timeOut: 3000});
-        this.router.navigate(['/']);
-      }
+        this.loaded += this.step;                 //increasing loaded which is being used as start position for next chunk
+        this.failture = 0;
+        if(data.chunks && data.chunks.length > 0){            // if file is not completely uploaded
+          this.video.num=data.chunks[0];
+          this.video.blob = this.video.file.slice((data.chunks[0]-1)*this.step,(data.chunks[0])*this.step);  // getting next chunk
+          this.uploadVideoWithChunks();
+        } else {                       // if file is uploaded completely
+          this.loaded = this.total;            // just changed loaded which could be used to show status.
+          this.loading = false;
+          this.error ='';
+          this.notificationService.success("تم رفع الفيديو بنجاح", '', {timeOut: 3000});
+          this.router.navigate(['/']);
+        }
 
     }, err=> {
-      this.loading = false;
-      this.error = JSON.stringify(err.error);
+      this.failture +=1;
+      if(this.failture <= 10){
+        this.uploadVideoWithChunks();
+      }else{
+        this.loading = false;
+        this.error = JSON.stringify(err.error);
+      }
     })
 
   }

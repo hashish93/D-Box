@@ -50,14 +50,10 @@
               حفظ
             </button>
           </div>
-          <div *ngIf="video.file">
-            loaded {{loaded}}
-            <br>
-            next {{loaded+step}}
-            <br>
-            {{video.file.size | json}}
-            <br>
-            حجم الملف : {{video.file.size / 1024 / 1024 | number }}
+          <div *ngIf="video.file && video.file.size > 0">
+            <progressbar *ngIf="video.file.size > step" class="m-top-20" [animate]="false" max="100" [value]="loaded / video.file.size * 100" type="success"><b>{{loaded / video.file.size * 100 | number:'1.'}} / 100</b></progressbar>
+
+            حجم الملف بالميحا : {{video.file.size / 1024 / 1024 | number }}
             <br>
             رفع {{video.num}} / {{video.num_chunks}}
           </div>
