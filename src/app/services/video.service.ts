@@ -88,4 +88,18 @@ export class VideoService {
     let videoData = this.getFormData(uploaded);
     return this.http.post('auth/videos',videoData)
   }
+
+  public getMyVideos(page?:Number,limit?:Number,pagination?:Number): Observable<any> {
+    let params: string = '';
+    if (page) {
+      params += '?page=' + page
+    }
+    if (limit) {
+      params += '&limit=' + limit
+    }
+    if (pagination) {
+      params += '&pagination=' + pagination
+    }
+    return this.http.get('auth/videos' + params);
+  }
 }

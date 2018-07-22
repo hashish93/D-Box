@@ -1,0 +1,13 @@
+:host ::ng-deep .ngx-pagination{text-align: center;direction: ltr;padding-left: 0;}
+:host ::ng-deep .ngx-pagination li.pagination-next a,
+:host ::ng-deep .ngx-pagination li.pagination-previous a,
+:host ::ng-deep .ngx-pagination .pagination-next.disabled,
+:host ::ng-deep .ngx-pagination .pagination-previous.disabled
+{padding: 13px 15px;display: inline-block}
+:host ::ng-deep  .ngx-pagination .current{
+  color: #000;
+  background: #d7d7d7;
+  margin: 0 10px;
+}
+:host ::ng-deep  .ngx-pagination li.pagination-next{background: #ffffff}
+:host ::ng-deep  .ngx-pagination li.pagination-previous{background: #bcbcbc;color: #fff}

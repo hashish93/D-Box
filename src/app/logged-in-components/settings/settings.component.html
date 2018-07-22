@@ -65,6 +65,16 @@
             </div>
           </tab>
 
+          <tab id="my-videos" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
+            <ng-template tabHeading>
+              <i class="fa fa-youtube-play inline-block m-left-10" aria-hidden="true"></i>
+              <span>فيديوهاتي</span>
+            </ng-template>
+            <div *ngIf="selected=='my-videos'">
+              <app-my-videos></app-my-videos>
+            </div>
+          </tab>
+
 
 
 

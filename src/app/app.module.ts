@@ -48,6 +48,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import {SimpleNotificationsModule} from "angular2-notifications";
 import { UploadVideoComponent } from './logged-in-components/upload-video/upload-video.component';
 import {TagInputModule} from "ngx-chips";
+import { MyVideosComponent } from './logged-in-components/my-videos/my-videos.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -89,7 +90,8 @@ const JWT_Module_Options: JwtModuleOptions = {
     FollowersComponent,
     RevenueComponent,
     ProfileComponent,
-    UploadVideoComponent
+    UploadVideoComponent,
+    MyVideosComponent
   ],
   imports: [
     BrowserModule,

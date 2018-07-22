@@ -1,0 +1,48 @@
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+<div>
+  <div *ngIf="!loading && total==0">
+    <h4 class="text-center">لا يوجد مفضلات</h4>
+  </div>
+  <div *ngIf="total>0">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">التاريخ</th>
+          <th scope="col">الفيديو</th>
+          <th scope="col">العنوان</th>
+          <th scope="col">الوصف</th>
+          <th scope="col">الوسوم</th>
+          <th scope="col">الاجراءات</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="!loading">
+        <tr *ngFor="let video of videos | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }">
+          <th scope="row"></th>
+          <td>{{video.created_at | date: 'dd MMMM'}}</td>
+          <td class="image-container"><img src="{{staticEndPoint}}/{{video.capturedImageUrl}}"></td>
+          <td>{{video.title}}</td>
+          <td>{{video.description}}</td>
+          <td>{{video.tags | json}}</td>
+          <td>
+            <button class="btn btn-light">
+              <i class="fa fa-edit"></i>
+              <span>تعديل</span>
+            </button>
+            <button class="btn btn-danger">
+              <i class="fa fa-delete"></i>
+              <span>حذف</span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+    <pagination-controls (pageChange)="pageChanged($event)" previousLabel="السابق"
+                         nextLabel="التالي"
+                         screenReaderPageLabel="صفحة"
+                         screenReaderCurrentLabel="انت الان في صفحة "></pagination-controls>
+  </div>
+</div>
