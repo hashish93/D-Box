@@ -64,7 +64,7 @@ export class UploadVideoComponent implements OnInit {
 
         reader.readAsDataURL(this.video.file);
         this.loaded = 0;
-        this.step = 10485760//1024*1024; size of one chunk
+        this.step = 1048576//1024*1024; size of one chunk
         this.total = this.video.file.size;  // total size of file
         this.start = 0;          // starting position
         this.video.blob = this.video.file.slice(this.start, this.step); //a single chunk in starting of step size
@@ -90,6 +90,7 @@ export class UploadVideoComponent implements OnInit {
     let video = this.video;
     this.videoService.postVideo(video)
       .subscribe(data=> {
+        console.log(data);
         this.loaded += this.step;                 //increasing loaded which is being used as start position for next chunk
         this.failture = 0;
         if(data.chunks && data.chunks.length > 0){            // if file is not completely uploaded
