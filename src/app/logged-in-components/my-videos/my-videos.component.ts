@@ -73,10 +73,10 @@ export class MyVideosComponent implements OnInit {
     }
     if(IDS.length > 0){
       this.videoService.deleteVideos(IDS).subscribe(data=>{
-        this.notificationService.success("تم حذف الفيديو بنجاح","",{timeOut:3000})
+        this.notificationService.success("تم حذف الفيديوهات بنجاح","",{timeOut:3000})
         this.getMyVideos()
       },err=>{
-        this.notificationService.error("خطأ في حذف الفيديو","",{timeOut:3000})
+        this.notificationService.error("خطأ في حذف الفيديوهات","",{timeOut:3000})
       })
     }
   }

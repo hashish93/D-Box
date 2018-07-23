@@ -18,8 +18,8 @@
           <div class="row margin-0">
             <div class="col-md-4 col-sm-12 col-xs-12">
               <div class="image-container m-top-10 m-bottom-10">
-                <img style="cursor: pointer" *ngIf="!fileView && !video.thumbnails && !video.thumbnails.small" src="../../../assets/images/upload2.png" (click)="fileInput.click()">
-                <img style="cursor: pointer" *ngIf="!fileView && video.thumbnails && video.thumbnails.small" [src]="staticEndPoint+'/'+video.thumbnails.small" (click)="fileInput.click()">
+                <img style="cursor: pointer" *ngIf="!fileView && !video.capturedImageUrl" src="../../../assets/images/upload2.png" (click)="fileInput.click()">
+                <img style="cursor: pointer" *ngIf="!fileView && video.capturedImageUrl" src="{{staticEndPoint}}/{{video.capturedImageUrl}}" (click)="fileInput.click()">
                 <img style="cursor: pointer" *ngIf="fileView" [src]="fileView" (click)="fileInput.click()">
                 <input #fileInput
                        style="display: none" accept="image/*"
@@ -45,8 +45,8 @@
                 <h6 class="video-header">القسم</h6>
                 <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
                 <ng-select required
-                           name="category" [(ngModel)]="video.category_id">
-                  <ng-option *ngFor="let category of categories" [value]="category._id" >{{category.title}}</ng-option>
+                           name="category" [(ngModel)]="video.category_name">
+                  <ng-option *ngFor="let category of categories"   [value]="category.title" >{{category.title}}</ng-option>
                 </ng-select>
               </div>
               <div class="form-group">

@@ -171,7 +171,7 @@ label {
 .img-container img{
   width: 100%;
 }
-a.black{color: black}
+a.black{color: black !important;}
 
 ng-select.ng-invalid.ng-touched .ng-select-container {
   border-left: 5px solid #a94442 !important;

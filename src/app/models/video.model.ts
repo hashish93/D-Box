@@ -19,13 +19,16 @@ export interface Video {
   description: string,
   thumbnail: string,
   thumbnails: Object,
+  defaultImageUrl:string,
   counter:{
     likes : number,
     views : number
   },
+  _method:string,
   date: Date,
   category: Category,
   category_id: number,
+  category_name: string,
   is_liked:boolean,
   tags:any,
   file:any,

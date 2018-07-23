@@ -26,14 +26,16 @@
           <td scope="row"><input type="checkbox" name="checked" [(ngModel)]="video.checked"></td>
           <td>{{video.created_at | date: 'dd MMMM'}}</td>
           <td class="image-container relative" >
-            <img src="{{staticEndPoint}}/{{video.capturedImageUrl}}">
+            <a routerLink="/video/{{video.id}}">
+              <img src="{{staticEndPoint}}/{{video.capturedImageUrl}}">
 
-            <span class="player-icon">
-                <i class="fa fa-play" aria-hidden="true"></i>
-              </span>
+              <span class="player-icon">
+                  <i class="fa fa-play" aria-hidden="true"></i>
+                </span>
+            </a>
           </td>
           <td>
-            <div>{{video.title}}</div>
+            <div><a class="black"  routerLink="/video/{{video.id}}">{{video.title}}</a></div>
           </td>
           <td>
             <div>{{video.description}}</div>

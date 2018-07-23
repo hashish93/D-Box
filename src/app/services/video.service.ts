@@ -37,6 +37,9 @@ export class VideoService {
   public getVideo(id?:Number): Observable<any>{
     return this.http.get(this.apiKey+'/'+id);
   }
+  public getAuthVideo(id?:Number): Observable<any>{
+    return this.http.get("auth/"+this.apiKey+'/'+id);
+  }
 
   public likeVideo(id: Number): Observable<any> {
     return this.http.get('auth/like/'+id);
@@ -110,6 +113,19 @@ export class VideoService {
   }
 
   deleteVideos(IDS: any) {
-    return this.http.delete('auth/videos/delete/bulk',{ body: {"ids":IDS} });
+    return this.http.request('delete','auth/videos/delete/bulk',{ body: {"ids":IDS} });
+  }
+
+  editVideo(video: Video) : Observable<any> {
+    console.log(video)
+    let myVideo = video;
+    myVideo._method = 'put';
+    if(myVideo.file){
+      myVideo.defaultImageUrl=myVideo.file;
+    }else{
+      delete myVideo.defaultImageUrl;
+    }
+    let videoData = this.getFormData(myVideo);
+    return this.http.post('auth/videos/'+myVideo.id,videoData);
   }
 }
