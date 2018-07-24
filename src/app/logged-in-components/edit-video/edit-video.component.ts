@@ -43,7 +43,7 @@ export class EditVideoComponent implements OnInit {
       this.categories = data;
       this.getVideo();
     },err=>{
-      this.notificationService.error("خطأ في تحميل الفوائم");
+      this.notificationService.error("خطأ في تحميل الفوائم",'',{timeOut:3000});
     })
   }
 
@@ -100,7 +100,7 @@ export class EditVideoComponent implements OnInit {
       cat => cat.title == this.video.category_name)[0]._id;
     this.videoService.editVideo(this.video).subscribe(data=>{
       this.loading = false;
-      this.notificationService.success("تم التعديل بنجاخ","",{timeOut:3000});
+      this.notificationService.success("تم التعديل بنجاح ","",{timeOut:3000});
       this.router.navigate(['/']);
     },err=>{
       this.error = JSON.stringify(err.error);
