@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       },err=>{
         this.loading = false;
-        this.error = JSON.stringify(err.error);
+        if(err.error.message)
+          this.error = JSON.stringify(err.error.message);
+        else
+          this.error = JSON.stringify(err.error.message);
       })
     }
   }
