@@ -16,7 +16,7 @@
     </div>
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
     <div *ngIf="!loading">
-      <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true' data-native_fullscreen='true' allowfullscreen='true' height="350px" frameBorder="0" [src]="url"></iframe>
+      <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true' data-native_fullscreen='true' allowfullscreen='true' height="550px" frameBorder="0" [src]="url"></iframe>
       <div class="video-details">
           <div *ngIf="creator" class="rtl text-right">
             <a class="creator-link" routerLink="/creator/{{creator._id}}">
@@ -25,8 +25,8 @@
             </a>
           </div>
           <div class="inner-details rtl text-right">
-            <h5>{{video.title}}</h5>
-            <p>{{video.description}}</p>
+            <h5 class="video-title">{{video.title}}</h5>
+            <p class="font-12">{{video.description}}</p>
           </div>
           <div class="inner-details">
             <div class="other-data user-select-none rtl text-right">
@@ -53,6 +53,8 @@
 </div>
 
 <div class="rtl text-right">
-  <app-recommended-videos></app-recommended-videos>
+  <div class="col-md-12">
+    <app-recommended-videos></app-recommended-videos>
+  </div>
 </div>
 
