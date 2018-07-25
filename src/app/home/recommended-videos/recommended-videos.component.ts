@@ -3,6 +3,7 @@ import {VideoService} from "../../services/video.service";
 import {Video} from "../../models/video.model";
 import {AppSettings} from "../../app.settings";
 import {PlaylistService} from "../../services/playlist.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-recommended-videos',
@@ -14,7 +15,7 @@ export class RecommendedVideosComponent implements OnInit {
   public loading : boolean = false;
   public error : string = '';
   public videos : Video[];
-  constructor(public videoService : VideoService , public playListService :PlaylistService) { }
+  constructor(public videoService : VideoService , public playListService :PlaylistService,public router :Router) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();

@@ -44,9 +44,10 @@ header{
 .input-group-prepend span{
   background: #ee4a41;
   color: #ae2018;
+  border:1px;
 }
 form input{
-  border:1px solid #ee4a41;
+  border:2px solid #ee4a41;
   text-align: right;
   &:focus{
     box-shadow: none !important;

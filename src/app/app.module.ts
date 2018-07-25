@@ -23,7 +23,7 @@ import { VistorSignupComponent } from './signup/visitor-signup/vistor-signup.com
 import { CreatorSignupComponent } from './signup/creator-signup/creator-signup.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
-import {AlertModule, CarouselModule, ProgressbarModule} from "ngx-bootstrap";
+import {AlertModule, CarouselModule, ProgressbarModule, BsDropdownModule} from "ngx-bootstrap";
 import { SettingsComponent } from './logged-in-components/settings/settings.component';
 import {JwtModule, JwtModuleOptions} from "@auth0/angular-jwt";
 import {ErrorInterceptorService} from "./services/interceptors/error-interceptor.service";
@@ -110,6 +110,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     FullCalendarModule,
     NgSelectModule,
     SimpleNotificationsModule.forRoot(),
+    BsDropdownModule.forRoot(),
     TagInputModule,
     JwtModule.forRoot(JWT_Module_Options),
     ProgressbarModule.forRoot()

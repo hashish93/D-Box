@@ -6,7 +6,7 @@
   right: 0;
   background: #efefef;
   padding: 20px 0;
-
+  border-radius: 0 0 5px 5px;
   ul{
     list-style: none;
     direction: rtl;
@@ -38,7 +38,12 @@
   width: 35px;
   color: #000;
 }
-
+.all-menus {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  top: -9px;
+}
 @media screen and (max-width: 768px) {
   .sticky-sidebar{display: none}
 }

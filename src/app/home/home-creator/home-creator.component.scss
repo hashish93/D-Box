@@ -1,15 +1,16 @@
 .creator-holder{background: #1f377d;color: #fff}
 .creator-holder a{color: #fff;}
 .rounded-border {
-  width: 160px;
-  height: 160px;
-  border: 10px solid #fff;
+  width: 140px;
+  height: 140px;
+  border: 7px solid #fff;
   border-radius: 50%;
   overflow: hidden;
+  margin: 0 auto;
 }
 .rounded-border img{
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   max-width: 500px;
 }
 .left90{left: -90px;}
@@ -26,8 +27,21 @@
   text-align: center;
   .title{
     font-size: 13px;
+    font-weight: 700;
   }
   .job{
     font-size: 11px;
+  }
+}
+.all-creators{
+  margin: 0 auto;
+  border: 1px solid;
+  padding: 2px 5px;
+  position: relative;
+  top: -30px;
+  transition: all .3s;
+  &:hover {
+    background: #6196e4 !important;
+    text-decoration: none;
   }
 }

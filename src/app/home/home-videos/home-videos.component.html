@@ -6,7 +6,7 @@
           <a routerLink="/video/{{video._id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
-              <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+              <img *ngIf="video.image" src="{{staticEndPoint}}{{video.image}}">
               <span class="player-icon">
                 <i class="fa fa-play" aria-hidden="true"></i>
               </span>
@@ -35,7 +35,7 @@
           <a routerLink="/video/{{video._id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
-              <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+              <img *ngIf="video.image" src="{{staticEndPoint}}{{video.image}}">
               <span class="player-icon">
                 <i class="fa fa-play" aria-hidden="true"></i>
               </span>
@@ -63,7 +63,7 @@
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
-              <img src="{{staticEndPoint}}{{video.thumbnail}}">
+              <img src="{{staticEndPoint}}{{video.image}}">
               <span class="player-icon">
                 <i class="fa fa-play" aria-hidden="true"></i>
               </span>
@@ -91,7 +91,7 @@
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
-              <img src="{{staticEndPoint}}{{video.thumbnail}}">
+              <img src="{{staticEndPoint}}{{video.image}}">
               <span class="player-icon">
                 <i class="fa fa-play" aria-hidden="true"></i>
               </span>

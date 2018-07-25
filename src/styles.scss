@@ -108,7 +108,7 @@ label {
 .form-check-input{margin-left:0 !important;margin-right: -1.25rem;}
 
 .video-playlist-home{margin-bottom: 20px;}
-.category-span{position: absolute;top: 5px;right:15px;color: #fff;padding: 0 10px;font-size: 12px;background: #c8429d;z-index: 1}
+.category-span{position: absolute;top: 5px;right:15px;color: #fff;padding: 0 10px;font-size: 12px;background: #c8429d;z-index: 1;line-height: 17px;}
 .ترفيه{
   background: #c8429d;
 }
@@ -134,7 +134,8 @@ label {
   line-height: 21px;
   max-height: 42px;
   overflow: hidden;
-  color: #7d7d7d;
+  color: #080808;
+  font-weight: 400;
   text-align: right;
 }
 .video-playlist-home a{color: #212529}
