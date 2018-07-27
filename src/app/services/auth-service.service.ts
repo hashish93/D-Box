@@ -49,4 +49,9 @@ export class AuthService {
   resetPassword(user: Creator) {
     return this.http.post('password/reset',this.convertJsonToPostParams(user).toString(), this.getHeaders())
   }
+
+  loginWithFacebook(token: string) : Observable<any> {
+    let tokenObj = {token:token};
+    return this.http.post('login/social/facebook',this.convertJsonToPostParams(tokenObj).toString(),this.getHeaders())
+  }
 }

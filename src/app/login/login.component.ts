@@ -27,9 +27,21 @@ export class LoginComponent implements OnInit {
     }
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
+        this.loading = true;
+        this.error = '';
         console.log(socialPlatform+" sign in data : " , userData);
-        // Now sign-in with userData
-        // ...
+        this.authService.loginWithFacebook(userData.token).subscribe(data=> {
+          this.loading = false;
+          localStorage.setItem('access_token',data.access_token);
+          this.router.navigate(['/']);
+        },err=>{
+          this.loading = false;
+          if(err.error.message)
+            this.error = JSON.stringify(err.error.message);
+          else
+            this.error = JSON.stringify(err.error.message);
+        })
+
 
       })
   }
