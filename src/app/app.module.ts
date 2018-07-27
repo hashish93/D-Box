@@ -51,7 +51,8 @@ import {TagInputModule} from "ngx-chips";
 import { MyVideosComponent } from './logged-in-components/my-videos/my-videos.component';
 import { EditVideoComponent } from './logged-in-components/edit-video/edit-video.component';
 import { ProfileMenuComponent } from './header/profile-menu/profile-menu.component';
-import { ClickOutsideModule } from 'ng-click-outside';
+import {SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from "angular-6-social-login";
+import {ClickOutsideModule} from "ng-click-outside";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -63,6 +64,20 @@ const JWT_Module_Options: JwtModuleOptions = {
     whitelistedDomains: ['localhost:4200', 'https://piksels-api.n-stream.tv/api/v1/portal/']
   }
 };
+
+// Configs
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("250010705400133")
+      }
+    ]
+);
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,6 +131,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     BsDropdownModule.forRoot(),
     TagInputModule,
     ClickOutsideModule,
+    SocialLoginModule,
     JwtModule.forRoot(JWT_Module_Options),
     ProgressbarModule.forRoot()
   ],
@@ -123,6 +139,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     { provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+    {provide: AuthServiceConfig, useFactory: getAuthServiceConfigs}
   ],
   bootstrap: [AppComponent]
 })

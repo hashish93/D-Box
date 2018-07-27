@@ -37,7 +37,7 @@
             type="submit"
             class="btn block submit-btn btn-danger m-bottom-20"
             [disabled]="!loginForm.form.valid || loading">تسجيل الدخول</button>
-          <button  class="btn block submit-btn facebook-btn m-bottom-20">
+          <button  (click)="socialSignIn('facebook')" class="btn block submit-btn facebook-btn m-bottom-20">
             login with facebook
             <i class="fa fa-facebook"></i>
           </button>

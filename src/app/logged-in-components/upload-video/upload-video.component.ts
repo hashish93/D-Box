@@ -90,7 +90,6 @@ export class UploadVideoComponent implements OnInit {
     let video = this.video;
     this.videoService.postVideo(video)
       .subscribe(data=> {
-        console.log(data);
         this.loaded += this.step;                 //increasing loaded which is being used as start position for next chunk
         this.failture = 0;
         if(data.chunks && data.chunks.length > 0){            // if file is not completely uploaded

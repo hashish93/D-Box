@@ -30,7 +30,6 @@ export class EditVideoComponent implements OnInit {
     this.route.params.forEach(params => {
       this.video.id = parseInt(params["id"]);
       if (this.video.id) {
-        console.log(this.video.id);
         this.getCategories();
       } else {
         this.router.navigate(['']);

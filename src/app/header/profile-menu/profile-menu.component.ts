@@ -32,7 +32,6 @@ export class ProfileMenuComponent implements OnInit {
 
   public getUser() {
     this.creatorService.getUser().subscribe(data=>{
-      console.log(data);
       this.user = data;
       this.loading = false;
     },err=>{

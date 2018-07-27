@@ -73,7 +73,6 @@ export class VideoService {
     return formData;
   }
   public postVideo(video: Video):Observable<any> {
-    console.log(video);
 
     let uploaded= Object.create(video);
     if(uploaded.blob){
@@ -117,7 +116,6 @@ export class VideoService {
   }
 
   editVideo(video: Video) : Observable<any> {
-    console.log(video)
     let myVideo = video;
     myVideo._method = 'put';
     if(myVideo.file){
