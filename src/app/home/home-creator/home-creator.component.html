@@ -11,23 +11,24 @@
             <div class="col-lg-1"></div>
             <div *ngFor="let creator of creators" class="col-lg-2">
                 <div class="creator-item">
+                  <div class="social-hover">
+                    <a href="{{creator.social.facebook}}">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="{{creator.social.google}}">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a href="{{creator.social.twitter}}">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="{{creator.social.instagram}}">
+                      <i class="fa fa-instagram"></i>
+                    </a>
+                  </div>
                   <a routerLink="creator/{{creator._id}}">
                       <div class="image-container">
                         <div class="rounded-border">
-                          <div class="social-hover">
-                            <a href="{{creator.social.facebook}}">
-                              <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="{{creator.social.google}}">
-                              <i class="fa fa-google-plus"></i>
-                            </a>
-                            <a href="{{creator.social.twitter}}">
-                              <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="{{creator.social.linkedIn}}">
-                              <i class="fa fa-linkedin"></i>
-                            </a>
-                          </div>
+
                           <img src="{{staticEndPoint}}{{creator.avatar}}">
                         </div>
                       </div>

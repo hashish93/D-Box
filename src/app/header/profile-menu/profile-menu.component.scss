@@ -1,0 +1,38 @@
+.profile-info-holder {
+  z-index: 1;
+  user-select: none;
+  .profile-pic{
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+  }
+}
+.profile-anchors{
+  background: #ebebeb;
+  position: absolute;
+  z-index: 1;
+  top:67px;
+  width: 155px;
+}
+.list-group-item{
+  background: transparent;
+  padding-right: 5px;
+  text-align: right;
+}
+.list-group-item li a{border:1px solid #eee  }
+.list-group-item a img:first-of-type{
+  display: inline;
+}
+.list-group-item a img:last-of-type{
+  display: none;
+}
+.list-group-item a:hover img:first-of-type{
+  display: none;
+}
+.list-group-item a:hover img:last-of-type{
+  display: inline;
+}
+.list-group-item a:hover , .list-group-item a:hover span{
+  text-decoration: none;
+  color: #ee5e56;
+}

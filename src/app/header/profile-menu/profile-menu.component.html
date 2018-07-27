@@ -1,0 +1,44 @@
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+<div class="relative" *ngIf="!loading">
+  <div style="cursor: pointer;" class="profile-info-holder" (click)="showAnchors=!showAnchors;">
+    <img src="../../../assets/images/down-direction.png">
+    <span class="m-left-5 m-right-10">{{user.fullname}}</span>
+    <img class="profile-pic" src="{{staticEndpoint}}{{user.avatar}}">
+  </div>
+  <div *ngIf="showAnchors" class="profile-anchors">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a class="black" routerLink="/settings">
+            <span class="m-right-10">المفضلات</span>
+            <img src="../../../assets/images/love.png">
+            <img src="../../../assets/images/love-color.png">
+          </a>
+        </li>
+
+        <li class="list-group-item">
+          <a class="black" routerLink="/settings">
+            <span class="m-right-10">المتابعات</span>
+            <img src="../../../assets/images/num_of_followers.png">
+            <img src="../../../assets/images/num_of_followers_love.png">
+          </a>
+        </li>
+
+
+        <li class="list-group-item">
+          <a class="black" routerLink="/settings">
+            <span class="m-right-10">الاعدادات</span>
+            <img src="../../../assets/images/settings.png">
+            <img src="../../../assets/images/settings.png">
+          </a>
+        </li>
+
+        <li class="list-group-item">
+          <a class="black" routerLink="/settings">
+            <span class="m-right-10">تسجيل الخروج</span>
+            <img src="../../../assets/images/logout.png">
+            <img src="../../../assets/images/logout.png">
+          </a>
+        </li>
+      </ul>
+  </div>
+</div>

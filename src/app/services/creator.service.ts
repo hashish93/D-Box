@@ -48,4 +48,8 @@ export class CreatorService {
     let userData = this.getFormData(user);
     return this.http.post('auth/user',userData)
   }
+
+  getUser() : Observable<any> {
+    return this.http.get('auth/user')
+  }
 }

@@ -50,6 +50,7 @@ import { UploadVideoComponent } from './logged-in-components/upload-video/upload
 import {TagInputModule} from "ngx-chips";
 import { MyVideosComponent } from './logged-in-components/my-videos/my-videos.component';
 import { EditVideoComponent } from './logged-in-components/edit-video/edit-video.component';
+import { ProfileMenuComponent } from './header/profile-menu/profile-menu.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -93,7 +94,8 @@ const JWT_Module_Options: JwtModuleOptions = {
     ProfileComponent,
     UploadVideoComponent,
     MyVideosComponent,
-    EditVideoComponent
+    EditVideoComponent,
+    ProfileMenuComponent
   ],
   imports: [
     BrowserModule,

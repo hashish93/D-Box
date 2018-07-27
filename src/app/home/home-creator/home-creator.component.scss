@@ -54,6 +54,9 @@
   border-radius: 50%;
   text-align: center;
   transition: all .3s;
+  z-index: 11;
+  top: 8px;
+  left: 32px;
   &:hover{
     opacity: 1;
   }
