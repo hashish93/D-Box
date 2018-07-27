@@ -15,7 +15,7 @@
 
       <div *ngIf="!loading" class="width100 inline-block rtl text-right">
         <tabset>
-            <tab id="favorites"  (select)="onSelect($event)">
+            <tab id="favorites" [active]="selected=='favorites'"  (select)="onSelect($event)">
               <ng-template tabHeading>
                 <i class="fa fa-heart-o inline-block m-left-10" aria-hidden="true"></i>
                 <span>المفضلات</span>
@@ -25,7 +25,7 @@
               </div>
             </tab>
 
-            <tab id="followers" (select)="onSelect($event)">
+            <tab id="followers" [active]="selected=='followers'" (select)="onSelect($event)">
               <ng-template tabHeading>
                 <i class="fa fa-user-plus inline-block m-left-10" aria-hidden="true"></i>
                 <span>المتابعات</span>
@@ -35,7 +35,7 @@
               </div>
             </tab>
 
-            <tab id="profile" (select)="onSelect($event)">
+            <tab id="profile" [active]="selected=='profile'" (select)="onSelect($event)">
             <ng-template tabHeading>
               <i class="fa fa-cog inline-block m-left-10" aria-hidden="true"></i>
               <span>الاعدادات</span>
@@ -45,7 +45,7 @@
             </div>
           </tab>
 
-            <tab id="revenue" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
+            <tab id="revenue" [active]="selected=='revenue'" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
             <ng-template tabHeading>
               <i class="fa fa-dollar inline-block m-left-10" aria-hidden="true"></i>
               <span>الارباح</span>
@@ -55,7 +55,7 @@
             </div>
           </tab>
 
-            <tab id="upload" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
+            <tab id="upload" [active]="selected=='upload'" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
             <ng-template tabHeading>
               <i class="fa fa-cloud-upload inline-block m-left-10" aria-hidden="true"></i>
               <span>اضافة</span>
@@ -65,7 +65,7 @@
             </div>
           </tab>
 
-          <tab id="my-videos" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
+          <tab id="my-videos" [active]="selected=='my-videos'" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
             <ng-template tabHeading>
               <i class="fa fa-youtube-play inline-block m-left-10" aria-hidden="true"></i>
               <span>فيديوهاتي</span>

@@ -51,6 +51,7 @@ import {TagInputModule} from "ngx-chips";
 import { MyVideosComponent } from './logged-in-components/my-videos/my-videos.component';
 import { EditVideoComponent } from './logged-in-components/edit-video/edit-video.component';
 import { ProfileMenuComponent } from './header/profile-menu/profile-menu.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -114,6 +115,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     SimpleNotificationsModule.forRoot(),
     BsDropdownModule.forRoot(),
     TagInputModule,
+    ClickOutsideModule,
     JwtModule.forRoot(JWT_Module_Options),
     ProgressbarModule.forRoot()
   ],

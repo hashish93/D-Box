@@ -3,6 +3,8 @@ import {User} from "../../models/user.model";
 import {TabsetComponent} from "ngx-bootstrap";
 import {UserService} from "../../services/user.service";
 import {Creator} from "../../models/creator.model";
+import {Observable} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-settings',
@@ -17,9 +19,20 @@ export class SettingsComponent implements OnInit {
   public error : string = '';
   private user : Creator = {} as Creator;
 
-  constructor(public userService : UserService) { }
+  constructor(public userService : UserService,public route : ActivatedRoute) { }
+
   ngOnInit() {
-    this.selected = 'favorites';
+
+    this.route.queryParams.forEach((params : any) => {
+      if(params && params.tab &&
+        (params.tab=='favorites' || params.tab == 'profile' || params.tab=='followers'
+        || params.tab =='revenue' || params.tab=='upload' || params.tab == 'my-videos')){
+        this.selected = params.tab;
+      }else{
+        this.selected = 'favorites';
+      }
+    });
+
     this.getUserData();
   }
 
