@@ -45,7 +45,13 @@ export class CreatorSignupComponent implements OnInit {
       }, (err)=> {
         this.loading = false;
         this.success = false;
-        this.error = JSON.stringify(err.error);
+        if(err && err.error && err.error.email){
+          this.error = JSON.stringify(err.error.email.toString());
+        }else if(err && err.error && err.error.password){
+          this.error = JSON.stringify(err.error.password.toString());
+        } else{
+          this.error = JSON.stringify(err.error);
+        }
         if(err.status == 409){
           this.matched_user = true;
           this.error = ''

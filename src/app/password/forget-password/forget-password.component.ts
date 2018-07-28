@@ -25,7 +25,11 @@ export class ForgetPasswordComponent implements OnInit {
         this.router.navigate(['/verify-code',this.email]);
       },err=>{
         this.loading = false;
-        this.error = JSON.stringify(err.error);
+        if(err.error.message)
+          this.error = 'لم يتم العثور على اي سجل';
+        else
+          this.error = JSON.stringify(err.error);
+
       })
     }
   }

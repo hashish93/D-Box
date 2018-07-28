@@ -29,7 +29,10 @@ export class VerifyCodeComponent implements OnInit {
         this.router.navigate(['/reset-password',this.email]);
       },err=>{
         this.loading = false;
-        this.error = JSON.stringify(err.error);
+        if(err.error.message)
+          this.error = 'رمز استعادة كلمة المرور الذي أدخلته غير صحيح';
+        else
+          this.error = JSON.stringify(err.error);
       })
     }
   }

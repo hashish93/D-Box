@@ -42,7 +42,8 @@
           </td>
 
           <td>
-            <div>{{video.tags}}</div>
+            <div *ngIf="video.tags && video.tags.length > 0">{{video.tags}}</div>
+            <div class="text-center" *ngIf="!video.tags || video.tags.length == 0">-</div>
           </td>
           <td>
             <div>

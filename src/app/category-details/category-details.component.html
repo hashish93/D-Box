@@ -1,6 +1,6 @@
 <div class="row margin-0">
   <div class="col col-lg-2">
-    <div class="m-top-35">
+    <div class="m-top-35 custom-top">
       <img class="max-width-100" src="./assets/images/test-image.png">
     </div>
   </div>
@@ -24,7 +24,9 @@
                 <a routerLink="/video/{{firstVideo._id}}">
                   <span class="category-span {{category.title}}">{{category.title}}</span>
                   <img *ngIf="firstVideo.thumbnails" src="{{staticEndPoint}}{{firstVideo.thumbnails.large}}">
-                  <span class="video-span fa fa-youtube-play fa-3x"></span>
+                  <span class="player-icon">
+                    <i aria-hidden="true" class="fa fa-play"></i>
+                  </span>
                 </a>
               </div>
               <div class="inner-content">

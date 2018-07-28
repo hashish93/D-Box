@@ -49,7 +49,7 @@ export class CategoryDetailsComponent implements OnInit {
   public getCategoryVideos(id: Number) {
     this.loading = true;
     this.firstVideo = null;
-    this.videoService.getVideos(null,null,null,{category_id:id}).subscribe(data=> {
+    this.videoService.getVideos(7,null,null,{category_id:id}).subscribe(data=> {
       this.loading = false;
       this.videos = data;
       if(this.videos && this.videos.length > 0){

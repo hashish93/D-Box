@@ -33,8 +33,10 @@ export class ResetPasswordComponent implements OnInit {
         this.router.navigate(['login']);
       },err=>{
         this.loading = false;
-        // this.error = 'صيغة كلمة السر غير صحيحة';
-        this.error = JSON.stringify(err.error);
+        if(err.error.password || err.error.message)
+          this.error = 'صيغة كلمة السر غير صحيحة';
+        else
+          this.error = JSON.stringify(err.error);
       })
     }
   }

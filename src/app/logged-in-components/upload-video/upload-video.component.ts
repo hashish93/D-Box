@@ -54,9 +54,18 @@ export class UploadVideoComponent implements OnInit {
       var extn = this.video.file.name.split(".").pop();
       if (event.target.files[0].size / 1024 / 1024 > 1024)
         this.notificationService.error("الحد الاقصى للصورة 1 جيجا بايت", '', {timeOut: 3000});
+      // 3gp mp4 mp4v mpg4 mpeg mpg mpe m1v m2v ogv qt mov webm flv mkv mk3d mks wmv avi movie
       if (extn.toLowerCase() == 'mp4' || extn.toLowerCase() == 'avi' ||
         extn.toLowerCase() == 'flv' || extn.toLowerCase() == 'mov' ||
-        extn.toLowerCase() == 'wmv') {
+        extn.toLowerCase() == 'wmv' || extn.toLowerCase() == '3gp' ||
+        extn.toLowerCase() == 'mp4v' || extn.toLowerCase() == 'mpg4' ||
+        extn.toLowerCase() == 'mpeg' || extn.toLowerCase() == 'mpg' ||
+        extn.toLowerCase() == 'mpe' || extn.toLowerCase() == 'm1v' ||
+        extn.toLowerCase() == 'm2v' || extn.toLowerCase() == 'ogv' ||
+        extn.toLowerCase() == 'qt' || extn.toLowerCase() == 'webm' ||
+        extn.toLowerCase() == 'mkv' || extn.toLowerCase() == 'mk3d' ||
+        extn.toLowerCase() == 'mks' || extn.toLowerCase() == 'wmv' ||
+        extn.toLowerCase() == 'avi' || extn.toLowerCase() == 'movie') {
         var reader = new FileReader();
         reader.onload = (event: ProgressEvent) => {
           this.fileView = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(this.video.file));

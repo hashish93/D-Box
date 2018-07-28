@@ -8,20 +8,30 @@
       <div class="float-left">
         <app-profile-menu></app-profile-menu>
       </div>
-      <div class="float-left m-left-20">
-        <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'upload' }" routerLinkActive="active-link">
-          <img class="normal" src="../../assets/images/upload-icon.png">
-          <img class="hovered" src="../../assets/images/upload-icon-hover.png">
-          <span>اضافة</span>
-        </a>
+      <div class="float-left" *ngIf=" user.is_creator == 1">
+        <div class="float-left m-left-20">
+          <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'upload' }" routerLinkActive="active-link">
+            <img class="normal" src="../../assets/images/upload-icon.png">
+            <img class="hovered" src="../../assets/images/upload-icon-hover.png">
+            <span>اضافة</span>
+          </a>
+        </div>
+        <div class="float-left m-left-10">
+          <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'revenue' }" routerLinkActive="active-link">
+            <img class="normal" src="../../assets/images/statistics-icon.png">
+            <img class="hovered" src="../../assets/images/statistics-icon-hover.png">
+            <span>احصائيات</span>
+          </a>
+        </div>
+        <div class="float-left m-left-10">
+          <a class="black side-icons custom-side-icon" routerLink="/message"  routerLinkActive="active-link">
+            <img class="normal" src="../../assets/images/message-icon.png">
+            <img class="hovered" src="../../assets/images/message-icon-hover.png">
+            <span>الرسائل</span>
+          </a>
+        </div>
       </div>
-      <div class="float-left m-left-10">
-        <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'revenue' }" routerLinkActive="active-link">
-          <img class="normal" src="../../assets/images/statistics-icon.png">
-          <img class="hovered" src="../../assets/images/statistics-icon-hover.png">
-          <span>احصائيات</span>
-        </a>
-      </div>
+
       <!--<a class="float-left register-btn out" routerLink="/" (click)="logout($event);$event.preventDefault()">الخروج</a>-->
       <!--<a class="float-left register-btn m-left-10 out" routerLink="/settings" >الملف الشخصي</a>-->
     </div>
