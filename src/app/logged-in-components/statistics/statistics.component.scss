@@ -28,3 +28,38 @@
     padding : 20px 0;
   }
 }
+
+.total-device {
+  position: absolute;
+  right: 70px;
+  width: 140px;
+  top: 170px;
+  color: #95a0be;
+  text-align: center;
+  font-weight: lighter;
+  .visitor-number{
+    font-size: 40px;
+  }
+  h6{font-size:22px;position: relative;top:-14px;}
+}
+.device-details {
+  position: absolute;
+  left: 15px;
+  top: 120px;
+}
+.device-details > div{margin-bottom: 30px;}
+.device-img-container{
+  width: 25px ;
+  text-align: center;
+  display: inline-block;
+}
+.device-span {
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 70px;
+  display: inline-block;
+  color: #697eb2;
+}
+.computer-span{color: rgb(79, 189, 131);}
+.mobile-span{color: rgb(27, 129, 216);}
+.tablet-span{color: rgb(208, 12, 141);}

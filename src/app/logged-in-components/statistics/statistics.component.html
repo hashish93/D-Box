@@ -16,7 +16,42 @@
               <ngx-charts-bar-horizontal [results]="countryList" [barPadding]="50" [scheme]="colorScheme" >
               </ngx-charts-bar-horizontal>
             </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-xs-12 relative">
+        <div *ngIf="!loading && deviceList && deviceList.length > 0">
+          <h6 class="titled-country">الاجهزة</h6>
+          <div class="total-device">
+                <div class="visitor-number">{{totalDeviceVisitors}}</div>
+                <h6>زائر</h6>
+          </div>
+          <ngx-charts-pie-chart [view]="[250,250]" [scheme]="deviceColorScheme" [arcWidth]=".1" [results]="deviceList" [doughnut]="true"></ngx-charts-pie-chart>
+          <div class="device-details">
+            <div *ngFor="let device of deviceList">
+              <div *ngIf="device.name=='Desktop'">
+                <div class="device-img-container">
+                  <img src="../../../assets/images/computer-chart.png">
+                </div>
+                <span class="device-span">الحاسوب</span>
+                <span class="computer-span">{{device.value}}</span>
+              </div>
+              <div *ngIf="device.name=='Mobile'">
+                <div class="device-img-container">
+                  <img src="../../../assets/images/mobile-chart.png">
+                </div>
+                <span class="device-span">الموبايل</span>
+                <span class="mobile-span">{{device.value}}</span>
+              </div>
+              <div *ngIf="device.name=='Tablet'">
+                <div class="device-img-container">
+                  <img src="../../../assets/images/tablet-chart.png">
+                </div>
+                <span class="device-span">التابلت</span>
+                <span class="tablet-span">{{device.value}}</span>
+              </div>
 
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -15,7 +15,10 @@ export class StatisticsComponent implements OnInit {
   public year= new Date().getFullYear();
   public data : any;
   public countryList : any = [];
+  public deviceList : any = [];
+  public totalDeviceVisitors: number = 0;
   public colorScheme = { domain: ['#36569f', '#909ab0', '#5472b5', '#8ed0ad'] };
+  public deviceColorScheme = { domain: ['#4fbd83', '#1b81d8', '#d00c8d'] };
 
   constructor(public creatorService : CreatorService,public userService : UserService) { }
 
@@ -30,7 +33,8 @@ export class StatisticsComponent implements OnInit {
       this.loading = false;
       this.data = data;
       this.loadMap(this.data);
-      this.loadCountryList(this.data)
+      this.loadCountryList(this.data);
+      this.loadDeviceList(this.data);
       console.log(this.data)
     },err=>{
       this.loading = false;
@@ -87,5 +91,17 @@ export class StatisticsComponent implements OnInit {
       result.push(obj);
     }
     this.countryList = result;
+  }
+
+  private loadDeviceList(data: any) {
+    this.deviceList = [];
+    var devices = data.devices;
+    var result = [];
+    for(var device of devices){
+      this.totalDeviceVisitors +=device['views'];
+      var obj = {name : device['device_type'], value : device['views']};
+      result.push(obj);
+    }
+    this.deviceList = result;
   }
 }
