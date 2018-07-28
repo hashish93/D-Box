@@ -53,6 +53,7 @@ import { EditVideoComponent } from './logged-in-components/edit-video/edit-video
 import { ProfileMenuComponent } from './header/profile-menu/profile-menu.component';
 import {SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from "angular-6-social-login";
 import {ClickOutsideModule} from "ng-click-outside";
+import { StatisticsComponent } from './logged-in-components/statistics/statistics.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -111,7 +112,8 @@ export function getAuthServiceConfigs() {
     UploadVideoComponent,
     MyVideosComponent,
     EditVideoComponent,
-    ProfileMenuComponent
+    ProfileMenuComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,

@@ -41,4 +41,11 @@ export class FavoritesComponent implements OnInit {
     })
   }
 
+  public unlikeVideo(video){
+    video.counters.likes-=1;
+    this.videoService.likeVideo(video.id).subscribe(data=>{
+      this.getLikedVideos();
+    });
+  }
+
 }

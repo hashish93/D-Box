@@ -17,7 +17,8 @@
         <tabset>
             <tab id="favorites" [active]="selected=='favorites'"  (select)="onSelect($event)">
               <ng-template tabHeading>
-                <i class="fa fa-heart-o inline-block m-left-10" aria-hidden="true"></i>
+                <img style="top:-1px" class="default" src="../../../assets/images/love-white.png">
+                <img style="top:-1px" class="alter" src="../../../assets/images/love.png">
                 <span>المفضلات</span>
               </ng-template>
               <div *ngIf="selected=='favorites'">
@@ -27,7 +28,8 @@
 
             <tab id="followers" [active]="selected=='followers'" (select)="onSelect($event)">
               <ng-template tabHeading>
-                <i class="fa fa-user-plus inline-block m-left-10" aria-hidden="true"></i>
+                <img style="top:-1px" class="default" src="../../../assets/images/num_of_followers_white.png">
+                <img style="top:-1px" class="alter" src="../../../assets/images/num_of_followers.png">
                 <span>المتابعات</span>
               </ng-template>
               <div *ngIf="selected=='followers'">
@@ -35,9 +37,21 @@
               </div>
             </tab>
 
+          <tab id="statistics" [active]="selected=='statistics'" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
+            <ng-template tabHeading>
+              <img class="default" src="../../../assets/images/statistics-icon-white.png">
+              <img class="alter" src="../../../assets/images/statistics-icon.png">
+              <span>الاحصائيات</span>
+            </ng-template>
+            <div *ngIf="selected=='statistics'">
+              <app-statistics></app-statistics>
+            </div>
+          </tab>
+
             <tab id="profile" [active]="selected=='profile'" (select)="onSelect($event)">
             <ng-template tabHeading>
-              <i class="fa fa-cog inline-block m-left-10" aria-hidden="true"></i>
+              <img style="top:-1px" class="default" src="../../../assets/images/settings-white.png">
+              <img style="top:-1px" class="alter" src="../../../assets/images/settings.png">
               <span>الاعدادات</span>
             </ng-template>
             <div *ngIf="selected=='profile'">
@@ -45,9 +59,10 @@
             </div>
           </tab>
 
-            <tab id="revenue" [active]="selected=='revenue'" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
+          <tab id="revenue" [active]="selected=='revenue'" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
             <ng-template tabHeading>
-              <i class="fa fa-dollar inline-block m-left-10" aria-hidden="true"></i>
+              <img style="top:-1px;width: 16px;" class="default" src="../../../assets/images/money-white.png">
+              <img style="top:-1px;width: 16px;" class="alter" src="../../../assets/images/money.png">
               <span>الارباح</span>
             </ng-template>
             <div *ngIf="selected=='revenue'">
@@ -57,7 +72,8 @@
 
             <tab id="upload" [active]="selected=='upload'" *ngIf="user.is_creator == 1" (select)="onSelect($event)">
             <ng-template tabHeading>
-              <i class="fa fa-cloud-upload inline-block m-left-10" aria-hidden="true"></i>
+              <img style="top:-1px" class="default" src="../../../assets/images/upload-icon-white.png">
+              <img style="top:-1px" class="alter" src="../../../assets/images/upload-icon.png">
               <span>اضافة</span>
             </ng-template>
             <div *ngIf="selected=='upload'">

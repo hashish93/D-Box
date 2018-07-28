@@ -28,14 +28,9 @@ export class FollowersComponent implements OnInit {
   }
 
   public unfollow(id){
-      this.followerService.unfollow(id).subscribe()
-      this.data.forEach((item,i)=>{
-        // if(item.id == id){
-        //   this.data.splice(i, 1);
-        //   return
-        // }
+      this.followerService.unfollow(id).subscribe(data=>{
         this.getFollowers();
-    })
+      });
   }
 
   public getFollowers() {

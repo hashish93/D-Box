@@ -4,7 +4,8 @@ import {TabsetComponent} from "ngx-bootstrap";
 import {UserService} from "../../services/user.service";
 import {Creator} from "../../models/creator.model";
 import {Observable} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {Location} from '@angular/common';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-settings',
@@ -13,20 +14,21 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class SettingsComponent implements OnInit {
   public selected:string = '';
-  public tabs = ['favorites' , 'followers' , 'revenue' , 'profile'];
+  public tabs = ['favorites' , 'followers' , 'revenue' , 'profile','statistics'];
   @ViewChild(TabsetComponent) tabset: TabsetComponent;
   public loading : boolean = false;
   public error : string = '';
   private user : Creator = {} as Creator;
 
-  constructor(public userService : UserService,public route : ActivatedRoute) { }
+  constructor(public userService : UserService,public route : ActivatedRoute,public router : Router,public location: Location) { }
 
   ngOnInit() {
 
     this.route.queryParams.forEach((params : any) => {
+      console.log(params)
       if(params && params.tab &&
         (params.tab=='favorites' || params.tab == 'profile' || params.tab=='followers'
-        || params.tab =='revenue' || params.tab=='upload' || params.tab == 'my-videos')){
+        || params.tab =='revenue' || params.tab=='upload' || params.tab == 'my-videos' || params.tab=='statistics')){
         this.selected = params.tab;
       }else{
         this.selected = 'favorites';
@@ -39,6 +41,7 @@ export class SettingsComponent implements OnInit {
   public onSelect(event){
     if(event && event.id){
       this.selected = event.id;
+      this.router.navigate(['/settings'],{queryParams:{tab:event.id}})
     }
   }
 

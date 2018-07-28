@@ -1,7 +1,12 @@
 :host ::ng-deep .nav-tabs{padding: 0;border-bottom: 0;}
+:host ::ng-deep .nav-tabs li{margin-left : 5px;}
 :host ::ng-deep .nav-tabs li a{color: #fff;font-weight: 400;border: none;background: #d1d1d1}
-:host ::ng-deep .nav-tabs li a i{color: #fff;font-size: 22px}
+:host ::ng-deep .nav-tabs li a i{color: #fff;font-size: 22px;margin-left: 7px}
 :host ::ng-deep .nav-tabs li.active a i{color: black}
+:host ::ng-deep .nav-tabs li a img{width: 20px;position: relative;top:-5px;margin-left: 7px;}
+:host ::ng-deep .nav-tabs li a img.alter{ display:none;}
+:host ::ng-deep .nav-tabs li.active a img.alter{ display:inline;}
+:host ::ng-deep .nav-tabs li.active a img.default{ display:none;}
 :host ::ng-deep .nav-tabs li.active a{color: #000;border: none;font-weight: bold;background: #f4f4f4}
 :host ::ng-deep .tab-content{background: #f4f4f4;padding: 20px 10px;}
 
