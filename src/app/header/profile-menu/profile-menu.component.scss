@@ -26,13 +26,14 @@
 .list-group-item a img:last-of-type{
   display: none;
 }
-.list-group-item a:hover img:first-of-type{
+.list-group-item a:hover img:first-of-type ,.list-group-item a.active-link img:first-of-type{
   display: none;
 }
-.list-group-item a:hover img:last-of-type{
+.list-group-item a:hover img:last-of-type , .list-group-item a.active-link img:last-of-type{
   display: inline;
 }
-.list-group-item a:hover , .list-group-item a:hover span{
+.list-group-item a:hover , .list-group-item a:hover span ,
+.list-group-item a.active-link, .list-group-item a.active-link span{
   text-decoration: none;
   color: #ee5e56;
 }

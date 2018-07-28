@@ -8,11 +8,13 @@
       </div>
       <div>
         <span>{{creator.counter.likes}}</span>
-        <i class="fa fa-heart-o"></i>
+        <i (click)="follow_creator()" [ngClass]="{'fa-heart': creator.is_followed,'fa-heart-o': !creator.is_followed}" class="fa mouse-click"></i>
       </div>
     </div>
-    <img *ngIf="creator.avatar" src="{{staticEndPoint}}{{creator.avatar}}">
-    <p>{{creator.title}}</p>
+    <a class="black" routerLink="/creator/{{creator_id}}">
+      <img *ngIf="creator.avatar" src="{{staticEndPoint}}{{creator.avatar}}">
+      <p>{{creator.title}}</p>
+    </a>
   </div>
   <div class="about-creator-details">
       <h6>عن المبدع</h6>

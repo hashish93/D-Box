@@ -52,4 +52,8 @@ export class CreatorService {
   getUser() : Observable<any> {
     return this.http.get('auth/user')
   }
+
+  followCreator(creator_id: Number) : Observable<any> {
+    return this.http.get('auth/follow/'+creator_id)
+  }
 }

@@ -8,10 +8,18 @@
       <div class="float-left">
         <app-profile-menu></app-profile-menu>
       </div>
-      <div style="display:none;" class="float-left">
-        <a class="black">
-          <img src="../../assets/images/love.png">
+      <div class="float-left m-left-20">
+        <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'upload' }" routerLinkActive="active-link">
+          <img class="normal" src="../../assets/images/upload-icon.png">
+          <img class="hovered" src="../../assets/images/upload-icon-hover.png">
           <span>اضافة</span>
+        </a>
+      </div>
+      <div class="float-left m-left-10">
+        <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'revenue' }" routerLinkActive="active-link">
+          <img class="normal" src="../../assets/images/statistics-icon.png">
+          <img class="hovered" src="../../assets/images/statistics-icon-hover.png">
+          <span>احصائيات</span>
         </a>
       </div>
       <!--<a class="float-left register-btn out" routerLink="/" (click)="logout($event);$event.preventDefault()">الخروج</a>-->

@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AppSettings} from "../app.settings";
 import {VideoService} from "../services/video.service";
 import {Video} from "../models/video.model";
+import {AuthService} from "../services/auth-service.service";
 
 @Component({
   selector: 'app-creator-details',
@@ -21,7 +22,7 @@ export class CreatorDetailsComponent implements OnInit {
   public staticEndPoint;
 
   constructor(public creatorService : CreatorService,public route : ActivatedRoute
-    , public router : Router, public videoService : VideoService) { }
+    , public router : Router, public videoService : VideoService,public authService : AuthService) { }
   ngOnInit() {
     this.route.params.forEach(params => {
       this.getCreatorDetails(params["id"]);
@@ -45,6 +46,17 @@ export class CreatorDetailsComponent implements OnInit {
       this.loading = false;
       this.error = JSON.stringify(err.error);
     })
+  }
+
+  public follow_creator() {
+    if (this.authService.isAuthenticated()) {
+      this.creator.is_followed = !this.creator.is_followed;
+      this.creator.is_followed ? this.creator.counter.likes += 1 : this.creator.counter.likes -= 1;
+      this.creatorService.followCreator(this.creator._id).subscribe(data=> {
+      })
+    } else {
+      this.router.navigate(['login'])
+    }
   }
 
   private getLatestVideos(id: Number) {

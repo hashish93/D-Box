@@ -90,7 +90,7 @@
                       <div class="black">{{creator.counter.videos | number:'1.'}}</div>
                     </div>
                     <div class="likes">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                      <i (click)="follow_creator()" [ngClass]="{'fa-heart': creator.is_followed,'fa-heart-o': !creator.is_followed}" class="fa mouse-click"></i>
                       <div class="black">{{creator.counter.likes | number:'1.'}}</div>
                     </div>
                   </div>

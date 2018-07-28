@@ -3,6 +3,8 @@ import {Creator} from "../../models/creator.model";
 import {NgForm} from "@angular/forms";
 import {CreatorService} from "../../services/creator.service";
 import {Router} from "@angular/router";
+import {AuthService as SocialAuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angular-6-social-login';
+import {AuthService} from "../../services/auth-service.service";
 
 @Component({
   selector: 'app-visitor-signup',
@@ -16,7 +18,7 @@ export class VistorSignupComponent implements OnInit {
   public success : boolean = false;
   public validatePassword : boolean = false;
 
-  constructor(public creatorService : CreatorService, public router : Router) { }
+  constructor(public creatorService : CreatorService, public router : Router,public authService : AuthService ,public socialAuthService: SocialAuthService ) { }
 
   ngOnInit() {
 
@@ -24,6 +26,33 @@ export class VistorSignupComponent implements OnInit {
 
   public check_password(event){
     this.validatePassword = !!(this.visitor.password && this.visitor.password_confirmation && this.visitor.password === this.visitor.password_confirmation);
+  }
+
+
+  public socialSignIn(socialPlatform : string) {
+    let socialPlatformProvider;
+    if (socialPlatform == "facebook") {
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    }
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        this.loading = true;
+        this.error = '';
+        console.log(socialPlatform+" sign in data : " , userData);
+        this.authService.loginWithFacebook(userData.token).subscribe(data=> {
+          this.loading = false;
+          localStorage.setItem('access_token',data.access_token);
+          this.router.navigate(['/']);
+        },err=>{
+          this.loading = false;
+          if(err.error.message)
+            this.error = JSON.stringify(err.error.message);
+          else
+            this.error = JSON.stringify(err.error.message);
+        })
+
+
+      })
   }
 
   public onFormSubmit(visitorForm){

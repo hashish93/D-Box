@@ -28,8 +28,8 @@ export interface Creator {
   instagram: string,
   social:any,
   counter:{
-    videos:Number,
-    likes:Number
+    videos:number,
+    likes:number
   },
   avatar:string,
   cover:string,
@@ -39,5 +39,6 @@ export interface Creator {
   user_type:Number,
   is_creator:Number,
   upgrade_account:Number,
+  is_followed:boolean,
   file:File
 }
