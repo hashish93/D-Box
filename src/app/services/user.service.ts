@@ -13,18 +13,8 @@ export class UserService {
   getRevenue(month: number, year: number) : Observable<any> {
     return this.http.get("auth/statistics/revenue?month=" + month + '&year=' + year);
   }
-
-  public getEvents(): Observable<any> {
-    const dateObj = new Date();
-    const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
-
-
-    let data: any = [{
-      title: 'All Event',
-      start: yearMonth + '-01'
-      ,
-    }];
-    return of(data);
+  getStatistics(month: number, year: number) : Observable<any> {
+    return this.http.get("auth/statistics/views?month=" + month + '&year=' + year);
   }
 
   getUserData(): Observable<any> {

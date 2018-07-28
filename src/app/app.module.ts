@@ -53,6 +53,7 @@ import { EditVideoComponent } from './logged-in-components/edit-video/edit-video
 import { ProfileMenuComponent } from './header/profile-menu/profile-menu.component';
 import {SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from "angular-6-social-login";
 import {ClickOutsideModule} from "ng-click-outside";
+import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { StatisticsComponent } from './logged-in-components/statistics/statistics.component';
 
 export function tokenGetter() {
@@ -134,6 +135,7 @@ export function getAuthServiceConfigs() {
     TagInputModule,
     ClickOutsideModule,
     SocialLoginModule,
+    NgxChartsModule,
     JwtModule.forRoot(JWT_Module_Options),
     ProgressbarModule.forRoot()
   ],

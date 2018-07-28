@@ -2,3 +2,27 @@
   <img src="../../../assets/images/statistics-icon.png">
   <span>احصائيات المبدع</span>
 </h5>
+<app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+<div class="top-statistics m-top-20">
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-5 col-md-12 col-xs-12">
+        <div id="regions_div" style="width: 300px; height: 300px;"></div>
+      </div>
+      <div class="col-lg-3 col-md-12 col-xs-12">
+        <div *ngIf="!loading">
+            <h6 class="titled-country">البلاد</h6>
+            <div class="width100 inline-block">
+              <ngx-charts-bar-horizontal [results]="countryList" [barPadding]="50" [scheme]="colorScheme" >
+              </ngx-charts-bar-horizontal>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
