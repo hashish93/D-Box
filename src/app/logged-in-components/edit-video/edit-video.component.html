@@ -18,8 +18,8 @@
           <div class="row margin-0">
             <div class="col-md-4 col-sm-12 col-xs-12">
               <div class="image-container m-top-10 m-bottom-10">
-                <img style="cursor: pointer" *ngIf="!fileView && !video.image" src="../../../assets/images/upload2.png" (click)="fileInput.click()">
-                <img style="cursor: pointer" *ngIf="!fileView && video.image" src="{{staticEndPoint}}/{{video.image}}" (click)="fileInput.click()">
+                <img style="cursor: pointer" *ngIf="!fileView && !video.small" src="../../../assets/images/upload2.png" (click)="fileInput.click()">
+                <img style="cursor: pointer" *ngIf="!fileView && video.small" src="{{staticEndPoint}}/{{video.small}}" (click)="fileInput.click()">
                 <img style="cursor: pointer" *ngIf="fileView" [src]="fileView" (click)="fileInput.click()">
                 <input #fileInput
                        style="display: none" accept="image/*"
