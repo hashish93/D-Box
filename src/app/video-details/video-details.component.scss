@@ -17,4 +17,24 @@ a.inner-cat-link {
 }
 .creator-link{color: #464545;margin: 10px 0;display: block}
 .font-12{font-size: 12px;}
-.video-title{font-size: 16px;font-weight: 800;}
+.video-title{font-size: 16px;font-weight: bold;}
+.share {
+  position: absolute;
+  top: 5px;
+}
+.share-area {
+  background: #fff;
+  border: 1px solid #efefef;
+  a{
+    display: block;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 5px 10px;
+  }
+}
+.fixed-height {
+  height: 36px;
+  overflow: hidden;
+}
+.full-height {
+  height: auto;
+}

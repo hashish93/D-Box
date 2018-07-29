@@ -15,7 +15,7 @@
           <th scope="col">#</th>
           <th scope="col">التاريخ</th>
           <th scope="col">الفيديو</th>
-          <th scope="col">العنوان</th>
+          <th style="width: 40%" scope="col">العنوان</th>
           <th scope="col">الوصف</th>
           <th scope="col">الوسوم</th>
           <th scope="col">الاجراءات</th>
@@ -27,14 +27,14 @@
           <td>{{video.created_at | date: 'dd MMMM'}}</td>
           <td class="image-container relative" >
             <a routerLink="/video/{{video.id}}">
-              <img src="{{staticEndPoint}}/{{video.capturedImageUrl}}">
+              <img src="{{staticEndPoint}}/{{video.small}}">
 
               <span class="player-icon">
                   <i class="fa fa-play" aria-hidden="true"></i>
                 </span>
             </a>
           </td>
-          <td>
+          <td style="width: 40%">
             <div><a class="black"  routerLink="/video/{{video.id}}">{{video.title}}</a></div>
           </td>
           <td>
@@ -46,13 +46,14 @@
             <div class="text-center" *ngIf="!video.tags || video.tags.length == 0">-</div>
           </td>
           <td>
+
             <div>
-              <button class="btn btn-light">
+              <div class="btn btn-light">
                 <a style="color: #272727;" routerLink="/edit-video/{{video.id}}">
                   <i class="fa fa-edit"></i>
                   <span>تعديل</span>
                 </a>
-              </button>
+              </div>
             </div>
             <div>
               <button class="btn btn-danger" (click)="deleteVideo(video.id)">

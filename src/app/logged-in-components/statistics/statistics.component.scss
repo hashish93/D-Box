@@ -63,3 +63,22 @@
 .computer-span{color: rgb(79, 189, 131);}
 .mobile-span{color: rgb(27, 129, 216);}
 .tablet-span{color: rgb(208, 12, 141);}
+.progress{
+  background: transparent;
+  border-radius: 0;
+  height: 7px;
+}
+:host ::ng-deep .progress-bar:nth-of-type(1){
+  background: #36569f;
+}
+:host ::ng-deep .progress-bar:nth-of-type(2){
+  background: #909ab0;
+}
+:host ::ng-deep .progress-bar:nth-of-type(3){
+  background: #5472b5;
+}
+:host ::ng-deep .progress-bar:nth-of-type(4){
+  background: #8ed0ad;
+}
+.country-iterator{margin-bottom: 10px;}
+.country-iterator p {color: #697eb2}

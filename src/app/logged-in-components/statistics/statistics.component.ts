@@ -15,6 +15,7 @@ export class StatisticsComponent implements OnInit {
   public year= new Date().getFullYear();
   public data : any;
   public countryList : any = [];
+  public highestCountry : number = 0;
   public deviceList : any = [];
   public totalDeviceVisitors: number = 0;
   public colorScheme = { domain: ['#36569f', '#909ab0', '#5472b5', '#8ed0ad'] };
@@ -61,7 +62,7 @@ export class StatisticsComponent implements OnInit {
       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
       'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
     });
-    
+
     google.charts.setOnLoadCallback(drawRegionsMap);
 
     function drawRegionsMap() {
@@ -87,8 +88,11 @@ export class StatisticsComponent implements OnInit {
     var countries = data.countries;
     var result = [];
     for(var country of countries){
-      var obj = {name : country['english_name'],value : country['views']};
+      var obj = {name : country['english_name'],value : country['views'],name_ar:country['arabic_name']};
       result.push(obj);
+      if(country['views'] > this.highestCountry){
+        this.highestCountry = country['views']
+      }
     }
     this.countryList = result;
   }

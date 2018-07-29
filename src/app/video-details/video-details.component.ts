@@ -17,6 +17,8 @@ export class VideoDetailsComponent implements OnInit {
   public video : Video = {} as Video;
   public creator : Creator = {} as Creator;
   public loading : boolean = true;
+  public share : boolean = false;
+  public slide : boolean = false;
   public videoEndPoint;
   public staticEndPoint;
   url: SafeResourceUrl;

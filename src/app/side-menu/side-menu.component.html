@@ -31,14 +31,15 @@
         </a>
       </li>
     </ul>
-    <ul *ngIf="!authService.isAuthenticated()">
+    <ul>
       <li><img  src="./assets/images/computer.png"></li>
-      <li class="login-desc">سجل الدخول الآن لمشاهدة قنواتك المفضلة وتوصياتك</li>
-      <li class="login-btn-side"><a routerLink="/login">تسجيل دخول</a></li>
+      <li *ngIf="authService.isAuthenticated()" class="login-desc">شكرا لدخولك لمشاهدة قنواتك المفضلة وتوصياتك</li>
+      <li *ngIf="!authService.isAuthenticated()" class="login-desc">سجل الدخول الآن لمشاهدة قنواتك المفضلة وتوصياتك</li>
+      <li *ngIf="!authService.isAuthenticated()" class="login-btn-side"><a routerLink="/login">تسجيل دخول</a></li>
     </ul>
     <ul class="margin-0">
       <li>
-        <a routerLink="/">
+        <a routerLink="/settings">
           <img class="m-left-10" src="./assets/images/settings.png">
           <p class="inline-block">الاعدادات</p>
         </a>

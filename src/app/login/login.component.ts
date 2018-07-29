@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   public user: User = {} as User;
   public error : string = '';
   public loading : boolean = false;
-  constructor(public authService : AuthService ,public router : Router,public socialAuthService: SocialAuthService ) { }
+  constructor(public authService : AuthService ,public router : Router,
+              public socialAuthService: SocialAuthService , public userService : UserService) { }
 
   ngOnInit() {
     this.user.remember_me = false;
@@ -53,7 +54,17 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.user).subscribe(data=> {
         this.loading = false;
         localStorage.setItem('access_token',data.access_token);
-        this.router.navigate(['/']);
+        this.userService.getUserData().subscribe(data=>{
+          let userData =data;
+          if(userData.is_creator == 1){
+            this.router.navigate(['/settings'],{queryParams:{tab:'statistics'}})
+          }else{
+            this.router.navigate(['/settings'],{queryParams:{tab:'favorites'}})
+          }
+        },err=>{
+          this.router.navigate(['/']);
+        });
+
       },err=>{
         this.loading = false;
         if(err.error.message)

@@ -4,6 +4,7 @@ import {Creator} from "../../models/creator.model";
 import {AppSettings} from "../../app.settings";
 import {AuthService} from "../../services/auth-service.service";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-about-creator',
@@ -28,7 +29,7 @@ export class AboutCreatorComponent implements OnInit , OnChanges {
   public staticEndPoint;
   @Output() onGetCreator: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(public creatorService: CreatorService, public authService: AuthService,public router : Router) {
+  constructor(public creatorService: CreatorService, public authService: AuthService,public router : Router,public userService : UserService) {
   }
 
   ngOnInit() {
@@ -49,14 +50,21 @@ export class AboutCreatorComponent implements OnInit , OnChanges {
   }
 
   public follow_creator() {
-    if (this.authService.isAuthenticated()) {
-      this.creator.is_followed = !this.creator.is_followed;
-      this.creator.is_followed ? this.creator.counter.likes += 1 : this.creator.counter.likes -= 1;
-      this.creatorService.followCreator(this.creator_id).subscribe(data=> {
-      })
-    } else {
-      this.router.navigate(['login'])
-    }
+    this.userService.getUserData().subscribe(data=>{
+      let user = data;
+      if(user.id !=this.creator_id){
+        if (this.authService.isAuthenticated()) {
+          this.creator.is_followed = !this.creator.is_followed;
+          this.creator.is_followed ? this.creator.counter.likes += 1 : this.creator.counter.likes -= 1;
+          this.creatorService.followCreator(this.creator_id).subscribe(data=> {
+          })
+        } else {
+          this.router.navigate(['login'])
+        }
+      }
+
+    })
+
   }
 
 

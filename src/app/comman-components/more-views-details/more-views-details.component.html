@@ -1,15 +1,16 @@
 <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+
 <div class="container-fluid home-more-views m-top-20" *ngIf="videos">
   <div class="row">
     <div class="col-lg-2">
 
     </div>
     <div class="col-lg-8 bottom-border">
-      <div class="row">
+      <div class="row margin-0">
         <h6 class="bold m-bottom-20">الاكثر مشاهدة</h6>
-
       </div>
-      <div class="row">
+      <div class="row margin-0">
+        <h5 class="text-center" style="margin:0 auto" *ngIf="!loading && videos && videos.length ==0">لا يوجد فيديوهات</h5>
         <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video._id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>

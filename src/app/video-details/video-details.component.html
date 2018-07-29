@@ -17,16 +17,33 @@
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
     <div *ngIf="!loading">
       <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true' data-native_fullscreen='true' allowfullscreen='true' height="550px" frameBorder="0" [src]="url"></iframe>
-      <div class="video-details">
+      <div class="video-details relative">
           <div *ngIf="creator" class="rtl text-right">
             <a class="creator-link" routerLink="/creator/{{creator._id}}">
               <img class="m-left-10 creator_avatar" src="{{staticEndPoint}}{{creator.avatar}}">
               <span>{{creator.title}}</span>
             </a>
           </div>
+          <div class="share" (clickOutside)="share=false">
+            <img class="mouse-click user-select-none m-bottom-5" (click)="share=!share" src="../../assets/images/share.png">
+            <div *ngIf="share" class="share-area">
+              <a href="#" class="black">
+                facebook
+              </a>
+              <a href="#" class="black">
+                twitter
+              </a>
+              <a href="#" class="black">
+                instagram
+              </a>
+            </div>
+          </div>
           <div class="inner-details rtl text-right">
             <h5 class="video-title">{{video.title}}</h5>
-            <p class="font-12">{{video.description}}</p>
+            <p [ngClass]="{'full-height': slide,'fixed-height': !slide}" class="font-12">{{video.description}}</p>
+            <div class="slide" >
+              <img class="mouse-click user-select-none pull-left" (click)="slide=!slide" src="../../assets/images/more.png">
+            </div>
           </div>
           <div class="inner-details">
             <div class="other-data user-select-none rtl text-right">
@@ -44,6 +61,9 @@
             </div>
           </div>
       </div>
+      <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+        <img src="./assets/images/ad.png">
+      </div>
     </div>
 
   </div>
@@ -53,7 +73,7 @@
 </div>
 
 <div class="rtl text-right">
-  <div class="col-md-12">
+  <div class="col-md-12" *ngIf="!loading">
     <app-recommended-videos></app-recommended-videos>
   </div>
 </div>

@@ -47,7 +47,7 @@
         <div class="col-12 col-md-8;">
           <div class="form-group">
             <label for="facebook" >رابط الفيس بوك</label>
-            <input id="facebook" name="facebook" [(ngModel)]="creator.facebook" autocomplete=”off” class="form-control" placeholder="رابط الفيس بوك">
+            <input id="facebook" name="facebook" pattern="^.*(?:facebook|fb\.me).*$" [(ngModel)]="creator.facebook" autocomplete=”off” class="form-control" placeholder="رابط الفيس بوك">
           </div>
           <div class="form-group">
             <label for="description">نبذة عن الفيديوهات</label>

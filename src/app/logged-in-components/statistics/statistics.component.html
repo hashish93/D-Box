@@ -13,8 +13,13 @@
         <div *ngIf="!loading">
             <h6 class="titled-country">البلاد</h6>
             <div class="width100 inline-block">
-              <ngx-charts-bar-horizontal [results]="countryList" [barPadding]="50" [scheme]="colorScheme" >
-              </ngx-charts-bar-horizontal>
+              <div class="country-iterator" *ngFor="let country of countryList;let i=index">
+                <div *ngIf="i<4">
+                  <p class="margin-0">{{country.name_ar}}</p>
+                  <progressbar [animate]="true" max="{{highestCountry}}" [value]="country.value" ></progressbar>
+                </div>
+
+              </div>
             </div>
         </div>
       </div>
