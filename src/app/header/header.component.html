@@ -8,7 +8,7 @@
       <div class="float-left">
         <app-profile-menu></app-profile-menu>
       </div>
-      <div class="float-left" *ngIf=" user.is_creator == 1">
+      <div class="float-left" *ngIf="authService.isAuthenticated() && user.is_creator == 1">
         <div class="float-left m-left-20">
           <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'upload' }" routerLinkActive="active-link">
             <img class="normal" src="../../assets/images/upload-icon.png">
