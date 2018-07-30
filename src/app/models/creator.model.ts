@@ -31,7 +31,7 @@ export interface Creator {
     videos:number,
     likes:number
   },
-  avatar:string,
+  avatar:any,
   cover:string,
   _index:string,
   _type:string,
@@ -41,5 +41,6 @@ export interface Creator {
   upgrade_account:Number,
   is_followed:boolean,
   activated:number,
-  file:File
+  file:File,
+  no_password:any
 }
