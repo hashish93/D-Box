@@ -27,15 +27,16 @@
           <div class="share" (clickOutside)="share=false">
             <img class="mouse-click user-select-none m-bottom-5" (click)="share=!share" src="../../assets/images/share.png">
             <div *ngIf="share" class="share-area">
-              <a href="#" class="black">
-                facebook
-              </a>
-              <a href="#" class="black">
-                twitter
-              </a>
-              <a href="#" class="black">
-                instagram
-              </a>
+
+              <share-buttons [theme]="'circles-dark'"
+                             [include]="['facebook','twitter','google','whatsapp','messenger']"
+                             [show]="5"
+                             [showCount]="true"
+                             [size]="-4"
+                             [url]="'https://twitter.com/'"
+              ></share-buttons>
+
+
             </div>
           </div>
           <div class="inner-details rtl text-right">
@@ -74,7 +75,7 @@
 
 <div class="rtl text-right">
   <div class="col-md-12" *ngIf="!loading">
-    <app-recommended-videos></app-recommended-videos>
+    <app-inner-recommended-videos></app-inner-recommended-videos>
   </div>
 </div>
 

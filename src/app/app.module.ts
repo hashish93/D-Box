@@ -55,6 +55,7 @@ import {SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from "angul
 import {ClickOutsideModule} from "ng-click-outside";
 import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { StatisticsComponent } from './logged-in-components/statistics/statistics.component';
+import { InnerRecommendedVideosComponent } from './video-details/inner-recommended-videos/inner-recommended-videos.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -114,7 +115,8 @@ export function getAuthServiceConfigs() {
     MyVideosComponent,
     EditVideoComponent,
     ProfileMenuComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    InnerRecommendedVideosComponent
   ],
   imports: [
     BrowserModule,
@@ -137,6 +139,7 @@ export function getAuthServiceConfigs() {
     SocialLoginModule,
     NgxChartsModule,
     JwtModule.forRoot(JWT_Module_Options),
+    HttpClientModule,       // (Required) For share counts
     ProgressbarModule.forRoot()
   ],
   providers: [

@@ -1,0 +1,46 @@
+<div class="container-fluid home-more-views m-top-20 rtl text-right">
+  <div class="row">
+    <div class="col-lg-2">
+
+    </div>
+    <div class="col-lg-8 bottom-border">
+      <div class="row">
+        <h6 class="bold m-bottom-20">فيديوهات مقترحة</h6>
+        <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+
+      </div>
+      <div class="row">
+        <h5 class="text-center" style="margin: 0 auto" *ngIf="!loading && videos && videos.length == 0">لا يوجد فيديوهات</h5>
+        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+          <a routerLink="/video/{{video._id}}">
+            <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+            <div class="image-container relative">
+              <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+              <span class="player-icon">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </span>
+            </div>
+            <h3>
+              {{video.title}}
+            </h3>
+            <div>
+              <div class="float-left">
+                <i [ngClass]="{'fa-heart': video.is_liked,'fa-heart-o': !video.is_liked}" class="m-left-5 fa" aria-hidden="true"></i>
+                <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+              </div>
+              <div class="float-right direction-ltr">
+                <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col col-lg-2">
+      <app-side-more-views></app-side-more-views>
+    </div>
+
+  </div>
+</div>

@@ -28,7 +28,7 @@
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
-              <img  src="{{staticEndPoint}}{{video.thumbnail}}">
+              <img  src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">
                 <i class="fa fa-play" aria-hidden="true"></i>
               </span>

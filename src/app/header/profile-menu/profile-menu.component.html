@@ -1,5 +1,5 @@
 <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
-<div class="relative" (clickOutside)="showAnchors=false" *ngIf="!loading">
+<div class="relative pull-left" (clickOutside)="showAnchors=false" *ngIf="!loading">
   <div style="cursor: pointer;" class="profile-info-holder" (click)="showAnchors=!showAnchors;">
     <img src="../../../assets/images/down-direction.png">
     <span class="m-left-5 m-right-10">{{user.fullname}}</span>
@@ -50,5 +50,28 @@
           </a>
         </li>
       </ul>
+  </div>
+</div>
+<div class="float-left" *ngIf="user.is_creator == 1">
+  <div class="float-left m-left-20">
+    <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'upload' }" routerLinkActive="active-link">
+      <img class="normal" src="../../assets/images/upload-icon.png">
+      <img class="hovered" src="../../assets/images/upload-icon-hover.png">
+      <span>اضافة</span>
+    </a>
+  </div>
+  <div class="float-left m-left-10">
+    <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'statistics' }" routerLinkActive="active-link">
+      <img class="normal" src="../../assets/images/statistics-icon.png">
+      <img class="hovered" src="../../assets/images/statistics-icon-hover.png">
+      <span>احصائيات</span>
+    </a>
+  </div>
+  <div class="float-left m-left-10">
+    <a class="black side-icons custom-side-icon" routerLink="/message"  routerLinkActive="active-link">
+      <img class="normal" src="../../assets/images/message-icon.png">
+      <img class="hovered" src="../../assets/images/message-icon-hover.png">
+      <span>الرسائل</span>
+    </a>
   </div>
 </div>

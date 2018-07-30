@@ -5,7 +5,7 @@
           <img *ngIf="!fileView" [src]="staticEndPoint+'/'+user.avatar">
           <img *ngIf="fileView" [src]="fileView">
           <div tooltip="الحد الاقصى 3 ميجا بايت " class="change-photo" (click)="!edit.section1 && !edit.section2 && !edit.section3 && !edit.section4 && userForm.valid && fileInput.click()">
-            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+            <img class="edit-img" src="../../../assets/images/edit-icon.png">
             <span>تعديل</span>
           </div>
           <input #fileInput
@@ -19,11 +19,11 @@
 
           <div [ngClass]="{'not_valid': edit.section1 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section1')" class="edit-option change-photo">
               <div *ngIf="!edit.section1">
-                <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+                <img class="edit-img" src="../../../assets/images/edit-icon.png">
                 <span>تعديل</span>
               </div>
               <div *ngIf="edit.section1">
-              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+                <img class="edit-img" src="../../../assets/images/edit-icon.png">
               <span>حفظ</span>
             </div>
           </div>
@@ -57,11 +57,11 @@
         <div [ngClass]="{'not_valid': edit.section2 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section2')" class="edit-option change-photo">
           <fieldset [disabled]="!userForm.valid">
             <div *ngIf="!edit.section2">
-              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <img class="edit-img" src="../../../assets/images/edit-icon.png">
               <span>تعديل</span>
             </div>
             <div *ngIf="edit.section2">
-            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <img class="edit-img" src="../../../assets/images/edit-icon.png">
             <span>حفظ</span>
           </div>
           </fieldset>
@@ -89,11 +89,11 @@
         <div [ngClass]="{'not_valid': edit.section3 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section3')" class="edit-option change-photo">
           <fieldset [disabled]="!userForm.valid">
             <div *ngIf="!edit.section3">
-              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <img class="edit-img" src="../../../assets/images/edit-icon.png">
               <span>تعديل</span>
             </div>
             <div *ngIf="edit.section3">
-            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <img class="edit-img" src="../../../assets/images/edit-icon.png">
             <span>حفظ</span>
           </div>
           </fieldset>
@@ -129,12 +129,12 @@
         <div [ngClass]="{'not_valid': edit.section4 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section4')" class="edit-option change-photo">
           <fieldset [disabled]="!userForm.valid">
             <div *ngIf="!edit.section4">
-              <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <img class="edit-img" src="../../../assets/images/edit-icon.png">
               <span>تعديل</span>
             </div>
             <div *ngIf="edit.section4">
 
-            <i class="fa fa-pencil-square-o m-left-10" aria-hidden="true"></i>
+              <img class="edit-img" src="../../../assets/images/edit-icon.png">
             <span>حفظ</span>
           </div>
           </fieldset>
