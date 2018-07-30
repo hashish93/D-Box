@@ -36,4 +36,9 @@
     color: #171717;
   }
 }
-.custom-top{margin-top: 171px;}
+.custom-top{
+  margin-top: 171px;
+  position: relative;
+  left: 210px;
+}
+.cat-desc{max-height: 47px;overflow: hidden}

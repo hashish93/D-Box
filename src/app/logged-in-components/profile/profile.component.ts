@@ -8,6 +8,8 @@ import {CountryService} from "../../services/country.service";
 import {Form} from "@angular/forms";
 import {CreatorService} from "../../services/creator.service";
 import {NotificationsService} from "angular2-notifications";
+import {AuthService} from '../../services/auth-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -25,7 +27,9 @@ export class ProfileComponent implements OnInit {
   public fileView : any;
   public file:any;
 
-  constructor(public userService : UserService,public countryService: CountryService , public creatorService : CreatorService, public  notificationService : NotificationsService) { }
+  constructor(public userService : UserService,public authService : AuthService,
+              public countryService: CountryService , public creatorService : CreatorService,
+              public  notificationService : NotificationsService , public router : Router) { }
 
 
   ngOnInit() {
@@ -87,9 +91,14 @@ export class ProfileComponent implements OnInit {
         break;
     }
 
-
   }
-  public saveUser(){
+
+
+  public closeAccount(){
+    this.user.activated=0;
+    this.saveUser('redirect');
+  }
+  public saveUser(redirect?){
     this.loading = true;
     this.creatorService.updateCreator(this.user,this.file).subscribe(data=>{
       this.file = null;
@@ -97,12 +106,29 @@ export class ProfileComponent implements OnInit {
       this.loading = false;
       this.error = '';
       this.notificationService.success('تم تعديل المستخدم بنجاح','',{timeOut: 3000});
-      this.getUserData();
+      if(redirect){
+        this.authService.logout().subscribe(data=>{
+          localStorage.clear();
+          this.router.navigate(['']);
+        },err=>{
+          localStorage.clear();
+          this.router.navigate(['']);
+        });
+      }else{
+        this.getUserData();
+      }
+
     },err=>{
       this.file = null;
       this.fileView = null;
-      this.error = JSON.stringify(err.error);
+      if(err && err.error && err.error.password){
+        this.error = JSON.stringify(err.error.password.toString());
+      } else{
+        this.error = JSON.stringify(err.error);
+      }
       this.loading = false;
+      window.scrollTo(0, 100);
+
     })
   }
 

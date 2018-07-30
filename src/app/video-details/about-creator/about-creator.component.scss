@@ -43,19 +43,38 @@
   background: #dddddd;
   padding: 0 7px;
   top: 30px;
-  left: -5px;
+  left: 3px;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
   box-shadow: 1px 2px 3px #867e7e;
   span {
     font-size: 12px;
     margin-right: 3px;
-    max-width: 25px;
+    max-width: 30px;
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 25px;
   }
   i {
     color: red;
   }
+}
+.custom-player-icon {
+  background: red;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding: 0px 7px;
+  position: relative;
+  top: 5px;
+  i{
+    color: #fff;
+  }
+}
+
+
+.like-custom {
+  position: relative;
+  top: -4px;
+  width: 29px;
 }

@@ -8,37 +8,37 @@
     height: 100px;
     border:2px solid #eee;
     border-radius: 50%;
-    margin-top: -7%;
+    margin-top: -5%;
   }
 }
 #main{
-  padding-right: 0px;
+  padding-right: 10px;
 }
 :host ::ng-deep .carousel{right: 100px}
-.custom-width{margin: 0;}
+.custom-width{margin: 0;display: none}
 slide{margin-bottom: 40px}
-slide:nth-child(1){
+.first_slide{
   .custom-width:nth-child(1),
   .custom-width:nth-child(2),
   .custom-width:nth-child(3),
-  .custom-width:nth-child(4){margin-bottom: 20px}
+  .custom-width:nth-child(4){margin-bottom: 20px;display: block;}
 }
-slide:nth-child(2){
-  .custom-width:nth-child(4),
+.second_slide{
   .custom-width:nth-child(5),
   .custom-width:nth-child(6),
-  .custom-width:nth-child(7){margin-bottom: 20px}
+  .custom-width:nth-child(7),
+  .custom-width:nth-child(8){margin-bottom: 20px;display: block;}
 }
-slide:nth-child(3){
-  .custom-width:nth-child(8),
+.third_slide{
   .custom-width:nth-child(9),
   .custom-width:nth-child(10),
-  .custom-width:nth-child(11){margin-bottom: 20px}
+  .custom-width:nth-child(11),
+  .custom-width:nth-child(12){margin-bottom: 20px;display: block;}
 }
 
 :host ::ng-deep .carousel-indicators li {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: #afafaf;
 }
@@ -52,10 +52,12 @@ slide:nth-child(3){
   top: -120px;
 }
 :host ::ng-deep .carousel-control-next {
-  right: -80px;
+  right: -110px;
+  cursor: pointer;
 }
 :host ::ng-deep .carousel-control-prev {
   left: 40px;
+  cursor: pointer;
 }
 :host ::ng-deep .carousel-control-prev-icon{
   background-image: url("../../assets/images/prev.png");
@@ -105,4 +107,10 @@ slide:nth-child(3){
     color: red;
     margin-bottom: 10px;
   }
+}
+.custom-player-icon {
+  position: relative;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  display: inline-block;
 }

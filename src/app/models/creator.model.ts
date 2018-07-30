@@ -40,5 +40,6 @@ export interface Creator {
   is_creator:Number,
   upgrade_account:Number,
   is_followed:boolean,
+  activated:number,
   file:File
 }
