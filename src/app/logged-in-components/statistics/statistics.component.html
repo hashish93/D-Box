@@ -65,10 +65,28 @@
 
 </div>
 <div class="bottom-statistics m-top-20">
-  <div class="col-lg-12">
+  <div class="col-lg-12" *ngIf="!loading">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="col-lg-4 white-bg col-md-4 col-sm-12 col-xs-12 text-left direction-ltr padding-right-10">
+        <ngx-charts-bar-vertical
+          [view]="[280,300]"
+          [scheme]="weeksColorScheme"
+          [results]="daysList"
+          [xAxis]="true"
+          [yAxis]="true"
+          [barPadding]="20"
+          (select)="onSelect($event)">
+        </ngx-charts-bar-vertical>
 
+
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left dark-bg direction-ltr ">
+          <ngx-charts-area-chart
+            [view]="[700,300]"
+            [scheme]="weeksColorScheme"
+            [results]="weeksList"
+          >
+          </ngx-charts-area-chart>
       </div>
 
     </div>

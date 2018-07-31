@@ -18,9 +18,136 @@ export class StatisticsComponent implements OnInit {
   public highestCountry : number = 0;
   public deviceList : any = [];
   public totalDeviceVisitors: number = 0;
-  public colorScheme = { domain: ['#36569f', '#909ab0', '#5472b5', '#8ed0ad'] };
   public deviceColorScheme = { domain: ['#4fbd83', '#1b81d8', '#d00c8d'] };
-
+  public weeksColorScheme = {domain:['#6deef6']};
+  public daysList : any[] = [];
+  public weeksList : any = [
+    {
+      "name": "Burkina Faso",
+      "series": [
+        {
+          "value": 2460,
+          "name": "2016-09-14T22:19:31.185Z"
+        },
+        {
+          "value": 3100,
+          "name": "2016-09-13T15:51:43.224Z"
+        },
+        {
+          "value": 3430,
+          "name": "2016-09-18T06:53:08.949Z"
+        },
+        {
+          "value": 2259,
+          "name": "2016-09-14T18:14:03.082Z"
+        },
+        {
+          "value": 2504,
+          "name": "2016-09-21T02:59:01.086Z"
+        }
+      ]
+    },
+    {
+      "name": "Colombia",
+      "series": [
+        {
+          "value": 4771,
+          "name": "2016-09-14T22:19:31.185Z"
+        },
+        {
+          "value": 5780,
+          "name": "2016-09-13T15:51:43.224Z"
+        },
+        {
+          "value": 2427,
+          "name": "2016-09-18T06:53:08.949Z"
+        },
+        {
+          "value": 5108,
+          "name": "2016-09-14T18:14:03.082Z"
+        },
+        {
+          "value": 6983,
+          "name": "2016-09-21T02:59:01.086Z"
+        }
+      ]
+    },
+    {
+      "name": "Virgin Islands, U.S.",
+      "series": [
+        {
+          "value": 6559,
+          "name": "2016-09-14T22:19:31.185Z"
+        },
+        {
+          "value": 2437,
+          "name": "2016-09-13T15:51:43.224Z"
+        },
+        {
+          "value": 6064,
+          "name": "2016-09-18T06:53:08.949Z"
+        },
+        {
+          "value": 5631,
+          "name": "2016-09-14T18:14:03.082Z"
+        },
+        {
+          "value": 3045,
+          "name": "2016-09-21T02:59:01.086Z"
+        }
+      ]
+    },
+    {
+      "name": "Canada",
+      "series": [
+        {
+          "value": 4789,
+          "name": "2016-09-14T22:19:31.185Z"
+        },
+        {
+          "value": 6336,
+          "name": "2016-09-13T15:51:43.224Z"
+        },
+        {
+          "value": 4776,
+          "name": "2016-09-18T06:53:08.949Z"
+        },
+        {
+          "value": 5979,
+          "name": "2016-09-14T18:14:03.082Z"
+        },
+        {
+          "value": 2827,
+          "name": "2016-09-21T02:59:01.086Z"
+        }
+      ]
+    },
+    {
+      "name": "Gabon",
+      "series": [
+        {
+          "value": 3007,
+          "name": "2016-09-14T22:19:31.185Z"
+        },
+        {
+          "value": 2432,
+          "name": "2016-09-13T15:51:43.224Z"
+        },
+        {
+          "value": 3613,
+          "name": "2016-09-18T06:53:08.949Z"
+        },
+        {
+          "value": 6905,
+          "name": "2016-09-14T18:14:03.082Z"
+        },
+        {
+          "value": 4658,
+          "name": "2016-09-21T02:59:01.086Z"
+        }
+      ]
+    }
+  ]
   constructor(public creatorService : CreatorService,public userService : UserService) { }
 
   ngOnInit() {
@@ -36,6 +163,7 @@ export class StatisticsComponent implements OnInit {
       this.loadMap(this.data);
       this.loadCountryList(this.data);
       this.loadDeviceList(this.data);
+      this.loadDaysList(this.data);
       console.log(this.data)
     },err=>{
       this.loading = false;
@@ -107,5 +235,16 @@ export class StatisticsComponent implements OnInit {
       result.push(obj);
     }
     this.deviceList = result;
+  }
+
+  private loadDaysList(data: any) {
+    this.daysList = [];
+    var days = data.days;
+    var result = [];
+    for(var day of days){
+      var obj = {name : day['day'], value : day['views']};
+      result.push(obj);
+    }
+    this.daysList = result;
   }
 }

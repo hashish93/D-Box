@@ -68,17 +68,27 @@
   border-radius: 0;
   height: 7px;
 }
-:host ::ng-deep .progress-bar:nth-of-type(1){
+:host ::ng-deep .country-iterator:nth-of-type(1) .progress-bar{
   background: #36569f;
 }
-:host ::ng-deep .progress-bar:nth-of-type(2){
+:host ::ng-deep .country-iterator:nth-of-type(2) .progress-bar{
   background: #909ab0;
 }
-:host ::ng-deep .progress-bar:nth-of-type(3){
+:host ::ng-deep .country-iterator:nth-of-type(3) .progress-bar{
   background: #5472b5;
 }
-:host ::ng-deep .progress-bar:nth-of-type(4){
+:host ::ng-deep .country-iterator:nth-of-type(4) .progress-bar{
   background: #8ed0ad;
 }
 .country-iterator{margin-bottom: 10px;}
 .country-iterator p {color: #697eb2}
+.bottom-statistics{height: 350px;}
+:host ::ng-deep text {
+  font-size: 8px !important;
+  transform: rotate(0) !important;
+  position: relative;
+  transform: translateX(-19px) !important;
+}
+.white-bg{background: #ffffff}
+.padding-right-10{padding-right: 10px;}
+.dark-bg{background: #1f2840;height: 300px;}
