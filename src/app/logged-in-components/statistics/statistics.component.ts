@@ -57,10 +57,10 @@ export class StatisticsComponent implements OnInit {
   public fetChCountryData(data){
     var countries = data.countries;
     var result = [];
-    var obj = ['Country', 'Number of views'];
+    var obj = ['Country', 'عدد المشاهدات'];
     result.push(obj);
     for(var country of countries){
-      obj = [country['english_name'] , country['views']]
+      obj = [country['arabic_name'] , country['views']]
       result.push(obj);
     }
     return result;
