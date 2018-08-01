@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CreatorService} from "../../services/creator.service";
 import {UserService} from "../../services/user.service";
+import * as d3 from "d3";
 declare var google: any;
-
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -21,133 +21,16 @@ export class StatisticsComponent implements OnInit {
   public deviceColorScheme = { domain: ['#4fbd83', '#1b81d8', '#d00c8d'] };
   public weeksColorScheme = {domain:['#6deef6']};
   public daysList : any[] = [];
-  public weeksList : any = [
+  public monthList : any = [
     {
-      "name": "Burkina Faso",
-      "series": [
-        {
-          "value": 2460,
-          "name": "2016-09-14T22:19:31.185Z"
-        },
-        {
-          "value": 3100,
-          "name": "2016-09-13T15:51:43.224Z"
-        },
-        {
-          "value": 3430,
-          "name": "2016-09-18T06:53:08.949Z"
-        },
-        {
-          "value": 2259,
-          "name": "2016-09-14T18:14:03.082Z"
-        },
-        {
-          "value": 2504,
-          "name": "2016-09-21T02:59:01.086Z"
-        }
-      ]
-    },
-    {
-      "name": "Colombia",
-      "series": [
-        {
-          "value": 4771,
-          "name": "2016-09-14T22:19:31.185Z"
-        },
-        {
-          "value": 5780,
-          "name": "2016-09-13T15:51:43.224Z"
-        },
-        {
-          "value": 2427,
-          "name": "2016-09-18T06:53:08.949Z"
-        },
-        {
-          "value": 5108,
-          "name": "2016-09-14T18:14:03.082Z"
-        },
-        {
-          "value": 6983,
-          "name": "2016-09-21T02:59:01.086Z"
-        }
-      ]
-    },
-    {
-      "name": "Virgin Islands, U.S.",
-      "series": [
-        {
-          "value": 6559,
-          "name": "2016-09-14T22:19:31.185Z"
-        },
-        {
-          "value": 2437,
-          "name": "2016-09-13T15:51:43.224Z"
-        },
-        {
-          "value": 6064,
-          "name": "2016-09-18T06:53:08.949Z"
-        },
-        {
-          "value": 5631,
-          "name": "2016-09-14T18:14:03.082Z"
-        },
-        {
-          "value": 3045,
-          "name": "2016-09-21T02:59:01.086Z"
-        }
-      ]
-    },
-    {
-      "name": "Canada",
-      "series": [
-        {
-          "value": 4789,
-          "name": "2016-09-14T22:19:31.185Z"
-        },
-        {
-          "value": 6336,
-          "name": "2016-09-13T15:51:43.224Z"
-        },
-        {
-          "value": 4776,
-          "name": "2016-09-18T06:53:08.949Z"
-        },
-        {
-          "value": 5979,
-          "name": "2016-09-14T18:14:03.082Z"
-        },
-        {
-          "value": 2827,
-          "name": "2016-09-21T02:59:01.086Z"
-        }
-      ]
-    },
-    {
-      "name": "Gabon",
-      "series": [
-        {
-          "value": 3007,
-          "name": "2016-09-14T22:19:31.185Z"
-        },
-        {
-          "value": 2432,
-          "name": "2016-09-13T15:51:43.224Z"
-        },
-        {
-          "value": 3613,
-          "name": "2016-09-18T06:53:08.949Z"
-        },
-        {
-          "value": 6905,
-          "name": "2016-09-14T18:14:03.082Z"
-        },
-        {
-          "value": 4658,
-          "name": "2016-09-21T02:59:01.086Z"
-        }
-      ]
+      "name": "معدلات الزيارة",
+      "series": []
     }
-  ]
+  ];
+
+  public line = d3.line().curve(d3.curveBundle.beta(0.5));
+
+
   constructor(public creatorService : CreatorService,public userService : UserService) { }
 
   ngOnInit() {
@@ -164,6 +47,7 @@ export class StatisticsComponent implements OnInit {
       this.loadCountryList(this.data);
       this.loadDeviceList(this.data);
       this.loadDaysList(this.data);
+      this.loadMonthsList(this.data);
       console.log(this.data)
     },err=>{
       this.loading = false;
@@ -246,5 +130,24 @@ export class StatisticsComponent implements OnInit {
       result.push(obj);
     }
     this.daysList = result;
+  }
+
+  private loadMonthsList(data: any) {
+    this.monthList = [
+      {
+        "name": "معدلات الزيارة",
+        "series": []
+      }
+    ];
+    console.log(data)
+    var months = data.monthes;
+    var result = [];
+    for(var month of months){
+      var obj = {name : month['month'], value : month['views']};
+      result.push(obj);
+    }
+    console.log(result);
+    console.log(this.monthList);
+    this.monthList[0].series = result;
   }
 }

@@ -82,9 +82,14 @@
       </div>
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left dark-bg direction-ltr ">
           <ngx-charts-area-chart
-            [view]="[700,300]"
-            [scheme]="weeksColorScheme"
-            [results]="weeksList"
+            [view]="[600,280]"
+            [scheme]="'nightLights'"
+            [curve]=""
+            [gradient]="true"
+            [showGridLines]="false"
+            [xAxis]="true"
+            [yAxis]="true"
+            [results]="monthList"
           >
           </ngx-charts-area-chart>
       </div>
