@@ -43,3 +43,6 @@ $font-family-brand: 'GE_SS';
 :host ::ng-deep .ng2-tag-input__text-input ,:host ::ng-deep .ng2-tag-input{
   font-family:$font-family-brand !important;
 }
+:host ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+  text-align: right;
+}

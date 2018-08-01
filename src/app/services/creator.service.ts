@@ -39,11 +39,14 @@ export class CreatorService {
   return formData;
   }
 
-  updateCreator(user: Creator,file: any) : Observable<any> {
+  updateCreator(user: Creator,file: any,cover:any) : Observable<any> {
     user._method = 'put';
     delete user.email;
     if(file){
       user.avatar=file;
+    }
+    if(cover){
+      user.cover = cover;
     }
     let userData = this.getFormData(user);
     return this.http.post('auth/user',userData)

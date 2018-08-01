@@ -1,10 +1,20 @@
 <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 <div>
     <form #userForm="ngForm" novalidate autocomplete="off" class="m-top-10 m-bottom-10">
-        <div class="cover-container">
-
+        <div *ngIf="!loading" class="text-center cover-container">
+          <div class="inner-cover">
+            <img *ngIf="!fileViewCover && user.cover" [src]="staticEndPoint+'/'+user.cover">
+            <img *ngIf="fileViewCover" [src]="fileViewCover">
+          </div>
+          <div tooltip="الحد الاقصى 3 ميجا بايت " class="change-photo" (click)="!edit.section1 && !edit.section2 && !edit.section3 && !edit.section4 && userForm.valid && fileInputCover.click()">
+            <img class="edit-img" src="../../../assets/images/edit-icon.png">
+            <span>تعديل</span>
+          </div>
+          <input #fileInputCover
+                 style="display: none" accept="image/*"
+                 (change)="onCoverFileChanged($event)" type="file">
         </div>
-        <div class="image-container profile-photo">
+        <div *ngIf="!loading" class="image-container profile-photo">
           <img *ngIf="!fileView && user.avatar && !user.avatar.size && !user.avatar.includes('https')" [src]="staticEndPoint+'/'+user.avatar">
           <img *ngIf="!fileView && user.avatar && !user.avatar.size && user.avatar.includes('https')" src="{{user.avatar}}">
           <img *ngIf="fileView" [src]="fileView">
@@ -107,22 +117,22 @@
 
           <div class="form-group">
             <label for="facebook" >فيس بوك : </label>
-            <input id="facebook" name="facebook" [(ngModel)]="user.facebook" pattern="^.*(?:facebook|fb\.me).*$" autocomplete=”off” class="form-control">
+            <input class="form-control direction-ltr text-left" id="facebook" name="facebook" [(ngModel)]="user.facebook" pattern="^.*(?:facebook|fb\.me).*$" autocomplete=”off”>
           </div>
 
           <div class="form-group">
             <label for="twitter" >تويتر : </label>
-            <input id="twitter" name="twitter" [(ngModel)]="user.twitter" pattern="^.*(?:twitter).*$" autocomplete=”off” class="form-control">
+            <input class="form-control direction-ltr text-left" id="twitter" name="twitter" [(ngModel)]="user.twitter" pattern="^.*(?:twitter).*$" autocomplete=”off”>
           </div>
 
           <div class="form-group">
             <label for="instagram" >انستاجرام : </label>
-            <input id="instagram" name="instagram" [(ngModel)]="user.instagram" pattern="^.*(?:instagram).*$" autocomplete=”off” class="form-control">
+            <input class="form-control direction-ltr text-left" id="instagram" name="instagram" [(ngModel)]="user.instagram" pattern="^.*(?:instagram).*$" autocomplete=”off”>
           </div>
 
           <div class="form-group">
             <label for="google" >جوجل : </label>
-            <input id="google" name="google" [(ngModel)]="user.google" pattern="^.*(?:google).*$" autocomplete=”off” class="form-control">-
+            <input class="form-control direction-ltr text-left" id="google" name="google" [(ngModel)]="user.google" pattern="^.*(?:google).*$" autocomplete=”off”>-
           </div>
         </fieldset>
 

@@ -25,7 +25,6 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
 
     this.route.queryParams.forEach((params : any) => {
-      console.log(params)
       if(params && params.tab &&
         (params.tab=='favorites' || params.tab == 'profile' || params.tab=='followers'
         || params.tab =='revenue' || params.tab=='upload' || params.tab == 'my-videos' || params.tab=='statistics')){

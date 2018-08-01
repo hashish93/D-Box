@@ -48,7 +48,6 @@ export class StatisticsComponent implements OnInit {
       this.loadDeviceList(this.data);
       this.loadDaysList(this.data);
       this.loadMonthsList(this.data);
-      console.log(this.data)
     },err=>{
       this.loading = false;
       this.error = JSON.stringify(err.error);
@@ -87,8 +86,6 @@ export class StatisticsComponent implements OnInit {
         defaultColor: 'yellow',
 
       };
-      console.log('here');
-      console.log(document.getElementById('regions_div'));
       var chart = new google.visualization.GeoChart(<HTMLInputElement>document.getElementById('regions_div'));
 
       chart.draw(data, options);
@@ -139,15 +136,12 @@ export class StatisticsComponent implements OnInit {
         "series": []
       }
     ];
-    console.log(data)
     var months = data.monthes;
     var result = [];
     for(var month of months){
       var obj = {name : month['month'], value : month['views']};
       result.push(obj);
     }
-    console.log(result);
-    console.log(this.monthList);
     this.monthList[0].series = result;
   }
 }

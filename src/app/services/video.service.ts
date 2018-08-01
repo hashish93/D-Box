@@ -88,7 +88,6 @@ export class VideoService {
       uploaded.num_chunks = video.num_chunks;
       delete uploaded.blob;
     }
-    // console.log(uploaded);
     let videoData = this.getFormData(uploaded);
     return this.http.post('auth/videos',videoData)
   }
