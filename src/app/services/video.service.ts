@@ -86,10 +86,12 @@ export class VideoService {
       uploaded.category_id = video.category_id;
       uploaded.num = video.num;
       uploaded.num_chunks = video.num_chunks;
+      uploaded.tags = video.tags;
       delete uploaded.blob;
     }
+    console.log(uploaded);
     let videoData = this.getFormData(uploaded);
-    return this.http.post('auth/videos',videoData)
+    return this.http.post('auth/videos',videoData);
   }
 
   public getMyVideos(page?:Number,limit?:Number,pagination?:Number): Observable<any> {

@@ -127,11 +127,12 @@ export class UploadVideoComponent implements OnInit {
 
 
   private uploadVideo() {
+    this.video.num_chunks= 1;
     this.loading = true;
     this.videoService.postVideo(this.video).subscribe(data=> {
       this.loading = false;
       this.notificationService.success("تم رفع الفيديو بنجاح", '', {timeOut: 3000})
-      this.router.navigate(['/']);
+      this.router.navigate(['/settings'],{queryParams:{tab:'my-videos'}});
     }, err=> {
       this.loading = false;
       // this.error = JSON.stringify(err.error);
