@@ -110,7 +110,7 @@ export class UploadVideoComponent implements OnInit {
           this.loading = false;
           this.error ='';
           this.notificationService.success("تم رفع الفيديو بنجاح", '', {timeOut: 3000});
-          this.router.navigate(['/']);
+          this.router.navigate(['/settings'],{queryParams:{tab:'my-videos'}});
         }
 
     }, err=> {
