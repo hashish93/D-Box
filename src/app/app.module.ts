@@ -56,6 +56,7 @@ import {ClickOutsideModule} from "ng-click-outside";
 import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { StatisticsComponent } from './logged-in-components/statistics/statistics.component';
 import { InnerRecommendedVideosComponent } from './video-details/inner-recommended-videos/inner-recommended-videos.component';
+import { RecommendedVideosTabsComponent } from './logged-in-components/recommended-videos-tabs/recommended-videos-tabs.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -116,7 +117,8 @@ export function getAuthServiceConfigs() {
     EditVideoComponent,
     ProfileMenuComponent,
     StatisticsComponent,
-    InnerRecommendedVideosComponent
+    InnerRecommendedVideosComponent,
+    RecommendedVideosTabsComponent
   ],
   imports: [
     BrowserModule,

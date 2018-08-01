@@ -1,6 +1,9 @@
 <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 <div>
     <form #userForm="ngForm" novalidate autocomplete="off" class="m-top-10 m-bottom-10">
+        <div class="cover-container">
+
+        </div>
         <div class="image-container profile-photo">
           <img *ngIf="!fileView && user.avatar && !user.avatar.size && !user.avatar.includes('https')" [src]="staticEndPoint+'/'+user.avatar">
           <img *ngIf="!fileView && user.avatar && !user.avatar.size && user.avatar.includes('https')" src="{{user.avatar}}">
