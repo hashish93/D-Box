@@ -13,10 +13,10 @@
 
     <div class="row black-section">
       <div class="col col-lg-3">
-        <div class="m-top-35">
+        <div class="">
           <div *ngIf="!loading">
             <app-about-creator style="display: none" *ngIf="video.creator && video.creator.id" [creator_id]="video.creator.id" (onGetCreator)="getCreator($event)"></app-about-creator>
-
+            <app-side-play-list class="rtl text-right" style="height: 100%;"></app-side-play-list>
           </div>
         </div>
       </div>

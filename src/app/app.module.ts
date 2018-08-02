@@ -58,6 +58,7 @@ import { StatisticsComponent } from './logged-in-components/statistics/statistic
 import { InnerRecommendedVideosComponent } from './video-details/inner-recommended-videos/inner-recommended-videos.component';
 import { RecommendedVideosTabsComponent } from './logged-in-components/recommended-videos-tabs/recommended-videos-tabs.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { SidePlayListComponent } from './playlist/side-play-list/side-play-list.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -120,7 +121,8 @@ export function getAuthServiceConfigs() {
     StatisticsComponent,
     InnerRecommendedVideosComponent,
     RecommendedVideosTabsComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    SidePlayListComponent
   ],
   imports: [
     BrowserModule,
