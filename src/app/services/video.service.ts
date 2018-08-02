@@ -92,7 +92,6 @@ export class VideoService {
 
       delete uploaded.blob;
     }else{
-      alert('a')
       uploaded = video;
     }
     console.log(uploaded);
