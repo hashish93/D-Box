@@ -52,8 +52,10 @@ export class UploadVideoComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       this.video.file = event.target.files[0];
       var extn = this.video.file.name.split(".").pop();
-      if (event.target.files[0].size / 1024 / 1024 > 1024)
+      if (event.target.files[0].size / 1024 / 1024 > 1024){
         this.notificationService.error("الحد الاقصى للصورة 1 جيجا بايت", '', {timeOut: 3000});
+        return
+      }
       // 3gp mp4 mp4v mpg4 mpeg mpg mpe m1v m2v ogv qt mov webm flv mkv mk3d mks wmv avi movie
       if (extn.toLowerCase() == 'mp4' || extn.toLowerCase() == 'avi' ||
         extn.toLowerCase() == 'flv' || extn.toLowerCase() == 'mov' ||
@@ -128,6 +130,7 @@ export class UploadVideoComponent implements OnInit {
 
   private uploadVideo() {
     this.video.num_chunks= 1;
+    this.video.blob=null;
     this.loading = true;
     this.videoService.postVideo(this.video).subscribe(data=> {
       this.loading = false;

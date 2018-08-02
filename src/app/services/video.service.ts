@@ -86,8 +86,14 @@ export class VideoService {
       uploaded.category_id = video.category_id;
       uploaded.num = video.num;
       uploaded.num_chunks = video.num_chunks;
-      uploaded.tags = video.tags;
+      if(video.tags){
+        uploaded.tags = video.tags;
+      }
+
       delete uploaded.blob;
+    }else{
+      alert('a')
+      uploaded = video;
     }
     console.log(uploaded);
     let videoData = this.getFormData(uploaded);

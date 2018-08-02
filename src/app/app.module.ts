@@ -57,6 +57,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { StatisticsComponent } from './logged-in-components/statistics/statistics.component';
 import { InnerRecommendedVideosComponent } from './video-details/inner-recommended-videos/inner-recommended-videos.component';
 import { RecommendedVideosTabsComponent } from './logged-in-components/recommended-videos-tabs/recommended-videos-tabs.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -118,7 +119,8 @@ export function getAuthServiceConfigs() {
     ProfileMenuComponent,
     StatisticsComponent,
     InnerRecommendedVideosComponent,
-    RecommendedVideosTabsComponent
+    RecommendedVideosTabsComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
