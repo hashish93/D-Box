@@ -139,9 +139,11 @@ export class ProfileComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       this.file = event.target.files[0];
       var extn = this.file.name.split(".").pop();
-      if (event.target.files[0].size / 1024 / 1024 > 3)
+      if (event.target.files[0].size / 1024 / 1024 > 3){
         this.notificationService.error("الحد الاقصى للصورة 3 ميجا بايت",'',{timeOut: 3000});
-      if(extn == 'jpg' || extn == 'gif' || extn == 'png'){
+        return;
+      }
+      if(extn.toLowerCase() == 'jpg' || extn.toLowerCase() == 'jpeg' || extn.toLowerCase() == 'gif' || extn.toLowerCase() == 'png'){
         var reader = new FileReader();
         reader.onload = (event: ProgressEvent) => {
           this.fileView = (<FileReader>event.target).result;
@@ -161,16 +163,19 @@ export class ProfileComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       this.fileCover = event.target.files[0];
       var extn = this.fileCover.name.split(".").pop();
-      if (event.target.files[0].size / 1024 / 1024 > 3)
+      if (event.target.files[0].size / 1024 / 1024 > 3){
         this.notificationService.error("الحد الاقصى للصورة 3 ميجا بايت",'',{timeOut: 3000});
-      if(extn == 'jpg' || extn == 'gif' || extn == 'png'){
+        return;
+      }
+
+      if(extn.toLowerCase() == 'jpg' || extn.toLowerCase() == 'jpeg' || extn.toLowerCase() == 'gif' || extn.toLowerCase() == 'png'){
         var reader = new FileReader();
         reader.onload = (event: ProgressEvent) => {
           this.fileViewCover = (<FileReader>event.target).result;
         };
 
         reader.readAsDataURL(this.fileCover);
-        this.saveUser()
+        this.saveUser();
       }
       else{
         this.notificationService.error('من فضلك اختار ملف من نوع صورة','',{timeOut: 3000})

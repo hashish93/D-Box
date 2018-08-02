@@ -1,19 +1,28 @@
 <div class="row margin-0">
-  <div class="col-lg-10 col-xs-12 bg-black">
+
+  <div class="col-lg-10 col-xs-12 black-container">
     <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-10">
+        <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+          <img src="./assets/images/ad.png">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row black-section">
       <div class="col col-lg-3">
         <div class="m-top-35">
           <div *ngIf="!loading">
-            <app-about-creator *ngIf="video.creator && video.creator.id" [creator_id]="video.creator.id" (onGetCreator)="getCreator($event)"></app-about-creator>
-            <img class="max-width-100" src="./assets/images/test-image.png">
+            <app-about-creator style="display: none" *ngIf="video.creator && video.creator.id" [creator_id]="video.creator.id" (onGetCreator)="getCreator($event)"></app-about-creator>
+
           </div>
         </div>
       </div>
       <div class="col col-lg-9 col-xs-12" id="main">
         <div class="row margin-0" *ngIf="router.url != '/register/visitor'">
-          <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
-            <img src="./assets/images/ad.png">
-          </div>
+
           <div class="col col-lg-2"></div>
         </div>
         <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
@@ -55,18 +64,29 @@
               </div>
             </div>
           </div>
-          <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
-            <img src="./assets/images/ad.png">
-          </div>
+
         </div>
 
       </div>
+
     </div>
 
   </div>
 
   <div class="col col-lg-2">
     <app-side-menu></app-side-menu>
+  </div>
+</div>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-10">
+      <div class="col col-lg-10 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+        <img src="./assets/images/ad.png">
+      </div>
+
+    </div>
+
   </div>
 </div>
 
