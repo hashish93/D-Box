@@ -12,7 +12,7 @@
       <div class="row">
         <h5 class="text-center" style="margin: 0 auto" *ngIf="!loading && videos && videos.length == 0">لا يوجد فيديوهات</h5>
         <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
-          <a routerLink="/video/{{video._id}}">
+          <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
               <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
