@@ -33,9 +33,18 @@ a.inner-cat-link {
   }
 }
 .fixed-height {
-  height: 36px;
+  max-height: 36px;
   overflow: hidden;
+  transition: all .3s;
 }
 .full-height {
   height: auto;
+  transition: all .3s
 }
+@media screen and (min-width: 1200px) and (max-width: 1400px){
+  .no-padding-right{padding-right: 0}
+}
+@media screen and (max-width: 992px){
+  iframe{height: 300px;}
+}
+

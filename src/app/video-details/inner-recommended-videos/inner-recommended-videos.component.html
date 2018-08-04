@@ -1,9 +1,9 @@
 <div class="container-fluid home-more-views m-top-20 rtl text-right">
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-2 col-xl-2">
 
     </div>
-    <div class="col-lg-8 bottom-border">
+    <div class="col-lg-6 col-xl-8 bottom-border">
       <div class="row margin-0">
         <h6 class="bold m-bottom-20">فيديوهات مقترحة</h6>
         <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <h5 class="text-center" style="margin: 0 auto" *ngIf="!loading && videos && videos.length == 0">لا يوجد فيديوهات</h5>
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
@@ -38,7 +38,7 @@
       </div>
 
     </div>
-    <div class="col col-lg-2">
+    <div class="col col-lg-3 col-xl-2">
       <app-side-more-views></app-side-more-views>
     </div>
 
