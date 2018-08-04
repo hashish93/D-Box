@@ -13,6 +13,16 @@
 .custom-top {
   margin-top: 165px;
 }
+@media screen and (min-width: 992px) and (max-width: 1200px){
+  :host ::ng-deep .nav-link span {display: none;}
+}
 @media screen and (max-width: 992px){
   .custom-top{margin-top: 10px;}
+  :host ::ng-deep .nav-link span {display: none;}
+  :host ::ng-deep .nav-tabs li a{padding: 5px 10px;}
+  :host ::ng-deep .nav-tabs li a img{margin-left: 0}
+  :host ::ng-deep .nav-tabs li a i {
+    font-size: 18px;
+    margin-left: 0;
+  }
 }

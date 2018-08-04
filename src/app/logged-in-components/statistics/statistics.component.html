@@ -6,10 +6,10 @@
 <div class="top-statistics m-top-20">
   <div class="col-lg-12">
     <div class="row">
-      <div class="col-lg-5 col-md-12 col-xs-12">
-        <div id="regions_div" style="width: 300px; height: 300px;"></div>
+      <div class="col-xl-5 col-md-12 col-12">
+        <div id="regions_div" style="width: 290px; height: 300px;"></div>
       </div>
-      <div class="col-lg-3 col-md-12 col-xs-12">
+      <div class="col-xl-3 col-md-12 col-12">
         <div *ngIf="!loading">
             <h6 class="titled-country">البلاد</h6>
             <div class="width100 inline-block">
@@ -23,7 +23,7 @@
             </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-12 col-xs-12 relative">
+      <div class="col-xl-4 col-md-12 col-12 relative">
         <div *ngIf="!loading && deviceList && deviceList.length > 0">
           <h6 class="titled-country">الاجهزة</h6>
           <div class="total-device">
@@ -67,7 +67,7 @@
 <div class="bottom-statistics m-top-20">
   <div class="col-lg-12" *ngIf="!loading">
     <div class="row">
-      <div class="col-lg-4 white-bg col-md-4 col-sm-12 col-xs-12 text-left direction-ltr padding-right-10">
+      <div class="col-xl-4 white-bg col-md-12 col-12 text-left direction-ltr padding-right-10">
         <ngx-charts-bar-vertical
           [view]="[280,300]"
           [scheme]="weeksColorScheme"
@@ -80,7 +80,7 @@
 
 
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left dark-bg direction-ltr ">
+      <div class="col-xl-8 col-md-12 col-12 text-left dark-bg direction-ltr ">
           <ngx-charts-area-chart
             [view]="[600,280]"
             [scheme]="'nightLights'"
