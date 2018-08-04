@@ -63,3 +63,10 @@
     user-select: none;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 992px){
+  .image-container{display: block !important;margin: 0 auto;text-align: center}
+  .boxed-follower .follower-info{width: 100% !important;text-align: center}
+}
+@media screen and (min-width: 576px) and (max-width: 768px){
+  .boxed-follower .follower-info{width: 120px;}
+}

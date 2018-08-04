@@ -53,7 +53,7 @@ export class UploadVideoComponent implements OnInit {
       this.video.file = event.target.files[0];
       var extn = this.video.file.name.split(".").pop();
       if (event.target.files[0].size / 1024 / 1024 > 1024){
-        this.notificationService.error("الحد الاقصى للصورة 1 جيجا بايت", '', {timeOut: 3000});
+        this.notificationService.error("الحد الاقصى للفيديو 1 جيجا بايت", '', {timeOut: 3000});
         return
       }
       // 3gp mp4 mp4v mpg4 mpeg mpg mpe m1v m2v ogv qt mov webm flv mkv mk3d mks wmv avi movie
@@ -83,7 +83,7 @@ export class UploadVideoComponent implements OnInit {
         this.video.num_chunks = Math.floor(this.total / this.step) + 1;
       }
       else {
-        this.notificationService.error('من فضلك اختار ملف من نوع صورة', '', {timeOut: 3000})
+        this.notificationService.error('من فضلك اختار ملف من نوع فيديو', '', {timeOut: 3000})
       }
     }
   }

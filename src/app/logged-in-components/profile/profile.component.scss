@@ -106,3 +106,28 @@
 .cover-container > .inner-cover > img{width: 100%;min-height: 250px;}
 .cover-container > .inner-cover{height: 250px;overflow: hidden}
 .cover-container .change-photo{top:-150px;}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .cover-container > .inner-cover > img{width: 100%;min-height: 150px;}
+  .cover-container > .inner-cover{height: 150px;overflow: hidden}
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .cover-container > .inner-cover > img{width: 100%;min-height: 150px;}
+  .cover-container > .inner-cover{height: 150px;overflow: hidden}
+}
+@media screen and (max-width: 768px) {
+  .cover-container > .inner-cover > img{width: 100%;min-height: 100px;}
+  .cover-container > .inner-cover{height: 100px;overflow: hidden}
+  .cover-container .change-photo{top:-80px;}
+
+  .view-mode .form-group .form-control,
+  .view-mode .form-group .form-control.ng-touched.ng-valid[required]{
+    padding-right: 0px;
+  }
+  .form-control{
+    width: 100%;
+    margin: 0;
+    padding-right: 10px;
+  }
+
+  .profile-photo{width: 100px;height: 100px;margin-top: -80px;}
+}

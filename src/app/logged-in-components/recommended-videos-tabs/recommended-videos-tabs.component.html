@@ -9,7 +9,7 @@
         <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
       </div>
       <div class="row margin-0">
-        <div class="col-4 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+        <div class="col-12 col-sm-4 col-md-4 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
@@ -37,7 +37,7 @@
 
     </div>
     <div class="col col-lg-2">
-      <div class="m-top-35">
+      <div class="m-top-35 text-center">
         <img class="max-width-100" src="./assets/images/test-image.png">
       </div>
     </div>

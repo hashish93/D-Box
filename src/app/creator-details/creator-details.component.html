@@ -1,5 +1,5 @@
 <div class="row margin-0">
-  <div class="col col-lg-10 col-xs-12" id="main">
+  <div class="col col-lg-9 col-xl-10 col-xs-12" id="main">
     <div class="row margin-0">
       <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-5  mid-ad">
         <img src="./assets/images/ad.png">
@@ -49,7 +49,7 @@
                   </div>
 
                 </slide>
-                <slide [ngClass]="{'second_slide':latestVideos.length >= 5 && latestVideos.length <= 8}" *ngIf="latestVideos.length >= 5 && latestVideos.length <= 8">
+                <slide [ngClass]="{'second_slide':latestVideos.length >= 5}" *ngIf="latestVideos.length >= 5">
                   <div class="row">
                     <div class="col-md-5 col-sm-6 col-xs-12 custom-width relative video-playlist-home" *ngFor="let video of latestVideos;let i=index">
                       <a routerLink="/video/{{video._id}}" *ngIf="i>=4 && i < 8">
@@ -78,7 +78,32 @@
                   </div>
                 </slide>
                 <slide [ngClass]="{'third_slide':latestVideos.length >= 9 && latestVideos.length <= 12}" *ngIf="latestVideos.length >= 9 && latestVideos.length <= 12">
-                  3
+                  <div class="row">
+                    <div class="col-md-5 col-sm-6 col-xs-12 custom-width relative video-playlist-home" *ngFor="let video of latestVideos;let i=index">
+                      <a routerLink="/video/{{video._id}}" *ngIf="i>=8 && i < 12">
+                        <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+                        <div class="image-container relative">
+                          <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                          <span class="player-icon">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <h3>
+                          {{video.title}}
+                        </h3>
+                        <div>
+                          <div class="float-left">
+                            <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
+                            <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+                          </div>
+                          <div class="float-right direction-ltr">
+                            <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
                 </slide>
               </carousel>
             </div>
@@ -136,7 +161,7 @@
       <div class="col col-lg-2"></div>
     </div>
   </div>
-  <div class="col col-lg-2">
+  <div class="col col-lg-3 col-xl-2">
     <app-side-menu></app-side-menu>
   </div>
 
