@@ -24,7 +24,7 @@
         <app-loading [error]="error" [loading]="loading" class="block width100"></app-loading>
       </div>
       <div class="row margin-0">
-        <div class="col-3 col-md-2 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-2 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">

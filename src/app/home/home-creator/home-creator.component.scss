@@ -56,7 +56,9 @@
   transition: all .3s;
   z-index: 11;
   top: 8px;
-  left: 32px;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
   &:hover{
     opacity: 1;
   }
@@ -73,4 +75,21 @@
     }
   }
 
+}
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .social-hover{left:12px;}
+  .rounded-border{width: 120px;height: 120px}
+  .rounded-border img{width: 120px;height: 120px}
+}
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .left90{left: 0}
+}
+@media screen and (max-width: 992px){
+  .creator-item{
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .left90{left: 0}
 }

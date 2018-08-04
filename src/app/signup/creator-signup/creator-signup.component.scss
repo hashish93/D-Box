@@ -30,3 +30,18 @@
 .sign-as-creator-info {
   color: #bfbfbf;
 }
+@media screen and (max-width: 768px) {
+  .signup-side-title{
+    margin-top: 10px;
+    text-align: center;
+  }
+  .breaker{display: none;}
+  .signup{margin-top: 20px;}
+  .main-image{
+    max-width: 100%;
+    width: auto;
+    margin: 20px auto;
+    text-align: center;
+    display: block;
+  }
+}

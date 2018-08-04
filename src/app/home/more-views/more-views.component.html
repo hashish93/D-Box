@@ -1,15 +1,15 @@
 <div class="container-fluid home-more-views m-top-20 ">
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-3 col-xl-2">
 
     </div>
-    <div class="col-lg-8 bottom-border">
+    <div class="col-12 col-lg-7 col-xl-8 bottom-border">
       <div class="row margin-0">
         <h6 class="bold m-bottom-20">الاكثر مشاهدة</h6>
         <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
       </div>
       <div class="row margin-0">
-        <div class="col-3 col-md-3 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-md-3 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video._id}}">
             <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
             <div class="image-container relative">
@@ -36,7 +36,7 @@
       </div>
 
     </div>
-    <div class="col col-lg-2">
+    <div class="col col-lg-2 text-center">
       <div class="m-top-35">
         <img class="max-width-100" src="./assets/images/test-image.png">
       </div>

@@ -8,7 +8,7 @@
       <div class="col-12 col-md-12">
         <form #loginForm="ngForm" novalidate (ngSubmit)="onFormSubmit(loginForm)" autocomplete="off" class="m-top-20">
           <div class="row">
-            <div class="col 12 col-md-6">
+            <div class="col-12 col-md-6">
               <div class="form-group">
                 <input id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" email="true" autocomplete=”off” [(ngModel)]="user.email" required class="form-control" placeholder="البريد الالكتروني">
               </div>
@@ -21,7 +21,7 @@
                 </div>
               </div>
             </div>
-            <div class="col 12 col-md-6">
+            <div class="col-12 col-md-6">
               <div class="form-group">
                 <input id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="user.password" required class="form-control" placeholder="كلمة السر">
               </div>
