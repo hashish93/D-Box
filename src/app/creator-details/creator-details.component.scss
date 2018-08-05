@@ -2,6 +2,7 @@
   background: #f1f1f1;
 }
 .cover{height: 200px;overflow: hidden}
+.cover img{min-height: 200px;}
 .avatar{
   img{
     width: 100px;
@@ -114,4 +115,23 @@ slide{margin-bottom: 40px}
   margin-bottom: 7px;
   display: inline-block;
   font-size: 14px;
+}
+@media screen and (min-width: 992px) and (max-width: 1200px){
+  .counter{left: 0}
+  .about-details strong{margin-left: 5px;}
+}
+@media screen and (min-width: 768px) and (max-width: 992px){
+  .counter{left: 0}
+  .about-details strong{margin-left: 5px;}
+}
+@media screen and (max-width: 992px){
+  :host ::ng-deep .carousel{right: 0}
+  :host ::ng-deep .carousel-control-next, :host ::ng-deep .carousel-control-prev{display: none}
+  .avatar img{
+    margin-top: -70px;
+  }
+}
+@media screen and (max-width: 768px){
+  .cover{height: 125px;overflow: hidden}
+  .cover img{min-height: 125px;}
 }
