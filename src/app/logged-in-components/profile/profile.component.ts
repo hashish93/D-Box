@@ -60,6 +60,13 @@ export class ProfileComponent implements OnInit {
     this.validatePassword = !!(this.user.password && this.user.password_confirmation && this.user.password === this.user.password_confirmation);
   }
 
+  public reset(){
+    this.edit.section1 = false;
+    this.edit.section2 = false;
+    this.edit.section3 = false;
+    this.edit.section4 = false;
+    this.getUserData();
+  }
   public OnClickSection(section:any){
     switch(section) {
       case 'section1':

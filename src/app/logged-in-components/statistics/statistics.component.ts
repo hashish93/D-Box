@@ -71,7 +71,7 @@ export class StatisticsComponent implements OnInit {
       'packages':['geochart'],
       // Note: you will need to get a mapsApiKey for your project.
       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-      'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      'mapsApiKey': 'AIzaSyAm_an6zerWBDs_OY0qpIXE33OIzB99A-g'
     });
 
     google.charts.setOnLoadCallback(drawRegionsMap);

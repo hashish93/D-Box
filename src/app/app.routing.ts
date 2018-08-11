@@ -36,4 +36,4 @@ export const routes: Routes = [
   { path: 'edit-video/:id', component: EditVideoComponent,canActivate:[AuthGuard]},
   { path: 'playlist', component: PlaylistComponent},
 ];
-export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });
+export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes);

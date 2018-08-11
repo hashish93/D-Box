@@ -26,7 +26,7 @@
               <fa-icon [icon]="searchIcon"></fa-icon>
             </span>
           </div>
-          <input type="text" class="form-control" aria-label="Small" placeholder="ابحث هنا" aria-describedby="inputGroup-sizing-sm">
+          <input type="text" class="form-control" aria-label="Small" placeholder="كلمة البحث" aria-describedby="inputGroup-sizing-sm">
         </div>
       </form>
     </div>
@@ -65,6 +65,12 @@
               <a routerLink="/settings" (click)="isCollapsed = true">
                 <img class="m-left-10" src="../../assets/images/num_of_followers.png">
                 <span>حسابي</span>
+              </a>
+            </li>
+            <li class="text-right rtl" *ngIf="user.is_creator == 1">
+              <a routerLink="/settings" [queryParams]="{tab:'my-videos'}" (click)="isCollapsed = true">
+                <img class="m-left-10" src="../../assets/images/love.png">
+                <span>فيديوهاتي</span>
               </a>
             </li>
             <li class="text-right rtl">

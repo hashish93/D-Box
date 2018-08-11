@@ -26,7 +26,7 @@
       <div class="row margin-0">
         <div class="col-12 col-sm-6 col-lg-2 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
-            <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+            <span class="category-span" style="background: {{video.category.color}}">{{video.category.title}}</span>
             <div class="image-container relative">
               <img  src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">

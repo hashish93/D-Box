@@ -13,7 +13,7 @@
           </a>
           <a class="black" routerLink="/video/{{video.id}}">
             <div class="image-container relative">
-                <span *ngIf="video.category" class="{{video.category.name}} category-span">{{video.category.name}}</span>
+                <span *ngIf="video.category" style="background: {{video.category.color}}" class="category-span">{{video.category.name}}</span>
                 <img src="{{staticEndPoint}}{{video.capturedImageUrl}}">
                 <span class="fa fa-play player-icon"></span>
             </div>

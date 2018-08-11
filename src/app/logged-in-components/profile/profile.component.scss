@@ -2,8 +2,9 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin: -150px auto 0 auto;
+  margin: -120px auto 0 auto;
   text-align: center;
+  position: relative;
   img{
     overflow: hidden;
     border-radius: 50%;
@@ -11,6 +12,12 @@
     height: 100%;
     border:2px solid #fff;
   }
+}
+.custom-btn{
+  position: absolute;
+  left: 5px;
+  top: 48px;
+  width: 76px;
 }
 .change-photo{
   background : rgba(255,255,255,.7);
@@ -55,10 +62,10 @@
   display: inline-block;
   width: auto;
   margin-right: 20px;
-  text-align: left;
+  text-align: right;
   direction: ltr;
 }
-
+.direction-ltr{direction: ltr !important;}
 .ng-select {
   display: inline-block;
   min-width: 330px;
@@ -105,7 +112,7 @@
 }
 .cover-container > .inner-cover > img{width: 100%;min-height: 250px;}
 .cover-container > .inner-cover{height: 250px;overflow: hidden}
-.cover-container .change-photo{top:-150px;}
+.cover-container .change-photo{position: absolute;left:0;top:0px;}
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   .cover-container > .inner-cover > img{width: 100%;min-height: 150px;}
   .cover-container > .inner-cover{height: 150px;overflow: hidden}
@@ -117,7 +124,7 @@
 @media screen and (max-width: 768px) {
   .cover-container > .inner-cover > img{width: 100%;min-height: 100px;}
   .cover-container > .inner-cover{height: 100px;overflow: hidden}
-  .cover-container .change-photo{top:-80px;}
+  .cover-container .change-photo{top:0px;}
 
   .view-mode .form-group .form-control,
   .view-mode .form-group .form-control.ng-touched.ng-valid[required]{

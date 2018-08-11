@@ -62,9 +62,13 @@ slide{margin-bottom: 40px}
 }
 :host ::ng-deep .carousel-control-prev-icon{
   background-image: url("../../assets/images/prev.png");
+  width: 30px;
+  height: 30px;
 }
 :host ::ng-deep .carousel-control-next-icon{
   background-image: url("../../assets/images/next.png");
+  width: 30px;
+  height: 30px;
 }
 .about-title {
   background: #fff;

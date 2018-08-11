@@ -24,7 +24,7 @@
                   <div class="row">
                     <div class="col-md-5 col-sm-6 col-xs-12 custom-width relative video-playlist-home" *ngFor="let video of latestVideos;let i=index">
                       <a routerLink="/video/{{video._id}}" *ngIf="i<4">
-                        <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+                        <span class="category-span" style="background: {{video.category.color}}">{{video.category.title}}</span>
                         <div class="image-container relative">
                           <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                           <span class="player-icon">
@@ -53,7 +53,7 @@
                   <div class="row">
                     <div class="col-md-5 col-sm-6 col-xs-12 custom-width relative video-playlist-home" *ngFor="let video of latestVideos;let i=index">
                       <a routerLink="/video/{{video._id}}" *ngIf="i>=4 && i < 8">
-                        <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+                        <span class="category-span" style="background: {{video.category.color}}">{{video.category.title}}</span>
                         <div class="image-container relative">
                           <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                           <span class="player-icon">
@@ -81,7 +81,7 @@
                   <div class="row">
                     <div class="col-md-5 col-sm-6 col-xs-12 custom-width relative video-playlist-home" *ngFor="let video of latestVideos;let i=index">
                       <a routerLink="/video/{{video._id}}" *ngIf="i>=8 && i < 12">
-                        <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+                        <span class="category-span" style="background: {{video.category.color}}">{{video.category.title}}</span>
                         <div class="image-container relative">
                           <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                           <span class="player-icon">
@@ -137,16 +137,16 @@
                     {{creator.description}}
                   </p>
                   <div class="about-social text-center">
-                    <a *ngIf="creator.social.google" href="{{creator.social.google}}">
+                    <a *ngIf="creator.social.google" href="{{creator.social.google}}" target="_blank">
                       <i class="fa fa-google"></i>
                     </a>
-                    <a *ngIf="creator.social.instagram" href="{{creator.social.instagram}}">
+                    <a *ngIf="creator.social.instagram" href="{{creator.social.instagram}}" target="_blank">
                       <i class="fa fa-instagram" aria-hidden="true"></i>
                     </a>
-                    <a *ngIf="creator.social.twitter" href="{{creator.social.twitter}}">
+                    <a *ngIf="creator.social.twitter" href="{{creator.social.twitter}}" target="_blank">
                       <i class="fa fa-twitter"></i>
                     </a>
-                    <a *ngIf="creator.social.facebook" href="{{creator.social.facebook}}">
+                    <a *ngIf="creator.social.facebook" href="{{creator.social.facebook}}" target="_blank">
                       <i class="fa fa-facebook"></i>
                     </a>
 

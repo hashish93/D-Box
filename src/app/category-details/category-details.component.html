@@ -14,7 +14,7 @@
       <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
       <h5 class="text-center" *ngIf="!loading && !firstVideo ">لا يوجد فيديوهات</h5>
       <div *ngIf="firstVideo" class="first-video">
-          <div class="col-12 col-md-12 col-lg-8">
+          <div class="col-12 col-md-12 col-lg-8 col-xl-9">
             <div class="category-title">
               <img class="category-image" *ngIf="category" src="{{staticEndPoint}}{{category.icon}}">
               <span>{{category.title}}</span>
@@ -22,7 +22,7 @@
             <div class="video-container">
               <div class="img-container relative">
                 <a routerLink="/video/{{firstVideo._id}}">
-                  <span class="category-span {{category.title}}">{{category.title}}</span>
+                  <span class="category-span" style="background: {{category.color}}">{{category.title}}</span>
                   <img *ngIf="firstVideo.thumbnails" src="{{staticEndPoint}}{{firstVideo.thumbnails.large}}">
                   <span class="player-icon">
                     <i aria-hidden="true" class="fa fa-play"></i>
@@ -60,7 +60,7 @@
         <div class="row margin-0">
           <div class="col-3 col-md-4 col-sm-6 col-12 relative video-playlist-home" *ngFor="let video of videos">
             <a routerLink="/video/{{video._id}}">
-              <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+              <span class="category-span" style="background: {{category.color}}">{{video.category.title}}</span>
               <div class="image-container relative">
                 <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                 <span class="player-icon">
