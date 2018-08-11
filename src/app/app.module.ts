@@ -61,6 +61,13 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { SidePlayListComponent } from './playlist/side-play-list/side-play-list.component';
 import {DataService} from './services/data.service';
 import { SideMoreViewsForCreatorComponent } from './creator-details/side-more-views-for-creator/side-more-views-for-creator.component';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -150,14 +157,19 @@ export function getAuthServiceConfigs() {
     CollapseModule.forRoot(),
     JwtModule.forRoot(JWT_Module_Options),
     HttpClientModule,       // (Required) For share counts
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    PerfectScrollbarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
     {provide: AuthServiceConfig, useFactory: getAuthServiceConfigs},
-    DataService
+    DataService,
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
   ],
   bootstrap: [AppComponent]
 })

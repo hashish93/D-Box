@@ -4,6 +4,10 @@ header{
   display: inline-block;
   width: 100%;
   padding: 5px 10px;
+  position: fixed;
+  z-index: 3;
+  box-shadow: 3px 3px 16px #b1b1b1;
+  top: 0;
   .container-fluid{
     text-align: center;
   }
@@ -65,7 +69,6 @@ form input{
   border-bottom: 1px solid #d8d8d8;
 }
 @media screen and (max-width: 992px) {
-
   header .logo {width: 200px;}
   header .logo img{max-width: 100%;}
   .desktop-container{display: none}

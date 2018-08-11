@@ -1,5 +1,7 @@
+
 <aside class="sticky-sidebar">
   <app-loading [error]="error" [loading]="loading" class="block width100"></app-loading>
+  <perfect-scrollbar style="max-height: 100%;" [config]="{wheelPropagation:false}">
   <div *ngIf="!loading && !error">
     <ul class="margin-0">
       <li>
@@ -72,5 +74,6 @@
       </a>
     </div>
   </div>
-
+  </perfect-scrollbar>
 </aside>
+

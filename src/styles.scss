@@ -21,6 +21,9 @@ body , html{
   font-family:$font-family-brand;
   background: #dddddd !important;
 }
+body{
+  padding-top: 100px;
+}
 .m-bottom-5{margin-bottom: 5px;}
 .m-bottom-10{margin-bottom: 10px;}
 .m-bottom-15{margin-bottom: 15px;}
@@ -182,3 +185,11 @@ ng-select.ng-invalid.ng-touched .ng-select-container {
   border: 1px solid #a94442 !important;
 }
 .mid-ad img{width: 768px;max-width: 100%}
+
+app-side-menu{
+  width: inherit;
+  max-width: inherit;
+}
+@media screen and (max-width: 992px) {
+  body{padding-top: 65px;}
+}

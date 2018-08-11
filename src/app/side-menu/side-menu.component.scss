@@ -1,13 +1,16 @@
 .sticky-sidebar {
-  position: absolute;
-  max-width: 300px;
-  min-width: 200px;
+  position: fixed;
+  max-width: inherit;
+  min-width: inherit;
+  width: inherit;
   /* height: 500px; */
   right: 0;
+  top:100px;
   background: #efefef;
   padding: 20px 0;
   border-radius: 0 0 5px 5px;
-  z-index: 1;
+  z-index: 5;
+  height: calc(100% - 100px);
   ul{
     list-style: none;
     direction: rtl;
