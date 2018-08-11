@@ -1,6 +1,9 @@
 #main{background: #f7f7f7;padding: 0px 10px;}
-.mid-ad img{max-width: 768px;}
+
 .category-span{right: 0px}
 .top-image{
   margin-top: 170px;
+}
+@media screen and (max-width: 992px){
+  .top-image{margin-top: 10px;text-align: center}
 }

@@ -4,9 +4,9 @@
       <img class="max-width-100" src="./assets/images/test-image.png">
     </div>
   </div>
-  <div class="col col-lg-8 col-xs-12 rtl text-right" id="main">
+  <div class="col-12  col-lg-7 col-xl-8 rtl text-right" id="main">
       <div class="row margin-0" *ngIf="router.url != '/register/visitor'">
-        <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+        <div class="col-12 col-lg-12 text-center m-top-20 m-bottom-20  mid-ad">
           <img src="./assets/images/ad.png">
         </div>
         <div class="col col-lg-2"></div>
@@ -14,7 +14,7 @@
       <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
       <h5 class="text-center" *ngIf="!loading && !firstVideo ">لا يوجد فيديوهات</h5>
       <div *ngIf="firstVideo" class="first-video">
-          <div class="col-sm-12 col-md-8">
+          <div class="col-12 col-md-12 col-lg-8 col-xl-9">
             <div class="category-title">
               <img class="category-image" *ngIf="category" src="{{staticEndPoint}}{{category.icon}}">
               <span>{{category.title}}</span>
@@ -22,7 +22,7 @@
             <div class="video-container">
               <div class="img-container relative">
                 <a routerLink="/video/{{firstVideo._id}}">
-                  <span class="category-span {{category.title}}">{{category.title}}</span>
+                  <span class="category-span" style="background: {{category.color}}">{{category.title}}</span>
                   <img *ngIf="firstVideo.thumbnails" src="{{staticEndPoint}}{{firstVideo.thumbnails.large}}">
                   <span class="player-icon">
                     <i aria-hidden="true" class="fa fa-play"></i>
@@ -48,47 +48,54 @@
           </div>
       </div>
   </div>
-  <div class="col col-lg-2">
+  <div class="col col-lg-3 col-xl-2">
     <app-side-menu></app-side-menu>
   </div>
+</div>
 
-
-  <div class="m-bottom-35 m-top-35 col-md-8 text-right rtl">
+<div class="row margin-0">
+  <div class="col-12 col-lg-10">
     <div class="row margin-0">
-      <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
-      <a routerLink="/video/{{video._id}}">
-        <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
-        <div class="image-container relative">
-          <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
-          <span class="player-icon">
+      <div class="m-bottom-35 m-top-35 col-12 col-lg-8 col-xl-9 text-right rtl">
+        <div class="row margin-0">
+          <div class="col-3 col-md-4 col-sm-6 col-12 relative video-playlist-home" *ngFor="let video of videos">
+            <a routerLink="/video/{{video._id}}">
+              <span class="category-span" style="background: {{category.color}}">{{video.category.title}}</span>
+              <div class="image-container relative">
+                <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                <span class="player-icon">
               <i class="fa fa-play" aria-hidden="true"></i>
             </span>
-        </div>
-        <h3>
-          {{video.title}}
-        </h3>
-        <div>
-          <div class="float-left">
-            <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
-            <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+              </div>
+              <h3>
+                {{video.title}}
+              </h3>
+              <div>
+                <div class="float-left">
+                  <i class="m-left-5 fa fa-heart-o" aria-hidden="true"></i>
+                  <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+                </div>
+                <div class="float-right direction-ltr">
+                  <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </div>
+              </div>
+            </a>
           </div>
-          <div class="float-right direction-ltr">
-            <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-          </div>
         </div>
-      </a>
+      </div>
+      <div class="col-12 col-lg-3 col-xl-2 col-xl-3 m-top-35 customImg-side-adv">
+        <img src="https://dummyimage.com/260x470/b3b3b3/fff">
+      </div>
     </div>
-    </div>
-  </div>
-  <div class="col-md-2 m-top-35 customImg-side-adv">
-    <img src="https://dummyimage.com/260x470/b3b3b3/fff">
-  </div>
 
-  <div class="col col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+  </div>
+  <div class="col-lg-2"></div>
+
+
+  <div class="col-12 col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
     <img src="./assets/images/ad.png">
   </div>
 
   <app-more-views-details class="rtl text-right width100" [categoryId]="category.id" [limit]="6"></app-more-views-details>
-
 </div>

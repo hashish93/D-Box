@@ -33,18 +33,19 @@ a.inner-cat-link {
   }
 }
 .fixed-height {
-  max-height: 36px;
+  height: 36px;
   overflow: hidden;
-  transition: all .3s;
 }
 .full-height {
   height: auto;
-  transition: all .3s
 }
-@media screen and (min-width: 1200px) and (max-width: 1400px){
-  .no-padding-right{padding-right: 0}
+.black-section{
+  margin: 0;
+  background: #4a4848;
+  color: #fff;
 }
-@media screen and (max-width: 992px){
-  iframe{height: 300px;}
-}
-
+.black-section .col-lg-9{padding-right: 0}
+.black-section a {color: #fff;}
+.black-section .video-title{color: #e65451}
+.black-section .video-date{color: #fff;}
+.black-section .creator_avatar{margin-right: 5px;}

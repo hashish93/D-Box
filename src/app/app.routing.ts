@@ -17,6 +17,7 @@ import {VideoDetailsComponent} from "./video-details/video-details.component";
 import {CategoryDetailsComponent} from "./category-details/category-details.component";
 import {CreatorDetailsComponent} from "./creator-details/creator-details.component";
 import {EditVideoComponent} from "./logged-in-components/edit-video/edit-video.component";
+import {PlaylistComponent} from './playlist/playlist.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,5 +34,6 @@ export const routes: Routes = [
   { path: 'category/:id', component: CategoryDetailsComponent},
   { path: 'creator/:id', component: CreatorDetailsComponent},
   { path: 'edit-video/:id', component: EditVideoComponent,canActivate:[AuthGuard]},
+  { path: 'playlist', component: PlaylistComponent},
 ];
-export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });
+export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes);

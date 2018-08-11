@@ -1,0 +1,29 @@
+<div class="side-playlist-container">
+  <div class="more-views-side">
+    <h6>التالي</h6>
+    <div class="more-views-details" *ngFor="let video of videos">
+      <div class="item">
+        <a routerLink="/video/{{video._id}}">
+          <div class="image-container relative pull-right">
+            <img src="{{staticEndPoint}}{{video.thumbnails.small}}">
+            <i class="fa fa-play video-play"></i>
+          </div>
+          <div class="title pull-right">
+            {{video.title}}
+          </div>
+          <div>
+            <div class="float-right direction-ltr video-date-small">
+              <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+              <i class="fa fa-clock-o m-right-5" aria-hidden="true"></i>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+    <div class="text-center">
+      <a class="more" href="#">المزيد</a>
+    </div>
+  </div>
+
+</div>

@@ -7,11 +7,20 @@
             <img style="cursor: pointer" *ngIf="!fileView" src="../../../assets/images/upload2.png" (click)="fileInput.click()">
             <video style="cursor: pointer" class="width100" *ngIf="fileView" [src]='fileView' (click)="fileInput.click()"></video>
             <input #fileInput required class="none"
-                   name="video" accept="video/*"
+                   name="video" accept="video/mp4,video/x-m4v,video/*"
                    (change)="onFileChanged($event)" type="file">
           </div>
+
           <div class="image-container">
             <img src="../../../assets/images/upload.png">
+          </div>
+
+          <div *ngIf="video.file && video.file.size > 0">
+            <progressbar *ngIf="video.file.size > step && loaded > 0" class="m-top-20" [animate]="false" max="100" [value]="video.num / video.num_chunks * 100" type="success"><b>{{video.num / video.num_chunks * 100 | number}} %</b></progressbar>
+
+            حجم الملف بالميجا : {{video.file.size / 1024 / 1024 | number }}
+            <br>
+            رفع {{video.num}} / {{video.num_chunks}}
           </div>
 
         </div>
@@ -50,13 +59,7 @@
               حفظ
             </button>
           </div>
-          <div *ngIf="video.file && video.file.size > 0">
-            <progressbar *ngIf="video.file.size > step && loaded > 0" class="m-top-20" [animate]="false" max="100" [value]="video.num / video.num_chunks * 100" type="success"><b>{{video.num / video.num_chunks * 100 | number}} %</b></progressbar>
 
-            حجم الملف بالميجا : {{video.file.size / 1024 / 1024 | number }}
-            <br>
-            رفع {{video.num}} / {{video.num_chunks}}
-          </div>
           <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 
         </div>

@@ -42,4 +42,17 @@
   left: 210px;
 }
 .cat-desc{max-height: 47px;overflow: hidden}
-.customImg-side-adv img{width: 95%;max-width: 280px }
+.customImg-side-adv img{width: 95%;max-width: 100% }
+@media screen and (max-width: 992px){
+  .custom-top{
+    margin-top: 10px;
+    position: relative;
+    left: 0;
+    text-align: center;
+  }
+  .customImg-side-adv{margin-top: 10px;}
+  .customImg-side-adv img{width: auto;margin: 0 auto;display: block}
+  .m-bottom-35{margin-bottom: 0}
+  .m-top-35 img{text-align: center}
+
+}

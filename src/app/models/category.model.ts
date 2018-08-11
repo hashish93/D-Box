@@ -6,14 +6,15 @@ export interface CategoryPaginated {
 }
 
 export interface Category {
-  _id: Number,
+  _id: number,
   title: string,
   description: string,
   date: Date,
+  color:any
   icon: string,
   _index: string,
   _type: string,
   _score:any,
-  id:Number
+  id:number
 
 }

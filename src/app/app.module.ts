@@ -23,7 +23,7 @@ import { VistorSignupComponent } from './signup/visitor-signup/vistor-signup.com
 import { CreatorSignupComponent } from './signup/creator-signup/creator-signup.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
-import {AlertModule, CarouselModule, ProgressbarModule, BsDropdownModule} from "ngx-bootstrap";
+import {AlertModule, CarouselModule, ProgressbarModule, BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
 import { SettingsComponent } from './logged-in-components/settings/settings.component';
 import {JwtModule, JwtModuleOptions} from "@auth0/angular-jwt";
 import {ErrorInterceptorService} from "./services/interceptors/error-interceptor.service";
@@ -56,6 +56,9 @@ import {ClickOutsideModule} from "ng-click-outside";
 import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { StatisticsComponent } from './logged-in-components/statistics/statistics.component';
 import { InnerRecommendedVideosComponent } from './video-details/inner-recommended-videos/inner-recommended-videos.component';
+import { RecommendedVideosTabsComponent } from './logged-in-components/recommended-videos-tabs/recommended-videos-tabs.component';
+import { PlaylistComponent } from './playlist/playlist.component';
+import { SidePlayListComponent } from './playlist/side-play-list/side-play-list.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -116,7 +119,10 @@ export function getAuthServiceConfigs() {
     EditVideoComponent,
     ProfileMenuComponent,
     StatisticsComponent,
-    InnerRecommendedVideosComponent
+    InnerRecommendedVideosComponent,
+    RecommendedVideosTabsComponent,
+    PlaylistComponent,
+    SidePlayListComponent
   ],
   imports: [
     BrowserModule,
@@ -138,6 +144,7 @@ export function getAuthServiceConfigs() {
     ClickOutsideModule,
     SocialLoginModule,
     NgxChartsModule,
+    CollapseModule.forRoot(),
     JwtModule.forRoot(JWT_Module_Options),
     HttpClientModule,       // (Required) For share counts
     ProgressbarModule.forRoot()

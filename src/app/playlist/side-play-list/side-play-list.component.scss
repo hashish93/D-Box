@@ -1,9 +1,15 @@
+.side-playlist-container{
+  background: #5f5f5f;
+  height: 100%;
+  a,*{
+    color: #fff;
+  }
+}
 .image-container{
   width: 90px;
 }
 .more-views-side h6{
   display: inline-block;
-  background: #fff;
   padding: 5px 15px;
   color: red;
   margin: 0 0;
@@ -53,19 +59,6 @@
 .more{
   display: inline-block;
   padding: 2px 12px;
-  color: #a94442;
-  background-color: #f2dede;
-}
-@media screen and (max-width: 1500px) and (min-width: 1200px) {
-  .image-container{
-    width: 55px;
-  }
-  .item .title{width: 77px;}
-}
-
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  .item .title{width: 87px;}
-}
-@media screen and (min-width: 768px) and (max-width: 992px) {
-  .item .title{width: 500px;}
+  color: #fff;
+  background-color: #000;
 }

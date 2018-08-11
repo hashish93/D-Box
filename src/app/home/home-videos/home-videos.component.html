@@ -2,9 +2,9 @@
   <tabset>
     <tab heading="الاحدث" id="watchnow" (select)="onSelect($event)">
       <div *ngIf="videos" class="m-top-10 row">
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video._id}}">
-            <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+            <span class="category-span" style="background: {{video.category.color}}">{{video.category.title}}</span>
             <div class="image-container relative">
               <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">
@@ -31,9 +31,9 @@
     </tab>
     <tab heading="الاكثر مشاهدة" id="trend" (select)="onSelect($event)">
       <div *ngIf="videos" class="m-top-10 row">
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video._id}}">
-            <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+            <span class="category-span" style="background: {{video.category.color}}">{{video.category.title}}</span>
             <div class="image-container relative">
               <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">
@@ -59,9 +59,9 @@
     </tab>
     <tab heading="ترشيحاتنا" id="recommended" (select)="onSelect($event)">
       <div *ngIf="videos" class="m-top-10 row">
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
-            <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+            <span class="category-span" style="background: {{video.category.color}}">{{video.category.title}}</span>
             <div class="image-container relative">
               <img src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">
@@ -87,9 +87,9 @@
     </tab>
     <tab heading="الحصريات" id="exclusive" (select)="onSelect($event)">
       <div *ngIf="videos" class="m-top-10 row">
-        <div class="col-3 col-md-4 col-sm-6 col-xs-12 relative video-playlist-home" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
-            <span class="category-span" [ngClass]="video.category.title">{{video.category.title}}</span>
+            <span class="category-span" style="background: {{video.category.color}}">{{video.category.title}}</span>
             <div class="image-container relative">
               <img src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">

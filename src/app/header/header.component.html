@@ -1,5 +1,5 @@
 <header>
-  <div class="container-fluid">
+  <div class="desktop-container container-fluid">
     <div class="float-left m-top-35" *ngIf="!authService.isAuthenticated()">
       <a class="float-left login-btn" routerLink="/login/"><span>تسجيل دخول</span><img src="./assets/images/key.png"></a>
       <a class="float-left register-btn" routerLink="/register/">اشترك الان</a>
@@ -26,10 +26,82 @@
               <fa-icon [icon]="searchIcon"></fa-icon>
             </span>
           </div>
-          <input type="text" class="form-control" aria-label="Small" placeholder="ابحث هنا" aria-describedby="inputGroup-sizing-sm">
+          <input type="text" class="form-control" aria-label="Small" placeholder="كلمة البحث" aria-describedby="inputGroup-sizing-sm">
         </div>
       </form>
     </div>
   </div>
+  <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed" aria-expanded="false">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <a class="navbar-brand"  routerLink="/">
+          <img src="./assets/images/logo.png">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" [collapse]="isCollapsed">
+        <h5 class="text-right">الاقسام</h5>
+        <ul class="nav navbar-nav">
+          <li class="text-right rtl">
+            <a routerLink="/" (click)="isCollapsed = true">
+              <img class="m-left-10" src="../../assets/images/home.png">
+              <span>الرئيسية</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav" *ngIf="categories && categories.length > 0">
+          <li *ngFor="let category of categories" class="text-right rtl">
+            <a routerLink="/category/{{category._id}}" (click)="isCollapsed = true">
+              <img class="m-left-10" *ngIf="category.icon" src="{{staticEndPoint}}{{category.icon}}">
+              <span>{{category.title}}</span>
+            </a>
+          </li>
+        </ul>
+        <div class="m-top-20 width100 inline-block" *ngIf="authService.isAuthenticated()">
+          <h5 class="text-right">ادارة الحساب</h5>
+          <ul class="nav navbar-nav" >
+            <li class="text-right rtl">
+              <a routerLink="/settings" (click)="isCollapsed = true">
+                <img class="m-left-10" src="../../assets/images/num_of_followers.png">
+                <span>حسابي</span>
+              </a>
+            </li>
+            <li class="text-right rtl" *ngIf="user.is_creator == 1">
+              <a routerLink="/settings" [queryParams]="{tab:'my-videos'}" (click)="isCollapsed = true">
+                <img class="m-left-10" src="../../assets/images/love.png">
+                <span>فيديوهاتي</span>
+              </a>
+            </li>
+            <li class="text-right rtl">
+              <a (click)="logout($event);isCollapsed=true;$event.preventDefault()" routerLink="/">
+                <img class="m-left-10" src="../../assets/images/logout.png">
+                <span>تسجيل الخروج</span>
+
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="m-top-20 width100 inline-block" *ngIf="!authService.isAuthenticated()">
+          <h5 class="text-right">التسجيل</h5>
+          <ul class="nav navbar-nav" >
+            <li class="text-right rtl" (click)="isCollapsed = true">
+              <a routerLink="/login">
+                <img class="m-left-10" src="../../assets/images/key.png">
+                <span>تسجيل الدخول</span>
+              </a>
+            </li>
+            <li class="text-right rtl">
+              <a routerLink="/register/visitor" (click)="isCollapsed = true">
+                <img class="m-left-10" src="../../assets/images/num_of_followers.png">
+                <span>التسجيل</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+  </nav>
 </header>
 

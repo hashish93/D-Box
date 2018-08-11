@@ -38,7 +38,6 @@ export class VistorSignupComponent implements OnInit {
       (userData) => {
         this.loading = true;
         this.error = '';
-        console.log(socialPlatform+" sign in data : " , userData);
         this.authService.loginWithFacebook(userData.token).subscribe(data=> {
           this.loading = false;
           localStorage.setItem('access_token',data.access_token);

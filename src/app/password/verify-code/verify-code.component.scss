@@ -31,4 +31,17 @@
   color: #868686 !important;
   font-weight: bold;
 }
-
+@media screen and (max-width: 992px) {
+  .m-top-35{margin-top: 0}
+}
+@media screen and (max-width: 768px) {
+  .breaker{display: none;}
+  .signup{margin-top: 20px;}
+  .main-image{
+    max-width: 100%;
+    width: auto;
+    margin: 20px auto;
+    text-align: center;
+    display: block;
+  }
+}

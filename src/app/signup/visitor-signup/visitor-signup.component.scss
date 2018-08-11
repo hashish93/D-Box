@@ -41,4 +41,12 @@
     width: 15px;
   }
 }
+@media screen and (max-width: 768px) {
+  .signup-side-title{
+      margin-top: 10px;
+      text-align: center;
+  }
+  .breaker{display: none;}
+  .signup{margin-top: 20px;}
+}
 

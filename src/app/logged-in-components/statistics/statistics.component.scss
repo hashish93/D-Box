@@ -96,3 +96,7 @@
 :host ::ng-deep .dark-bg .area-chart{
   transform: translateY(0);
 }
+@media screen and (max-width: 1200px){
+  #regions_div{margin: 0 auto}
+  .device-details{left: 10px;right: auto;}
+}
