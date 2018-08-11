@@ -45,12 +45,14 @@ header{
   background: #ee4a41;
   color: #ae2018;
   border:1px;
+  cursor: pointer;
 }
 form input{
   border:2px solid #ee4a41;
   text-align: right;
   &:focus{
     box-shadow: none !important;
+    border:2px solid #ee4a41 !important;
   }
 }
 .navbar{display: none}

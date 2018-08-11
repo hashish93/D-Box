@@ -10,6 +10,7 @@ import {CreatorService} from "../../services/creator.service";
 import {NotificationsService} from "angular2-notifications";
 import {AuthService} from '../../services/auth-service.service';
 import {Router} from '@angular/router';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-profile',
@@ -31,7 +32,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(public userService : UserService,public authService : AuthService,
               public countryService: CountryService , public creatorService : CreatorService,
-              public  notificationService : NotificationsService , public router : Router) { }
+              public dataService : DataService, public  notificationService : NotificationsService ,
+              public router : Router) { }
 
 
   ngOnInit() {
@@ -107,9 +109,12 @@ export class ProfileComponent implements OnInit {
     this.user.activated=0;
     this.saveUser('redirect');
   }
-  public saveUser(redirect?){
+  public saveUser(redirect?,changePhoto?){
     this.loading = true;
     this.creatorService.updateCreator(this.user,this.file,this.fileCover).subscribe(data=>{
+      if(changePhoto){
+        this.dataService.newEvent('photoChanged');
+      }
       this.file = null;
       this.fileView = null;
       this.loading = false;
@@ -157,7 +162,7 @@ export class ProfileComponent implements OnInit {
         };
 
         reader.readAsDataURL(this.file);
-        this.saveUser()
+        this.saveUser(null,true);
       }
       else{
         this.notificationService.error('من فضلك اختار ملف من نوع صورة','',{timeOut: 3000})

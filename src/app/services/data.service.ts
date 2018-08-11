@@ -6,11 +6,11 @@ export class DataService {
 
   private _subject = new Subject<any>();
 
-  newEvent(event) {
+  public newEvent(event) {
     this._subject.next(event);
   }
 
-  get events$ () {
+  public get events$ () {
     return this._subject.asObservable();
   }
 

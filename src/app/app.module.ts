@@ -59,6 +59,8 @@ import { InnerRecommendedVideosComponent } from './video-details/inner-recommend
 import { RecommendedVideosTabsComponent } from './logged-in-components/recommended-videos-tabs/recommended-videos-tabs.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { SidePlayListComponent } from './playlist/side-play-list/side-play-list.component';
+import {DataService} from './services/data.service';
+import { SideMoreViewsForCreatorComponent } from './creator-details/side-more-views-for-creator/side-more-views-for-creator.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -122,7 +124,8 @@ export function getAuthServiceConfigs() {
     InnerRecommendedVideosComponent,
     RecommendedVideosTabsComponent,
     PlaylistComponent,
-    SidePlayListComponent
+    SidePlayListComponent,
+    SideMoreViewsForCreatorComponent
   ],
   imports: [
     BrowserModule,
@@ -153,7 +156,8 @@ export function getAuthServiceConfigs() {
     { provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    {provide: AuthServiceConfig, useFactory: getAuthServiceConfigs}
+    {provide: AuthServiceConfig, useFactory: getAuthServiceConfigs},
+    DataService
   ],
   bootstrap: [AppComponent]
 })
