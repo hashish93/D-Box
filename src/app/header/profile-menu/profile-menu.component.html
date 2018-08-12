@@ -53,7 +53,7 @@
   </div>
 </div>
 <div class="float-left" *ngIf="user.is_creator == 1">
-  <div class="float-left m-left-20">
+  <div class="float-left m-left-20 m-top-2">
     <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'upload' }" routerLinkActive="active-link">
       <img class="normal" src="../../assets/images/upload-icon.png">
       <img class="hovered" src="../../assets/images/upload-icon-hover.png">
@@ -67,11 +67,5 @@
       <span>احصائيات</span>
     </a>
   </div>
-  <div class="float-left m-left-10">
-    <a class="black side-icons custom-side-icon" routerLink="/message"  routerLinkActive="active-link">
-      <img class="normal" src="../../assets/images/message-icon.png">
-      <img class="hovered" src="../../assets/images/message-icon-hover.png">
-      <span>الرسائل</span>
-    </a>
-  </div>
+
 </div>

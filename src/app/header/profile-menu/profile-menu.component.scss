@@ -42,6 +42,8 @@
   text-decoration: none;
   img{
     margin: 0 auto;
+    width: 23px;
+    margin-top: 5px;
   }
   .normal{
     display: block;
@@ -55,10 +57,11 @@
   &:hover .normal{
     display: none;
   }
-  span{font-weight: bold;font-size:17px;color: #333333}
+  span{font-weight: bold;font-size:14px;color: #333333}
   &:hover span{color:#ee4a41}
 }
 .active-link .normal{display: none}
 .active-link .hovered{display: block}
 .active-link span,.active-link{color:#ee4a41;}
 .custom-side-icon img{margin-top: 6px;}
+.m-top-2{margin-top: 2px;}
