@@ -24,7 +24,7 @@ export class SideMoreViewsComponent implements OnInit {
     this.loading = true;
     this.error = '';
     this.videos = [];
-    this.videoService.getVideos(5,'view','desc',null).subscribe(data=> {
+    this.videoService.getVideos(7,'views','desc',null).subscribe(data=> {
       this.videos = data;
       this.loading = false;
       this.error = '';

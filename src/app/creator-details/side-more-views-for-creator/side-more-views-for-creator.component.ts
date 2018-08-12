@@ -26,7 +26,7 @@ export class SideMoreViewsForCreatorComponent implements OnInit {
     this.loading = true;
     this.error = '';
     this.videos = [];
-    this.videoService.getVideos(7,'view','desc',{creator_id:this.creator_id}).subscribe(data=> {
+    this.videoService.getVideos(7,'views','desc',{creator_id:this.creator_id}).subscribe(data=> {
       this.videos = data;
       this.loading = false;
       this.error = '';
