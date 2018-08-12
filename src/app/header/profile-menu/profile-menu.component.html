@@ -9,7 +9,7 @@
   <div *ngIf="showAnchors" class="profile-anchors">
       <ul class="list-group">
         <li class="list-group-item">
-          <a class="black" routerLink="/settings" [queryParams]="{ tab: 'favorites' }" routerLinkActive="active-link">
+          <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'favorites' }" routerLinkActive="active-link">
             <span class="m-right-10">المفضلات</span>
             <img src="../../../assets/images/love.png">
             <img src="../../../assets/images/love-color.png">
@@ -17,7 +17,7 @@
         </li>
 
         <li class="list-group-item">
-          <a class="black" routerLink="/settings" [queryParams]="{ tab: 'followers' }" routerLinkActive="active-link">
+          <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'followers' }" routerLinkActive="active-link">
             <span class="m-right-10">المتابعات</span>
             <img src="../../../assets/images/num_of_followers.png">
             <img src="../../../assets/images/num_of_followers_love.png">
@@ -26,7 +26,7 @@
 
 
         <li class="list-group-item" *ngIf="user.is_creator == 1">
-          <a class="black" routerLink="/settings" [queryParams]="{ tab: 'money' }" routerLinkActive="active-link">
+          <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'revenue' }" routerLinkActive="active-link">
             <span class="m-right-10">الارباح</span>
             <img src="../../../assets/images/money.png">
             <img src="../../../assets/images/money-hover.png">
@@ -35,7 +35,7 @@
 
 
         <li class="list-group-item">
-          <a class="black" routerLink="/settings" [queryParams]="{ tab: 'profile' }" routerLinkActive="active-link">
+          <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'profile' }" routerLinkActive="active-link">
             <span class="m-right-10">الاعدادات</span>
             <img src="../../../assets/images/settings.png">
             <img src="../../../assets/images/settings-hover.png">
@@ -43,7 +43,7 @@
         </li>
 
         <li class="list-group-item">
-          <a class="black" (click)="logout($event);$event.preventDefault()" routerLink="/">
+          <a class="black" (click)="logout($event);showAnchors=false;$event.preventDefault()" routerLink="/">
             <span class="m-right-10">تسجيل الخروج</span>
             <img src="../../../assets/images/logout.png">
             <img src="../../../assets/images/logout.png">
