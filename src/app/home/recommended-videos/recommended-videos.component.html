@@ -26,7 +26,7 @@
       <div class="row margin-0">
         <div class="col-12 col-sm-6 col-lg-2 relative video-playlist-home" *ngFor="let video of videos">
           <a routerLink="/video/{{video.id}}">
-            <span class="category-span" [ngStyle]="{'background-color':video.category.color}">{{video.category.title}}</span>
+            <span *ngIf="video.categories && video.categories[0]" class="category-span" [ngStyle]="{'background-color':video.categories[0].color}">{{video.categories[0].title}}</span>
             <div class="image-container relative">
               <img  src="{{staticEndPoint}}{{video.thumbnails.small}}">
               <span class="player-icon">
@@ -42,7 +42,7 @@
                 <span class="video-likes">{{video.likes | number:'1.'}}</span>
               </div>
               <div class="float-right direction-ltr">
-                <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+                <span class="m-right-5 video-date">{{video.date}}</span>
                 <i class="fa fa-clock-o" aria-hidden="true"></i>
               </div>
             </div>

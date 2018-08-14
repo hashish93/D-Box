@@ -26,6 +26,7 @@ export interface Video {
   },
   _method:string,
   date: Date,
+  categories: Category[],
   category: Category,
   category_id: number,
   category_name: string,

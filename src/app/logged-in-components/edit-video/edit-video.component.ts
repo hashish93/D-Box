@@ -25,7 +25,6 @@ export class EditVideoComponent implements OnInit {
               public notificationService : NotificationsService,public categoryService : CategoryService) { }
 
   ngOnInit() {
-    this.video.category_id = 5
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.route.params.forEach(params => {
       this.video.id = parseInt(params["id"]);

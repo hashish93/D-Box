@@ -34,11 +34,11 @@
         </div>
         <div class="inner-details">
           <div class="other-data user-select-none rtl text-right">
-            <a class="inner-cat-link" routerLink="/category/{{video.category.id}}">
-              <span class="inner-cat" [ngStyle]="{'background-color':video.category.color}" >{{video.category.title}}</span>
+            <a *ngIf="video.categories && video.categories[0]" class="inner-cat-link" routerLink="/category/{{video.categories[0].id}}">
+              <span *ngIf="video.categories && video.categories[0]" class="inner-cat" [ngStyle]="{'background-color':video.categories[0].color}" >{{video.categories[0].title}}</span>
             </a>
             <div class="inline-block direction-ltr m-right-10">
-              <span class="m-right-5 video-date">{{video.date | date: 'dd, MMMM yyyy'}}</span>
+              <span class="m-right-5 video-date">{{video.date}}</span>
               <i class="fa fa-clock-o" aria-hidden="true"></i>
             </div>
             <div class="inline-block m-right-10">
