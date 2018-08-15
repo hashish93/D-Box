@@ -77,7 +77,16 @@
 
 }
 @media screen and (max-width: 1200px) and (min-width: 992px) {
-  .social-hover{left:12px;}
+  .social-hover {
+    left: 5px;
+    top: 6px;
+    width: 107px;
+    height: 107px;
+    a{
+      width: 20px;
+      height: 20px;
+    }
+  }
   .rounded-border{width: 120px;height: 120px}
   .rounded-border img{width: 120px;height: 120px}
 }
