@@ -46,6 +46,12 @@
               <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
             </div>
           </div>
+          <div class="m-top-20" *ngIf="video && video.tags && video.tags.length > 0">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <div class="inline-block m-right-10" *ngFor="let tag of video.tags">
+              <a routerLink="/results" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge badge-secondary">{{tag.title}}</a>
+            </div>
+          </div>
         </div>
       </div>
 

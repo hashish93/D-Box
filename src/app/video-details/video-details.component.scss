@@ -41,6 +41,9 @@ a.inner-cat-link {
   height: auto;
   transition: all .3s
 }
+.badge{
+  background: #d14245;
+}
 @media screen and (min-width: 1200px) and (max-width: 1400px){
   .no-padding-right{padding-right: 0}
 }

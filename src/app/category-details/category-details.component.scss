@@ -46,6 +46,13 @@
 .category-top-title {
   font-size: 18px;
 }
+.all-videos{
+  margin-top: 12px;
+  font-weight: bold;
+  a{
+    text-decoration: underline;
+  }
+}
 @media screen and (max-width: 992px){
   .custom-top{
     margin-top: 10px;

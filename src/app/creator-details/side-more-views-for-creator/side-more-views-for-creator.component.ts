@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Video} from '../../models/video.model';
 import {VideoService} from '../../services/video.service';
 import {AppSettings} from '../../app.settings';
+import {CreatorService} from '../../services/creator.service';
 
 @Component({
   selector: 'app-side-more-views-for-creator',
@@ -15,11 +16,13 @@ export class SideMoreViewsForCreatorComponent implements OnInit {
   public videos : Video[];
   @Input()
   public creator_id : number;
-  constructor(public videoService : VideoService) { }
+  public creator_name : string = '';
+  constructor(public videoService : VideoService , public creatorService : CreatorService) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getMoreViews();
+    this.getCreator();
   }
 
   public getMoreViews(){
@@ -34,6 +37,12 @@ export class SideMoreViewsForCreatorComponent implements OnInit {
       this.loading = false;
       this.error = 'خطأ في تحميل القائمة الخاصة الاكثر مشاهدة'
     })
+  }
+
+  public getCreator(){
+    this.creatorService.getCreator(this.creator_id).subscribe(data=>{
+      this.creator_name = data.title;
+    });
   }
 
 }

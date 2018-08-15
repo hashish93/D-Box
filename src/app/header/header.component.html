@@ -19,14 +19,14 @@
       </a>
     </div>
     <div class="float-right m-top-35">
-      <form>
+      <form #searchForm="ngForm" novalidate (ngSubmit)="onFormSubmit(searchForm)">
         <div class="input-group input-group-sm mb-3">
-          <div class="input-group-prepend">
+          <div (click)="onFormSubmit(searchForm)" class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-sm">
               <img src="../../assets/images/search-icon.png">
             </span>
           </div>
-          <input type="text" class="form-control" aria-label="Small" placeholder="كلمة البحث" aria-describedby="inputGroup-sizing-sm">
+          <input type="text" class="form-control" aria-label="Small" autocomplete="false" name="search" [(ngModel)]="search" placeholder="كلمة البحث" aria-describedby="inputGroup-sizing-sm">
         </div>
       </form>
     </div>

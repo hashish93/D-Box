@@ -6,6 +6,7 @@ import {Creator} from "../models/creator.model";
 import {CategoryService} from '../services/category.service';
 import {Category} from '../models/category.model';
 import {AppSettings} from '../app.settings';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
   public categories : Category[] = [];
   public isCollapsed : boolean = true;
   public staticEndPoint: string;
-  constructor(public creatorService : CreatorService,public authService : AuthService , public categoryService : CategoryService) { }
+  public search : string = '';
+  constructor(public creatorService : CreatorService,public authService : AuthService , public categoryService : CategoryService , public router : Router) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint()
@@ -37,6 +39,13 @@ export class HeaderComponent implements OnInit {
     this.categoryService.getCategories().subscribe(data=> {
       this.categories = data;
     });
+  }
+
+  public onFormSubmit(searchForm){
+    console.log(this.search);
+    if(this.search){
+      this.router.navigate(['/results'],{queryParams:{'page':'search','key': this.search}})
+    }
   }
 
   public logout(){

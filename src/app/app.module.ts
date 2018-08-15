@@ -64,6 +64,7 @@ import { SideMoreViewsForCreatorComponent } from './creator-details/side-more-vi
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { ResultsComponent } from './results/results.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -132,7 +133,8 @@ export function getAuthServiceConfigs() {
     RecommendedVideosTabsComponent,
     PlaylistComponent,
     SidePlayListComponent,
-    SideMoreViewsForCreatorComponent
+    SideMoreViewsForCreatorComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

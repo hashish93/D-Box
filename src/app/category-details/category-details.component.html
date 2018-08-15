@@ -19,6 +19,9 @@
               <img class="category-image" *ngIf="category" src="{{staticEndPoint}}{{category.icon}}">
               <span class="category-top-title">{{category.title}}</span>
             </div>
+            <div class="pull-left all-videos">
+              <a class="black" routerLink="/results" [queryParams]="{page:'category_views','key':category.title,'key_id':category._id}">كل الفيديوهات</a>
+            </div>
             <div class="video-container">
               <div class="img-container relative">
                 <a routerLink="/video/{{firstVideo._id}}">

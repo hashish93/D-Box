@@ -1,0 +1,52 @@
+<div class="row margin-0">
+  <div class="col col-lg-2">
+    <div class="m-top-35 custom-top">
+      <img class="max-width-100" src="./assets/images/test-image.png">
+    </div>
+  </div>
+  <div class="col-12  col-lg-7 col-xl-8 rtl text-right m-top-35" id="main">
+    <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+    <div *ngIf="!loading" class="main-section">
+      <h5 class="text-center" *ngIf="total == 0">لا يوجد فيديوهات</h5>
+      <div *ngIf="total > 0">
+        <h5 class="m-bottom-20">{{pageName}}</h5>
+        <div class="row m-top-10">
+          <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home" *ngFor="let video of data | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }">
+            <a routerLink="/video/{{video._id}}">
+              <span *ngIf="video.categories && video.categories[0]" class="category-span" [ngStyle]="{'background-color':video.categories[0].color}">{{video.categories[0].title}}</span>
+              <div class="image-container relative">
+                <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                <span class="player-icon">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </span>
+              </div>
+              <h3>
+                {{video.title}}
+              </h3>
+              <div>
+                <div class="float-left">
+                  <i [ngClass]="{'fa-heart': video.is_liked,'fa-heart-o': !video.is_liked}" class="m-left-5 fa" aria-hidden="true"></i>
+                  <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+                </div>
+                <div class="float-right direction-ltr">
+                  <span class="m-right-5 video-date">{{video.date}}</span>
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <pagination-controls (pageChange)="pageChanged($event)" previousLabel="السابق"
+                             nextLabel="التالي"
+                             screenReaderPageLabel="صفحة"
+                             screenReaderCurrentLabel="انت الان في صفحة "></pagination-controls>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="col col-lg-3 col-xl-2">
+    <app-side-menu></app-side-menu>
+  </div>
+</div>

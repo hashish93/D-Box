@@ -24,7 +24,7 @@
         <tbody *ngIf="!loading">
         <tr *ngFor="let video of videos | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total}">
           <td scope="row"><input type="checkbox" name="checked" [(ngModel)]="video.checked"></td>
-          <td>{{video.created_at | date: 'dd MMMM'}}</td>
+          <td>{{video.date}}</td>
           <td class="image-container relative" >
             <a routerLink="/video/{{video.id}}">
               <img src="{{staticEndPoint}}/{{video.small}}">

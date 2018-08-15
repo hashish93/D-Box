@@ -12,7 +12,7 @@ export class VideoService {
   readonly apiKey: string = 'videos';
   constructor(public  http: HttpClient) { }
 
-  public getVideos(limit?:Number,order?:String,orderBy?:string,filter?:Object): Observable<any>{
+  public getVideos(limit?:Number,order?:String,orderBy?:string,filter?:Object,page?:number,pagination?:number,key?:string): Observable<any>{
     let params : string = '';
     if(limit){
       params +='?limit='+limit
@@ -30,6 +30,15 @@ export class VideoService {
         params +="?"+Object.keys(filter)[0]+'='+filter[Object.keys(filter)[0]]
       }
 
+    }
+    if(page){
+      params +='&page='+page;
+    }
+    if(pagination){
+      params +='&pagination='+pagination;
+    }
+    if(key){
+      params +='&q='+key
     }
     return this.http.get(this.apiKey+params)
   }
@@ -64,7 +73,7 @@ export class VideoService {
   }
 
   public getTags = (text: string): Observable<any> => {
-    return this.http.get('tags/search?keyword='+text);
+    return this.http.get('tags/search/keywords?keyword='+text);
   };
 
   public getFormData(object) {
