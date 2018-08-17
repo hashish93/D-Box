@@ -35,7 +35,7 @@
             <div><a class="black">{{video.title}}</a></div>
           </td>
           <td [ngClass]="{'orange':video.published == 0 , 'green':video.published == 1 && video.activated == 1, 'red':video.published == 1 && video.activated == 0}">
-            <div *ngIf="video.published == 0">تحت الانشاء</div>
+            <div *ngIf="video.published == 0">جاري المعالجة</div>
             <div *ngIf="video.published == 1 && video.activated == 1">مفعل</div>
             <div *ngIf="video.published == 1 && video.activated == 0">غير مفعل</div>
           </td>
