@@ -83,7 +83,7 @@
 .country-iterator{margin-bottom: 10px;}
 .country-iterator p {color: #697eb2}
 :host ::ng-deep text {
-  font-size: 8px !important;
+  //font-size: 8px !important;
   transform: rotate(0) !important;
   //position: relative;
   //transform: translateX(-19px) !important;
@@ -91,12 +91,16 @@
 .white-bg{background: #ffffff}
 .padding-right-10{padding-right: 10px;}
 .dark-bg{background: #1f2840;height: 300px;}
-:host ::ng-deep .dark-bg{overflow: auto}
+//:host ::ng-deep .dark-bg{overflow: auto}
 :host ::ng-deep .dark-bg  text{fill: #ffffff}
 :host ::ng-deep .dark-bg .area-chart{
-  transform: translateY(0);
+  //transform: translateY(0);
 }
 @media screen and (max-width: 1200px){
   #regions_div{margin: 0 auto}
   .device-details{left: 10px;right: auto;}
+}
+@media screen and (max-width: 768px){
+  :host ::ng-deep .dark-bg{overflow: auto}
+  :host ::ng-deep .dark-bg .area-chart{transform: translateY(0);}
 }
