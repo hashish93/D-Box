@@ -37,5 +37,7 @@ export interface Video {
   num: number,
   num_chunks: number,
   blob: any,
-  checked:any
+  checked:any,
+  published:number,
+  activated:number
 }

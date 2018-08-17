@@ -21,7 +21,7 @@ export class MyVideosComponent implements OnInit {
   public limit : number = 10;
   public staticEndPoint : string = '';
   public checked:boolean = false;
-  constructor(public videoService : VideoService,public notificationService : NotificationsService) { }
+  constructor(public videoService : VideoService,public notificationService : NotificationsService , public router : Router) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
@@ -44,6 +44,13 @@ export class MyVideosComponent implements OnInit {
       this.loading = false;
       this.error = JSON.stringify(err.error);
     })
+  }
+
+  public openLink(video : Video){
+    if(video.published == 1 && video.activated == 1){
+      console.log(video)
+      this.router.navigate(['video/'+ video.id]);
+    }
   }
 
 

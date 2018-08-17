@@ -85,4 +85,24 @@
 form{
   overflow: scroll;
 }
-
+td.green{
+  color: #155724;
+  background-color: #d4edda;
+  text-align: center;
+}
+td.red{
+  color: #721c24;
+  background-color: #f8d7da;
+  text-align: center;
+}
+td.yellow{
+  color: #856404;
+  background-color: #fff3cd;
+  text-align: center;
+}
+.forbidden{
+  cursor: not-allowed;
+}
+.pointer{
+  cursor: pointer;
+}
