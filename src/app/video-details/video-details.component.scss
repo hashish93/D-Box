@@ -17,7 +17,7 @@ a.inner-cat-link {
 }
 .creator-link{color: #464545;margin: 10px 0;display: inline-block}
 .font-12{font-size: 12px;}
-.video-title{font-size: 16px;font-weight: bold;}
+.video-title{font-size: 16px;font-weight: bold;line-height: 26px;}
 .share {
   position: absolute;
   top: 17px;
@@ -44,10 +44,33 @@ a.inner-cat-link {
 .badge{
   background: #d14245;
 }
+.btn-like{
+  border: 1px solid #5d5d5d;
+  padding: 0 5px;
+  border-radius: 3px;
+  background: #ddd;
+  cursor: pointer;
+}
+.btn-liked {
+  border: 1px solid #e74c3c;
+  padding: 0 5px;
+  border-radius: 3px;
+  background: #e74c3c;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-like .fa-heart {
+  color: white;
+}
 @media screen and (min-width: 1200px) and (max-width: 1400px){
   .no-padding-right{padding-right: 0}
 }
 @media screen and (max-width: 992px){
   iframe{height: 300px;}
+  .slide{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
 }
 

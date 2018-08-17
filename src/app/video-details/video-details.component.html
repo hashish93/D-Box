@@ -41,9 +41,13 @@
               <span class="m-right-5 video-date">{{video.date}}</span>
               <i class="fa fa-clock-o" aria-hidden="true"></i>
             </div>
-            <div class="inline-block m-right-10">
-              <i (click)="likeVideo()" class="m-left-5 fa mouse-click" [ngClass]="{'fa-heart': video.is_liked,'fa-heart-o': !video.is_liked}" aria-hidden="true"></i>
+            <div (click)="likeVideo()" class="inline-block m-right-10 btn-like" [ngClass]="{'btn-liked': video.is_liked}">
+              <i  class="m-left-5 fa mouse-click" [ngClass]="{'fa-heart': video.is_liked,'fa-heart-o': !video.is_liked}" aria-hidden="true"></i>
               <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+            </div>
+            <div class="inline-block m-right-10">
+              <i class="m-left-5 fa fa-eye" aria-hidden="true"></i>
+              <span *ngIf="video.counter">{{video.counter.views}}</span>
             </div>
           </div>
           <div class="m-top-20" *ngIf="video && video.tags && video.tags.length > 0">
