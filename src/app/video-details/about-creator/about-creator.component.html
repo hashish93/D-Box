@@ -1,7 +1,7 @@
 <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 <div *ngIf="!loading" class="about-creator-container">
   <div class="creator-img">
-    <div class="creator-summary">
+    <div class="creator-summary none">
       <div>
           <span>{{creator.counter.videos}}</span>
         <span class="custom-player-icon">
@@ -17,6 +17,18 @@
       <img *ngIf="creator.avatar" src="{{staticEndPoint}}{{creator.avatar}}">
       <p>{{creator.title}}</p>
     </a>
+    <div class="m-top-10 text-center">
+      <div class="inline-block m-left-10">
+        <span>{{creator.counter.videos}}</span>
+        <span class="custom-player-icon">
+          <i  aria-hidden="true" class="fa fa-play"></i>
+        </span>
+      </div>
+      <div class="inline-block m-right-10">
+        <span>{{creator.counter.likes}}</span>
+        <i (click)="follow_creator()" [ngClass]="{'fa-heart': creator.is_followed,'fa-heart-o': !creator.is_followed}" class="fa mouse-click like-custom"></i>
+      </div>
+    </div>
   </div>
   <div class="about-creator-details">
       <h6>عن المبدع</h6>
