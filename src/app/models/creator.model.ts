@@ -42,5 +42,6 @@ export interface Creator {
   is_followed:boolean,
   activated:number,
   file:File,
-  no_password:any
+  no_password:any,
+  level:any
 }
