@@ -1,0 +1,61 @@
+<div class="row margin-0">
+  <div class="col col-lg-2">
+    <div class="m-top-35 custom-top">
+      <img class="max-width-100" src="./assets/images/test-image.png">
+    </div>
+  </div>
+  <div class="col-12  col-lg-7 col-xl-8 rtl text-right m-top-35" id="main">
+    <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
+    <div *ngIf="!loading" class="main-section">
+      <h5 class="text-center" *ngIf="total == 0">لا يوجد مبدعون</h5>
+      <div *ngIf="total > 0">
+        <h5 class="m-bottom-20">المبدعون</h5>
+        <div class="row m-top-10">
+          <div *ngFor="let creator of data | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }" class="col-12 col-sm-6 col-lg-4 col-xl-3">
+            <div class="creator-item">
+
+
+              <div class="image-container">
+                <div class="rounded-border">
+                  <div class="social-hover">
+                    <a href="{{creator.social.facebook}}" target="_blank">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="{{creator.social.google}}" target="_blank">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a href="{{creator.social.twitter}}" target="_blank">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="{{creator.social.instagram}}" target="_blank">
+                      <i class="fa fa-instagram"></i>
+                    </a>
+                  </div>
+                  <img src="{{staticEndPoint}}{{creator.avatar}}">
+                </div>
+              </div>
+              <a routerLink="/creator/{{creator._id}}">
+                <div class="relative rectangle-info">
+                  <h6 class="title">{{creator.title}}</h6>
+                  <h6 class="thin job">{{creator.job}}</h6>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+        <pagination-controls (pageChange)="pageChanged($event)" previousLabel="السابق"
+                             nextLabel="التالي"
+                             screenReaderPageLabel="صفحة"
+                             screenReaderCurrentLabel="انت الان في صفحة "></pagination-controls>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="col col-lg-3 col-xl-2">
+    <app-side-menu></app-side-menu>
+  </div>
+</div>

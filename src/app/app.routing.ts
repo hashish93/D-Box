@@ -19,6 +19,7 @@ import {CreatorDetailsComponent} from "./creator-details/creator-details.compone
 import {EditVideoComponent} from "./logged-in-components/edit-video/edit-video.component";
 import {PlaylistComponent} from './playlist/playlist.component';
 import {ResultsComponent} from './results/results.component';
+import {CreatorsComponent} from './creators/creators.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,5 +38,6 @@ export const routes: Routes = [
   { path: 'edit-video/:id', component: EditVideoComponent,canActivate:[AuthGuard]},
   { path: 'results', component: ResultsComponent},
   { path: 'playlist', component: PlaylistComponent},
+  { path: 'creators', component: CreatorsComponent},
 ];
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes);

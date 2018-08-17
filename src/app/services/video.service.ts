@@ -92,7 +92,7 @@ export class VideoService {
       uploaded.description = video.description;
       uploaded.blob = blob;
       uploaded.file = uploaded.blob;
-      uploaded.category_id = video.category_id;
+      uploaded.categories = video.categories;
       uploaded.num = video.num;
       uploaded.num_chunks = video.num_chunks;
       if(video.tags){

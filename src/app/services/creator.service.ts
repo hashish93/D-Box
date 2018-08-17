@@ -12,10 +12,16 @@ export class CreatorService {
   readonly apiKey: string = 'creators';
   constructor(public  http: HttpClient) { }
 
-  public getCreators(limit?:Number): Observable<any>{
+  public getCreators(limit?:number,page?: number , pagination?:number): Observable<any>{
     let params : string = '';
     if(limit){
       params +='?limit='+limit
+    }
+    if(page){
+      params +='&page='+page;
+    }
+    if(pagination){
+      params +='&pagination='+pagination;
     }
     return this.http.get(this.apiKey+params)
   }

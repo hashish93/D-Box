@@ -1,0 +1,122 @@
+:host ::ng-deep .ngx-pagination{text-align: center;direction: ltr;padding-left: 0;}
+:host ::ng-deep .ngx-pagination li.pagination-next a,
+:host ::ng-deep .ngx-pagination li.pagination-previous a,
+:host ::ng-deep .ngx-pagination .pagination-next.disabled,
+:host ::ng-deep .ngx-pagination .pagination-previous.disabled
+{padding: 13px 15px;display: inline-block}
+:host ::ng-deep  .ngx-pagination .current{
+  color: #000;
+  background: #d7d7d7;
+  margin: 0 10px;
+}
+
+:host ::ng-deep  .ngx-pagination li.pagination-next{background: #ffffff}
+:host ::ng-deep  .ngx-pagination li.pagination-previous{background: #bcbcbc;color: #fff}
+
+.main-section{
+  background: #f4f4f4;
+  padding: 15px;
+}
+@media screen and (max-width: 992px){
+  .custom-top{text-align: center;}
+}
+
+
+
+
+.rounded-border {
+  width: 140px;
+  height: 140px;
+  border: 7px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.rounded-border img{
+  width: 140px;
+  height: 140px;
+  max-width: 500px;
+}
+.left90{left: -90px;}
+.image-container{
+  position: relative;
+  z-index: 1;
+}
+.rectangle-info{
+  background: #1f377d;
+  color: #fff;
+  border-radius: 3px;
+  padding: 50px 5px 15px 5px;
+  top: -40px;
+  text-align: center;
+  .title{
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .job{
+    font-size: 11px;
+  }
+}
+.all-creators{
+  margin: 0 auto;
+  border: 1px solid;
+  padding: 2px 5px;
+  position: relative;
+  top: -30px;
+  transition: all .3s;
+  &:hover {
+    background: #6196e4 !important;
+    text-decoration: none;
+  }
+}
+.social-hover {
+  opacity: 0;
+  background: rgba(12, 53, 138, 0.7);
+  width: 126px;
+  height: 126px;
+  position: absolute;
+  border-radius: 50%;
+  text-align: center;
+  transition: all .3s;
+  z-index: 2;
+  top: 8px;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  &:hover{
+    opacity: 1;
+  }
+  a{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 51px 2px 0 2px;
+    color: #000;
+    border-radius: 50%;
+    transition: all .5s;
+    &:hover{
+      background: #fff;
+    }
+  }
+
+}
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .social-hover {
+    left: 5px;
+    top: 6px;
+    width: 107px;
+    height: 107px;
+    a{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .rounded-border{width: 120px;height: 120px}
+  .rounded-border img{width: 120px;height: 120px}
+}
+
+@media screen and (max-width: 992px){
+  .creator-item{
+    position: relative;
+  }
+}

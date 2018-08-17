@@ -19,8 +19,6 @@
             <progressbar *ngIf="video.file.size > step && loaded > 0" class="m-top-20" [animate]="false" max="100" [value]="video.num / video.num_chunks * 100" type="success"><b>{{video.num / video.num_chunks * 100 | number}} %</b></progressbar>
 
             حجم الملف بالميجا : {{video.file.size / 1024 / 1024 | number }}
-            <br>
-            رفع {{video.num}} / {{video.num_chunks}}
           </div>
 
         </div>
@@ -38,9 +36,9 @@
           <div *ngIf="categories" class="form-group">
             <h6 class="video-header">القسم</h6>
             <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
-
-            <ng-select required
-                       name="category" [(ngModel)]="video.category_id">
+{{video.category_id}}
+            <ng-select required [multiple]="true"
+                       name="category" [(ngModel)]="video.categories">
               <ng-option *ngFor="let category of categories" [value]="category._id" >{{category.title}}</ng-option>
             </ng-select>
           </div>
