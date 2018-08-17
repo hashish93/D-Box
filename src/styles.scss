@@ -1,8 +1,8 @@
-$GE_SS_eot_font_path: "assets/fonts/HelveticaNeueW23forSKY-Bd_T02.eot";
-$GE_SS_woff_font_path: "assets/fonts/HelveticaNeueMEforSKYW21-Lt_web.woff";
-$GE_SS_ttf_font_path: "assets/fonts/HelveticaNeueMEforSKYW21-Lt_web.ttf";
-$GE_SS_svg_font_path: "assets/fonts/HelveticaNeueW23forSKY-Bd_T02.svg";
-$font-family-brand: 'GE_SS';
+$Helvetica_eot_font_path: "assets/fonts/HelveticaNeueW23forSKY-Bd_T02.eot";
+$Helvetica_woff_font_path: "assets/fonts/HelveticaNeueMEforSKYW21-Lt_web.woff";
+$Helvetica_ttf_font_path: "assets/fonts/HelveticaNeueMEforSKYW21-Lt_web.ttf";
+$Helvetica_svg_font_path: "assets/fonts/HelveticaNeueW23forSKY-Bd_T02.svg";
+$font-family-brand: 'Helvetica';
 @import "~fullcalendar/dist/fullcalendar.css";
 @import "~@ng-select/ng-select/themes/material.theme.css";
 
@@ -10,15 +10,15 @@ $font-family-brand: 'GE_SS';
 
 @font-face {
   font-family:$font-family-brand;
-  src:url($GE_SS_eot_font_path) format("eot"),
-  url($GE_SS_woff_font_path) format("woff"),
-  url($GE_SS_ttf_font_path) format("truetype"),
-  url($GE_SS_svg_font_path) format("svg");
+  src:url($Helvetica_eot_font_path) format("eot"),
+  url($Helvetica_woff_font_path) format("woff"),
+  url($Helvetica_ttf_font_path) format("truetype"),
+  url($Helvetica_svg_font_path) format("svg");
   font-weight:normal;
   font-style:normal;
 }
 body , html{
-  font-family:$font-family-brand;
+  font-family:$font-family-brand !important;
   background: #dddddd !important;
 }
 body{
