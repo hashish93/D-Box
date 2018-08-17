@@ -151,6 +151,12 @@
                     </a>
 
                   </div>
+                  <div class="text-center m-top-10">
+                    <div class="btn btn-dark" (click)="follow_creator()">
+                      <span *ngIf="creator.is_followed">الغاء المتابعة</span>
+                      <span *ngIf="!creator.is_followed">متابعة</span>
+                    </div>
+                  </div>
                 </div>
 
               </div>
