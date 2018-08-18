@@ -53,11 +53,11 @@ slide{margin-bottom: 40px}
   top: -120px;
 }
 :host ::ng-deep .carousel-control-next {
-  right: -110px;
+  right: -13%;
   cursor: pointer;
 }
 :host ::ng-deep .carousel-control-prev {
-  left: 40px;
+  left: 4%;
   cursor: pointer;
 }
 :host ::ng-deep .carousel-control-prev-icon{
@@ -120,9 +120,21 @@ slide{margin-bottom: 40px}
   display: inline-block;
   font-size: 14px;
 }
+:host ::ng-deep .carousel-indicators{
+  padding-right: 0;
+  right:-18%;
+}
+@media screen and (min-width: 1200px) and (max-width: 1500px){
+  :host ::ng-deep .carousel {
+    right: 80px;
+  }
+}
 @media screen and (min-width: 992px) and (max-width: 1200px){
   .counter{left: 0}
   .about-details strong{margin-left: 5px;}
+  :host ::ng-deep .carousel {
+    right: 50px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 992px){
   .counter{left: 0}
@@ -138,4 +150,5 @@ slide{margin-bottom: 40px}
 @media screen and (max-width: 768px){
   .cover{height: 125px;overflow: hidden}
   .cover img{min-height: 125px;}
+  :host ::ng-deep .carousel-indicators{right:0;}
 }

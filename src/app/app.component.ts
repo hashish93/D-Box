@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first app';
+  public scroll;
+
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+    const verticalOffset = window.pageYOffset
+      || document.documentElement.scrollTop
+      || document.body.scrollTop || 0;
+    console.log(verticalOffset);
+    this.scroll = verticalOffset;
+  }
 }
