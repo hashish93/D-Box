@@ -67,19 +67,23 @@
 <div class="bottom-statistics m-top-20">
   <div class="col-lg-12" *ngIf="!loading">
     <div class="row">
-      <div class="col-xl-12 white-bg col-md-12 col-12 text-left direction-ltr m-bottom-20">
-        <ngx-charts-bar-vertical
-          [scheme]="weeksColorScheme"
-          [results]="daysList"
-          [xAxis]="true"
-          [yAxis]="true"
-          [barPadding]="20"
-          (select)="onSelect($event)">
-        </ngx-charts-bar-vertical>
-
+      <div class="col-xl-12 white-bg col-md-12 col-12 text-left direction-ltr m-bottom-20 parent-holder">
+        <h4 class="text-center m-top-20 m-bottom-20">معدلات الزيارة اليومية</h4>
+        <div class="parent">
+          <ngx-charts-bar-vertical
+            [scheme]="weeksColorScheme"
+            [results]="daysList"
+            [xAxis]="true"
+            [yAxis]="true"
+            [barPadding]="20"
+            (select)="onSelect($event)">
+          </ngx-charts-bar-vertical>
+        </div>
 
       </div>
-      <div class="col-xl-12 col-md-12 col-12 text-left dark-bg direction-ltr ">
+      <div class="col-xl-12 col-md-12 col-12 text-left dark-bg direction-ltr parent-holder">
+        <h4 class="text-white text-center m-top-20 m-bottom-20">معدلات الزيارة الشهرية</h4>
+        <div class="parent-area-chart">
           <ngx-charts-area-chart
             [scheme]="'nightLights'"
             [gradient]="true"
@@ -89,6 +93,8 @@
             [results]="monthList"
           >
           </ngx-charts-area-chart>
+        </div>
+
       </div>
 
     </div>
