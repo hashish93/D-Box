@@ -151,6 +151,22 @@
                     </a>
 
                   </div>
+                  <div class="text-center m-top-10">
+                    <div [ngClass]="{'btn-dark':!creator.is_followed,'btn-danger':creator.is_followed}" class="btn" (click)="follow_creator()">
+                      <div *ngIf="creator.is_followed">
+                        <i class="fa fa-minus-square" aria-hidden="true"></i>
+                        <span>
+                          الغاء المتابعة
+                        </span>
+                      </div>
+                      <div *ngIf="!creator.is_followed">
+                        <i class="fa fa-plus-square" aria-hidden="true"></i>
+                        <span>
+                          متابعة
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
               </div>

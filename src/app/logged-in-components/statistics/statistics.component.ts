@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CreatorService} from "../../services/creator.service";
 import {UserService} from "../../services/user.service";
 import * as d3 from "d3";
+import * as shape from 'd3-shape';
 declare var google: any;
 @Component({
   selector: 'app-statistics',
@@ -28,7 +29,8 @@ export class StatisticsComponent implements OnInit {
     }
   ];
 
-  public line = d3.line().curve(d3.curveBundle.beta(0.5));
+  public curve = shape.curveBasisClosed;
+
 
 
   constructor(public creatorService : CreatorService,public userService : UserService) { }

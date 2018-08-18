@@ -51,11 +51,12 @@ export class EditVideoComponent implements OnInit {
       this.loading=false;
       this.error='';
       this.video = data;
-      this.video.category = this.categories.filter(
-        cat => cat._id == this.video.category_id)[0];
-      if(this.video.category){
-        this.video.category_name = this.video.category.title;
+      let arr = [];
+
+      for(let cat of this.video.categories){
+        arr.push(cat.name);
       }
+      this.video.categories_names = arr;
     },err=>{
       this.loading=false;
       this.error=JSON.stringify(err.error);
@@ -94,8 +95,14 @@ export class EditVideoComponent implements OnInit {
 
   public submit(videoForm:any){
     this.loading = true;
-    this.video.category_id = this.categories.filter(
-      cat => cat.title == this.video.category_name)[0]._id;
+    this.video.categories = [];
+    for(let category_name of this.video.categories_names){
+      for(let category of this.categories){
+        if(category._id == category_name || category.title == category_name){
+          this.video.categories.push(category._id);
+        }
+      }
+    }
     this.videoService.editVideo(this.video).subscribe(data=>{
       this.loading = false;
       this.notificationService.success("تم التعديل بنجاح ","",{timeOut:3000});

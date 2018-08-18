@@ -1,0 +1,10 @@
+:host ::ng-deep app-header.scroll header .m-top-35 {
+  margin-top: 5px;
+}
+:host ::ng-deep app-header.scroll header .logo img{
+    width: 150px;
+}
+:host ::ng-deep .main-nav.scroll .sticky-sidebar{
+  top:70px;
+  height: calc(100% - 70px);
+}

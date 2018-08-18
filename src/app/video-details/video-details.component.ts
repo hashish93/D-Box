@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {AuthService} from "../services/auth-service.service";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Video} from "../models/video.model";
@@ -6,6 +6,7 @@ import {VideoService} from "../services/video.service";
 import {AppSettings} from "../app.settings";
 import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 import {Creator} from "../models/creator.model";
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-video-details',
@@ -23,8 +24,11 @@ export class VideoDetailsComponent implements OnInit {
   public staticEndPoint;
   url: SafeResourceUrl;
   public error : String= '';
+  public document : any ;
   constructor(public authService : AuthService , public router : Router,
-              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer) { }
+              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer ,@Inject(DOCUMENT) document: any) {
+    this.document = document;
+  }
 
   ngOnInit() {
     this.videoEndPoint = AppSettings.getVideoEndpoint();

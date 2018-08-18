@@ -1,3 +1,22 @@
+$Helvetica_eot_font_path: "/assets/fonts/HelveticaNeueW23forSKY-Bd_T02.eot";
+$Helvetica_woff_font_path: "/assets/fonts/HelveticaNeueMEforSKYW21-Lt_web.woff";
+$Helvetica_ttf_font_path: "/assets/fonts/HelveticaNeueMEforSKYW21-Lt_web.ttf";
+$Helvetica_svg_font_path: "/assets/fonts/HelveticaNeueW23forSKY-Bd_T02.svg";
+$font-family-brand: 'Helvetica';
+@import "~fullcalendar/dist/fullcalendar.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+
+
+@font-face {
+  font-family:$font-family-brand;
+  src:url($Helvetica_eot_font_path) format("eot"),
+  url($Helvetica_woff_font_path) format("woff"),
+  url($Helvetica_ttf_font_path) format("truetype"),
+  url($Helvetica_svg_font_path) format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
 .video-header{
   border-bottom: 1px solid #b8c4d0;
   display: inline-block;
@@ -25,3 +44,13 @@
   box-shadow: none;
 }
 .white-bg{background-color: #fff}
+
+:host ::ng-deep .ng2-tag-input__text-input ,:host ::ng-deep .ng2-tag-input{
+  font-family:$font-family-brand !important;
+}
+:host ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+  text-align: right;
+}
+:host ::ng-deep .ng2-tag-input__text-input , :host ::ng-deep tag{
+  font-family: $font-family-brand !important;
+}

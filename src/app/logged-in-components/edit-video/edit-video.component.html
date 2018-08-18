@@ -11,7 +11,7 @@
       <div class="col col-lg-2"></div>
     </div>
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
-    <div class="rtl text-right" *ngIf="!loading">
+    <div class="rtl text-right" >
       <div class="video_upload_container">
         <h5 class="video-header">تعديل الفيديو</h5>
         <form #videoForm="ngForm" novalidate autocomplete="off">
@@ -45,9 +45,9 @@
               <div *ngIf="categories" class="form-group">
                 <h6 class="video-header">القسم</h6>
                 <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
-                <ng-select required
-                           name="category" [(ngModel)]="video.category_name">
-                  <ng-option *ngFor="let category of categories"   [value]="category.title" >{{category.title}}</ng-option>
+                <ng-select required [multiple]="true"
+                           name="category" [(ngModel)]="video.categories_names">
+                  <ng-option *ngFor="let category of categories"   [value]="category._id" >{{category.title}}</ng-option>
                 </ng-select>
               </div>
               <div class="form-group">

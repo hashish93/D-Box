@@ -18,7 +18,7 @@ export interface Video {
   image: string,
   description: string,
   thumbnail: string,
-  thumbnails: Object,
+  thumbnails: any,
   defaultImageUrl:string,
   counter:{
     likes : number,
@@ -27,6 +27,7 @@ export interface Video {
   _method:string,
   date: Date,
   categories: Category[],
+  categories_names: number[],
   category: Category,
   category_id: number,
   category_name: string,
@@ -36,5 +37,8 @@ export interface Video {
   num: number,
   num_chunks: number,
   blob: any,
-  checked:any
+  checked:any,
+  small:any,
+  published:number,
+  activated:number
 }

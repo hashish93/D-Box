@@ -8,6 +8,7 @@ export interface CategoryPaginated {
 export interface Category {
   _id: number,
   title: string,
+  name: string,
   description: string,
   date: Date,
   color:any

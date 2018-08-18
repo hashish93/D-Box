@@ -65,6 +65,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { ResultsComponent } from './results/results.component';
+import { CreatorsComponent } from './creators/creators.component';
+import {ShareButtonsModule} from '@ngx-share/buttons';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -134,7 +136,8 @@ export function getAuthServiceConfigs() {
     PlaylistComponent,
     SidePlayListComponent,
     SideMoreViewsForCreatorComponent,
-    ResultsComponent
+    ResultsComponent,
+    CreatorsComponent
   ],
   imports: [
     BrowserModule,
@@ -160,7 +163,8 @@ export function getAuthServiceConfigs() {
     JwtModule.forRoot(JWT_Module_Options),
     HttpClientModule,       // (Required) For share counts
     ProgressbarModule.forRoot(),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    ShareButtonsModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true },
