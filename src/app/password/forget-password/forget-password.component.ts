@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth-service.service";
 import {Router} from "@angular/router";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-forget-password',
@@ -11,7 +12,9 @@ export class ForgetPasswordComponent implements OnInit {
   public error : string = '';
   public loading : boolean = false;
   public email : string = '';
-  constructor(public authService : AuthService , public router : Router) { }
+  constructor(public authService : AuthService , public router : Router,public titleService: Title) {
+    this.titleService.setTitle('فقد كلمة المرور');
+  }
 
   ngOnInit() {
   }

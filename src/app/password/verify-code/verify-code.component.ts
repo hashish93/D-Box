@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth-service.service";
 import {Router, ActivatedRoute, ParamMap} from "@angular/router";
 import {switchMap} from "rxjs/internal/operators";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-verify-code',
@@ -14,7 +15,9 @@ export class VerifyCodeComponent implements OnInit {
   public email : string = '';
   public code : string = '';
   public data : any;
-  constructor(public authService : AuthService , public router : Router,public route: ActivatedRoute) { }
+  constructor(public authService : AuthService , public router : Router,public route: ActivatedRoute,public titleService: Title) {
+    this.titleService.setTitle('تحقق الكود');
+  }
 
   ngOnInit() {
     this.email =  this.route.snapshot.paramMap.get('email');

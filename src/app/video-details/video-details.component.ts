@@ -4,7 +4,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {Video} from "../models/video.model";
 import {VideoService} from "../services/video.service";
 import {AppSettings} from "../app.settings";
-import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
+import {DomSanitizer, SafeResourceUrl, Title,} from '@angular/platform-browser';
 import {Creator} from "../models/creator.model";
 import {DOCUMENT} from '@angular/common';
 
@@ -26,8 +26,9 @@ export class VideoDetailsComponent implements OnInit {
   public error : String= '';
   public document : any ;
   constructor(public authService : AuthService , public router : Router,
-              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer ,@Inject(DOCUMENT) document: any) {
+              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer ,@Inject(DOCUMENT) document: any , public titleService : Title) {
     this.document = document;
+    this.titleService.setTitle('الفيديو');
   }
 
   ngOnInit() {

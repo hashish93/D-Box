@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Creator} from "../../models/creator.model";
 import {CreatorService} from "../../services/creator.service";
 import {Router} from "@angular/router";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-creator-signup',
@@ -16,7 +17,8 @@ export class CreatorSignupComponent implements OnInit {
   public matched_user : boolean = false;
   public validatePassword: boolean = false;
 
-  constructor(public creatorService: CreatorService,public router : Router) {
+  constructor(public creatorService: CreatorService,public router : Router ,public titleService: Title) {
+    this.titleService.setTitle('تسجيل كمبدع');
   }
 
   ngOnInit() {

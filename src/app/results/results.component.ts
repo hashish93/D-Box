@@ -4,6 +4,7 @@ import {Video} from '../models/video.model';
 import {VideoService} from '../services/video.service';
 import {t} from '../../../node_modules/@angular/core/src/render3';
 import {AppSettings} from '../app.settings';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-results',
@@ -23,7 +24,9 @@ export class ResultsComponent implements OnInit {
   public activePage : string = '';
   private staticEndPoint : string = '';
 
-  constructor(public  route: ActivatedRoute,public videoService : VideoService) { }
+  constructor(public  route: ActivatedRoute,public videoService : VideoService,public titleService : Title){
+    this.titleService.setTitle('النتائج');
+  }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();

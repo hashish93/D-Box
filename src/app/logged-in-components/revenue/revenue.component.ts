@@ -4,6 +4,8 @@ import {AppSettings} from "../../app.settings";
 import {Revenue} from "../../models/revenue.model";
 import {Options} from "fullcalendar";
 import {CalendarComponent} from "ng-fullcalendar";
+import {Router} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-revenue',
@@ -26,7 +28,9 @@ export class RevenueComponent implements OnInit {
 
 
 
-  constructor(public userService : UserService) { }
+  constructor(public userService : UserService,public titleService : Title) {
+    this.titleService.setTitle('الارباح');
+  }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();

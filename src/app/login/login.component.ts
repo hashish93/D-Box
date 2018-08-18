@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {UserService} from "../services/user.service";
 import {AuthService} from "../services/auth-service.service";
 import {AuthService as SocialAuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angular-6-social-login';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginComponent implements OnInit {
   public error : string = '';
   public loading : boolean = false;
   constructor(public authService : AuthService ,public router : Router,
-              public socialAuthService: SocialAuthService , public userService : UserService) { }
+              public socialAuthService: SocialAuthService , public userService : UserService,public titleService: Title) {
+    this.titleService.setTitle('تسجيل الدخول');
+  }
 
   ngOnInit() {
     this.user.remember_me = false;

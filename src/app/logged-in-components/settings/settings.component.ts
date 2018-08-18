@@ -6,6 +6,7 @@ import {Creator} from "../../models/creator.model";
 import {Observable} from "rxjs";
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from "@angular/router";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-settings',
@@ -20,7 +21,9 @@ export class SettingsComponent implements OnInit {
   public error : string = '';
   private user : Creator = {} as Creator;
 
-  constructor(public userService : UserService,public route : ActivatedRoute,public router : Router,public location: Location) { }
+  constructor(public userService : UserService,public route : ActivatedRoute,public router : Router,public location: Location ,public titleService: Title) {
+    this.titleService.setTitle('الاعدادات');
+  }
 
   ngOnInit() {
 

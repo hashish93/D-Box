@@ -3,6 +3,8 @@ import {CreatorService} from "../../services/creator.service";
 import {UserService} from "../../services/user.service";
 import * as d3 from "d3";
 import * as shape from 'd3-shape';
+import {Router} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 declare var google: any;
 @Component({
   selector: 'app-statistics',
@@ -33,7 +35,9 @@ export class StatisticsComponent implements OnInit {
 
 
 
-  constructor(public creatorService : CreatorService,public userService : UserService) { }
+  constructor(public creatorService : CreatorService,public userService : UserService,public titleService : Title) {
+    this.titleService.setTitle('الاحصائيات');
+  }
 
   ngOnInit() {
     this.getStatistics();

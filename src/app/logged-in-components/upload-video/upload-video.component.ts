@@ -3,7 +3,7 @@ import {Video} from "../../models/video.model";
 import {VideoService} from "../../services/video.service";
 import {Observable} from "rxjs";
 import {NotificationsService} from "angular2-notifications";
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, Title} from '@angular/platform-browser';
 import {CategoryService} from "../../services/category.service";
 import {Category} from "../../models/category.model";
 import {Router} from "@angular/router";
@@ -30,7 +30,8 @@ export class UploadVideoComponent implements OnInit {
 
   constructor(public videoService: VideoService,
               public notificationService: NotificationsService , private sanitizer:DomSanitizer,
-              public categoryService : CategoryService, public router : Router) {
+              public categoryService : CategoryService, public router : Router,public titleService : Title) {
+    this.titleService.setTitle('رفع الفيديو');
   }
 
   ngOnInit() {

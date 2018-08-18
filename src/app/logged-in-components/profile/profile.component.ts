@@ -11,6 +11,7 @@ import {NotificationsService} from "angular2-notifications";
 import {AuthService} from '../../services/auth-service.service';
 import {Router} from '@angular/router';
 import {DataService} from '../../services/data.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -33,7 +34,9 @@ export class ProfileComponent implements OnInit {
   constructor(public userService : UserService,public authService : AuthService,
               public countryService: CountryService , public creatorService : CreatorService,
               public dataService : DataService, public  notificationService : NotificationsService ,
-              public router : Router) { }
+              public router : Router,public titleService : Title) {
+    this.titleService.setTitle('الملف الشخصي');
+  }
 
 
   ngOnInit() {

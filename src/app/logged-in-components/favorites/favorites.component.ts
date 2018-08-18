@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {VideoService} from "../../services/video.service";
 import {AppSettings} from "../../app.settings";
 import {Video} from "../../models/video.model";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-favorites',
@@ -16,7 +17,9 @@ export class FavoritesComponent implements OnInit {
   public data : Video[] = [];
   public total : Number = 0 ;
   private staticEndPoint : string = '';
-  constructor(public videoService : VideoService) { }
+  constructor(public videoService : VideoService,public titleService : Title){
+    this.titleService.setTitle('الفيديوهات المفضلة');
+  }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();

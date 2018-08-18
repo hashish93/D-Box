@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AppSettings} from '../app.settings';
 import {CreatorService} from '../services/creator.service';
 import {Creator} from '../models/creator.model';
+import {VideoService} from '../services/video.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-creators',
@@ -17,7 +19,9 @@ export class CreatorsComponent implements OnInit {
   public current_page: number = 1;
   private staticEndPoint : string = '';
 
-  constructor(public creatorService : CreatorService) { }
+  constructor(public creatorService : CreatorService,public titleService : Title){
+    this.titleService.setTitle('المبدعون');
+  }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();

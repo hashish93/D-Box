@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth-service.service";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Creator} from "../../models/creator.model";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-reset-password',
@@ -14,7 +15,9 @@ export class ResetPasswordComponent implements OnInit {
   public validatePassword : boolean = false;
   public user : Creator = {} as Creator
   public data : any;
-  constructor(public authService : AuthService , public router : Router,public route: ActivatedRoute) { }
+  constructor(public authService : AuthService , public router : Router,public route: ActivatedRoute,public titleService: Title) {
+    this.titleService.setTitle('اعادة تعيين كلمة السر');
+  }
 
   ngOnInit() {
     this.user.email =  this.route.snapshot.paramMap.get('email');

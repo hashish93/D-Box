@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FollowerService} from "../../services/follower.service";
 import {AppSettings} from "../../app.settings";
+import {CreatorService} from '../../services/creator.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-followers',
@@ -15,8 +17,9 @@ export class FollowersComponent implements OnInit {
   public data= [];
   public total : Number = 0 ;
   private staticEndPoint : string = '';
-  constructor(public followerService : FollowerService) { }
-
+  constructor(public followerService : FollowerService,public titleService : Title) {
+    this.titleService.setTitle('المتابعين');
+  }
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getFollowers()

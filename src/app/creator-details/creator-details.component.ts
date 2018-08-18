@@ -7,6 +7,7 @@ import {VideoService} from "../services/video.service";
 import {Video} from "../models/video.model";
 import {AuthService} from "../services/auth-service.service";
 import {UserService} from "../services/user.service";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-creator-details',
@@ -23,7 +24,9 @@ export class CreatorDetailsComponent implements OnInit {
   public staticEndPoint;
 
   constructor(public creatorService : CreatorService,public route : ActivatedRoute
-    , public router : Router, public videoService : VideoService,public authService : AuthService,public userService : UserService) { }
+    , public router : Router, public videoService : VideoService,public authService : AuthService,public userService : UserService,public titleService : Title){
+    this.titleService.setTitle('المبدع');
+  }
   ngOnInit() {
     this.route.params.forEach(params => {
       this.getCreatorDetails(params["id"]);

@@ -5,6 +5,7 @@ import {CategoryService} from "../services/category.service";
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {VideoService} from "../services/video.service";
 import {Video} from "../models/video.model";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-category-details',
@@ -20,7 +21,9 @@ export class CategoryDetailsComponent implements OnInit {
   public staticEndPoint;
 
   constructor(public categoryService : CategoryService,public route : ActivatedRoute
-    , public router : Router,public videoService : VideoService) { }
+    , public router : Router,public videoService : VideoService,public titleService : Title){
+    this.titleService.setTitle('القسم');
+  }
 
   ngOnInit() {
     this.route.params.forEach(params => {

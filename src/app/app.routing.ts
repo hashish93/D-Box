@@ -26,7 +26,6 @@ export const routes: Routes = [
   { path: 'register', redirectTo: 'register/visitor', pathMatch: 'full' },
   { path: 'register/visitor', component: VistorSignupComponent },
   { path: 'register/creator', component: CreatorSignupComponent },
-  { path: 'register/creator', component: CreatorSignupComponent },
   {path: 'settings',component: SettingsComponent,canActivate: [AuthGuard]},
   { path: 'forget-password', component: ForgetPasswordComponent,canActivate: [GuestGuard]},
   { path: 'verify-code/:email', component: VerifyCodeComponent,canActivate: [GuestGuard]},

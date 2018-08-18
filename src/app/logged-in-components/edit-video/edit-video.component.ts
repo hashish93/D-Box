@@ -7,6 +7,7 @@ import {AppSettings} from "../../app.settings";
 import {CategoryService} from "../../services/category.service";
 import {Category} from "../../models/category.model";
 import {Observable} from "rxjs";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-video',
@@ -22,7 +23,9 @@ export class EditVideoComponent implements OnInit {
   public staticEndPoint : string = '';
   public categories  = [];
   constructor(public route:ActivatedRoute,public router : Router,public videoService : VideoService,
-              public notificationService : NotificationsService,public categoryService : CategoryService) { }
+              public notificationService : NotificationsService,public categoryService : CategoryService,public titleService : Title){
+    this.titleService.setTitle('تعديل الفيديو');
+  }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();

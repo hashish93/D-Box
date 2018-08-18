@@ -6,6 +6,8 @@ import {Observable} from "rxjs";
 import {NotExpr} from "@angular/compiler";
 import {NotificationsService} from "angular2-notifications";
 import {Router} from "@angular/router";
+import {CreatorService} from '../../services/creator.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-my-videos',
@@ -21,8 +23,9 @@ export class MyVideosComponent implements OnInit {
   public limit : number = 10;
   public staticEndPoint : string = '';
   public checked:boolean = false;
-  constructor(public videoService : VideoService,public notificationService : NotificationsService , public router : Router) { }
-
+  constructor(public videoService : VideoService,public notificationService : NotificationsService , public router : Router,public titleService : Title) {
+    this.titleService.setTitle('فيديوهاتي');
+  }
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getMyVideos()

@@ -5,6 +5,7 @@ import {CreatorService} from "../../services/creator.service";
 import {Router} from "@angular/router";
 import {AuthService as SocialAuthService, FacebookLoginProvider, GoogleLoginProvider} from 'angular-6-social-login';
 import {AuthService} from "../../services/auth-service.service";
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-visitor-signup',
@@ -18,7 +19,9 @@ export class VistorSignupComponent implements OnInit {
   public success : boolean = false;
   public validatePassword : boolean = false;
 
-  constructor(public creatorService : CreatorService, public router : Router,public authService : AuthService ,public socialAuthService: SocialAuthService ) { }
+  constructor(public creatorService : CreatorService, public router : Router,public authService : AuthService ,public socialAuthService: SocialAuthService ,public titleService: Title) {
+  this.titleService.setTitle('تسجيل كزائر');
+}
 
   ngOnInit() {
 
