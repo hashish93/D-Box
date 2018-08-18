@@ -33,6 +33,14 @@
           </a>
         </li>
 
+        <li class="list-group-item" *ngIf="user.is_creator == 1">
+          <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'my-videos' }" routerLinkActive="active-link">
+            <span class="m-right-10">فيديوهاتي</span>
+            <img src="../../../assets/images/video-play-black.png">
+            <img src="../../../assets/images/video-play-hover.png">
+          </a>
+        </li>
+
 
         <li class="list-group-item">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'profile' }" routerLinkActive="active-link">
