@@ -151,4 +151,8 @@ slide{margin-bottom: 40px}
   .cover{height: 125px;overflow: hidden}
   .cover img{min-height: 125px;}
   :host ::ng-deep .carousel-indicators{right:0;}
+  .about-details{padding: 20px 10px 20px;}
+  .about-details > div{
+    left: 10px;
+  }
 }
