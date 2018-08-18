@@ -105,5 +105,5 @@
 }
 @media screen and (max-width: 768px){
   :host ::ng-deep .dark-bg{overflow: auto}
-  :host ::ng-deep .dark-bg .area-chart{transform: translateY(0);}
+  :host ::ng-deep .dark-bg .area-chart{}
 }
