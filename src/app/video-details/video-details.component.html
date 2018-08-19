@@ -26,7 +26,10 @@
             <share-buttons [theme]="'circles-dark'"
                            [include]="['facebook','twitter','google','whatsapp','messenger']"
                            [show]="5"
-                           [autoSetMeta]="true"
+                           [image]="staticEndPoint+'/'+video.thumbnails.small"
+                           [url]="document.location.href"
+                           [title]="video.title"
+                           [autoSetMeta]="false"
             ></share-buttons>
           </div>
         </div>
