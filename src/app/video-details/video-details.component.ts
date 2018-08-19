@@ -57,7 +57,6 @@ export class VideoDetailsComponent implements OnInit {
       this.meta.setTag('og:image', this.staticEndPoint+this.video.thumbnails.small);
       this.meta.setTag('og:description', this.video.title);
       this.meta.setTag('og:title', this.video.title);
-      this.meta.setTag('title',this.video.title);
       this.meta.setTag('image',this.staticEndPoint+this.video.thumbnails.small);
       this.loading = false;
     },err=>{
