@@ -13,7 +13,6 @@ export class AppComponent {
     const verticalOffset = window.pageYOffset
       || document.documentElement.scrollTop
       || document.body.scrollTop || 0;
-    console.log(verticalOffset);
     this.scroll = verticalOffset;
   }
 }

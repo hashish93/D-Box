@@ -7,6 +7,7 @@ import {AppSettings} from "../app.settings";
 import {DomSanitizer, SafeResourceUrl, Title,} from '@angular/platform-browser';
 import {Creator} from "../models/creator.model";
 import {DOCUMENT} from '@angular/common';
+import {MetaService} from '@ngx-meta/core';
 
 @Component({
   selector: 'app-video-details',
@@ -26,16 +27,17 @@ export class VideoDetailsComponent implements OnInit {
   public error : String= '';
   public document : any ;
   constructor(public authService : AuthService , public router : Router,
-              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer ,@Inject(DOCUMENT) document: any , public titleService : Title) {
+              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer ,@Inject(DOCUMENT) document: any , public titleService : Title,private readonly meta: MetaService) {
     this.document = document;
     this.titleService.setTitle('الفيديو');
+
   }
 
   ngOnInit() {
     this.videoEndPoint = AppSettings.getVideoEndpoint();
     this.staticEndPoint = AppSettings.getStaticEndpoint();
 
-    this.route.params.forEach(params => {
+    this.route.params.subscribe(params => {
       this.video.id =  parseInt(params["id"]);
       if(this.video.id){
         this.getVideo(this.video.id);
@@ -52,6 +54,9 @@ export class VideoDetailsComponent implements OnInit {
     this.error = '';
     this.videoService.getVideo(id).subscribe(data=> {
       this.video = data;
+      this.meta.setTag('og:image', this.staticEndPoint+'/'+this.video.thumbnails.small);
+      this.meta.setTag('og:description', this.video.title);
+      this.meta.setTag('og:title', this.video.title);
       this.loading = false;
     },err=>{
       this.loading = false;
