@@ -20,38 +20,23 @@ import {EditVideoComponent} from "./logged-in-components/edit-video/edit-video.c
 import {PlaylistComponent} from './playlist/playlist.component';
 import {ResultsComponent} from './results/results.component';
 import {CreatorsComponent} from './creators/creators.component';
-import { MetaGuard } from '@ngx-meta/core';
-
 
 export const routes: Routes = [
-  {
-    path: '',
-    canActivateChild: [MetaGuard],
-    children: [
-      { path: '', component: HomeComponent },
-      { path: 'register', redirectTo: 'register/visitor', pathMatch: 'full' },
-      { path: 'register/visitor', component: VistorSignupComponent },
-      { path: 'register/creator', component: CreatorSignupComponent },
-      {path: 'settings',component: SettingsComponent,canActivate: [AuthGuard]},
-      { path: 'forget-password', component: ForgetPasswordComponent,canActivate: [GuestGuard]},
-      { path: 'verify-code/:email', component: VerifyCodeComponent,canActivate: [GuestGuard]},
-      { path: 'reset-password/:email', component: ResetPasswordComponent,canActivate: [GuestGuard]},
-      { path: 'login', component: LoginComponent , canActivate: [GuestGuard]},
-      { path: 'video/:id', component: VideoDetailsComponent, data: {
-          meta: {
-            title: 'piksels title',
-            description: 'piksels description'
-            }
-          }
-        },
-      { path: 'category/:id', component: CategoryDetailsComponent},
-      { path: 'creator/:id', component: CreatorDetailsComponent},
-      { path: 'edit-video/:id', component: EditVideoComponent,canActivate:[AuthGuard]},
-      { path: 'results', component: ResultsComponent},
-      { path: 'playlist', component: PlaylistComponent},
-      { path: 'creators', component: CreatorsComponent}
-    ]
-  },
-
+  { path: '', component: HomeComponent },
+  { path: 'register', redirectTo: 'register/visitor', pathMatch: 'full' },
+  { path: 'register/visitor', component: VistorSignupComponent },
+  { path: 'register/creator', component: CreatorSignupComponent },
+  {path: 'settings',component: SettingsComponent,canActivate: [AuthGuard]},
+  { path: 'forget-password', component: ForgetPasswordComponent,canActivate: [GuestGuard]},
+  { path: 'verify-code/:email', component: VerifyCodeComponent,canActivate: [GuestGuard]},
+  { path: 'reset-password/:email', component: ResetPasswordComponent,canActivate: [GuestGuard]},
+  { path: 'login', component: LoginComponent , canActivate: [GuestGuard]},
+  { path: 'video/:id', component: VideoDetailsComponent },
+  { path: 'category/:id', component: CategoryDetailsComponent},
+  { path: 'creator/:id', component: CreatorDetailsComponent},
+  { path: 'edit-video/:id', component: EditVideoComponent,canActivate:[AuthGuard]},
+  { path: 'results', component: ResultsComponent},
+  { path: 'playlist', component: PlaylistComponent},
+  { path: 'creators', component: CreatorsComponent},
 ];
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes);

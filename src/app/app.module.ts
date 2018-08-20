@@ -67,7 +67,6 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { ResultsComponent } from './results/results.component';
 import { CreatorsComponent } from './creators/creators.component';
 import {ShareButtonsModule} from '@ngx-share/buttons';
-import {MetaLoader, MetaModule, MetaStaticLoader, PageTitlePositioning} from '@ngx-meta/core';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -95,23 +94,6 @@ export function getAuthServiceConfigs() {
     ]
 );
   return config;
-}
-
-
-export function metaFactory(): MetaLoader {
-  return new MetaStaticLoader({
-    pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
-    pageTitleSeparator: ' - ',
-    applicationName: 'piksels',
-    defaults: {
-      title: 'piksels title',
-      description: 'piksels description',
-      'og:image': 'https://d33wubrfki0l68.cloudfront.net/ca0061c3c33c88b2b124e64ad341e15e2a17af49/c8765/images/alligator-logo3.svg',
-      'og:type': 'website',
-      'og:locale': 'en_US',
-      'og:locale:alternate': 'en_US,nl_NL,tr_TR'
-    }
-  });
 }
 
 @NgModule({
@@ -161,10 +143,6 @@ export function metaFactory(): MetaLoader {
     BrowserModule,
     BrowserAnimationsModule,
     AppRouting,
-    MetaModule.forRoot({
-      provide: MetaLoader,
-      useFactory: (metaFactory)
-    }),
     AngularFontAwesomeModule,
     FontAwesomeModule,
     HttpClientModule,
