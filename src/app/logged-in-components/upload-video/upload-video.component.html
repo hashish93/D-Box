@@ -25,17 +25,17 @@
         <div class="col-md-8 col-sm-12 col-xs-12">
           <div class="form-group">
             <h6 class="video-header">عنوان الفيديو</h6>
-            <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+            <p>الإسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
             <textarea id="title" name="title" [(ngModel)]="video.title" autocomplete=”off” required class="form-control"></textarea>
           </div>
           <div class="form-group">
             <h6 class="video-header">وصف الفيديو</h6>
-            <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+            <p>الإسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
             <textarea id="description" name="description" [(ngModel)]="video.description" rows="5" autocomplete=”off” required class="form-control"></textarea>
           </div>
           <div *ngIf="categories" class="form-group">
             <h6 class="video-header">القسم</h6>
-            <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+            <p>الإسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
 {{video.category_id}}
             <ng-select required [multiple]="true"
                        name="category" [(ngModel)]="video.categories">
@@ -44,7 +44,7 @@
           </div>
           <div class="form-group">
             <h6 class="video-header">الوسوم</h6>
-            <p>الأسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+            <p>الإسم اللذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
             <!--<input id="tags" name="tags" [(ngModel)]="video.tags" autocomplete=”off” required class="form-control">-->
             <tag-input class="white-bg" name="tags" [secondaryPlaceholder]="'اضف تاج'" [placeholder]="'اضف تاج'"   (onAdd)="onItemAdded($event)" [(ngModel)]='video.tags'>
               <tag-input-dropdown [autocompleteObservable]='AutocompleteTags'>

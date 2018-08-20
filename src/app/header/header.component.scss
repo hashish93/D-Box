@@ -55,6 +55,8 @@ header{
 form input{
   border:2px solid #ee4a41;
   text-align: right;
+  /* adnan */
+  direction:rtl;
   &:focus{
     box-shadow: none !important;
     border:2px solid #ee4a41 !important;

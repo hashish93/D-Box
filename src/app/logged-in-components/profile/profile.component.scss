@@ -1,26 +1,28 @@
-.profile-photo{
+.profile-photo {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   margin: -120px auto 0 auto;
   text-align: center;
   position: relative;
-  img{
+  img {
     overflow: hidden;
     border-radius: 50%;
     width: 100%;
     height: 100%;
-    border:2px solid #fff;
+    border: 2px solid #fff;
   }
 }
-.custom-btn{
+
+.custom-btn {
   position: absolute;
   left: 5px;
   top: 48px;
   width: 76px;
 }
-.change-photo{
-  background : rgba(255,255,255,.7);
+
+.change-photo {
+  background: rgba(255, 255, 255, .7);
   display: inline-block;
   padding: 5px;
   border-radius: 5px;
@@ -31,14 +33,18 @@
   font-weight: bold;
   cursor: pointer;
 }
-.edit-img{overflow: auto !important;border: none !important;}
 
-.edit-option.change-photo.not_valid{
+.edit-img {
+  overflow: auto !important;
+  border: none !important;
+}
+
+.edit-option.change-photo.not_valid {
   color: #721c24;
   background-color: #f8d7da;
-  border:1px solid red;
+  border: 1px solid red;
   cursor: not-allowed;
-  .my-success-btn{
+  .my-success-btn {
     background: transparent !important;
     color: #721c24 !important;
     border: none;
@@ -65,12 +71,17 @@
   text-align: right;
   direction: ltr;
 }
-.direction-ltr{direction: ltr !important;}
+
+.direction-ltr {
+  direction: ltr !important;
+}
+
 .ng-select {
   display: inline-block;
   min-width: 330px;
   margin-right: 10px;
 }
+
 .edit-option.change-photo {
   position: absolute;
   left: 5px;
@@ -79,25 +90,35 @@
   cursor: pointer;
   user-select: none;
 }
+
 .view-mode .form-group .form-control,
 .view-mode .form-group .form-control.ng-touched.ng-valid[required] {
   border: none !important;
   border-left: none !important;
   border-left-color: transparent !important;
   background: transparent !important;
+  text-align: right !important;
 }
-.edit-img{
+
+.edit-img {
   width: 24px !important;
   margin-left: 5px;
   position: relative;
   top: -3px;
 }
-.form-control{direction: rtl;text-align: right;width: 320px;}
-.my-success-btn{
+
+.form-control {
+  direction: rtl;
+  text-align: right;
+  width: 320px;
+}
+
+.my-success-btn {
   color: #155724;
   background-color: #d4edda;
-  border:1px solid #d4edda;
+  border: 1px solid #d4edda;
 }
+
 .close-account {
   background: #e9e9e9;
   display: inline-block;
@@ -107,37 +128,78 @@
   font-weight: bold;
   cursor: pointer;
 }
-:host ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+
+:host ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
   text-align: right;
 }
-.cover-container > .inner-cover > img{width: 100%;min-height: 250px;}
-.cover-container > .inner-cover{height: 250px;overflow: hidden}
-.cover-container .change-photo{position: absolute;left:0;top:0px;}
+
+.cover-container > .inner-cover > img {
+  width: 100%;
+  min-height: 250px;
+}
+
+.cover-container > .inner-cover {
+  height: 250px;
+  overflow: hidden
+}
+
+.cover-container .change-photo {
+  position: absolute;
+  left: 0;
+  top: 0px;
+}
+
 @media screen and (min-width: 992px) and (max-width: 1200px) {
-  .cover-container > .inner-cover > img{width: 100%;min-height: 150px;}
-  .cover-container > .inner-cover{height: 150px;overflow: hidden}
+  .cover-container > .inner-cover > img {
+    width: 100%;
+    min-height: 150px;
+  }
+  .cover-container > .inner-cover {
+    height: 150px;
+    overflow: hidden
+  }
 }
+
 @media screen and (min-width: 768px) and (max-width: 992px) {
-  .cover-container > .inner-cover > img{width: 100%;min-height: 150px;}
-  .cover-container > .inner-cover{height: 150px;overflow: hidden}
+  .cover-container > .inner-cover > img {
+    width: 100%;
+    min-height: 150px;
+  }
+  .cover-container > .inner-cover {
+    height: 150px;
+    overflow: hidden
+  }
 }
+
 @media screen and (max-width: 768px) {
-  .cover-container > .inner-cover > img{width: 100%;min-height: 100px;}
-  .cover-container > .inner-cover{height: 100px;overflow: hidden}
-  .cover-container .change-photo{top:0px;}
+  .cover-container > .inner-cover > img {
+    width: 100%;
+    min-height: 100px;
+  }
+  .cover-container > .inner-cover {
+    height: 100px;
+    overflow: hidden
+  }
+  .cover-container .change-photo {
+    top: 0px;
+  }
 
   .view-mode .form-group .form-control,
-  .view-mode .form-group .form-control.ng-touched.ng-valid[required]{
+  .view-mode .form-group .form-control.ng-touched.ng-valid[required] {
     padding-right: 0px;
   }
-  .form-control{
+  .form-control {
     width: 100%;
     margin: 0;
     padding-right: 10px;
   }
 
-  .profile-photo{width: 100px;height: 100px;margin-top: -80px;}
-  .ng-select{
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    margin-top: -80px;
+  }
+  .ng-select {
     min-width: 230px;
     width: 100%;
   }
