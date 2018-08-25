@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {Observable} from "rxjs";
 import {User} from "../models/user.model";
@@ -12,7 +13,7 @@ import {Creator} from "../models/creator.model";
 })
 export class AuthService {
 
-  constructor(public jwtHelper: JwtHelperService, public http : HttpClient) { }
+  constructor(public jwtHelper: JwtHelperService, public http : HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
   public  getHeaders(): any{
     return {headers: new  HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'})};
   }
@@ -32,10 +33,13 @@ export class AuthService {
     return this.http.get('auth/logout');
   }
   public isAuthenticated(): boolean {
-    const token = localStorage.getItem('access_token');
-    // Check whether the token is expired and return
-    // true or false
-    return !this.jwtHelper.isTokenExpired(token);
+  // Client only code.
+    if (isPlatformBrowser(this.platformId)) {
+		const token = localStorage.getItem('access_token');
+		// Check whether the token is expired and return
+		// true or false
+		return !this.jwtHelper.isTokenExpired(token);
+	}
   }
 
   forgetPassword(email: string) {
@@ -55,3 +59,4 @@ export class AuthService {
     return this.http.post('login/social/facebook',this.convertJsonToPostParams(tokenObj).toString(),this.getHeaders())
   }
 }
+

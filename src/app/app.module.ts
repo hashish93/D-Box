@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -67,13 +68,19 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { ResultsComponent } from './results/results.component';
 import { CreatorsComponent } from './creators/creators.component';
 import {ShareButtonsModule} from '@ngx-share/buttons';
+import {MetaLoader, MetaModule, MetaStaticLoader, PageTitlePositioning} from '@ngx-meta/core';
+import {CreatorService} from "./services/creator.service";
+import {AuthService} from "./services/auth-service.service";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
 export function tokenGetter() {
-  return localStorage.getItem('access_token');
+    // Client only code.
+    if (isPlatformBrowser(this.platformId)) {
+        return localStorage.getItem('access_token');
+    }
 }
 
 const JWT_Module_Options: JwtModuleOptions = {
@@ -94,6 +101,23 @@ export function getAuthServiceConfigs() {
     ]
 );
   return config;
+}
+
+
+export function metaFactory(): MetaLoader {
+  return new MetaStaticLoader({
+    pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
+    pageTitleSeparator: ' - ',
+    applicationName: 'piksels',
+    defaults: {
+      title: 'piksels title',
+      description: 'piksels description',
+      'og:image': 'https://d33wubrfki0l68.cloudfront.net/ca0061c3c33c88b2b124e64ad341e15e2a17af49/c8765/images/alligator-logo3.svg',
+      'og:type': 'website',
+      'og:locale': 'en_US',
+      'og:locale:alternate': 'en_US,nl_NL,tr_TR'
+    }
+  });
 }
 
 @NgModule({
@@ -140,9 +164,13 @@ export function getAuthServiceConfigs() {
     CreatorsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'my-app' }),
     BrowserAnimationsModule,
     AppRouting,
+    MetaModule.forRoot({
+      provide: MetaLoader,
+      useFactory: (metaFactory)
+    }),
     AngularFontAwesomeModule,
     FontAwesomeModule,
     HttpClientModule,
@@ -179,4 +207,10 @@ export function getAuthServiceConfigs() {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+constructor(@Inject(PLATFORM_ID) private platformId: Object) { };
+
+
+}
+

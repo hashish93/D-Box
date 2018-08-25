@@ -8,6 +8,9 @@
 # dependencies
 /node_modules
 
+# github
+/D-Box
+
 # IDEs and editors
 /.idea
 .project
@@ -37,5 +40,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-yarn\.lock

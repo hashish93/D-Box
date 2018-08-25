@@ -1,0 +1,68 @@
+- install npm globally
+sudo npm install npm@latest -g
+
+- install yarn
+sudo npm install -g yarn
+
+- install the Angular CLI globally.
+sudo npm install -g @angular/cli
+sudo yarn global add @angular/cli
+
+- configure the CLI from the beginning to use the Yarn Package Manager instead npm
+For Angular 5 and below, use the following command:
+sudo ng set --global packageManager=yarn
+
+For Angular 6, use the following command:
+sudo ng config -g cli.packageManager yarn
+
+- instal dependencies using yarn
+sudo yarn install
+
+- How to start
+yarn or npm install
+yarn start or npm run start - for client rendering
+yarn ssr or npm run ssr - for server-side rendering
+yarn build:universal or npm run build:universal - for assembly in release
+yarn server or npm run server - to start the server
+yarn build:prerender or npm run build:prerender - to generate static by static.paths.ts
+for watch with ssr:
+	npm run ssr:cw - build client
+	npm run ssr:sw - build server
+	npm run ssr:webpack -build server.js
+	npm run ssr:server - server with watch
+
+### issues
+sudo npm install --save-dev @angular-devkit/build-angular
+sudo npm install --save-dev @angular-devkit/build-optimizer
+sudo npm install --unsafe-perm node-sass
+sudo mkdir /var/www/html/web/piksels/node_modules/node-sass/build
+
+sudo yarn add ng-fullcalendar
+sudo yarn add fullcalendar@3.6.1
+sudo yarn add ng-click-outside
+sudo yarn add angular-6-social-login
+sudo yarn add ngx-perfect-scrollbar
+
+- Angular Universal: server-side rendering
+sudo npm install --save @angular/platform-server @nguniversal/module-map-ngfactory-loader ts-loader @nguniversal/express-engine
+
+- install weppack-cli
+sudo yarn add -D webpack-cli
+
+- How to run the Dist Folder on Local Machine in Angular 6?
+
+You can do that using http-server.
+
+First install the package globally
+
+npm install http-server -g.
+
+Then inside your project directory(in the terminal) just run
+
+http-server dist/.
+
+And if your are using angular 6.x.x, You have to run
+
+http-server dist/your-project-name
+
+Now you can visit http://localhost:8080 to view your application

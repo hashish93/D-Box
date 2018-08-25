@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID  } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {HttpInterceptor} from "@angular/common/http";
 import {HttpRequest} from "@angular/common/http";
 import {HttpEvent} from "@angular/common/http";
@@ -12,14 +13,19 @@ import {Router} from '@angular/router';
 @Injectable()
 export class ErrorInterceptorService implements HttpInterceptor {
 
-  constructor(public authService : AuthService , public notificationService : NotificationsService , public router : Router) { }
+  constructor(public authService : AuthService , public notificationService : NotificationsService , public router : Router, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return next.handle(request).pipe(catchError(err => {
       if (err.status === 401) {
         // auto logout if 401 response returned from api
-          localStorage.clear();
+
+          // Client only code.
+          if (isPlatformBrowser(this.platformId)) {
+              localStorage.clear();
+          }
+
         // location.reload(true);
       }
       if(err.status === 404){
@@ -34,4 +40,5 @@ export class ErrorInterceptorService implements HttpInterceptor {
   }
 
 }
+
 

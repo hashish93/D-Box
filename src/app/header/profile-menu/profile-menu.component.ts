@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {Creator} from "../../models/creator.model";
 import {CreatorService} from "../../services/creator.service";
 import {AppSettings} from "../../app.settings";
@@ -16,7 +17,7 @@ export class ProfileMenuComponent implements OnInit {
   public error : string = '';
   public staticEndpoint : string = '';
   public showAnchors : boolean =false;
-  constructor(public creatorService : CreatorService, public authService : AuthService , public dataService : DataService) { }
+  constructor(public creatorService : CreatorService, public authService : AuthService , public dataService : DataService, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit() {
     this.staticEndpoint = AppSettings.getStaticEndpoint();
@@ -31,11 +32,14 @@ export class ProfileMenuComponent implements OnInit {
   }
 
   public logout(){
-    this.authService.logout().subscribe(data=>{
-      localStorage.clear()
-    },error=>{
-      localStorage.clear()
-    });
+      // Client only code.
+      if (isPlatformBrowser(this.platformId)) {
+          this.authService.logout().subscribe(data=>{
+              localStorage.clear()
+          },error=>{
+              localStorage.clear()
+          });
+      }
   }
 
   public getUser() {
@@ -49,3 +53,4 @@ export class ProfileMenuComponent implements OnInit {
     })
   }
 }
+

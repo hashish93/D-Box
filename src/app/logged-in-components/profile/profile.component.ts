@@ -1,4 +1,5 @@
-import {Component, OnInit, Input, Output, EventEmitter, AfterViewInit} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, AfterViewInit, Inject, PLATFORM_ID} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {User} from "../../models/user.model";
 import {UserService} from "../../services/user.service";
 import {AppSettings} from "../../app.settings";
@@ -34,7 +35,7 @@ export class ProfileComponent implements OnInit {
   constructor(public userService : UserService,public authService : AuthService,
               public countryService: CountryService , public creatorService : CreatorService,
               public dataService : DataService, public  notificationService : NotificationsService ,
-              public router : Router,public titleService : Title) {
+              public router : Router,public titleService : Title, @Inject(PLATFORM_ID) private platformId: Object) {
     this.titleService.setTitle('الملف الشخصي');
   }
 
@@ -124,13 +125,16 @@ export class ProfileComponent implements OnInit {
       this.error = '';
       this.notificationService.success('تم تعديل المستخدم بنجاح','',{timeOut: 3000});
       if(redirect){
-        this.authService.logout().subscribe(data=>{
-          localStorage.clear();
-          this.router.navigate(['']);
-        },err=>{
-          localStorage.clear();
-          this.router.navigate(['']);
-        });
+          // Client only code.
+          if (isPlatformBrowser(this.platformId)) {
+              this.authService.logout().subscribe(data=>{
+                  localStorage.clear();
+                  this.router.navigate(['']);
+              },err=>{
+                  localStorage.clear();
+                  this.router.navigate(['']);
+              });
+          }
       }else{
         this.getUserData();
       }
@@ -200,3 +204,4 @@ export class ProfileComponent implements OnInit {
   }
 
 }
+

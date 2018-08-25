@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID  } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {User} from "../models/user.model";
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.service";
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   public error : string = '';
   public loading : boolean = false;
   constructor(public authService : AuthService ,public router : Router,
-              public socialAuthService: SocialAuthService , public userService : UserService,public titleService: Title) {
+              public socialAuthService: SocialAuthService , public userService : UserService,public titleService: Title, @Inject(PLATFORM_ID) private platformId: Object) {
     this.titleService.setTitle('تسجيل الدخول');
   }
 
@@ -35,7 +36,11 @@ export class LoginComponent implements OnInit {
         this.error = '';
         this.authService.loginWithFacebook(userData.token).subscribe(data=> {
           this.loading = false;
-          localStorage.setItem('access_token',data.access_token);
+            // Client only code.
+            if (isPlatformBrowser(this.platformId)) {
+                localStorage.setItem('access_token',data.access_token);
+            }
+
           this.router.navigate(['/']);
         },err=>{
           this.loading = false;
@@ -55,7 +60,10 @@ export class LoginComponent implements OnInit {
       this.error = '';
       this.authService.login(this.user).subscribe(data=> {
         this.loading = false;
-        localStorage.setItem('access_token',data.access_token);
+          // Client only code.
+          if (isPlatformBrowser(this.platformId)) {
+              localStorage.setItem('access_token',data.access_token);
+          }
         this.userService.getUserData().subscribe(data=>{
           let userData =data;
           if(userData.is_creator == 1){
@@ -78,3 +86,4 @@ export class LoginComponent implements OnInit {
   }
 
 }
+

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import {AuthService} from "../services/auth-service.service";
 import {CreatorService} from "../services/creator.service";
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit {
   public isCollapsed : boolean = true;
   public staticEndPoint: string;
   public search : string = '';
-  constructor(public creatorService : CreatorService,public authService : AuthService , public categoryService : CategoryService , public router : Router) { }
+  constructor(public creatorService : CreatorService,public authService : AuthService , public categoryService : CategoryService , public router : Router, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint()
@@ -49,11 +50,16 @@ export class HeaderComponent implements OnInit {
   }
 
   public logout(){
-    this.authService.logout().subscribe(data=>{
-      localStorage.clear();
-    },error=>{
-      localStorage.clear();
-    });
+      // Client only code.
+      if (isPlatformBrowser(this.platformId)) {
+          this.authService.logout().subscribe(data=>{
+              localStorage.clear();
+          },error=>{
+              localStorage.clear();
+          });
+      }
+
   }
 
 }
+

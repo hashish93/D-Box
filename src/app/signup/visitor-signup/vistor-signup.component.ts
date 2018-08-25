@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {Creator} from "../../models/creator.model";
 import {NgForm} from "@angular/forms";
 import {CreatorService} from "../../services/creator.service";
@@ -19,7 +20,7 @@ export class VistorSignupComponent implements OnInit {
   public success : boolean = false;
   public validatePassword : boolean = false;
 
-  constructor(public creatorService : CreatorService, public router : Router,public authService : AuthService ,public socialAuthService: SocialAuthService ,public titleService: Title) {
+  constructor(public creatorService : CreatorService, public router : Router,public authService : AuthService ,public socialAuthService: SocialAuthService ,public titleService: Title, @Inject(PLATFORM_ID) private platformId: Object) {
   this.titleService.setTitle('تسجيل كزائر');
 }
 
@@ -43,7 +44,10 @@ export class VistorSignupComponent implements OnInit {
         this.error = '';
         this.authService.loginWithFacebook(userData.token).subscribe(data=> {
           this.loading = false;
-          localStorage.setItem('access_token',data.access_token);
+            // Client only code.
+            if (isPlatformBrowser(this.platformId)) {
+                localStorage.setItem('access_token',data.access_token);
+            }
           this.router.navigate(['/']);
         },err=>{
           this.loading = false;
@@ -81,3 +85,4 @@ export class VistorSignupComponent implements OnInit {
   }
 
 }
+
