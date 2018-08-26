@@ -11,50 +11,50 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import {AppRouting} from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {URLInterceptorService} from "./services/interceptors/url-interceptor.service";
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {URLInterceptorService} from './services/interceptors/url-interceptor.service';
 import { HomeVideosComponent } from './home/home-videos/home-videos.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { HomeCreatorComponent } from './home/home-creator/home-creator.component';
 import { LoadingComponent } from './comman-components/loading/loading.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MoreViewsComponent } from './home/more-views/more-views.component';
 import { RecommendedVideosComponent } from './home/recommended-videos/recommended-videos.component';
 import { VistorSignupComponent } from './signup/visitor-signup/vistor-signup.component';
 import { CreatorSignupComponent } from './signup/creator-signup/creator-signup.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import {AlertModule, CarouselModule, ProgressbarModule, BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
 import { SettingsComponent } from './logged-in-components/settings/settings.component';
-import {JwtModule, JwtModuleOptions} from "@auth0/angular-jwt";
-import {ErrorInterceptorService} from "./services/interceptors/error-interceptor.service";
-import {JwtInterceptorService} from "./services/interceptors/jwt-interceptor.service";
+import {JwtModule, JwtModuleOptions} from '@auth0/angular-jwt';
+import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
+import {JwtInterceptorService} from './services/interceptors/jwt-interceptor.service';
 import { ForgetPasswordComponent } from './password/forget-password/forget-password.component';
 import { VerifyCodeComponent } from './password/verify-code/verify-code.component';
 import { ResetPasswordComponent } from './password/reset-password/reset-password.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
 import { AboutCreatorComponent } from './video-details/about-creator/about-creator.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
-import {MoreViewsDetailsComponent} from "./comman-components/more-views-details/more-views-details.component";
+import {MoreViewsDetailsComponent} from './comman-components/more-views-details/more-views-details.component';
 import { CreatorDetailsComponent } from './creator-details/creator-details.component';
 import { CreatorVideosComponent } from './creator-details/creator-videos/creator-videos.component';
 import { SideMoreViewsComponent } from './creator-details/side-more-views/side-more-views.component';
 import { FavoritesComponent } from './logged-in-components/favorites/favorites.component';
 import { FollowersComponent } from './logged-in-components/followers/followers.component';
-import {NgxPaginationModule} from "ngx-pagination/dist/ngx-pagination";
+import {NgxPaginationModule} from 'ngx-pagination/dist/ngx-pagination';
 import { RevenueComponent } from './logged-in-components/revenue/revenue.component';
-import {FullCalendarModule} from "ng-fullcalendar";
+import {FullCalendarModule} from 'ng-fullcalendar';
 import { ProfileComponent } from './logged-in-components/profile/profile.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-import {SimpleNotificationsModule} from "angular2-notifications";
+import {SimpleNotificationsModule} from 'angular2-notifications';
 import { UploadVideoComponent } from './logged-in-components/upload-video/upload-video.component';
-import {TagInputModule} from "ngx-chips";
+import {TagInputModule} from 'ngx-chips';
 import { MyVideosComponent } from './logged-in-components/my-videos/my-videos.component';
 import { EditVideoComponent } from './logged-in-components/edit-video/edit-video.component';
 import { ProfileMenuComponent } from './header/profile-menu/profile-menu.component';
-import {SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from "angular-6-social-login";
-import {ClickOutsideModule} from "ng-click-outside";
-import { NgxChartsModule } from '@swimlane/ngx-charts'
+import {SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from 'angular-6-social-login';
+import {ClickOutsideModule} from 'ng-click-outside';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { StatisticsComponent } from './logged-in-components/statistics/statistics.component';
 import { InnerRecommendedVideosComponent } from './video-details/inner-recommended-videos/inner-recommended-videos.component';
 import { RecommendedVideosTabsComponent } from './logged-in-components/recommended-videos-tabs/recommended-videos-tabs.component';
@@ -69,8 +69,8 @@ import { ResultsComponent } from './results/results.component';
 import { CreatorsComponent } from './creators/creators.component';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {MetaLoader, MetaModule, MetaStaticLoader, PageTitlePositioning} from '@ngx-meta/core';
-import {CreatorService} from "./services/creator.service";
-import {AuthService} from "./services/auth-service.service";
+
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -92,11 +92,11 @@ const JWT_Module_Options: JwtModuleOptions = {
 
 // Configs
 export function getAuthServiceConfigs() {
-  let config = new AuthServiceConfig(
+  const config = new AuthServiceConfig(
     [
       {
         id: FacebookLoginProvider.PROVIDER_ID,
-        provider: new FacebookLoginProvider("679774972403653")
+        provider: new FacebookLoginProvider('679774972403653')
       }
     ]
 );
@@ -207,9 +207,9 @@ export function metaFactory(): MetaLoader {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
-constructor(@Inject(PLATFORM_ID) private platformId: Object) { };
+constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
 
 }
