@@ -7,6 +7,7 @@ const path = require('path');
 const template = fs.readFileSync(path.join(__dirname, '.', 'dist', 'index.html')).toString();
 const win = domino.createWindow(template);
 const files = fs.readdirSync(`${process.cwd()}/dist-server`);
+const geoip = require('geoip-lite');
 
 global['window'] = win;
 Object.defineProperty(win.document.body.style, 'transform', {
@@ -58,37 +59,59 @@ const server = https.createServer(options, app);
 app.use(compression());
 app.use(cookieparser());
 
-
-const redirectowww = true;
+const redirectowww = false;
 const redirectohttps = true;
-const wwwredirecto = false;
+const wwwredirecto = true;
 
 app.get('*', (req, res, next) => {
-    // for domain/index.html
-    if (req.url === '/index.html') {
-        res.redirect(301, 'https://' + req.hostname);
-    }
 
-    // check if it is a secure (https) request
-    // if not redirect to the equivalent https url
-    if (redirectohttps && req.headers['x-forwarded-proto'] !== 'https' && req.hostname !== 'localhost') {
-        // special for robots.txt
-        if (req.url === '/robots.txt') {
-            next();
-            return;
+    if (req.hostname !== 'localhost') {
+
+        // check country
+        const subdomains = req.subdomains;
+        if (subdomains === undefined || subdomains.length == 0) {
+            let code = 'EG';
+            const ip = (req.headers["X-Forwarded-For"] || req.headers["x-forwarded-for"] || '').split(',')[0] || req.client.remoteAddress;
+            const geo = geoip.lookup(ip);
+
+            if ('country' in geo) {
+                code = geo.country;
+            }
+
+            if (code == 'EG') {
+                res.redirect(301, 'https://egypt.' + req.hostname + req.url);
+            } else {
+                res.redirect(301, 'https://egypt.' + req.hostname + req.url);
+            }
         }
-        res.redirect(301, 'https://' + req.hostname + req.url);
-    }
 
-    // www or not
-    if (redirectowww && !req.hostname.startsWith('www.')) {
-        res.redirect(301, 'https://www.' + req.hostname + req.url);
-    }
+        // for domain/index.html
+        if (req.url === '/index.html') {
+            res.redirect(301, 'https://' + req.hostname);
+        }
 
-    // www or not
-    if (wwwredirecto && req.hostname.startsWith('www.')) {
-        const host = req.hostname.slice(4, req.hostname.length);
-        res.redirect(301, 'https://' + host + req.url);
+        // check if it is a secure (https) request
+        // if not redirect to the equivalent https url
+        if (redirectohttps && req.headers['x-forwarded-proto'] !== 'https') {
+            // special for robots.txt
+            if (req.url === '/robots.txt') {
+                next();
+                return;
+            }
+            res.redirect(301, 'https://' + req.hostname + req.url);
+        }
+
+        // www or not
+        if (redirectowww && !req.hostname.startsWith('www.')) {
+            res.redirect(301, 'https://www.' + req.hostname + req.url);
+        }
+
+        // www or not
+        if (wwwredirecto && req.hostname.startsWith('www.')) {
+            const host = req.hostname.slice(4, req.hostname.length);
+            res.redirect(301, 'https://' + host + req.url);
+        }
+
     }
 
     next();

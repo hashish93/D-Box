@@ -49,6 +49,9 @@ sudo npm install --save @angular/platform-server @nguniversal/module-map-ngfacto
 - install weppack-cli
 sudo yarn add -D webpack-cli
 
+- ERROR in node_modules/ngx-chips/core/accessor.d.ts(2,34): error TS2307: Cannot find module '../../modules'.
+Notice: the latest version on NPM may not reflect the branch master. Open an issue and tag me if you need it to be published.
+
 - How to run the Dist Folder on Local Machine in Angular 6?
 
 You can do that using http-server.
