@@ -66,6 +66,7 @@ form input{
 .navbar-nav{display: block}
 .navbar-nav li{width: 100%;float: right;text-align: right;}
 .navbar-nav li a{color: #000000;display: block;font-size: 15px;padding: 7px 0;}
+.navbar-nav li a img{max-width: 30px;}
 .navbar-collapse.in.show{
   height: 500px !important;
   overflow: scroll !important;
