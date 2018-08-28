@@ -35,9 +35,9 @@ export class ProfileMenuComponent implements OnInit {
       // Client only code.
       if (isPlatformBrowser(this.platformId)) {
           this.authService.logout().subscribe(data=>{
-              localStorage.clear()
+              localStorage.clear();
           },error=>{
-              localStorage.clear()
+              localStorage.clear();
           });
       }
   }
