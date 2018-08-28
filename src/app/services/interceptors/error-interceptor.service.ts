@@ -18,12 +18,16 @@ export class ErrorInterceptorService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return next.handle(request).pipe(catchError(err => {
+
       if (err.status === 401) {
         // auto logout if 401 response returned from api
 
           // Client only code.
           if (isPlatformBrowser(this.platformId)) {
               localStorage.clear();
+            if(this.router.url !== '/login'){
+              this.router.navigate(['/']);
+            }
           }
 
         // location.reload(true);
