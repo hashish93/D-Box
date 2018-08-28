@@ -14,7 +14,7 @@
           <a class="black" routerLink="/video/{{video.id}}">
             <div class="image-container relative">
                 <span *ngIf="video.category" [ngStyle]="{'background-color':video.category.color}" class="category-span">{{video.category.name}}</span>
-                <img src="{{staticEndPoint}}{{video.capturedImageUrl}}">
+                <img src="{{staticEndPoint}}{{video.small}}">
                 <span class="fa fa-play player-icon"></span>
             </div>
             <h6 class="title-video">{{video.title}}</h6>
