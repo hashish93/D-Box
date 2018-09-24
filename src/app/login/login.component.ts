@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
           }
         this.userService.getUserData().subscribe(data=>{
           let userData =data;
+          localStorage.setItem('user',JSON.stringify(userData));
           if(userData.is_creator == 1){
             this.router.navigate(['/settings'],{queryParams:{tab:'statistics'}})
           }else{

@@ -1,73 +1,76 @@
-
 <aside class="sticky-sidebar">
   <app-loading [error]="error" [loading]="loading" class="block width100"></app-loading>
   <perfect-scrollbar style="max-height: 100%;" [config]="{wheelPropagation:false}">
-  <div *ngIf="!loading && !error">
-    <ul class="margin-0">
-      <li>
-        <a routerLink="/">
-          <img class="m-left-10" src="./assets/images/home.png">
-          <p class="inline-block">الرئيسية</p>
+    <div *ngIf="!loading && !error">
+      <ul class="margin-0">
+        <li>
+          <a routerLink="/">
+            <img class="m-left-25" src="./assets/images/new-icons/home.png">
+            <p class="inline-block">الرئيسية</p>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/results" [queryParams]="{page:'more_views'}">
+            <img class="m-left-25" src="./assets/images/new-icons/views.png">
+            <p class="inline-block">الاعلى مشاهدة</p>
+          </a>
+        </li>
+      </ul>
+      <ul class="margin-0 bottom-border-child">
+        <li *ngFor="let category of categories">
+          <a routerLink="/category/{{category._id}}">
+            <img class="m-left-25" *ngIf="category.icon" src="{{staticEndPoint}}{{category.icon}}">
+            <img class="m-left-25" *ngIf="!category.icon" src="./assets/images/games.png">
+            <p class="inline-block">{{category.title}}</p>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="no-border join-section">
+        <img class="max-width-100 m-bottom-20" src="../../assets/images/new-icons/join.png">
+        <li *ngIf="authService.isAuthenticated()" class="login-desc">شكرا لدخولك لمشاهدة قنواتك المفضلة وتوصياتك</li>
+        <li *ngIf="!authService.isAuthenticated()" class="login-desc">انصم لنا لمشاهدة قنواتك المفضلة وايضا ترشيحاتنا
+          المفضلة
+        </li>
+        <li *ngIf="!authService.isAuthenticated()" class="login-btn-side">
+          <a routerLink="/login">
+            <img src="./assets/images/new-icons/avatar.png">
+            <span>تسجيل دخول</span>
+          </a>
+        </li>
+      </ul>
+      <div style="background: #f9fafc;height: 20px;"></div>
+      <div class="col-12 half-settings">
+        <div class="row">
+          <div class="col-6 text-right right-border">
+            <a class="black" routerLink="/">
+              <p class="inline-block">المساعدة</p>
+              <img class="m-left-10" src="./assets/images/new-icons/help.png">
+            </a>
+          </div>
+          <div class="col-6 text-right">
+            <a class="black" routerLink="/settings">
+              <p class="inline-block">الاعدادات</p>
+              <img class="m-left-10" src="./assets/images/new-icons/settings.png">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center social-side">
+        <a href="#">
+          <i class="fa fa-facebook"></i>
         </a>
-      </li>
-      <li>
-        <a routerLink="/results" [queryParams]="{page:'more_views'}">
-          <img class="m-left-10" src="./assets/images/trend.png">
-          <p class="inline-block">الاعلى مشاهدة</p>
+        <a href="#">
+          <i class="fa fa-twitter"></i>
         </a>
-      </li>
-    </ul>
-    <ul class="margin-0 bottom-border-child">
-      <li *ngFor="let category of categories">
-        <a routerLink="/category/{{category._id}}">
-          <img class="m-left-10" *ngIf="category.icon" src="{{staticEndPoint}}{{category.icon}}">
-          <img class="m-left-10" *ngIf="!category.icon" src="./assets/images/games.png">
-          <p class="inline-block">{{category.title}}</p>
+        <a href="#">
+          <i class="fa fa-dribbble" aria-hidden="true"></i>
         </a>
-      </li>
-    </ul>
-    <ul class="margin-0 all-menus text-center">
-      <li>
-        <a routerLink="/">
-          <p class="inline-block">جميع القوائم</p>
+        <a href="#">
+          <i class="fa fa-linkedin"></i>
         </a>
-      </li>
-    </ul>
-    <ul>
-      <li><img  src="./assets/images/computer.png"></li>
-      <li *ngIf="authService.isAuthenticated()" class="login-desc">شكرا لدخولك لمشاهدة قنواتك المفضلة وتوصياتك</li>
-      <li *ngIf="!authService.isAuthenticated()" class="login-desc">سجل الدخول الآن لمشاهدة قنواتك المفضلة وتوصياتك</li>
-      <li *ngIf="!authService.isAuthenticated()" class="login-btn-side"><a routerLink="/login">تسجيل دخول</a></li>
-    </ul>
-    <ul class="margin-0">
-      <li>
-        <a routerLink="/settings">
-          <img class="m-left-10" src="./assets/images/settings.png">
-          <p class="inline-block">الاعدادات</p>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/">
-          <img class="m-left-10" src="./assets/images/info.png">
-          <p class="inline-block">المساعدة</p>
-        </a>
-      </li>
-    </ul>
-    <div class="text-center social-side">
-      <a href="#">
-        <i class="fa fa-facebook"></i>
-      </a>
-      <a href="#">
-        <i class="fa fa-twitter"></i>
-      </a>
-      <a href="#">
-        <i class="fa fa-dribbble" aria-hidden="true"></i>
-      </a>
-      <a href="#">
-        <i class="fa fa-linkedin"></i>
-      </a>
+      </div>
     </div>
-  </div>
   </perfect-scrollbar>
 </aside>
 

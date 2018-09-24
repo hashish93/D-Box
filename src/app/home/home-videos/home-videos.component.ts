@@ -3,6 +3,10 @@ import { TabDirective } from 'ngx-bootstrap/tabs';
 import {PlaylistService} from "../../services/playlist.service";
 import {AppSettings} from "../../app.settings";
 import {Video} from "../../models/video.model";
+import {AuthService} from '../../services/auth-service.service';
+import {CreatorService} from '../../services/creator.service';
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-home-videos',
@@ -16,7 +20,11 @@ export class HomeVideosComponent implements OnInit {
   public videos : Video[];
   activeTab: string;
 
-  constructor(public playlistService : PlaylistService) { }
+  constructor(public playlistService: PlaylistService ,
+              public authService: AuthService,
+              public creatorService: CreatorService ,
+              public router: Router ,
+              public userService: UserService) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
@@ -41,6 +49,23 @@ export class HomeVideosComponent implements OnInit {
       this.loading = false;
       this.error = 'خطأ في تحميل القائمة الخاصة ب'+type
     })
+  }
+
+  public followCreator(video) {
+    this.userService.getUserData().subscribe(data => {
+      let user = data;
+      if (user.id != video.creator.id) {
+        if (this.authService.isAuthenticated()) {
+          video.creator.is_followed = !video.creator.is_followed;
+          this.creatorService.followCreator(video.creator.id).subscribe(data => {
+          })
+        } else {
+          this.router.navigate(['login']);
+        }
+      }
+    },err=>{
+      this.router.navigate(['login']);
+    });
   }
 
 }

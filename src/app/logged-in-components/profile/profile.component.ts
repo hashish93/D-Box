@@ -48,10 +48,12 @@ export class ProfileComponent implements OnInit {
   }
 
   private getUserData() {
+    localStorage.removeItem('user');
     this.loading = true;
     this.userService.getUserData().subscribe(data=>{
       this.loading = false;
       this.user = data;
+      localStorage.setItem('user',JSON.stringify(data));
     },err=>{
       this.loading = false;
       this.error = JSON.stringify(err.error);

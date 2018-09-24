@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Video} from '../models/video.model';
 import {VideoService} from '../services/video.service';
 import {t} from '../../../node_modules/@angular/core/src/render3';
 import {AppSettings} from '../app.settings';
 import {Title} from '@angular/platform-browser';
+import {AuthService} from '../services/auth-service.service';
+import {CreatorService} from '../services/creator.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-results',
@@ -24,7 +27,11 @@ export class ResultsComponent implements OnInit {
   public activePage : string = '';
   private staticEndPoint : string = '';
 
-  constructor(public  route: ActivatedRoute,public videoService : VideoService,public titleService : Title){
+  constructor(public  route: ActivatedRoute,public videoService : VideoService,public titleService : Title ,
+              public authService: AuthService,
+              public creatorService: CreatorService ,
+              public router: Router ,
+              public userService: UserService){
     this.titleService.setTitle('النتائج');
   }
 
@@ -146,5 +153,22 @@ export class ResultsComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  public followCreator(video) {
+    this.userService.getUserData().subscribe(data => {
+      let user = data;
+      if (user.id != video.creator.id) {
+        if (this.authService.isAuthenticated()) {
+          video.creator.is_followed = !video.creator.is_followed;
+          this.creatorService.followCreator(video.creator.id).subscribe(data => {
+          })
+        } else {
+          this.router.navigate(['login']);
+        }
+      }
+    },err=>{
+      this.router.navigate(['login']);
+    });
   }
 }

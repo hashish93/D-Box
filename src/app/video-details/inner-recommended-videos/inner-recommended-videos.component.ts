@@ -2,6 +2,11 @@ import {Component, OnInit, Input} from '@angular/core';
 import {AppSettings} from "../../app.settings";
 import {Video} from "../../models/video.model";
 import {PlaylistService} from "../../services/playlist.service";
+import {VideoService} from '../../services/video.service';
+import {UserService} from '../../services/user.service';
+import {AuthService} from '../../services/auth-service.service';
+import {CreatorService} from '../../services/creator.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-inner-recommended-videos',
@@ -15,7 +20,8 @@ export class InnerRecommendedVideosComponent implements OnInit {
   public videos : Video[];
   @Input()
   public creatorId: Number;
-  constructor(public playListService : PlaylistService) { }
+  constructor(public playListService : PlaylistService,public videoService : VideoService , public userService : UserService
+    , public authService : AuthService , public creatorService : CreatorService , public router : Router) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
@@ -34,6 +40,23 @@ export class InnerRecommendedVideosComponent implements OnInit {
       this.loading = false;
       this.error = 'خطأ في تحميل القائمة الخاصة بالفيديوهات المقترحة'
     })
+  }
+
+  public followCreator(video) {
+    this.userService.getUserData().subscribe(data => {
+      let user = data;
+      if (user.id != video.creator.id) {
+        if (this.authService.isAuthenticated()) {
+          video.creator.is_followed = !video.creator.is_followed;
+          this.creatorService.followCreator(video.creator.id).subscribe(data => {
+          })
+        } else {
+          this.router.navigate(['login']);
+        }
+      }
+    },err=>{
+      this.router.navigate(['login']);
+    });
   }
 
 }
