@@ -3,9 +3,30 @@
   text-align: right;
 }
 :host ::ng-deep .nav-tabs{padding: 0;border-bottom: 0;}
-:host ::ng-deep .nav-tabs li a{color: #7f7f7f;font-weight: 400;border: none}
+:host ::ng-deep .nav-tabs li{
+  width: 25%;
+  background: #fff;
+  border: 1px solid #efefef;
+  box-shadow: 0 3px 3px #eaeaea;
+  margin-bottom: 25px;
+}
+:host ::ng-deep .nav-tabs li a{color: #7f7f7f;font-weight: 400;border: none;padding:20px 5px;text-align: center}
 :host ::ng-deep .nav-tabs li.active{}
-:host ::ng-deep .nav-tabs li.active a{color: #ef4941;border: none;border-bottom: 1px solid #ef4941;font-weight: bold;background: none}
+:host ::ng-deep .nav-tabs li.active a{color: #ef4941;border: none;font-weight: bold;background: none;position: relative}
+:host ::ng-deep .nav-tabs li.active a:before{
+  content:"";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 10px solid #fff;
+}
+
 @media screen and (max-width: 768px) {
   :host ::ng-deep .nav-link{padding: 8px 6px;}
 }

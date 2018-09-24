@@ -18,6 +18,14 @@ export class UserService {
   }
 
   getUserData(): Observable<any> {
+    let user = JSON.parse(localStorage.getItem('user'));
+    if(user){
+      return new Observable((observer) => {
+        observer.next(user);
+        observer.complete();
+      });
+
+    }
     return this.http.get("auth/user");
 
   }

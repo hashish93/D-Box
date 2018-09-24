@@ -3,56 +3,55 @@
     <div class="row">
       <div class="col col-lg-12">
         <div class="container">
-          <h5 class="thin text-center relative m-top-20 left90">تعرف على ابطال الموقع</h5>
-          <h2 class="bold text-center relative m-bottom-20 left90">المبدعون</h2>
+          <h5 class="bold text-right relative m-top-20">تعرف على ابطال الموقع - المبدعون</h5>
+          <a routerLink="/creators" class="all-creators pull-left">كل المبدعون</a>
           <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
-          <div class="row">
-            <div class="col-lg-2 empty"></div>
-            <div class="col-lg-1"></div>
-            <div *ngFor="let creator of creators" class="col-12 col-sm-6 col-lg-2">
-                <div class="creator-item">
+          <div class="row width100 padding-0 margin-0">
+            <div *ngFor="let creator of creators" class="col-12 col-sm-6 col-lg-6 m-bottom-20">
+              <div class="bg-white new-creator-item">
 
-
-                      <div class="image-container">
-                        <div class="rounded-border">
-                          <div class="social-hover">
-                            <a href="{{creator.social.facebook}}" target="_blank">
-                              <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="{{creator.social.google}}" target="_blank">
-                              <i class="fa fa-google-plus"></i>
-                            </a>
-                            <a href="{{creator.social.twitter}}" target="_blank">
-                              <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="{{creator.social.instagram}}" target="_blank">
-                              <i class="fa fa-instagram"></i>
-                            </a>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12 col-md-4 padding-right-0">
+                      <a routerLink="/creator/{{creator._id}}">
+                        <img src="{{staticEndPoint}}{{creator.avatar}}">
+                      </a>
+                    </div>
+                    <div class="col-12 col-md-8">
+                      <div (click)="followCreator(creator)" class="follow-holder">
+                        <img src="./assets/images/new-icons/follow.png">
+                        <span *ngIf="!creator.is_followed">متابعة</span>
+                        <span *ngIf="creator.is_followed">الغاء متابعة</span>
+                      </div>
+                      <a routerLink="/creator/{{creator._id}}">
+                        <h6 class="m-top-20 black text-right bold">{{creator.title}}</h6>
+                        <h6 class="m-top-10 black text-right thin-color">{{creator.job}}</h6>
+                      </a>
+                      <div class="row">
+                        <div class="col-12 rtl text-right extra-creator-details">
+                          <div class="inline-block m-left-25">
+                            <img src="../../../assets/images/new-icons/exit.png">
+                            <span class="inline-block black m-right-10 small">{{creator.counter.likes}} متابعين</span>
                           </div>
-                          <img src="{{staticEndPoint}}{{creator.avatar}}">
+                          <div class="inline-block">
+                            <img src="../../../assets/images/new-icons/video_cam.png">
+                            <span class="inline-block black m-right-10 small">{{creator.counter.videos}} فيديو</span>
+                          </div>
                         </div>
                       </div>
-                  <a routerLink="creator/{{creator._id}}">
-                      <div class="relative rectangle-info">
-                            <h6 class="title">{{creator.title}}</h6>
-                            <h6 class="thin job">{{creator.job}}</h6>
-                      </div>
-                  </a>
+                    </div>
+                  </div>
                 </div>
-            </div>
 
-            <div class="col-lg-1 empty"></div>
+              </div>
+            </div>
           </div>
-          <div class="row">
-            <div class="col-lg-2 empty"></div>
-            <a routerLink="/creators" class="all-creators">كل المبدعون</a>
-          </div>
+
 
         </div>
       </div>
     </div>
   </div>
-
 
 
 </div>

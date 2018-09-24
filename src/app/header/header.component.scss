@@ -1,4 +1,4 @@
-$background:#efefef;
+$background:#fff;
 header{
   background:$background;
   display: inline-block;
@@ -6,7 +6,7 @@ header{
   padding: 5px 10px;
   position: fixed;
   z-index: 16;
-  box-shadow: 3px 3px 16px #b1b1b1;
+  box-shadow: 3px 3px 9px #e4e2e2;
   top: 0;
   .container-fluid{
     text-align: center;
