@@ -16,7 +16,7 @@ import {UserService} from '../services/user.service';
 export class CreatorsComponent implements OnInit {
   public loading : boolean = true;
   public error : string = '';
-  public limit : number = 40;
+  public limit : number = 12;
   public data : Creator[] = [];
   public total : Number = 0 ;
   public current_page: number = 1;
