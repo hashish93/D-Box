@@ -11,54 +11,76 @@
     </div>
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
     <div *ngIf="!loading">
-      <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true' data-native_fullscreen='true' allowfullscreen='true' height="550px" frameBorder="0" [src]="url"></iframe>
-      <div class="video-details relative">
-        <div *ngIf="creator" class="rtl text-right">
-          <a class="creator-link" routerLink="/creator/{{creator._id}}">
-            <img class="m-left-10 creator_avatar" src="{{staticEndPoint}}{{creator.avatar}}">
-            <span>{{creator.title}}</span>
-          </a>
-        </div>
+      <div class="relative video-playlist-home new-video-frame">
+        <div class="bg-white width100 inline-block">
 
-        <div class="share" (clickOutside)="share=false">
-          <img class="mouse-click user-select-none m-bottom-5" (click)="share=!share" src="../../assets/images/share.png">
-          <div [ngClass]="{'none':!share}" class="share-area">
-            <share-buttons [theme]="'circles-dark'"
-                           [include]="['facebook','twitter','google','whatsapp','messenger']"
-                           [show]="5"
-                           [autoSetMeta]="true"
-            ></share-buttons>
-          </div>
-        </div>
-        <div class="inner-details rtl text-right">
-          <h5 class="video-title">{{video.title}}</h5>
-          <p [ngClass]="{'full-height': slide,'fixed-height': !slide}" class="font-12">{{video.description}}</p>
-          <div class="slide" >
-            <img class="mouse-click user-select-none pull-left" (click)="slide=!slide" src="../../assets/images/more-2.png">
-          </div>
-        </div>
-        <div class="inner-details">
-          <div class="other-data user-select-none rtl text-right">
-            <a *ngIf="video.categories && video.categories[0]" class="inner-cat-link" routerLink="/category/{{video.categories[0].id}}">
-              <span *ngIf="video.categories && video.categories[0]" class="inner-cat" [ngStyle]="{'background-color':video.categories[0].color}" >{{video.categories[0].title}}</span>
-            </a>
-            <div class="inline-block direction-ltr m-right-10">
-              <span class="m-right-5 video-date">{{video.date}}</span>
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+
+          <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true' data-native_fullscreen='true'
+                  allowfullscreen='true' height="550px" frameBorder="0" [src]="url"></iframe>
+          <div class="padding-right-left-10">
+            <h3 class="video-title">
+              {{video.title}}
+            </h3>
+            <p>
+              {{video.description}}
+            </p>
+            <div class="m-top-20 m-bottom-20" *ngIf="video && video.tags && video.tags.length > 0">
+              <div class="inline-block m-left-10" *ngFor="let tag of video.tags">
+                <a routerLink="/results" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge"># {{tag.title}}</a>
+              </div>
             </div>
-            <div (click)="likeVideo()" class="inline-block m-right-10 btn-like" [ngClass]="{'btn-liked': video.is_liked}">
-              <i  class="m-left-5 fa mouse-click" [ngClass]="{'fa-heart': video.is_liked,'fa-heart-o': !video.is_liked}" aria-hidden="true"></i>
+          </div>
+
+
+          <div class="m-bottom-10 inline-block width100 padding-right-left-10">
+            <div (click)="likeVideo()" class="float-right video-extra side-likes pointer">
+              <img class="m-left-5 m-right-5"
+                   [src]="video.is_liked  ? './assets/images/new-icons/heart-red.png' :'./assets/images/new-icons/heart.png' ">
               <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+              <span class="m-right-5 m-left-5">اعجاب</span>
             </div>
-            <div class="inline-block m-right-10">
-              <i class="m-left-5 fa fa-eye" aria-hidden="true"></i>
-              <span *ngIf="video.counter">{{video.counter.views}}</span>
+            <div (clickOutside)="share=false" class="float-right video-extra side-share pointer relative">
+              <div (click)="share=!share" >
+                <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
+                <span class="m-right-5 m-left-5">مشاركة</span>
+              </div>
+              <div *ngIf="share" class="share-area share">
+                <share-buttons [theme]="'circles-dark'"
+                               [include]="['facebook','twitter','google','whatsapp','messenger']"
+                               [show]="5"
+                               [autoSetMeta]="true"
+                ></share-buttons>
+              </div>
             </div>
+
+            <div class="float-right video-extra side-view">
+              <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/views.png'">
+              <span class="video-likes" *ngIf="video.counter">{{video.counter.views | number:'1.'}}</span>
+              <span class="m-right-5 m-left-5">مشاهدة</span>
+            </div>
+
+            <div class="float-left m-right-5 video-extra-more">
+              <img [src]="'./assets/images/new-icons/more.png'">
+            </div>
+
           </div>
-          <div class="m-top-20" *ngIf="video && video.tags && video.tags.length > 0">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <div class="inline-block m-right-10" *ngFor="let tag of video.tags">
-              <a routerLink="/results" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge badge-secondary">{{tag.title}}</a>
+
+          <div class="width100 inline-block  m-top-10 m-bottom-10 border-top-1">
+            <div class="padding-right-left-10">
+              <div class="float-right top-video-creator-section">
+                <a routerLink="/creator/{{video.creator.id}}">
+                  <img class="m-left-10" *ngIf="video.creator" src="{{staticEndPoint}}{{video.creator.avatar}}">
+                  <span>{{video.creator.title}}</span>
+                </a>
+              </div>
+              <div class="float-left top-video-follow-section">
+                <div (click)="followCreator(video)" class="follow-holder">
+                  <img src="./assets/images/new-icons/follow.png">
+                  <span *ngIf="!video.creator.is_followed">متابعة</span>
+                  <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +95,8 @@
   <div class="col-12 col-sm-12 col-xl-2 col-lg-3 no-padding-right">
     <div class="m-top-35">
       <div *ngIf="!loading">
-        <app-about-creator *ngIf="video.creator && video.creator.id" [creator_id]="video.creator.id" (onGetCreator)="getCreator($event)"></app-about-creator>
+        <app-about-creator *ngIf="video.creator && video.creator.id" [creator_id]="video.creator.id"
+                           (onGetCreator)="getCreator($event)"></app-about-creator>
         <div class="text-center">
           <img class="max-width-100" src="./assets/images/test-image.png">
         </div>

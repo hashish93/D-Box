@@ -341,6 +341,7 @@ app-side-menu{
   }
 }
 .border-top-1{border-top:1px solid #eee;padding-top: 10px;}
+.pointer{cursor: pointer;user-select: none}
 @media screen and (max-width: 992px) {
   body{padding-top: 65px;}
 }

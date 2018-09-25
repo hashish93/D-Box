@@ -8,6 +8,8 @@ import {DomSanitizer, SafeResourceUrl, Title,} from '@angular/platform-browser';
 import {Creator} from "../models/creator.model";
 import {DOCUMENT} from '@angular/common';
 import {MetaService} from '@ngx-meta/core';
+import {CreatorService} from '../services/creator.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-video-details',
@@ -28,7 +30,9 @@ export class VideoDetailsComponent implements OnInit {
   public error : String= '';
   public document : any ;
   constructor(public authService : AuthService , public router : Router,
-              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer ,@Inject(DOCUMENT) document: any , public titleService : Title,private readonly meta: MetaService) {
+              public  route: ActivatedRoute,public videoService : VideoService,public sanitizer:DomSanitizer ,@Inject(DOCUMENT) document: any , public titleService : Title,private readonly meta: MetaService,
+              public creatorService: CreatorService ,
+              public userService: UserService) {
     this.document = document;
     this.titleService.setTitle('الفيديو');
 
@@ -86,5 +90,22 @@ export class VideoDetailsComponent implements OnInit {
 
   public getCreator(creator : any){
     this.creator = creator;
+  }
+
+  public followCreator(video) {
+    this.userService.getUserData().subscribe(data => {
+      let user = data;
+      if (user.id != video.creator.id) {
+        if (this.authService.isAuthenticated()) {
+          video.creator.is_followed = !video.creator.is_followed;
+          this.creatorService.followCreator(video.creator.id).subscribe(data => {
+          })
+        } else {
+          this.router.navigate(['login']);
+        }
+      }
+    },err=>{
+      this.router.navigate(['login']);
+    });
   }
 }
