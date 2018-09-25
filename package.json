@@ -72,7 +72,7 @@
       "ng-click-outside": "^4.0.0",
       "ng-fullcalendar": "^1.6.2",
       "ngx-bootstrap": "^3.0.1",
-      "ngx-chips": "^1.9.2",
+      "ngx-chips": "^1.9.7",
       "ngx-cookie-service": "1.0.10",
       "ngx-metadata": "^4.0.3",
       "ngx-pagination": "^3.1.1",
