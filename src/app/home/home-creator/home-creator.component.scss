@@ -34,11 +34,9 @@
   }
 }
 .all-creators{
-  margin: 0 auto;
-  border: 1px solid;
-  padding: 2px 5px;
-  position: relative;
-  top: -30px;
+  position: absolute;
+  left: 0;
+  top: 20px;
   transition: all .3s;
   &:hover {
     background: #6196e4 !important;
