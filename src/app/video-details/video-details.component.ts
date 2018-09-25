@@ -55,14 +55,14 @@ export class VideoDetailsComponent implements OnInit {
     this.loading = true;
     this.error = '';
     this.videoService.getVideo(id).subscribe(data=> {
-      this.video = data;
-      this.meta.setTag('og:image', this.staticEndPoint+this.video.thumbnails.large);
+    this.video = data;
+    this.meta.setTag('og:image', this.staticEndPoint+this.video.thumbnails.large);
 	  this.meta.setTag('og:image:width', '1280');
 	  this.meta.setTag('og:image:height', '720');
 	  this.meta.setTag('og:image:type', 'image/jpeg');
-      this.meta.setTag('og:description', this.video.title);
-      this.meta.setTag('og:title', this.video.title);
-      this.meta.setTag('image',this.staticEndPoint+this.video.thumbnails.large);
+    this.meta.setTag('og:description', this.video.title);
+    this.meta.setTag('og:title', this.video.title);
+    this.meta.setTag('image',this.staticEndPoint+this.video.thumbnails.large);
 	  this.meta.setTag('og:url',this.frontEndPoint+this.router.url);
       this.loading = false;
     },err=>{
