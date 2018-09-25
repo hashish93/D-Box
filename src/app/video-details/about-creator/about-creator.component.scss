@@ -1,12 +1,15 @@
 .about-creator-container{
-  background: #f3f3f3;
+  background: #ffffff;
   margin-bottom: 20px;
   padding: 0 10px 10px 10px;
-  margin-top: 126px;
+  margin-top: 101px;
+  width: 100%;
+  display: inline-block;
 }
 .creator-img{
   position: relative;
-  top:-30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   text-align: center;
   img {
     width: 70px;
@@ -20,12 +23,16 @@
     padding: 0 5px;
     font-size: 12px;
     font-weight: bold;
+    margin-bottom: 5px;
+  }
+  h6{
+    color: #888888;
+    font-size: 13px;
   }
 }
 .about-creator-details{
-  text-align: right;
+  text-align: center;
   position: relative;
-  top : -30px;
   p{
     font-size : 11px;
     height: 50px;
@@ -76,6 +83,31 @@
 .like-custom {
   position: relative;
   width: 29px;
+}
+.follow-holder {
+  border: 1px solid #c14948;
+  padding: 3px 5px;
+  margin-top: 8px;
+  color: #c14948;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+  img {
+    width: 20px;
+    margin-left: 10px;
+  }
+  &:hover {
+    background: #c14948;
+    color: #fff;
+  }
+}
+.extra-creator-details{
+  margin-top:40px;
+  border-top: 1px solid #eee;
+  margin-bottom: 5px;
+  padding-top: 10px;
+  img{width: 15px;}
 }
 @media screen and (max-width: 992px){
   .about-creator-container{margin-top: 10px;}

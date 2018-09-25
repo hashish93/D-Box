@@ -49,7 +49,7 @@ export class AboutCreatorComponent implements OnInit , OnChanges {
     })
   }
 
-  public follow_creator() {
+  public followCreator() {
     this.userService.getUserData().subscribe(data=>{
       let user = data;
       if(user.id !=this.creator_id){
