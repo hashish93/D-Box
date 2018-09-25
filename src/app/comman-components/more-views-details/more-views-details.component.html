@@ -10,30 +10,66 @@
         <h6 class="bold m-bottom-20">الاكثر مشاهدة</h6>
       </div>
       <div class="row margin-0">
-        <h5 class="text-center" style="margin:0 auto" *ngIf="!loading && videos && videos.length ==0">لا يوجد فيديوهات</h5>
-        <div class="col-3 col-md-4 col-sm-6 col-12 relative video-playlist-home" *ngFor="let video of videos">
-          <a routerLink="/video/{{video._id}}">
-            <span *ngIf="video.categories && video.categories[0]" class="category-span" [ngStyle]="{'background-color':video.categories[0].color}">{{video.categories[0].title}}</span>
-            <div class="image-container relative">
-              <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
-              <span class="player-icon">
-                <i class="fa fa-play" aria-hidden="true"></i>
-              </span>
+        <h5 class="text-center" style="margin:0 auto" *ngIf="!loading && videos && videos.length ==0">لا يوجد
+          فيديوهات</h5>
+        <div class="col-3 col-md-4 col-sm-6 col-12 relative video-playlist-home new-video-frame"
+             *ngFor="let video of videos">
+          <div class="bg-white width100 inline-block">
+            <div class="width100 inline-block">
+              <div class="padding-right-left-10">
+                <div class="float-right top-video-creator-section">
+                  <a routerLink="/creator/{{video.creator.id}}">
+                    <img class="m-left-10" *ngIf="video.creator" src="{{staticEndPoint}}{{video.creator.avatar}}">
+                    <span>{{video.creator.title}}</span>
+                  </a>
+                </div>
+                <div class="float-left top-video-follow-section">
+                  <div (click)="followCreator(video)" class="follow-holder">
+                    <img src="./assets/images/new-icons/follow.png">
+                    <span *ngIf="!video.creator.is_followed">متابعة</span>
+                    <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3>
-              {{video.title}}
-            </h3>
-            <div>
-              <div class="float-left">
-                <i [ngClass]="{'fa-heart': video.is_liked,'fa-heart-o': !video.is_liked}" class="m-left-5 fa" aria-hidden="true"></i>
+
+            <a routerLink="/video/{{video._id}}">
+              <div class="image-container relative">
+                <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+
+              </div>
+              <div class="padding-right-left-10">
+                <h3>
+                  {{video.title}}
+                </h3>
+
+              </div>
+            </a>
+
+            <div class="m-bottom-10 inline-block width100 padding-right-left-10">
+              <div class="float-right video-extra side-likes">
+                <img class="m-left-5 m-right-5"
+                     [src]="video.is_liked  ? './assets/images/new-icons/heart-red.png' :'./assets/images/new-icons/heart.png' ">
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+                <span class="m-right-5 m-left-5">اعجاب</span>
               </div>
-              <div class="float-right direction-ltr">
-                <span class="m-right-5 video-date">{{video.date}}</span>
-                <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <div class="float-right video-extra side-share">
+                <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
+                <span class="m-right-5 m-left-5">مشاركة</span>
               </div>
+
+              <div class="float-right video-extra side-view">
+                <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/views.png'">
+                <span class="video-likes" *ngIf="video.counter">{{video.counter.views | number:'1.'}}</span>
+                <span class="m-right-5 m-left-5">مشاهدة</span>
+              </div>
+
+              <div class="float-left m-right-5 video-extra-more">
+                <img [src]="'./assets/images/new-icons/more.png'">
+              </div>
+
             </div>
-          </a>
+          </div>
         </div>
       </div>
 

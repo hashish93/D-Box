@@ -2,6 +2,10 @@ import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core'
 import {Video} from "../../models/video.model";
 import {VideoService} from "../../services/video.service";
 import {AppSettings} from "../../app.settings";
+import {AuthService} from '../../services/auth-service.service';
+import {CreatorService} from '../../services/creator.service';
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-more-views-details',
@@ -24,7 +28,11 @@ export class MoreViewsDetailsComponent implements OnInit , OnChanges  {
   public categoryId : Number;
   @Input()
   public limit : Number = 4;
-  constructor(public videoService : VideoService) { }
+  constructor(public videoService : VideoService,
+              public authService: AuthService,
+              public creatorService: CreatorService ,
+              public router: Router ,
+              public userService: UserService) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
@@ -43,5 +51,22 @@ export class MoreViewsDetailsComponent implements OnInit , OnChanges  {
       this.loading = false;
       this.error = 'خطأ في تحميل القائمة الخاصة بالاكثر مشاهدة'
     })
+  }
+
+  public followCreator(video) {
+    this.userService.getUserData().subscribe(data => {
+      let user = data;
+      if (user.id != video.creator.id) {
+        if (this.authService.isAuthenticated()) {
+          video.creator.is_followed = !video.creator.is_followed;
+          this.creatorService.followCreator(video.creator.id).subscribe(data => {
+          })
+        } else {
+          this.router.navigate(['login']);
+        }
+      }
+    },err=>{
+      this.router.navigate(['login']);
+    });
   }
 }

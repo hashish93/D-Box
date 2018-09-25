@@ -6,6 +6,9 @@ import {Router, ActivatedRoute, Params} from "@angular/router";
 import {VideoService} from "../services/video.service";
 import {Video} from "../models/video.model";
 import {Title} from '@angular/platform-browser';
+import {AuthService} from '../services/auth-service.service';
+import {CreatorService} from '../services/creator.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-category-details',
@@ -21,7 +24,10 @@ export class CategoryDetailsComponent implements OnInit {
   public staticEndPoint;
 
   constructor(public categoryService : CategoryService,public route : ActivatedRoute
-    , public router : Router,public videoService : VideoService,public titleService : Title){
+    , public router : Router,public videoService : VideoService,public titleService : Title,
+              public authService: AuthService,
+              public creatorService: CreatorService ,
+              public userService: UserService){
     this.titleService.setTitle('القسم');
   }
 
@@ -65,4 +71,22 @@ export class CategoryDetailsComponent implements OnInit {
       this.error = JSON.stringify(err.error);
     })
   }
+
+  public followCreator(video) {
+    this.userService.getUserData().subscribe(data => {
+      let user = data;
+      if (user.id != video.creator.id) {
+        if (this.authService.isAuthenticated()) {
+          video.creator.is_followed = !video.creator.is_followed;
+          this.creatorService.followCreator(video.creator.id).subscribe(data => {
+          })
+        } else {
+          this.router.navigate(['login']);
+        }
+      }
+    },err=>{
+      this.router.navigate(['login']);
+    });
+  }
+
 }
