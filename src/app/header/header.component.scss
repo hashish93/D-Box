@@ -17,7 +17,8 @@ header{
 }
 .logo img{width: 230px;}
 .login-btn{
-  background: #3d5fc1;
+  background: #294fbf;
+  border-radius: 6px;
   color: #fff;
   padding: 4px 9px;
   margin-right: 5px;
@@ -26,42 +27,44 @@ header{
     display: inline-block;
     margin-right: 5px;
   }
-  &:hover{
-    background: #fff;
-    color: #3d5fc1;
-    transition: all .3s ease-in-out;
-    text-decoration: none;
-    border: 1px solid #3d5fc1;
+  img{
+    width: 25px;
   }
 }
 .register-btn{
   border: 2px solid #ee4a41;
-  color: #ee4a41;
+  border-radius: 6px;
+  background: #ee4a41;
+  color: #ffffff;
   font-weight: bold;
   padding: 3px 10px;
   &:hover{
-    background: #ee4a41;
-    color: #ffffff;
+    background: #fff;
+    color: #ee4a41;
     transition: all .3s ease-in-out;
     text-decoration: none;
   }
 }
-.input-group-prepend span{
-  background: #ee4a41;
-  color: #ae2018;
-  border:1px;
+.input-group-append span{
+  background: transparent;
+  border: 1px solid #bdbdbd;
   cursor: pointer;
-}
-form input{
-  border:2px solid #ee4a41;
-  text-align: right;
-  /* adnan */
-  direction:rtl;
-  &:focus{
-    box-shadow: none !important;
-    border:2px solid #ee4a41 !important;
+  img{
+    width: 16px;
   }
 }
+form input{
+  border: 1px solid #bdbdbd;
+  border-right: none;
+  text-align: right;
+  direction: rtl;
+  line-height: 25px;
+  &:focus{
+    box-shadow: none !important;
+    border:1px solid #ee4a41 !important;
+  }
+}
+.m-top-7{margin-top: 7px;}
 .navbar{display: none}
 .navbar-nav{display: block}
 .navbar-nav li{width: 100%;float: right;text-align: right;}
@@ -94,5 +97,5 @@ form input{
   .navbar-brand  img{width: 100px;position: relative;top:5px;}
 }
 @media screen and (max-width: 992px) and (min-width: 768px) {
-  .input-group-prepend input{width: 100px;}
+  .input-group-append input{width: 100px;}
 }

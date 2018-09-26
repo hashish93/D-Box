@@ -9,18 +9,26 @@
   <div *ngIf="showAnchors" class="profile-anchors">
       <ul class="list-group">
         <li class="list-group-item">
+          <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'statistics' }" routerLinkActive="active-link">
+            <span class="m-right-10">الاحصائيات</span>
+            <img src="../../../assets/images/new-icons/statistics.png">
+            <img src="../../../assets/images/new-icons/statistics.png">
+          </a>
+        </li>
+
+        <li class="list-group-item">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'favorites' }" routerLinkActive="active-link">
             <span class="m-right-10">المفضلات</span>
-            <img src="../../../assets/images/love.png">
-            <img src="../../../assets/images/love-color.png">
+            <img src="../../../assets/images/new-icons/heart.png">
+            <img src="../../../assets/images/new-icons/heart.png">
           </a>
         </li>
 
         <li class="list-group-item">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'followers' }" routerLinkActive="active-link">
-            <span class="m-right-10">المتابعات</span>
-            <img src="../../../assets/images/num_of_followers.png">
-            <img src="../../../assets/images/num_of_followers_love.png">
+            <span class="m-right-10">المتابعين</span>
+            <img src="../../../assets/images/new-icons/exit.png">
+            <img src="../../../assets/images/new-icons/exit.png">
           </a>
         </li>
 
@@ -28,33 +36,31 @@
         <li class="list-group-item" *ngIf="user.is_creator == 1">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'revenue' }" routerLinkActive="active-link">
             <span class="m-right-10">الارباح</span>
-            <img src="../../../assets/images/money.png">
-            <img src="../../../assets/images/money-hover.png">
+            <img src="../../../assets/images/new-icons/revenue.png">
+            <img src="../../../assets/images/new-icons/revenue.png">
           </a>
         </li>
 
-        <li class="list-group-item" *ngIf="user.is_creator == 1">
-          <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'my-videos' }" routerLinkActive="active-link">
-            <span class="m-right-10">فيديوهاتي</span>
-            <img src="../../../assets/images/video-play-black.png">
-            <img src="../../../assets/images/video-play-hover.png">
-          </a>
-        </li>
+        <!--<li class="list-group-item" *ngIf="user.is_creator == 1">-->
+          <!--<a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'my-videos' }" routerLinkActive="active-link">-->
+            <!--<span class="m-right-10">فيديوهاتي</span>-->
+            <!--<img src="../../../assets/images/video-play-black.png">-->
+            <!--<img src="../../../assets/images/video-play-hover.png">-->
+          <!--</a>-->
+        <!--</li>-->
 
 
         <li class="list-group-item">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'profile' }" routerLinkActive="active-link">
             <span class="m-right-10">الاعدادات</span>
-            <img src="../../../assets/images/settings.png">
-            <img src="../../../assets/images/settings-hover.png">
+            <img src="../../../assets/images/new-icons/settings.png">
+            <img src="../../../assets/images/new-icons/settings.png">
           </a>
         </li>
 
-        <li class="list-group-item">
+        <li class="list-group-item logout-link">
           <a class="black" (click)="logout($event);showAnchors=false;$event.preventDefault()" routerLink="/">
             <span class="m-right-10">تسجيل الخروج</span>
-            <img src="../../../assets/images/logout.png">
-            <img src="../../../assets/images/logout.png">
           </a>
         </li>
       </ul>
