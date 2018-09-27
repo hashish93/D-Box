@@ -1,34 +1,37 @@
 <header>
-  <div class="desktop-container container-fluid">
-    <div class="float-left m-top-35" *ngIf="!authService.isAuthenticated()">
-      <a class="float-left login-btn m-top-5" routerLink="/login/"><span>تسجيل دخول</span><img src="./assets/images/new-icons/avatar.png"></a>
-      <a class="float-left register-btn m-top-5" routerLink="/register/">اشتراك</a>
-    </div>
-    <div class="float-left m-top-35" *ngIf="authService.isAuthenticated()">
-      <div class="float-left">
-        <app-profile-menu></app-profile-menu>
+  <div class="desktop-container row">
+    <div class="col-xl-2"></div>
+    <div class="col-xl-8 text-center">
+      <div class="float-left m-top-35" *ngIf="!authService.isAuthenticated()">
+        <a class="float-left login-btn m-top-5" routerLink="/login/"><span>تسجيل دخول</span><img src="./assets/images/new-icons/avatar.png"></a>
+        <a class="float-left register-btn m-top-5" routerLink="/register/">اشتراك</a>
       </div>
+      <div class="float-left m-top-35" *ngIf="authService.isAuthenticated()">
+        <div class="float-left">
+          <app-profile-menu></app-profile-menu>
+        </div>
 
 
-      <!--<a class="float-left register-btn out" routerLink="/" (click)="logout($event);$event.preventDefault()">الخروج</a>-->
-      <!--<a class="float-left register-btn m-left-10 out" routerLink="/settings" >الملف الشخصي</a>-->
-    </div>
-    <div class="logo">
-      <a routerLink="/">
-        <img src="./assets/images/logo.png">
-      </a>
-    </div>
-    <div class="float-right m-top-35">
-      <form #searchForm="ngForm" novalidate (ngSubmit)="onFormSubmit(searchForm)">
-        <div class="input-group input-group-sm m-top-7">
-          <input type="text" class="form-control" aria-label="Small" autocomplete="false" name="search" [(ngModel)]="search" placeholder="ابحث هنا" aria-describedby="inputGroup-sizing-sm">
-          <div (click)="onFormSubmit(searchForm)" class="input-group-append">
+        <!--<a class="float-left register-btn out" routerLink="/" (click)="logout($event);$event.preventDefault()">الخروج</a>-->
+        <!--<a class="float-left register-btn m-left-10 out" routerLink="/settings" >الملف الشخصي</a>-->
+      </div>
+      <div class="logo">
+        <a routerLink="/">
+          <img src="./assets/images/logo.png">
+        </a>
+      </div>
+      <div class="float-right m-top-35">
+        <form #searchForm="ngForm" novalidate (ngSubmit)="onFormSubmit(searchForm)">
+          <div class="input-group input-group-sm m-top-7">
+            <input type="text" class="form-control" aria-label="Small" autocomplete="false" name="search" [(ngModel)]="search" placeholder="ابحث هنا" aria-describedby="inputGroup-sizing-sm">
+            <div (click)="onFormSubmit(searchForm)" class="input-group-append">
             <span class="input-group-text" id="inputGroup-sizing-sm">
               <img src="../../assets/images/new-icons/search.png">
             </span>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
   <nav class="navbar navbar-default">
