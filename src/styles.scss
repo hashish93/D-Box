@@ -258,6 +258,7 @@ app-side-menu{
     &.side-view{
       background: #fff !important;
     }
+    .m-right-5.m-left-5:not(img){display: none}
   }
   .video-extra-more{
     position: relative;

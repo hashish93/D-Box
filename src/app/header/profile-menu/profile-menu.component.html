@@ -67,18 +67,18 @@
   </div>
 </div>
 <div class="float-left" *ngIf="user.is_creator == 1">
-  <div class="float-left m-left-20 m-top-2">
+  <div class="float-left m-left-20 m-top-10">
     <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'upload' }" routerLinkActive="active-link">
-      <img class="normal" src="../../assets/images/upload-icon.png">
-      <img class="hovered" src="../../assets/images/upload-icon-hover.png">
-      <span>اضافة</span>
+      <span class="orange">اضافة</span>
+      <img class="normal" src="../../assets/images/new-icons/upload.png">
+      <img class="hovered" src="../../assets/images/new-icons/upload.png">
     </a>
   </div>
-  <div class="float-left m-left-10">
+  <div class="float-left m-left-20 m-top-10">
     <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'statistics' }" routerLinkActive="active-link">
-      <img class="normal" src="../../assets/images/statistics-icon.png">
-      <img class="hovered" src="../../assets/images/statistics-icon-hover.png">
       <span>احصائيات</span>
+      <img class="normal" src="../../assets/images/new-icons/statistics.png">
+      <img class="hovered" src="../../assets/images/new-icons/statistics.png">
     </a>
   </div>
 
