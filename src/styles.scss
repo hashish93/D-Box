@@ -203,6 +203,9 @@ app-side-menu{
 .padding-right-left-5{padding: 0 5px;}
 .padding-right-left-10{padding: 0 10px;}
 .new-video-frame{
+  > .bg-white{
+    border-radius: 8px;
+  }
   > .bg-white a {
     background: #fff;
     display: inline-block;
