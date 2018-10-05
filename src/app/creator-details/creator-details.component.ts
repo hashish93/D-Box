@@ -80,13 +80,13 @@ export class CreatorDetailsComponent implements OnInit {
     })
   }
 
-  public followCreator(video) {
+  public followCreator(creator) {
     this.userService.getUserData().subscribe(data => {
       let user = data;
-      if (user.id != video.creator.id) {
+      if (user.id != creator.id) {
         if (this.authService.isAuthenticated()) {
-          video.creator.is_followed = !video.creator.is_followed;
-          this.creatorService.followCreator(video.creator.id).subscribe(data => {
+          creator.is_followed = !creator.is_followed;
+          this.creatorService.followCreator(creator.id).subscribe(data => {
           })
         } else {
           this.router.navigate(['login']);

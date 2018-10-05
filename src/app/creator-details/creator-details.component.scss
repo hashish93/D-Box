@@ -110,8 +110,8 @@ slide{margin-bottom: 40px}
   margin-bottom: 0;
 }
 .about-details{
-  background: #fff;
-  padding: 40px 30px 20px 30px;
+  padding: 60px 17% 20px 17%;
+  box-sizing: content-box;
   > div{
    margin-bottom: 20px;
   }
@@ -128,7 +128,7 @@ slide{margin-bottom: 40px}
   a{
     color: #000;
     display: inline-block;
-    margin: 0 7px;
+    margin: 20px 10px;
     transition: all .7s;
   }
   a:hover{
@@ -156,6 +156,31 @@ slide{margin-bottom: 40px}
 :host ::ng-deep .carousel-indicators{
   padding-right: 0;
   right:-18%;
+}
+.follow-holder {
+  border: 1px solid #c14948;
+  padding: 3px 5px;
+  margin-top: 8px;
+  color: #c14948;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+  img {
+    width: 20px;
+    margin-left: 10px;
+  }
+  &:hover {
+    background: #c14948;
+    color: #fff;
+  }
+}
+.extra-creator-details{
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 5px;
+  padding: 10px 30px 10px 30px;
+  img{width: 15px;}
 }
 @media screen and (min-width: 1200px) and (max-width: 1500px){
   :host ::ng-deep .carousel {
@@ -195,4 +220,8 @@ slide{margin-bottom: 40px}
       height: 70px;
     }
   }
+  
+}
+@media screen and (max-width: 1200px){
+  .extra-creator-details{padding: 10px;}
 }

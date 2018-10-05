@@ -152,33 +152,51 @@
             </div>
             <div class="col-xs-12 col-md-4">
               <div class="row margin-0">
-                <h6 class="about-title">عن المبدع</h6>
-                <div class="about-details relative">
-                  <div class="counter">
-                    <div class="followers">
-                      <span class="player-icon custom-player-icon"><i  aria-hidden="true" class="fa fa-play"></i></span>
-                      <div class="black">{{creator.counter.videos | number:'1.'}}</div>
+
+                <div class="bg-white">
+                  <div class="about-details relative">
+                    <h5 class="bold m-bottom-20">عن المبدع</h5>
+                    <div>
+                      <span class="inline-block">الاسم : </span>
+                      <span class="inline-block m-right-10">{{creator.title}}</span>
                     </div>
-                    <div class="likes">
-                      <i (click)="follow_creator()" [ngClass]="{'fa-heart': creator.is_followed,'fa-heart-o': !creator.is_followed}" class="fa mouse-click black m-top-5"></i>
-                      <div class="black">{{creator.counter.likes | number:'1.'}}</div>
+                    <div>
+                      <span class="inline-block">البلد : </span>
+                      <span class="inline-block m-right-10">{{creator.country}}</span>
+                    </div>
+                    <div>
+                      <span class="inline-block">السن : </span>
+                      <span class="inline-block m-right-10">{{creator.age}}</span>
+                    </div>
+                    <p class="about-desc">
+                      {{creator.description}}
+                    </p>
+                    <div class="width100 inline-block">
+                      <div class="float-right top-video-follow-section">
+                        <div (click)="followCreator(creator)" class="follow-holder">
+                          <img src="../../assets/images/new-icons/follow.png">
+                          <span *ngIf="!creator.is_followed">متابعة</span>
+                          <span *ngIf="creator.is_followed">الغاء متابعة</span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="width100 inline-block">
+                    <div class="col-12 rtl text-right extra-creator-details">
+                      <div class="inline-block m-left-25">
+                        <img src="../../assets/images/new-icons/exit.png">
+                        <span class="inline-block black m-right-10 small">{{creator.counter.likes}} متابعين</span>
+                      </div>
+                      <div class="inline-block pull-left">
+                        <img src="../../assets/images/new-icons/video_cam.png">
+                        <span class="inline-block black m-right-10 small">{{creator.counter.videos}} فيديو</span>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <strong class="inline-block">الاسم : </strong>
-                    <span class="inline-block">{{creator.title}}</span>
-                  </div>
-                  <div>
-                    <strong class="inline-block">البلد : </strong>
-                    <span class="inline-block">{{creator.country}}</span>
-                  </div>
-                  <div>
-                    <strong class="inline-block">السن : </strong>
-                    <span class="inline-block">{{creator.age}}</span>
-                  </div>
-                  <p class="about-desc">
-                    {{creator.description}}
-                  </p>
+
+
                   <div class="about-social text-center">
                     <a *ngIf="creator.social.google" href="{{creator.social.google}}" target="_blank">
                       <i class="fa fa-google"></i>
@@ -194,23 +212,9 @@
                     </a>
 
                   </div>
-                  <div class="text-center m-top-10">
-                    <div [ngClass]="{'btn-dark':!creator.is_followed,'btn-danger':creator.is_followed}" class="btn" (click)="follow_creator()">
-                      <div *ngIf="creator.is_followed">
-                        <i class="fa fa-minus-square" aria-hidden="true"></i>
-                        <span>
-                          الغاء المتابعة
-                        </span>
-                      </div>
-                      <div *ngIf="!creator.is_followed">
-                        <i class="fa fa-plus-square" aria-hidden="true"></i>
-                        <span>
-                          متابعة
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
+
 
               </div>
             </div>
