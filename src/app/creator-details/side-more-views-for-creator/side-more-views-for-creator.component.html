@@ -7,7 +7,6 @@
       <a routerLink="/video/{{video._id}}">
         <div class="image-container relative pull-right">
           <img src="{{staticEndPoint}}{{video.thumbnails.small}}">
-          <i class="fa fa-play video-play"></i>
         </div>
         <div class="title pull-right">
           {{video.title}}
@@ -15,15 +14,14 @@
         <div>
           <div class="float-right direction-ltr video-date-small">
             <span class="m-right-5 video-date">{{video.date}}</span>
-            <i class="fa fa-clock-o m-right-5" aria-hidden="true"></i>
           </div>
         </div>
       </a>
 
     </div>
   </div>
-  <div class="bg-white text-center">
-    <a class="more" routerLink="/results" [queryParams]="{page : 'creator_views','key':creator_name,'key_id':creator_id}">المزيد</a>
-  </div>
+  <!--<div class="bg-white text-center">-->
+    <!--<a class="more" routerLink="/results" [queryParams]="{page : 'creator_views','key':creator_name,'key_id':creator_id}">المزيد</a>-->
+  <!--</div>-->
 </div>
 
