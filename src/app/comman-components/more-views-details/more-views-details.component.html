@@ -2,17 +2,17 @@
 
 <div class="container-fluid home-more-views m-top-20" *ngIf="videos">
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-3 col-xl-2">
 
     </div>
-    <div class="col-lg-8 bottom-border">
+    <div class="col-xl-8 col-lg-7 col-12 bottom-border">
       <div class="row margin-0">
         <h6 class="bold m-bottom-20">الاكثر مشاهدة</h6>
       </div>
       <div class="row margin-0">
         <h5 class="text-center" style="margin:0 auto" *ngIf="!loading && videos && videos.length ==0">لا يوجد
           فيديوهات</h5>
-        <div class="col-3 col-md-4 col-sm-6 col-12 relative video-playlist-home new-video-frame"
+        <div class="col-md-6 col-xl-4 col-sm-6 col-12 relative video-playlist-home new-video-frame"
              *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">

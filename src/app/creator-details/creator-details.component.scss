@@ -1,5 +1,5 @@
 .creator-container{
-  background: #f1f1f1;
+  //background: #f1f1f1;
 }
 .cover{height: 200px;overflow: hidden;position: relative}
 .cover:after{
@@ -159,7 +159,7 @@ slide{margin-bottom: 40px}
 }
 @media screen and (min-width: 1200px) and (max-width: 1500px){
   :host ::ng-deep .carousel {
-    right: 80px;
+    //right: 80px;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1200px){

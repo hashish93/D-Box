@@ -2,7 +2,7 @@
 <div class="relative pull-left" (clickOutside)="showAnchors=false" *ngIf="!loading">
   <div style="cursor: pointer;" class="profile-info-holder" (click)="showAnchors=!showAnchors;">
     <img src="../../../assets/images/down-direction.png">
-    <span class="m-left-5 m-right-10">{{user.fullname}}</span>
+    <span class="m-left-5 m-right-10 user-fullname">{{user.fullname}}</span>
     <img class="profile-pic" *ngIf="user.avatar && !user.avatar.includes('https')" src="{{staticEndpoint}}{{user.avatar}}">
     <img class="profile-pic" *ngIf="user.avatar && user.avatar.includes('https')" src="{{user.avatar}}">
   </div>

@@ -1,15 +1,15 @@
 <div class="container-fluid home-more-views m-top-20 rtl text-right">
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-3 col-xl-2">
 
     </div>
-    <div class="col-lg-8 bottom-border">
+    <div class="col-lg-6 col-xl-8 bottom-border">
       <div class="row margin-0">
         <h6 class="bold m-bottom-20">فيديوهات المبدع</h6>
       </div>
       <div class="row">
         <h5 class="text-center" style="margin: 0 auto" *ngIf="!loading && videos && videos.length == 0">لا يوجد فيديوهات</h5>
-        <div class="col-md-4 col-sm-6 col-12 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-xl-4 col-sm-6 col-12 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
               <div class="padding-right-left-10">
@@ -75,7 +75,7 @@
       </div>
 
     </div>
-    <div class="col col-lg-2">
+    <div class="col-xl-2 col-lg-3">
       <app-side-more-views-for-creator [creator_id]="creatorId" ></app-side-more-views-for-creator>
     </div>
 

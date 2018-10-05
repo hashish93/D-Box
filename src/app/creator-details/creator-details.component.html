@@ -25,7 +25,7 @@
               <carousel [noWrap]="false" *ngIf="latestVideos && latestVideos.length > 0">
                 <slide [ngClass]="{'first_slide':latestVideos.length > 0}" *ngIf="latestVideos.length > 0">
                   <div class="row">
-                    <div class="col-md-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame" *ngFor="let video of latestVideos;let i=index">
+                    <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame" *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i < 6" class="bg-white width100 inline-block">
                         <div  class="width100 inline-block">
                           <div class="padding-right-left-10">
@@ -87,7 +87,7 @@
                 </slide>
                 <slide [ngClass]="{'second_slide':latestVideos.length >= 7}" *ngIf="latestVideos.length >= 7">
                   <div class="row">
-                    <div class="col-md-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame" *ngFor="let video of latestVideos;let i=index">
+                    <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame" *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i >= 6 && i <12" class="bg-white width100 inline-block">
                         <div  class="width100 inline-block">
                           <div class="padding-right-left-10">

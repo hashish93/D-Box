@@ -2,7 +2,7 @@
   <tabset>
     <tab heading="الاحدث" id="watchnow" (select)="onSelect($event)">
       <div *ngIf="videos" class="m-top-10 row">
-        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
 
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
@@ -66,7 +66,7 @@
     </tab>
     <tab heading="الاكثر مشاهدة" id="trend" (select)="onSelect($event)">
       <div *ngIf="videos" class="m-top-10 row">
-        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
               <div class="padding-right-left-10">
@@ -129,7 +129,7 @@
     </tab>
     <tab heading="ترشيحاتنا" id="recommended" (select)="onSelect($event)">
       <div *ngIf="videos" class="m-top-10 row">
-        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
               <div class="padding-right-left-10">
@@ -190,7 +190,7 @@
     </tab>
     <tab heading="الحصريات" id="exclusive" (select)="onSelect($event)">
       <div *ngIf="videos" class="m-top-10 row">
-        <div class="col-12 col-sm-6 col-lg-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
               <div class="padding-right-left-10">

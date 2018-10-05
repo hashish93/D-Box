@@ -24,14 +24,15 @@ body , html{
   font-family:$font-family-brand !important;
   background: #f0f3f7 !important;
   position: relative;
-  min-height: 100%;
+}
+html{
+  height: 100%;
 }
 body{
   padding-top: 100px;
   position: relative;
   padding-bottom: 90px;
   min-height: 100%;
-  height: 100%;
 }
 .m-bottom-5{margin-bottom: 5px;}
 .m-bottom-10{margin-bottom: 10px;}
