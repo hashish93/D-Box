@@ -3,7 +3,7 @@
     <div class="col-lg-3 col-xl-2">
 
     </div>
-    <div class="col-12 col-lg-7 col-xl-8 bottom-border">
+    <div class="col-12 col-lg-7 col-xl-8">
       <div class="row margin-0">
         <h6 class="bold m-bottom-20">الاكثر مشاهدة</h6>
         <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
@@ -34,6 +34,9 @@
                 <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
               </div>
               <div class="padding-right-left-10">
+                 <span class="time-ago">
+                  {{video.time_ago}}
+                </span>
                 <h3>
                   {{video.title}}
                 </h3>

@@ -70,6 +70,14 @@ a.inner-cat-link {
   margin-top: 10px;
   color: #a7a5a5;
 }
+.time-ago{
+  float: left;
+  font-size: 11px;
+  color: #9a9a9a;
+  margin-right: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+}
 @media screen and (min-width: 1200px) and (max-width: 1400px){
   .no-padding-right{padding-right: 0}
 }

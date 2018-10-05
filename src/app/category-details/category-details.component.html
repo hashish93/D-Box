@@ -31,6 +31,9 @@
 
                   </div>
                   <div class="padding-right-left-10">
+                    <span class="time-ago">
+                      {{firstVideo.time_ago}}
+                    </span>
                     <h3>
                       {{firstVideo.title}}
                     </h3>
@@ -64,8 +67,10 @@
                     <span class="m-right-5 m-left-5">مشاهدة</span>
                   </div>
 
-                  <div class="float-left m-right-5 video-extra-more">
+                  <div class="float-right more-icon m-right-5 video-extra-more">
+                    <a routerLink="/video/{{firstVideo._id}}">
                     <img [src]="'./assets/images/new-icons/more.png'">
+                    </a>
                   </div>
 
                 </div>
@@ -133,6 +138,9 @@
 
                 </div>
                 <div class="padding-right-left-10">
+                  <span class="time-ago">
+                    {{video.time_ago}}
+                  </span>
                   <h3>
                     {{video.title}}
                   </h3>

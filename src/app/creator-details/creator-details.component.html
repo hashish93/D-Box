@@ -20,18 +20,21 @@
                 </div>
               </div>
               <h6 class="m-right-5 m-bottom-20">الاحدث اضافة</h6>
-              <app-loading [error]="errorLatestVideos" [loading]="loadingLatestVideos" class="width100 block"></app-loading>
+              <app-loading [error]="errorLatestVideos" [loading]="loadingLatestVideos"
+                           class="width100 block"></app-loading>
               <h5 class="text-center" *ngIf="!loading && latestVideos && latestVideos.length == 0">لا يوجد فيديوهات</h5>
               <carousel [noWrap]="false" *ngIf="latestVideos && latestVideos.length > 0">
                 <slide [ngClass]="{'first_slide':latestVideos.length > 0}" *ngIf="latestVideos.length > 0">
                   <div class="row">
-                    <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame" *ngFor="let video of latestVideos;let i=index">
+                    <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame"
+                         *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i < 6" class="bg-white width100 inline-block">
-                        <div  class="width100 inline-block">
+                        <div class="width100 inline-block">
                           <div class="padding-right-left-10">
                             <div class="float-right top-video-creator-section">
                               <a routerLink="/creator/{{video.creator.id}}">
-                                <img class="m-left-10" *ngIf="video.creator" src="{{staticEndPoint}}{{video.creator.avatar}}">
+                                <img class="m-left-10" *ngIf="video.creator"
+                                     src="{{staticEndPoint}}{{video.creator.avatar}}">
                                 <span>{{video.creator.title}}</span>
                               </a>
                             </div>
@@ -50,6 +53,9 @@
                             <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                           </div>
                           <div class="padding-right-left-10">
+                             <span class="time-ago">
+                                {{video.time_ago}}
+                              </span>
                             <h3>
                               {{video.title}}
                             </h3>
@@ -87,13 +93,15 @@
                 </slide>
                 <slide [ngClass]="{'second_slide':latestVideos.length >= 7}" *ngIf="latestVideos.length >= 7">
                   <div class="row">
-                    <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame" *ngFor="let video of latestVideos;let i=index">
+                    <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame"
+                         *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i >= 6 && i <12" class="bg-white width100 inline-block">
-                        <div  class="width100 inline-block">
+                        <div class="width100 inline-block">
                           <div class="padding-right-left-10">
                             <div class="float-right top-video-creator-section">
                               <a routerLink="/creator/{{video.creator.id}}">
-                                <img class="m-left-10" *ngIf="video.creator" src="{{staticEndPoint}}{{video.creator.avatar}}">
+                                <img class="m-left-10" *ngIf="video.creator"
+                                     src="{{staticEndPoint}}{{video.creator.avatar}}">
                                 <span>{{video.creator.title}}</span>
                               </a>
                             </div>
@@ -112,6 +120,9 @@
                             <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                           </div>
                           <div class="padding-right-left-10">
+                            <span class="time-ago">
+                                {{video.time_ago}}
+                              </span>
                             <h3>
                               {{video.title}}
                             </h3>

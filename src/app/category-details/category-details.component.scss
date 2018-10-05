@@ -72,6 +72,15 @@
   margin-top: 10px;
   color: #a7a5a5;
 }
+.first-video .new-video-frame .video-extra .m-right-5.m-left-5:not(img){
+  display: inline-block;
+}
+.first-video .new-video-frame .video-extra-more.more-icon{
+  display: inline-block;
+}
+.first-video .new-video-frame > .bg-white a h3{
+  margin-top: 20px;
+}
 @media screen and (max-width: 992px){
   .custom-top{
     margin-top: 10px;

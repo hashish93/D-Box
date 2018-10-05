@@ -14,6 +14,15 @@
 .custom-group .dropdown-toggle::after{position: absolute;top:18px;left:8px;}
 .dropdown-menu.show{right: 0 !important;}
 .dropdown-item{text-align: center}
+.more-links{
+  position: absolute;
+  left: 5px;
+  span{font-size: 11px;cursor: pointer;font-weight: bold}
+  span.active{color: #ef482a}
+}
 @media screen and (max-width: 992px){
   .custom-group {position: absolute;right: auto;left: 0;}
+}
+@media screen and (max-width: 400px){
+  .more-links span{margin-right: 13px;}
 }

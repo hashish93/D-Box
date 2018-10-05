@@ -244,6 +244,15 @@ app-side-menu{
       max-height: 22px;
       min-height: 23px;
       font-weight: bold;
+      display: block;
+    }
+    .time-ago{
+      float: left;
+      font-size: 11px;
+      color: #9a9a9a;
+      margin-right: 5px;
+      margin-top: 5px;
+      font-weight: bold;
     }
   }
   .video-extra{

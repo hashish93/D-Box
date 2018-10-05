@@ -18,19 +18,21 @@ export class RecommendedVideosComponent implements OnInit {
   public loading : boolean = false;
   public error : string = '';
   public videos : Video[];
+  public active : string='';
   constructor(public videoService : VideoService , public playListService :PlaylistService,public router :Router,
               public userService : UserService, public authService : AuthService , public creatorService : CreatorService) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint();
-    this.getlatestVideos();
+    this.getlatestVideos('recommended');
   }
 
-  public getlatestVideos(){
+  public getlatestVideos(type:string){
+    this.active = type;
     this.loading = true;
     this.error = '';
     this.videos = [];
-    this.playListService.getPlaylistFromTypeLimited('recommended',4).subscribe(data=> {
+    this.playListService.getPlaylistFromTypeLimited(type,4).subscribe(data=> {
       this.videos = data;
       this.loading = false;
       this.error = '';

@@ -40,5 +40,6 @@ export interface Video {
   checked:any,
   small:any,
   published:number,
-  activated:number
+  activated:number,
+  time_ago:string
 }

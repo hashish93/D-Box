@@ -6,7 +6,11 @@
     <div class="col-12 col-lg-7 col-xl-8">
       <div class="row margin-0 relative">
         <h6 class="bold m-bottom-20">فيديوهات مقترحة</h6>
-
+        <div class="pull-left more-links">
+          <span class="inline-block m-right-30" [ngClass]="{'active':active=='watchnow'}" (click)="getlatestVideos('watchnow')">الاحدث</span>
+          <span class="inline-block m-right-30" [ngClass]="{'active':active=='trend'}" (click)="getlatestVideos('trend')">الاكثر مشاهدة</span>
+          <span class="inline-block m-right-30" [ngClass]="{'active':active=='recommended'}" (click)="getlatestVideos('recommended')">الاكثر تعليق</span>
+        </div>
 
         <div *ngIf="router.url == '/'" class="btn-group custom-group" style="display: none" dropdown>
           <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
@@ -49,6 +53,9 @@
                 <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
               </div>
               <div class="padding-right-left-10">
+                <span class="time-ago">
+                  {{video.time_ago}}
+                </span>
                 <h3>
                   {{video.title}}
                 </h3>

@@ -15,10 +15,12 @@
         <div class="bg-white width100 inline-block">
 
 
-
           <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true' data-native_fullscreen='true'
                   allowfullscreen='true' height="550px" frameBorder="0" [src]="url"></iframe>
           <div class="padding-right-left-10">
+            <span class="time-ago">
+                  {{video.time_ago}}
+            </span>
             <h3 class="video-title">
               {{video.title}}
             </h3>
@@ -27,7 +29,8 @@
             </p>
             <div class="m-top-20 m-bottom-20" *ngIf="video && video.tags && video.tags.length > 0">
               <div class="inline-block m-left-10" *ngFor="let tag of video.tags">
-                <a routerLink="/results" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge"># {{tag.title}}</a>
+                <a routerLink="/results" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge">#
+                  {{tag.title}}</a>
               </div>
             </div>
           </div>
@@ -41,7 +44,7 @@
               <span class="m-right-5 m-left-5">اعجاب</span>
             </div>
             <div (clickOutside)="share=false" class="float-right video-extra side-share pointer relative">
-              <div (click)="share=!share" >
+              <div (click)="share=!share">
                 <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
                 <span class="m-right-5 m-left-5">مشاركة</span>
               </div>
