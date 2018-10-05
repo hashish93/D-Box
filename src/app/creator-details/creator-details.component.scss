@@ -1,7 +1,7 @@
 .creator-container{
   //background: #f1f1f1;
 }
-.cover{height: 200px;overflow: hidden;position: relative}
+.cover{height: 250px;overflow: hidden;position: relative}
 .cover:after{
   content:"";
   background: rgba(255,255,255,.78);
@@ -10,9 +10,9 @@
   height: 100%;
   right: 0;
 }
-.cover img{min-height: 200px;}
+.cover img{min-height: 250px;}
 .avatar{
-  margin-top: -150px;
+  margin-top: -180px;
   margin-bottom: 50px;
   position: relative;
   img{
@@ -21,6 +21,9 @@
     border:2px solid #eee;
     border-radius: 50%;
   }
+}
+.text-gray{
+  color: #8e8282;
 }
 #main{
   padding-right: 10px;
@@ -206,15 +209,15 @@ slide{margin-bottom: 40px}
   }
 }
 @media screen and (max-width: 768px){
-  .cover{height: 125px;overflow: hidden}
-  .cover img{min-height: 125px;}
+  .cover{height: 175px;overflow: hidden}
+  .cover img{min-height: 175px;}
   :host ::ng-deep .carousel-indicators{right:0;}
   .about-details{padding: 20px 10px 20px;}
   .about-details > div{
     left: 10px;
   }
   .avatar {
-    margin-top: -110px;
+    margin-top: -140px;
     img{
       width: 70px;
       height: 70px;
