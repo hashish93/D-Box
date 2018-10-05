@@ -20,7 +20,7 @@
                   <h6 class="text-gray">{{creator.job}}</h6>
                 </div>
               </div>
-              <h6 class="m-right-5 m-bottom-20">الاحدث اضافة</h6>
+              <h6 class="m-right-5 m-bottom-20">مضاف حديثا</h6>
               <app-loading [error]="errorLatestVideos" [loading]="loadingLatestVideos"
                            class="width100 block"></app-loading>
               <h5 class="text-center" *ngIf="!loading && latestVideos && latestVideos.length == 0">لا يوجد فيديوهات</h5>
@@ -30,24 +30,7 @@
                     <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame"
                          *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i < 6" class="bg-white width100 inline-block">
-                        <div class="width100 inline-block">
-                          <div class="padding-right-left-10">
-                            <div class="float-right top-video-creator-section">
-                              <a routerLink="/creator/{{video.creator.id}}">
-                                <img class="m-left-10" *ngIf="video.creator"
-                                     src="{{staticEndPoint}}{{video.creator.avatar}}">
-                                <span>{{video.creator.title}}</span>
-                              </a>
-                            </div>
-                            <div class="float-left top-video-follow-section">
-                              <div (click)="followCreator(video)" class="follow-holder">
-                                <img src="./assets/images/new-icons/follow.png">
-                                <span *ngIf="!video.creator.is_followed">متابعة</span>
-                                <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+
 
                         <a routerLink="/video/{{video._id}}">
                           <div class="image-container relative">
@@ -97,25 +80,7 @@
                     <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame"
                          *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i >= 6 && i <12" class="bg-white width100 inline-block">
-                        <div class="width100 inline-block">
-                          <div class="padding-right-left-10">
-                            <div class="float-right top-video-creator-section">
-                              <a routerLink="/creator/{{video.creator.id}}">
-                                <img class="m-left-10" *ngIf="video.creator"
-                                     src="{{staticEndPoint}}{{video.creator.avatar}}">
-                                <span>{{video.creator.title}}</span>
-                              </a>
-                            </div>
-                            <div class="float-left top-video-follow-section">
-                              <div (click)="followCreator(video)" class="follow-holder">
-                                <img src="./assets/images/new-icons/follow.png">
-                                <span *ngIf="!video.creator.is_followed">متابعة</span>
-                                <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
+                        
                         <a routerLink="/video/{{video._id}}">
                           <div class="image-container relative">
                             <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
