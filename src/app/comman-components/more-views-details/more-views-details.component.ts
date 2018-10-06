@@ -28,6 +28,7 @@ export class MoreViewsDetailsComponent implements OnInit , OnChanges  {
   public categoryId : Number;
   @Input()
   public limit : Number = 4;
+  public AppSettings: any;
   constructor(public videoService : VideoService,
               public authService: AuthService,
               public creatorService: CreatorService ,
@@ -35,6 +36,7 @@ export class MoreViewsDetailsComponent implements OnInit , OnChanges  {
               public userService: UserService) { }
 
   ngOnInit() {
+    this.AppSettings = AppSettings;
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getVideos();
   }

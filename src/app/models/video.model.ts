@@ -41,5 +41,6 @@ export interface Video {
   small:any,
   published:number,
   activated:number,
-  time_ago:string
+  time_ago:string,
+  share:boolean
 }

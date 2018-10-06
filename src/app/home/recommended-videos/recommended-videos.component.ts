@@ -19,10 +19,13 @@ export class RecommendedVideosComponent implements OnInit {
   public error : string = '';
   public videos : Video[];
   public active : string='';
+  private AppSettings: any;
+  
   constructor(public videoService : VideoService , public playListService :PlaylistService,public router :Router,
               public userService : UserService, public authService : AuthService , public creatorService : CreatorService) { }
 
   ngOnInit() {
+    this.AppSettings = AppSettings;
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getlatestVideos('recommended');
   }

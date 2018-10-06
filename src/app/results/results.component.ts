@@ -25,7 +25,9 @@ export class ResultsComponent implements OnInit {
   public total : Number = 0 ;
   public current_page: number = 1;
   public activePage : string = '';
-  private staticEndPoint : string = '';
+  public staticEndPoint : string = '';
+  public AppSettings: any;
+
 
   constructor(public  route: ActivatedRoute,public videoService : VideoService,public titleService : Title ,
               public authService: AuthService,
@@ -36,6 +38,7 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.AppSettings = AppSettings;
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.route.queryParams.forEach(params => {
       this.current_page = 1;

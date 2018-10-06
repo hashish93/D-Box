@@ -20,12 +20,14 @@ export class CreatorVideosComponent implements OnInit {
   public current_page : number = 1;
   public next : string = '';
   public limit : number = 6;
+  public AppSettings: any;
   @Input()
   public creatorId: Number;
   constructor(public videoService : VideoService , public userService : UserService
     , public authService : AuthService , public creatorService : CreatorService , public router : Router) { }
 
   ngOnInit() {
+    this.AppSettings = AppSettings;
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getlatestVideos();
   }

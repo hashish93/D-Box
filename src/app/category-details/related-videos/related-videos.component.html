@@ -53,9 +53,19 @@
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">اعجاب</span>
               </div>
-              <div class="float-right video-extra side-share">
-                <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
-                <span class="m-right-5 m-left-5">مشاركة</span>
+              <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
+                <div (click)="video.share=!video.share">
+                  <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
+                  <span class="m-right-5 m-left-5">مشاركة</span>
+                </div>
+                <div *ngIf="video.share" class="share-area share">
+                  <share-buttons [theme]="'circles-dark'"
+                                 [include]="['facebook','twitter','google','whatsapp','messenger']"
+                                 [show]="5"
+                                 [autoSetMeta]="true"
+                                 [url]="AppSettings.getShareEndpoint()+'video/'+video.id"
+                  ></share-buttons>
+                </div>
               </div>
 
               <div class="float-right video-extra side-view">

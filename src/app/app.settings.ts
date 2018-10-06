@@ -16,5 +16,8 @@ export class AppSettings {
   static getVideoEndpoint(env?: string) {
     return environment.videoEndPoint;
   }
+  static getShareEndpoint(env?: string) {
+    return environment.shareEndPoint;
+  }
 
 }

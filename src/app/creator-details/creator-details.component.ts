@@ -22,6 +22,7 @@ export class CreatorDetailsComponent implements OnInit {
   public creator : Creator = {} as Creator;
   public latestVideos : Video[] = [] ;
   public staticEndPoint;
+  public AppSettings: any;
 
   constructor(public creatorService : CreatorService,public route : ActivatedRoute
     , public router : Router, public videoService : VideoService,public authService : AuthService,public userService : UserService,public titleService : Title){
@@ -31,6 +32,7 @@ export class CreatorDetailsComponent implements OnInit {
     this.route.params.forEach(params => {
       this.getCreatorDetails(params["id"]);
     });
+    this.AppSettings = AppSettings;
     this.staticEndPoint = AppSettings.getStaticEndpoint();
   }
 

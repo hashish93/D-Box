@@ -22,6 +22,7 @@ export class CategoryDetailsComponent implements OnInit {
   public videos : Video[] = [];
   public firstVideo : Video;
   public staticEndPoint;
+  public AppSettings: any;
 
   constructor(public categoryService : CategoryService,public route : ActivatedRoute
     , public router : Router,public videoService : VideoService,public titleService : Title,
@@ -35,6 +36,7 @@ export class CategoryDetailsComponent implements OnInit {
     this.route.params.forEach(params => {
       this.getCategoryDetails(params["id"]);
     });
+    this.AppSettings = AppSettings;
     this.staticEndPoint = AppSettings.getStaticEndpoint();
   }
 

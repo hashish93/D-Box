@@ -19,7 +19,7 @@ export class HomeVideosComponent implements OnInit {
   public error : string = '';
   public videos : Video[];
   activeTab: string;
-
+  public AppSettings;
   constructor(public playlistService: PlaylistService ,
               public authService: AuthService,
               public creatorService: CreatorService ,
@@ -27,6 +27,7 @@ export class HomeVideosComponent implements OnInit {
               public userService: UserService) { }
 
   ngOnInit() {
+    this.AppSettings = AppSettings;
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.activeTab = 'watchnow';
     this.getPlaylistFromTypeLimited(this.activeTab);

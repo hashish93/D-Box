@@ -356,6 +356,21 @@ app-side-menu{
 }
 .border-top-1{border-top:1px solid #eee;padding-top: 10px;}
 .pointer{cursor: pointer;user-select: none}
+.share {
+  position: absolute;
+  top: 37px;
+  text-align: left;
+  width: 320px;
+  right: -100px;
+  z-index: 1;
+}
+.share-area {
+  a{
+    display: block;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 5px 10px;
+  }
+}
 @media screen and (max-width: 992px) {
   body{padding-top: 65px;}
 }

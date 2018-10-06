@@ -19,11 +19,13 @@ export class VideoMoreViewsComponent implements OnInit {
   public loading : boolean = false;
   public error : string = '';
   public videos : Video[];
+  public AppSettings: any;
 
   constructor(public playListService : PlaylistService,public videoService : VideoService , public userService : UserService
     , public authService : AuthService , public creatorService : CreatorService , public router : Router) { }
 
   ngOnInit() {
+    this.AppSettings = AppSettings;
     this.staticEndPoint = AppSettings.getStaticEndpoint();
     this.getlatestVideos();
   }
