@@ -38,6 +38,9 @@
   left: 1%;
   top: 20px;
   transition: all .3s;
+  border: 1px solid #fff;
+  padding: 1px 10px;
+  border-radius: 3px;
   &:hover {
     background: #6196e4 !important;
     text-decoration: none;
