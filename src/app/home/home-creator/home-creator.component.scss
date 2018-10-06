@@ -99,4 +99,11 @@
 
 @media screen and (max-width: 768px){
   .left90{left: 0}
+  .all-creators{
+    position: static;
+    margin: 10px auto;
+    text-align: center;
+    display: block;
+    float: none;
+  }
 }
