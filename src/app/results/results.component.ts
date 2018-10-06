@@ -20,7 +20,7 @@ export class ResultsComponent implements OnInit {
   public key_id : number = 0;
   public loading : boolean = true;
   public error : string = '';
-  public limit : number = 30;
+  public limit : number = 1;
   public data : Video[] = [];
   public total : Number = 0 ;
   public current_page: number = 1;

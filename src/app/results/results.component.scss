@@ -1,21 +1,28 @@
 :host ::ng-deep .ngx-pagination{text-align: center;direction: ltr;padding-left: 0;}
-:host ::ng-deep .ngx-pagination li.pagination-next a,
-:host ::ng-deep .ngx-pagination li.pagination-previous a,
 :host ::ng-deep .ngx-pagination .pagination-next.disabled,
 :host ::ng-deep .ngx-pagination .pagination-previous.disabled
-{padding: 13px 15px;display: inline-block}
-:host ::ng-deep  .ngx-pagination .current{
-  color: #000;
-  background: #d7d7d7;
-  margin: 0 10px;
+{color: #b9b9b9}
+:host ::ng-deep .ngx-pagination li{
+  background: #fff;
+  margin: 0 4px;
 }
-:host ::ng-deep  .ngx-pagination li.pagination-next{background: #ffffff}
-:host ::ng-deep  .ngx-pagination li.pagination-previous{background: #bcbcbc;color: #fff}
-
+:host ::ng-deep  .ngx-pagination .current{
+  color: #fff;
+  background: #697d92;
+}
+:host ::ng-deep  .ngx-pagination li.pagination-next{color: #000;background: #ffffff}
+:host ::ng-deep  .ngx-pagination li.pagination-previous{color: #000;background: #ffffff}
+:host ::ng-deep  .ngx-pagination .pagination-next a::after,:host ::ng-deep .ngx-pagination .pagination-next.disabled::after{
+  content: '>';
+}
+:host ::ng-deep  .ngx-pagination .pagination-previous a::before,:host ::ng-deep .ngx-pagination .pagination-previous.disabled::before{
+  content: '<';
+}
 .main-section{
   //background: #f4f4f4;
   padding: 15px;
 }
+.custom-top{margin-top: 230px}
 @media screen and (max-width: 992px){
-  .custom-top{text-align: center;}
+  .custom-top{text-align: center;margin-top: 50px}
 }

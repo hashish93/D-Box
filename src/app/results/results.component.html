@@ -5,6 +5,9 @@
     </div>
   </div>
   <div class="col-12  col-lg-7 col-xl-8 rtl text-right m-top-35" id="main">
+    <div class="col-12 col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+      <img src="./assets/images/ad.png">
+    </div>
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
     <div *ngIf="!loading" class="main-section">
       <h5 class="text-center" *ngIf="total == 0">لا يوجد فيديوهات</h5>
@@ -73,15 +76,17 @@
             </div>
           </div>
         </div>
-        <pagination-controls (pageChange)="pageChanged($event)" previousLabel="السابق"
-                             nextLabel="التالي"
+        <pagination-controls (pageChange)="pageChanged($event)" previousLabel=""
+                             nextLabel=""
                              screenReaderPageLabel="صفحة"
                              screenReaderCurrentLabel="انت الان في صفحة "></pagination-controls>
       </div>
 
 
     </div>
-
+    <div class="col-12 col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
+      <img src="./assets/images/ad.png">
+    </div>
   </div>
   <div class="col col-lg-3 col-xl-2">
     <app-side-menu></app-side-menu>
