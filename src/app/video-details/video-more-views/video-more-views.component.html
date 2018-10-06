@@ -58,7 +58,7 @@
                   <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
                   <span class="m-right-5 m-left-5">مشاركة</span>
                 </div>
-                <div *ngIf="video.share" class="share-area share">
+                <div [ngClass]="{'none':!video.share}" class="share-area share">
                   <share-buttons [theme]="'circles-dark'"
                                  [include]="['facebook','twitter','google','whatsapp','messenger']"
                                  [show]="5"
