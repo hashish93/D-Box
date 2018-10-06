@@ -3,7 +3,7 @@ export const environment = {
     apiEndpoint: 'https://piksels-api.n-stream.tv/api/1.0/portal/',
     staticFilesEndPoint: 'https://piksels-api.n-stream.tv/',
     videoEndPoint: 'https://piksels-backend.n-stream.tv/v/',
-    shareEndPoint: 'http://piksels.n-stream.tv/',
+    shareEndPoint: 'http://piksels.tv/',
     production: true,
     isServer: true,
     // for prerender
