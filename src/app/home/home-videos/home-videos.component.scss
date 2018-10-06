@@ -26,6 +26,15 @@
   border-right: 12px solid transparent;
   border-top: 10px solid #fff;
 }
+.home-more-views .video-playlist-home{
+  padding-right: 0;
+  padding-left: 7px;
+}
+@media screen and (max-width: 575px){
+  .home-more-views .video-playlist-home{
+    padding-left: 0;
+  }
+}
 
 @media screen and (max-width: 768px) {
   :host ::ng-deep .nav-link{padding: 8px 6px;}
