@@ -70,6 +70,7 @@ import { CreatorsComponent } from './creators/creators.component';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 import {MetaLoader, MetaModule, MetaStaticLoader, PageTitlePositioning} from '@ngx-meta/core';
 import {RelatedVideosComponent} from './category-details/related-videos/related-videos.component';
+import {VideoMoreViewsComponent} from './video-details/video-more-views/video-more-views.component';
 
 
 
@@ -163,7 +164,8 @@ export function metaFactory(): MetaLoader {
     SideMoreViewsForCreatorComponent,
     ResultsComponent,
     CreatorsComponent,
-    RelatedVideosComponent
+    RelatedVideosComponent,
+    VideoMoreViewsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'my-app' }),
