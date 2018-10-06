@@ -5,7 +5,7 @@
         <img src="./assets/images/ad.png">
       </div>
       <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
-      <div class="m-top-5 rtl text-right creator-container">
+      <div class="m-top-5 rtl text-right creator-container width100">
         <div *ngIf="!loading">
 
           <div class="row margin-0">
@@ -17,7 +17,8 @@
                 <div class="avatar text-center">
                   <img src="{{staticEndPoint}}{{creator.avatar}}">
                   <h6 class="bold">{{creator.title}}</h6>
-                  <h6 class="text-gray">{{creator.job}}</h6>
+                  <h6 *ngIf="creator.job" class="text-gray">{{creator.job}}</h6>
+                  <h6 *ngIf="!creator.job" class="text-gray">-</h6>
                 </div>
               </div>
               <h6 class="m-right-5 m-bottom-20 inline-block bold">مضاف حديثا</h6>
@@ -153,7 +154,7 @@
             <div class="col-xs-12 col-md-4 col-lg-4 col-xl-3">
               <div class="row margin-0">
 
-                <div class="bg-white">
+                <div class="bg-white width100">
                   <div class="about-details relative">
                     <h5 class="bold m-bottom-20">عن المبدع</h5>
                     <div>
