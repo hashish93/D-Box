@@ -20,7 +20,7 @@
               <span class="category-top-title">{{category.title}}</span>
             </div>
             <div class="pull-left all-videos">
-              <a class="red" routerLink="/results" [queryParams]="{page:'category_views','key':category.title,'key_id':category._id}">عرض كل الفيديوهات</a>
+              <a class="red" routerLink="/category-videos" [queryParams]="{page:'category_views','key':category.title,'key_id':category._id}">عرض كل الفيديوهات</a>
             </div>
             <div class="relative video-playlist-home new-video-frame">
               <div class="bg-white width100 inline-block">
@@ -42,7 +42,7 @@
                     </p>
                     <div class="m-top-20 m-bottom-20" *ngIf="firstVideo && firstVideo.tags && firstVideo.tags.length > 0">
                       <div class="inline-block m-left-10" *ngFor="let tag of firstVideo.tags">
-                        <a routerLink="/results" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge"># {{tag.title}}</a>
+                        <a routerLink="/tags" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge"># {{tag.title}}</a>
                       </div>
                     </div>
 
@@ -184,7 +184,7 @@
           </div>
         </div>
         <div class="width100 inline-block text-center margin-0">
-          <a class="total-show" routerLink="/results" [queryParams]="{page:'category_views','key':category.title,'key_id':category._id}">عرض الكل</a>
+          <a class="total-show" routerLink="/category-videos" [queryParams]="{page:'category_views','key':category.title,'key_id':category._id}">عرض الكل</a>
         </div>
       </div>
 

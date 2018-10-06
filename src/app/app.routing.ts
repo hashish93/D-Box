@@ -48,6 +48,9 @@ export const routes: Routes = [
       { path: 'creator/:id', component: CreatorDetailsComponent},
       { path: 'edit-video/:id', component: EditVideoComponent,canActivate:[AuthGuard]},
       { path: 'results', component: ResultsComponent},
+      { path: 'tags', component: ResultsComponent},
+      { path: 'creator-videos', component: ResultsComponent},
+      { path: 'category-videos', component: ResultsComponent},
       { path: 'playlist', component: PlaylistComponent},
       { path: 'creators', component: CreatorsComponent}
     ]

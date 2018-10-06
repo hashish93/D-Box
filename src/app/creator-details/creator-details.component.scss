@@ -94,17 +94,19 @@ slide{margin-bottom: 40px}
   background-image: url("../../assets/images/new-icons/next.png");
   width: 30px;
   height: 30px;
-  background-color: #a8abbb;
+  background-color: #697d92;
   margin:0 5px;
   background-size: 10px 15px;
+  border-radius: 5px;
 }
 :host ::ng-deep .carousel-control-next-icon{
   background-image: url("../../assets/images/new-icons/prev.png");
   width: 30px;
   height: 30px;
-  background-color: #a8abbb;
+  background-color: #697d92;
   margin:0 5px;
   background-size: 10px 15px;
+  border-radius: 5px;
 }
 .about-title {
   background: #fff;
@@ -184,6 +186,17 @@ slide{margin-bottom: 40px}
   margin-bottom: 5px;
   padding: 10px 30px 10px 30px;
   img{width: 15px;}
+}
+.carousel-item{min-height: 620px}
+.all-videos{
+  font-weight: bold;
+  a{
+    text-decoration: underline;
+  }
+}
+.red{
+  color: #ff0200;
+  text-decoration: none !important;
 }
 @media screen and (min-width: 1200px) and (max-width: 1500px){
   :host ::ng-deep .carousel {

@@ -20,7 +20,10 @@
                   <h6 class="text-gray">{{creator.job}}</h6>
                 </div>
               </div>
-              <h6 class="m-right-5 m-bottom-20">مضاف حديثا</h6>
+              <h6 class="m-right-5 m-bottom-20 inline-block">مضاف حديثا</h6>
+              <div class="pull-left all-videos">
+                <a class="red" routerLink="/creator-videos" [queryParams]="{page : 'creator_views','key':creator.title,'key_id':creator._id}">عرض الفيديوهات</a>
+              </div>
               <app-loading [error]="errorLatestVideos" [loading]="loadingLatestVideos"
                            class="width100 block"></app-loading>
               <h5 class="text-center" *ngIf="!loading && latestVideos && latestVideos.length == 0">لا يوجد فيديوهات</h5>
@@ -80,7 +83,7 @@
                     <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame"
                          *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i >= 6 && i <12" class="bg-white width100 inline-block">
-                        
+
                         <a routerLink="/video/{{video._id}}">
                           <div class="image-container relative">
                             <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">

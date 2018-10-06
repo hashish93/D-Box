@@ -29,7 +29,7 @@
             </p>
             <div class="m-top-20 m-bottom-20" *ngIf="video && video.tags && video.tags.length > 0">
               <div class="inline-block m-left-10" *ngFor="let tag of video.tags">
-                <a routerLink="/results" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge">#
+                <a routerLink="/tags" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge">#
                   {{tag.title}}</a>
               </div>
             </div>
@@ -63,7 +63,7 @@
               <span class="m-right-5 m-left-5">مشاهدة</span>
             </div>
 
-            <div class="float-left m-right-5 video-extra-more">
+            <div class="float-right m-right-5 video-extra-more more-icon">
               <img [src]="'./assets/images/new-icons/more.png'">
             </div>
 
