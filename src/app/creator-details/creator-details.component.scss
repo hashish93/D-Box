@@ -241,3 +241,16 @@ slide{margin-bottom: 40px}
 @media screen and (max-width: 1200px){
   .extra-creator-details{padding: 10px;}
 }
+.home-more-views .video-playlist-home{
+  padding-right: 0;
+  padding-left: 7px;
+}
+
+@media screen and (max-width: 992px){
+  .m-top-35{text-align: center}
+}
+@media screen and (max-width: 575px){
+  .home-more-views .video-playlist-home{
+    padding-left: 0;
+  }
+}
