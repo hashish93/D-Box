@@ -17,7 +17,22 @@ export class AppSettings {
     return environment.videoEndPoint;
   }
   static getShareEndpoint(env?: string) {
-    return environment.shareEndPoint;
+    const protocol = window.location.protocol;
+    const host = window.location.hostname;
+    const port = window.location.port;
+    let url='';
+    if(protocol){
+      url+=protocol+'//';
+    }
+    if(host){
+      url+=host;
+    }
+    if(port){
+      url+=':'+port+'/';
+    }else{
+      url+='/';
+    }
+    return url;
   }
 
 }
