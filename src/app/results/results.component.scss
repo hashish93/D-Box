@@ -23,6 +23,15 @@
   padding: 15px;
 }
 .custom-top{margin-top: 230px}
+.home-more-views .video-playlist-home{
+  padding-right: 0;
+  padding-left: 7px;
+}
 @media screen and (max-width: 992px){
   .custom-top{text-align: center;margin-top: 50px}
+}
+@media screen and (max-width: 575px){
+  .home-more-views .video-playlist-home{
+    padding-left: 0;
+  }
 }

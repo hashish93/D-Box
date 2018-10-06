@@ -9,7 +9,7 @@
       <img src="./assets/images/ad.png">
     </div>
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
-    <div *ngIf="!loading" class="main-section">
+    <div *ngIf="!loading" class="main-section home-more-views">
       <h5 class="text-center" *ngIf="total == 0">لا يوجد فيديوهات</h5>
       <div *ngIf="total > 0">
         <h5 class="m-bottom-20">{{pageName}}</h5>

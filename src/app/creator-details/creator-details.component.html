@@ -5,7 +5,7 @@
         <img src="./assets/images/ad.png">
       </div>
       <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
-      <div class="m-top-5 rtl text-right creator-container width100">
+      <div class="m-top-5 rtl text-right creator-container width100 home-more-views">
         <div *ngIf="!loading">
 
           <div class="row margin-0">
@@ -30,7 +30,7 @@
               <h5 class="text-center" *ngIf="!loading && latestVideos && latestVideos.length == 0">لا يوجد فيديوهات</h5>
               <carousel [noWrap]="false" *ngIf="latestVideos && latestVideos.length > 0">
                 <slide [ngClass]="{'first_slide':latestVideos.length > 0}" *ngIf="latestVideos.length > 0">
-                  <div class="row">
+                  <div class="row margin-0">
                     <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame"
                          *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i < 6" class="bg-white width100 inline-block">
@@ -90,7 +90,7 @@
 
                 </slide>
                 <slide [ngClass]="{'second_slide':latestVideos.length >= 7}" *ngIf="latestVideos.length >= 7">
-                  <div class="row">
+                  <div class="row margin-0">
                     <div class="col-xl-4 col-sm-6 col-xs-12 custom-width relative video-playlist-home new-video-frame"
                          *ngFor="let video of latestVideos;let i=index">
                       <div *ngIf="i >= 6 && i <12" class="bg-white width100 inline-block">
