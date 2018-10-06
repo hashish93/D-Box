@@ -1,7 +1,7 @@
 <div class="tab-container">
   <tabset>
     <tab heading="الاحدث" id="watchnow" (select)="onSelect($event)">
-      <div *ngIf="videos" class="m-top-10 row">
+      <div *ngIf="activeTab=='watchnow'" class="m-top-10 row">
         <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
 
           <div class="bg-white width100 inline-block">
@@ -78,7 +78,7 @@
 
     </tab>
     <tab heading="الاكثر مشاهدة" id="trend" (select)="onSelect($event)">
-      <div *ngIf="videos" class="m-top-10 row">
+      <div *ngIf="activeTab=='trend'" class="m-top-10 row">
         <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
@@ -121,9 +121,19 @@
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">اعجاب</span>
               </div>
-              <div class="float-right video-extra side-share">
-                <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
-                <span class="m-right-5 m-left-5">مشاركة</span>
+              <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
+                <div (click)="video.share=!video.share">
+                  <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
+                  <span class="m-right-5 m-left-5">مشاركة</span>
+                </div>
+                <div *ngIf="video.share" class="share-area share">
+                  <share-buttons [theme]="'circles-dark'"
+                                 [include]="['facebook','twitter','google','whatsapp','messenger']"
+                                 [show]="5"
+                                 [autoSetMeta]="true"
+                                 [url]="AppSettings.getShareEndpoint()+'video/'+video._id"
+                  ></share-buttons>
+                </div>
               </div>
 
               <div class="float-right video-extra side-view">
@@ -144,7 +154,7 @@
       </div>
     </tab>
     <tab heading="ترشيحاتنا" id="recommended" (select)="onSelect($event)">
-      <div *ngIf="videos" class="m-top-10 row">
+      <div *ngIf="activeTab=='recommended'" class="m-top-10 row">
         <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
@@ -187,9 +197,19 @@
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">اعجاب</span>
               </div>
-              <div class="float-right video-extra side-share">
-                <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
-                <span class="m-right-5 m-left-5">مشاركة</span>
+              <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
+                <div (click)="video.share=!video.share">
+                  <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
+                  <span class="m-right-5 m-left-5">مشاركة</span>
+                </div>
+                <div *ngIf="video.share" class="share-area share">
+                  <share-buttons [theme]="'circles-dark'"
+                                 [include]="['facebook','twitter','google','whatsapp','messenger']"
+                                 [show]="5"
+                                 [autoSetMeta]="true"
+                                 [url]="AppSettings.getShareEndpoint()+'video/'+video.id"
+                  ></share-buttons>
+                </div>
               </div>
 
               <div class="float-right video-extra side-view">
@@ -208,7 +228,7 @@
       </div>
     </tab>
     <tab heading="الحصريات" id="exclusive" (select)="onSelect($event)">
-      <div *ngIf="videos" class="m-top-10 row">
+      <div *ngIf="activeTab=='exclusive'" class="m-top-10 row">
         <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
@@ -252,9 +272,19 @@
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">اعجاب</span>
               </div>
-              <div class="float-right video-extra side-share">
-                <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
-                <span class="m-right-5 m-left-5">مشاركة</span>
+              <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
+                <div (click)="video.share=!video.share">
+                  <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/share.png'">
+                  <span class="m-right-5 m-left-5">مشاركة</span>
+                </div>
+                <div *ngIf="video.share" class="share-area share">
+                  <share-buttons [theme]="'circles-dark'"
+                                 [include]="['facebook','twitter','google','whatsapp','messenger']"
+                                 [show]="5"
+                                 [autoSetMeta]="true"
+                                 [url]="AppSettings.getShareEndpoint()+'video/'+video.id"
+                  ></share-buttons>
+                </div>
               </div>
 
               <div class="float-right video-extra side-view">
