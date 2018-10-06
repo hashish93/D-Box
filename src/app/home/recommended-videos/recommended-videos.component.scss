@@ -26,3 +26,8 @@
 @media screen and (max-width: 400px){
   .more-links span{margin-right: 13px;}
 }
+@media screen and (max-width: 768px){
+  .home-more-views .video-playlist-home{
+    padding-left: 0;
+  }
+}
