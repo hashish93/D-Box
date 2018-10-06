@@ -85,10 +85,10 @@ export class CreatorDetailsComponent implements OnInit {
   public followCreator(creator) {
     this.userService.getUserData().subscribe(data => {
       let user = data;
-      if (user.id != creator.id) {
+      if (user.id != creator._id) {
         if (this.authService.isAuthenticated()) {
           creator.is_followed = !creator.is_followed;
-          this.creatorService.followCreator(creator.id).subscribe(data => {
+          this.creatorService.followCreator(creator._id).subscribe(data => {
           })
         } else {
           this.router.navigate(['login']);
