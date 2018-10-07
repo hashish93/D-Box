@@ -71,4 +71,15 @@ export class MoreViewsDetailsComponent implements OnInit , OnChanges  {
       this.router.navigate(['login']);
     });
   }
+  public likeVideo(video){
+    let id = video.id || video._id;
+    if(this.authService.isAuthenticated()){
+      video.is_liked = !video.is_liked;
+      video.is_liked ? video.counter.likes+=1 : video.counter.likes-=1;
+      this.videoService.likeVideo(id).subscribe(data=>{
+      })
+    }else {
+      this.router.navigate(['login'])
+    }
+  }
 }

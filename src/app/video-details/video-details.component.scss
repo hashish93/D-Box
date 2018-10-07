@@ -77,31 +77,5 @@ a.inner-cat-link {
   }
 }
 
-.heart {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: -111%;
-  left: -30px;
-  background: url('../../assets/images/new-icons/heart-bg.png') no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
-  animation: fave-heart 1s steps(28);
-}
-.heart.liked {
-  background-position: -2800px 0;
-  transition: background 1s steps(28);
-}
-.custom-padding-left{
-  padding-left: 48px;
-}
-@keyframes fave-heart {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -2800px 0;
-  }
-}
 
 

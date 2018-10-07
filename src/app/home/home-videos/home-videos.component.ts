@@ -7,6 +7,7 @@ import {AuthService} from '../../services/auth-service.service';
 import {CreatorService} from '../../services/creator.service';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
+import {VideoService} from '../../services/video.service';
 
 @Component({
   selector: 'app-home-videos',
@@ -24,7 +25,8 @@ export class HomeVideosComponent implements OnInit {
               public authService: AuthService,
               public creatorService: CreatorService ,
               public router: Router ,
-              public userService: UserService) { }
+              public userService: UserService,
+              public videoService: VideoService) { }
 
   ngOnInit() {
     this.AppSettings = AppSettings;
@@ -67,6 +69,18 @@ export class HomeVideosComponent implements OnInit {
     },err=>{
       this.router.navigate(['login']);
     });
+  }
+
+  public likeVideo(video){
+    let id = video.id || video._id;
+    if(this.authService.isAuthenticated()){
+      video.is_liked = !video.is_liked;
+      video.is_liked ? video.counter.likes+=1 : video.counter.likes-=1;
+      this.videoService.likeVideo(id).subscribe(data=>{
+      })
+    }else {
+      this.router.navigate(['login'])
+    }
   }
 
 }

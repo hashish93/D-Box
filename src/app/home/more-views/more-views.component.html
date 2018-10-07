@@ -45,10 +45,9 @@
             </a>
 
             <div class="m-bottom-10 inline-block width100 padding-right-left-10">
-              <div class="float-right video-extra side-likes">
-                <img class="m-left-5 m-right-5"
-                     [src]="video.is_liked  ? './assets/images/new-icons/heart-red.png' :'./assets/images/new-icons/heart.png' ">
-                <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+              <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
+                <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
+                <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">اعجاب</span>
               </div>
               <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
