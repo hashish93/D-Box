@@ -130,6 +130,8 @@
                   <share-buttons [theme]="'circles-dark'"
                                  [include]="['facebook','twitter','google','whatsapp','messenger']"
                                  [show]="5"
+                                 [title]="video.title"
+                                 [description]="video.title"
                                  [autoSetMeta]="true"
                                  [url]="AppSettings.getShareEndpoint()+'video/'+video._id"
                   ></share-buttons>
@@ -205,6 +207,8 @@
                   <share-buttons [theme]="'circles-dark'"
                                  [include]="['facebook','twitter','google','whatsapp','messenger']"
                                  [show]="5"
+                                 [title]="video.title"
+                                 [description]="video.title"
                                  [autoSetMeta]="true"
                                  [url]="AppSettings.getShareEndpoint()+'video/'+video.id"
                   ></share-buttons>
@@ -279,6 +283,8 @@
                   <share-buttons [theme]="'circles-dark'"
                                  [include]="['facebook','twitter','google','whatsapp','messenger']"
                                  [show]="5"
+                                 [title]="video.title"
+                                 [description]="video.title"
                                  [autoSetMeta]="true"
                                  [url]="AppSettings.getShareEndpoint()+'video/'+video.id"
                   ></share-buttons>
