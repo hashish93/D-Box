@@ -1,7 +1,7 @@
 .creator-container{
   //background: #f1f1f1;
 }
-.cover{height: 250px;overflow: hidden;position: relative}
+.cover{height: 250px;overflow: hidden;position: relative;border-radius:5px}
 .cover:after{
   content:"";
   background: rgba(255,255,255,.78);

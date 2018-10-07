@@ -72,7 +72,7 @@ export class CreatorDetailsComponent implements OnInit {
 
   private getLatestVideos(id: Number) {
     this.loadingLatestVideos = true;
-    this.videoService.getVideos(12,'views','desc',{creator_id:this.creator._id}).subscribe(data=> {
+    this.videoService.getVideos(12,'date','desc',{creator_id:this.creator._id}).subscribe(data=> {
       this.loadingLatestVideos = false;
       this.errorLatestVideos = '';
       this.latestVideos = data;
