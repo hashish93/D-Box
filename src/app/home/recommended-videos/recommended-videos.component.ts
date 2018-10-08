@@ -35,7 +35,7 @@ export class RecommendedVideosComponent implements OnInit {
     this.loading = true;
     this.error = '';
     this.videos = [];
-    this.playListService.getPlaylistFromTypeLimited(type,4).subscribe(data=> {
+    this.playListService.getPlaylistFromTypeLimited(type,3).subscribe(data=> {
       this.videos = data;
       this.loading = false;
       this.error = '';
