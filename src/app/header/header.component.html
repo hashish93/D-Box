@@ -21,9 +21,20 @@
         </a>
       </div>
       <div class="float-right m-top-35">
-        <form #searchForm="ngForm" novalidate (ngSubmit)="onFormSubmit(searchForm)">
+
+        <form #searchForm="ngForm" novalidate (ngSubmit)="onFormSubmit(searchForm)" (clickOutside)="searchedData=null">
           <div class="input-group input-group-sm m-top-7">
-            <input type="text" class="form-control" aria-label="Small" autocomplete="false" name="search" [(ngModel)]="search" placeholder="ابحث هنا" aria-describedby="inputGroup-sizing-sm">
+            <img class="loading custom-loading" *ngIf="loading" src="./assets/images/loading.gif">
+            <div *ngIf="search" class="search-results">
+              <div *ngIf="search && searchedData && searchedData.length == 0 && !loading">لا يوجد نتائج بحث</div>
+              <div *ngFor="let searchRecord of searchedData" (click)="onFormSubmit(searchForm,searchRecord.title)">
+                {{searchRecord.title}}
+              </div>
+              <div *ngIf="search && searchedData && more && !loading" class="more" (click)="$event.stopPropagation();moreSearch()">
+                المزيد
+              </div>
+            </div>
+            <input type="text" class="form-control" (input)="Search()" autocomplete="off" aria-label="Small" name="search" [(ngModel)]="search" placeholder="ابحث هنا" aria-describedby="inputGroup-sizing-sm">
             <div (click)="onFormSubmit(searchForm)" class="input-group-append">
             <span class="input-group-text" id="inputGroup-sizing-sm">
               <img src="../../assets/images/new-icons/search.png">

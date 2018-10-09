@@ -8,6 +8,7 @@ import {CategoryService} from '../services/category.service';
 import {Category} from '../models/category.model';
 import {AppSettings} from '../app.settings';
 import {Router} from '@angular/router';
+import {VideoService} from '../services/video.service';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,18 @@ export class HeaderComponent implements OnInit {
   public isCollapsed : boolean = true;
   public staticEndPoint: string;
   public search : string = '';
-  constructor(public creatorService : CreatorService,public authService : AuthService , public categoryService : CategoryService , public router : Router, @Inject(PLATFORM_ID) private platformId: Object) { }
+  public page:number=1;
+  public limit:number = 5;
+  public loading:boolean=false;
+  public searchedData: any = [];
+  public more:boolean = false;
+  public subscription:any;
+  constructor(public creatorService : CreatorService,
+              public authService : AuthService ,
+              public categoryService : CategoryService ,
+              public router : Router,
+              @Inject(PLATFORM_ID) private platformId: Object,
+              public videoService : VideoService) { }
 
   ngOnInit() {
     this.staticEndPoint = AppSettings.getStaticEndpoint()
@@ -42,13 +54,47 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  public onFormSubmit(searchForm){
-    console.log(this.search);
-    if(this.search){
-      this.router.navigate(['/results'],{queryParams:{'page':'search','key': this.search}})
+  public onFormSubmit(searchForm,customSearch?:string){
+    let search = "";
+    if(customSearch){
+      search =customSearch;
+    }else{
+      search = this.search;
+    }
+    if(search){
+      this.search = search;
+      this.page = 1;
+      this.more = false;
+      this.searchedData=null;
+      this.router.navigate(['/results'],{queryParams:{'page':'search','key': this.search}});
     }
   }
 
+  public Search(pagedSearch?:any){
+    if(this.subscription){
+      this.subscription.unsubscribe();
+    }
+    if(this.search){
+      this.loading = true;
+      if(!pagedSearch){
+        this.page = 1;
+        this.searchedData = [];
+      }
+      this.subscription = this.videoService.getRegisteredTags(this.page,this.limit,this.search).subscribe(tags=>{
+        if (this.searchedData == null){
+          this.searchedData=[]
+        }
+        this.searchedData.push(...tags.data);
+        this.more = !!tags.next_page_url;
+        this.loading = false;
+      });
+    }
+  }
+
+  public moreSearch(){
+    this.page ++;
+    this.Search(true);
+  }
   public logout(){
       // Client only code.
       if (isPlatformBrowser(this.platformId)) {

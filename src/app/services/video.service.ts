@@ -76,6 +76,9 @@ export class VideoService {
     return this.http.get('tags/search/keywords?keyword='+text);
   };
 
+  public getRegisteredTags(page:number,limit:number,searchText:string): Observable<any>{
+    return this.http.get('tags?q='+searchText+'&page='+page+'&limit='+limit);
+  }
   public getFormData(object) {
     const formData = new FormData();
     Object.keys(object).forEach(key => formData.append(key, object[key]));
