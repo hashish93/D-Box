@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -98,7 +98,7 @@ export function getAuthServiceConfigs() {
     [
       {
         id: FacebookLoginProvider.PROVIDER_ID,
-        provider: new FacebookLoginProvider('250010705400133')
+        provider: new FacebookLoginProvider('679774972403653')
       }
     ]
 );
@@ -169,6 +169,7 @@ export function metaFactory(): MetaLoader {
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'my-app' }),
+	BrowserTransferStateModule,
     BrowserAnimationsModule,
     AppRouting,
     MetaModule.forRoot({
@@ -193,7 +194,7 @@ export function metaFactory(): MetaLoader {
     NgxChartsModule,
     CollapseModule.forRoot(),
     JwtModule.forRoot(JWT_Module_Options),
-    HttpClientModule,       // (Required) For share counts
+    //HttpClientModule,       // (Required) For share counts
     ProgressbarModule.forRoot(),
     PerfectScrollbarModule,
     ShareButtonsModule.forRoot()

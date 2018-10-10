@@ -10,7 +10,8 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
-    "node_modules"
+    "node_modules",
+	"server.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "app/app.server.module#AppServerModule"

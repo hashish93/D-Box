@@ -26,7 +26,7 @@
           <div class="input-group input-group-sm m-top-7">
             <img class="loading custom-loading" *ngIf="loading" src="./assets/images/loading.gif">
             <div *ngIf="search" class="search-results">
-              <div *ngIf="search && searchedData && searchedData.length == 0 && !loading">لا يوجد نتائج بحث</div>
+              <!--<div *ngIf="search && searchedData && searchedData.length == 0 && !loading">لا يوجد نتائج بحث</div>-->
               <div *ngFor="let searchRecord of searchedData" (click)="onFormSubmit(searchForm,searchRecord.title)">
                 {{searchRecord.title}}
               </div>

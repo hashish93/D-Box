@@ -380,15 +380,20 @@ app-side-menu{
   padding-left: 5px !important;
   padding-right: 0px !important;
 }
-
 .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
   margin-right: 0 !important;
   margin-left: .4375em !important;
 }
-
 .border-radius{
   border-radius: 5px;
 }
+.progress-bar.progress-bar-success{
+  color: #0b125e !important;
+}
+.progress.ng-star-inserted {
+  height: 1.3rem !important;
+}
+
 .heart {
   width: 100px;
   height: 100px;

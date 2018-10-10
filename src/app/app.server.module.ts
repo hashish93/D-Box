@@ -12,7 +12,7 @@ import { AppModule } from './app.module';
   imports: [
     AppModule,
     NoopAnimationsModule,
-ServerModule,
+	ServerModule,
     ServerTransferStateModule,
     ModuleMapLoaderModule
   ],
