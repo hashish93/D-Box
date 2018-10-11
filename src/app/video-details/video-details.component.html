@@ -39,7 +39,7 @@
           <div class="m-bottom-10 inline-block width100 padding-right-left-10">
             <div (click)="likeVideo()" class="float-right video-extra side-likes pointer relative custom-padding-left">
               <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
-              <span class="video-likes" *ngIf="video.counter">{{video.counter.likes | number:'1.'}}</span>
+              <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0 | number:'1.'}}</span>
               <span class="m-right-5 m-left-5">اعجاب</span>
             </div>
             <div (clickOutside)="share=false" class="float-right video-extra side-share pointer relative">
