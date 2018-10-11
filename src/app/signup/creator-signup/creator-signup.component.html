@@ -54,7 +54,7 @@
             <label for="description">نبذة عن الفيديوهات</label>
             <textarea class="form-control" id="description" name="description" [(ngModel)]="creator.description"  rows="3"></textarea>
           </div>
-          <h6 *ngIf="matched_user">يبدو انك مسجل من قبل كزائر هل ترغب في تحويل الجساب لمبدع</h6>
+          <h6 *ngIf="matched_user">يبدو انك مسجل من قبل كزائر هل ترغب في تحويل الحساب لمبدع</h6>
         </div>
 
       <div class="col-12 ">
@@ -69,7 +69,7 @@
           [disabled]="!creatorForm.form.valid || !validatePassword || loading">ارسل</button>
 
         <alert *ngIf="success" type="success" dismissOnTimeout="10000" (onClosed)="success = false">
-          تم استقبال بياناتك بنجاح انتظر الرد من فريق pikseles.tv
+          تم استقبال بياناتك بنجاح انتظر الرد من فريق piksels.tv
         </alert>
       </div>
 
