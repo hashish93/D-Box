@@ -39,6 +39,7 @@ export class CreatorSignupComponent implements OnInit {
       this.error = '';
       this.success = false;
       this.matched_user = false;
+      Object.keys(this.creator).forEach((key) => (this.creator[key] == null) && delete this.creator[key]);
       this.creatorService.addVisitor(this.creator).subscribe(data=> {
         this.loading = false;
         this.success = true;

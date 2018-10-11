@@ -66,6 +66,7 @@ export class VistorSignupComponent implements OnInit {
       this.loading = true;
       this.error = '';
       this.success = false;
+      Object.keys(this.visitor).forEach((key) => (this.visitor[key] == null) && delete this.visitor[key]);
       this.creatorService.addVisitor(this.visitor).subscribe(data=> {
         this.loading = false;
         this.success = true;
