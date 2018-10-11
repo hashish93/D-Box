@@ -36,7 +36,7 @@
             <div *ngIf="!validatePassword && visitor.password && visitor.password_confirmation" class="alert alert-danger">
                 كلمة السر غير متطابقة
             </div>
-            <alert *ngIf="success" type="success" dismissOnTimeout="5000" (onClosed)="success = false">
+            <alert *ngIf="success" type="success" dismissOnTimeout="10000" (onClosed)="success = false">
               تم اضافة العضو بنجاح
             </alert>
             <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
@@ -49,7 +49,7 @@
               <i class="fa fa-facebook"></i>
             </button>
           </form>
-          <h6 class="sign-as-creator-info">هل ترغب في ربح الاموال ؟ <a routerLink="/register/creator">انشاء حساب مبدع</a></h6>
+          <h6 class="sign-as-creator-info">هل ترغب في ربح الاموال ؟ <a routerLink="/join-us">انشاء حساب مبدع</a></h6>
 
         </div>
       </div>

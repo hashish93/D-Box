@@ -43,7 +43,9 @@ export class CreatorSignupComponent implements OnInit {
         this.loading = false;
         this.success = true;
         this.matched_user = false;
-        this.router.navigate(['/login']);
+        this.creator = {} as Creator;
+        creatorForm.reset();
+        // this.router.navigate(['/login']);
       }, (err)=> {
         this.loading = false;
         this.success = false;

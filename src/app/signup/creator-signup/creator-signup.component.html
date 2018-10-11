@@ -28,6 +28,7 @@
             <div class="form-group">
               <label for="password" >كلمة السر</label>
               <input (keyup)="check_password($event)" id="password" name="password" type="password" minlength="8" autocomplete=”off” [(ngModel)]="creator.password" required class="form-control" placeholder="كلمة السر">
+              <small class="small text-gray">كلمة السر  8 حروف علي الأقل</small>
             </div>
 
             <div class="form-group">
@@ -37,10 +38,6 @@
             <div *ngIf="!validatePassword && creator.password && creator.password_confirmation" class="alert alert-danger">
               كلمة السر غير متطابقة
             </div>
-            <alert *ngIf="success" type="success" dismissOnTimeout="5000" (onClosed)="success = false">
-              تم اضافة العضو بنجاح
-            </alert>
-
 
 
         </div>
@@ -48,6 +45,10 @@
           <div class="form-group">
             <label for="facebook" >رابط الفيس بوك</label>
             <input id="facebook" name="facebook" pattern="^.*(?:facebook|fb\.me).*$" [(ngModel)]="creator.facebook" autocomplete=”off” class="form-control" placeholder="رابط الفيس بوك">
+          </div>
+          <div class="form-group">
+            <label for="youtube" >رابط اليوتيوب</label>
+            <input id="youtube" name="youtube" pattern="^.*(?:youtube).*$" [(ngModel)]="creator.youtube" autocomplete=”off” class="form-control" placeholder="رابط اليوتيوب">
           </div>
           <div class="form-group">
             <label for="description">نبذة عن الفيديوهات</label>
@@ -66,6 +67,10 @@
           type="submit"
           class="btn block width100 btn-danger m-bottom-20"
           [disabled]="!creatorForm.form.valid || !validatePassword || loading">ارسل</button>
+
+        <alert *ngIf="success" type="success" dismissOnTimeout="10000" (onClosed)="success = false">
+          تم استقبال بياناتك بنجاح انتظر الرد من فريق pikseles.tv
+        </alert>
       </div>
 
 

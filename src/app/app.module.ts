@@ -71,6 +71,8 @@ import {ShareButtonsModule} from '@ngx-share/buttons';
 import {MetaLoader, MetaModule, MetaStaticLoader, PageTitlePositioning} from '@ngx-meta/core';
 import {RelatedVideosComponent} from './category-details/related-videos/related-videos.component';
 import {VideoMoreViewsComponent} from './video-details/video-more-views/video-more-views.component';
+import {CookieService} from 'ngx-cookie-service';
+import {DownloadAppsComponent} from './download-apps/download-apps.component';
 
 
 
@@ -165,7 +167,8 @@ export function metaFactory(): MetaLoader {
     ResultsComponent,
     CreatorsComponent,
     RelatedVideosComponent,
-    VideoMoreViewsComponent
+    VideoMoreViewsComponent,
+    DownloadAppsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'my-app' }),
@@ -208,7 +211,8 @@ export function metaFactory(): MetaLoader {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

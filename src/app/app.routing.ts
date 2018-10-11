@@ -21,6 +21,7 @@ import {PlaylistComponent} from './playlist/playlist.component';
 import {ResultsComponent} from './results/results.component';
 import {CreatorsComponent} from './creators/creators.component';
 import { MetaGuard } from '@ngx-meta/core';
+import {DownloadAppsComponent} from './download-apps/download-apps.component';
 
 
 export const routes: Routes = [
@@ -29,9 +30,10 @@ export const routes: Routes = [
     canActivateChild: [MetaGuard],
     children: [
       { path: '', component: HomeComponent },
+      { path: 'download-apps', component: DownloadAppsComponent},
       { path: 'register', redirectTo: 'register/visitor', pathMatch: 'full' },
       { path: 'register/visitor', component: VistorSignupComponent },
-      { path: 'register/creator', component: CreatorSignupComponent },
+      { path: 'join-us', component: CreatorSignupComponent },
       {path: 'settings',component: SettingsComponent,canActivate: [AuthGuard]},
       { path: 'forget-password', component: ForgetPasswordComponent,canActivate: [GuestGuard]},
       { path: 'verify-code/:email', component: VerifyCodeComponent,canActivate: [GuestGuard]},

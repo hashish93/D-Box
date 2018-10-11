@@ -25,6 +25,7 @@ export interface Creator {
   facebook: string,
   twitter: string,
   google: string,
+  youtube: string,
   instagram: string,
   social:any,
   counter:{
