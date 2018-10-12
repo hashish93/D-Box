@@ -1,6 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,14 @@ import {Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  constructor( public cookieService: CookieService , public router: Router) { }
+  constructor( public cookieService: CookieService , public router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        (<any>window).ga('set', 'page', event.urlAfterRedirects);
+        (<any>window).ga('send', 'pageview');
+      }
+    });
+  }
 
 
   ngOnInit(): void {
