@@ -8,7 +8,7 @@
   </div>
   <div *ngIf="showAnchors" class="profile-anchors">
       <ul class="list-group">
-        <li class="list-group-item">
+        <li class="list-group-item" *ngIf="user.is_creator == 1">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'statistics' }" routerLinkActive="active-link">
             <span class="m-right-10">الاحصائيات</span>
             <img src="../../../assets/images/new-icons/statistics.png">
@@ -26,7 +26,7 @@
 
         <li class="list-group-item">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'followers' }" routerLinkActive="active-link">
-            <span class="m-right-10">المتابعين</span>
+            <span class="m-right-10">المتابعات</span>
             <img src="../../../assets/images/new-icons/exit.png">
             <img src="../../../assets/images/new-icons/exit.png">
           </a>
