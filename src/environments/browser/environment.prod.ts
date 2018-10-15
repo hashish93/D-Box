@@ -7,13 +7,5 @@ export const environment = {
     production: true,
     isServer: false,
     // for prerender
-    host: 'http://localhost:4000',
-    firebase: {
-      apiKey: "AIzaSyDzcikcx-q8kuaO4bS7DiQCE4zgsRxfx04",
-      authDomain: "piksels-df718.firebaseapp.com",
-      databaseURL: "https://piksels-df718.firebaseio.com",
-      projectId: "piksels-df718",
-      storageBucket: "piksels-df718.appspot.com",
-      messagingSenderId: "1023466919928"
-    }
+    host: 'http://localhost:4000'
 };

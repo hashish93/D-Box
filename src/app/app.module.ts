@@ -1,6 +1,6 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, Inject, PLATFORM_ID } from '@angular/core';
-import {AsyncPipe, isPlatformBrowser} from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -73,12 +73,6 @@ import {RelatedVideosComponent} from './category-details/related-videos/related-
 import {VideoMoreViewsComponent} from './video-details/video-more-views/video-more-views.component';
 import {CookieService} from 'ngx-cookie-service';
 import {DownloadAppsComponent} from './download-apps/download-apps.component';
-import {environment} from '../environments/environment';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {AngularFireModule} from '@angular/fire';
-import {AngularFireAuthModule} from '@angular/fire/auth';
-import {AngularFireMessagingModule} from '@angular/fire/messaging';
-import {MessagingService} from './shared/messaging.service';
 
 
 
@@ -174,7 +168,7 @@ export function metaFactory(): MetaLoader {
     CreatorsComponent,
     RelatedVideosComponent,
     VideoMoreViewsComponent,
-    DownloadAppsComponent,
+    DownloadAppsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'my-app' }),
@@ -206,12 +200,7 @@ export function metaFactory(): MetaLoader {
     //HttpClientModule,       // (Required) For share counts
     ProgressbarModule.forRoot(),
     PerfectScrollbarModule,
-    ShareButtonsModule.forRoot(),
-    BrowserModule,
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    ShareButtonsModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true },
@@ -223,9 +212,7 @@ export function metaFactory(): MetaLoader {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
-    CookieService,
-    MessagingService,
-    AsyncPipe
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

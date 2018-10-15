@@ -20,8 +20,7 @@
               "src/assets",
               "src/favicon.ico",
               "src/robots.txt",
-              "src/firebase-messaging-sw.js", // <-- add this
-              "src/manifest.json" // <-- add this
+              "src/manifest.json"
             ],
             "styles": [
               "src/styles.scss",
@@ -95,8 +94,7 @@
               "src/assets",
               "src/favicon.ico",
               "src/robots.txt",
-              "src/firebase-messaging-sw.js", // <-- add this
-              "src/manifest.json" // <-- add this
+              "src/manifest.json"
             ]
           }
         },
