@@ -1,8 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {NavigationEnd, Router} from '@angular/router';
-import {AngularFireLiteMessaging} from 'angularfire-lite';
-import {NotificationsService} from 'angular2-notifications';
 
 @Component({
   selector: 'app-root',
@@ -11,32 +9,14 @@ import {NotificationsService} from 'angular2-notifications';
 })
 export class AppComponent implements OnInit {
 
-  constructor( public cookieService: CookieService , public router: Router , public angularFire: AngularFireLiteMessaging , public notificationService : NotificationsService) {
+  constructor( public cookieService: CookieService , public router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         (<any>window).ga('set', 'page', event.urlAfterRedirects);
         (<any>window).ga('send', 'pageview');
       }
     });
-
-    this.angularFire.requestPermission().subscribe(data=>{
-      console.log(data);
-    });
-    this.angularFire.token().subscribe(data=>{
-      console.log(data);
-    });
-    this.angularFire.instance().onMessage(data=>{
-      console.log(data);
-      var new_data : any = data;
-      if(new_data && new_data.notification){
-          this.notificationService.success(new_data.notification.title,new_data.notification.body,{timeOut:3000});
-      }
-    });
-    this.angularFire.tokenRefresh().subscribe(data=>{
-      console.log(data);
-    })
   }
-
 
 
   ngOnInit(): void {

@@ -73,8 +73,7 @@ import {RelatedVideosComponent} from './category-details/related-videos/related-
 import {VideoMoreViewsComponent} from './video-details/video-more-views/video-more-views.component';
 import {CookieService} from 'ngx-cookie-service';
 import {DownloadAppsComponent} from './download-apps/download-apps.component';
-import {AngularFireLite} from 'angularfire-lite';
-import {environment} from 'environments/environment';
+
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -201,8 +200,7 @@ export function metaFactory(): MetaLoader {
     //HttpClientModule,       // (Required) For share counts
     ProgressbarModule.forRoot(),
     PerfectScrollbarModule,
-    ShareButtonsModule.forRoot(),
-    AngularFireLite.forRoot(environment.config)
+    ShareButtonsModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true },
