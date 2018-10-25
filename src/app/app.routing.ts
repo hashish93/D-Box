@@ -39,12 +39,12 @@ export const routes: Routes = [
       { path: 'verify-code/:email', component: VerifyCodeComponent,canActivate: [GuestGuard]},
       { path: 'reset-password/:email', component: ResetPasswordComponent,canActivate: [GuestGuard]},
       { path: 'login', component: LoginComponent , canActivate: [GuestGuard]},
-      { path: 'video/:id', component: VideoDetailsComponent, data: {
+      { path: 'video/:id', component: VideoDetailsComponent, /*data: {
           meta: {
             title: 'piksels title',
             description: 'piksels description'
             }
-          }
+          }*/
         },
       { path: 'category/:id', component: CategoryDetailsComponent},
       { path: 'creator/:id', component: CreatorDetailsComponent},

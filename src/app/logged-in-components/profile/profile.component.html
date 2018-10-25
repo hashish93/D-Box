@@ -2,206 +2,239 @@
 <div>
     <form #userForm="ngForm" novalidate autocomplete="off" class="m-top-10 m-bottom-10">
         <div *ngIf="!loading" class="text-center cover-container relative">
-          <div class="inner-cover">
-            <img *ngIf="!fileViewCover && user.cover" [src]="staticEndPoint+'/'+user.cover">
-            <img *ngIf="fileViewCover" [src]="fileViewCover">
-          </div>
-          <div tooltip="الحد الاقصى 3 ميجا بايت " class="change-photo" (click)="!edit.section1 && !edit.section2 && !edit.section3 && !edit.section4 && userForm.valid && fileInputCover.click()">
-            <img class="edit-img" src="../../../assets/images/edit-icon.png">
-            <span>تعديل</span>
-          </div>
-          <input #fileInputCover
-                 style="display: none" accept="image/*"
-                 (change)="onCoverFileChanged($event)" type="file">
-        </div>
-        <div *ngIf="!loading" class="image-container profile-photo">
-          <img *ngIf="!fileView && user.avatar && !user.avatar.size && !user.avatar.includes('https')" [src]="staticEndPoint+'/'+user.avatar">
-          <img *ngIf="!fileView && user.avatar && !user.avatar.size && user.avatar.includes('https')" src="{{user.avatar}}">
-          <img *ngIf="fileView" [src]="fileView">
-          <div tooltip="الحد الاقصى 3 ميجا بايت " class="change-photo" (click)="!edit.section1 && !edit.section2 && !edit.section3 && !edit.section4 && userForm.valid && fileInput.click()">
-            <img class="edit-img" src="../../../assets/images/edit-icon.png">
-            <span>تعديل</span>
-          </div>
-          <input #fileInput
-                  style="display: none" accept="image/*"
-                 (change)="onFileChanged($event)" type="file">
-        </div>
-      <!--{{userForm.valid}}-->
-      <!--<br>-->
-      <!--{{user | json}}-->
-        <div [ngClass]="{'view-mode': !edit.section1}" class="section relative m-top-30">
-
-          <div [ngClass]="{'not_valid': edit.section1 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section1')" class="edit-option change-photo">
-              <div *ngIf="!edit.section1">
+            <div class="inner-cover">
+                <img *ngIf="!fileViewCover && user.cover" [src]="staticEndPoint+'/'+user.cover">
+                <img *ngIf="fileViewCover" [src]="fileViewCover">
+            </div>
+            <div tooltip="الحد الاقصى 3 ميجا بايت " class="change-photo"
+                 (click)="!edit.section1 && !edit.section2 && !edit.section3 && !edit.section4 && userForm.valid && fileInputCover.click()">
                 <img class="edit-img" src="../../../assets/images/edit-icon.png">
                 <span>تعديل</span>
-              </div>
-              <div *ngIf="edit.section1" class="my-success-btn">
+            </div>
+            <input #fileInputCover
+                   style="display: none" accept="image/*"
+                   (change)="onCoverFileChanged($event)" type="file">
+        </div>
+        <div *ngIf="!loading" class="image-container profile-photo">
+            <img *ngIf="!fileView && user.avatar && !user.avatar.size && !user.avatar.includes('https')"
+                 [src]="staticEndPoint+'/'+user.avatar">
+            <img *ngIf="!fileView && user.avatar && !user.avatar.size && user.avatar.includes('https')"
+                 src="{{user.avatar}}">
+            <img *ngIf="fileView" [src]="fileView">
+            <div tooltip="الحد الاقصى 3 ميجا بايت " class="change-photo"
+                 (click)="!edit.section1 && !edit.section2 && !edit.section3 && !edit.section4 && userForm.valid && fileInput.click()">
                 <img class="edit-img" src="../../../assets/images/edit-icon.png">
-              <span>حفظ</span>
+                <span>تعديل</span>
             </div>
-          </div>
-          <div *ngIf="edit.section1" (click)="reset()" class="custom-btn btn btn-info">
-            <span>الغاء</span>
-          </div>
+            <input #fileInput
+                   style="display: none" accept="image/*"
+                   (change)="onFileChanged($event)" type="file">
+        </div>
+        <!--{{userForm.valid}}-->
+        <!--<br>-->
+        <!--{{user | json}}-->
+        <div [ngClass]="{'view-mode': !edit.section1}" class="section relative m-top-30">
 
-          <h6 class="section-title">بيانات الحساب</h6>
-          <fieldset [disabled]="!edit.section1">
-            <div class="form-group">
-              <label for="name" >الاسم : </label>
-              <input id="name" name="name" [(ngModel)]="user.fullname" autocomplete=”off” required class="form-control">
+            <div [ngClass]="{'not_valid': edit.section1 && !userForm.valid}"
+                 (click)="userForm.valid && OnClickSection('section1')" class="edit-option change-photo">
+                <div *ngIf="!edit.section1">
+                    <img class="edit-img" src="../../../assets/images/edit-icon.png">
+                    <span>تعديل</span>
+                </div>
+                <div *ngIf="edit.section1" class="my-success-btn">
+                    <img class="edit-img" src="../../../assets/images/edit-icon.png">
+                    <span>حفظ</span>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="email" >البريد الالكتروني : </label>
-              <input [disabled]="true" id="email" name="email" [(ngModel)]="user.email" autocomplete=”off” required class="form-control">
+            <div *ngIf="edit.section1" (click)="reset()" class="custom-btn btn btn-info">
+                <span>الغاء</span>
             </div>
-            <div class="form-group">
-              <label for="age" >السن : </label>
-              <input id="age" name="age" [(ngModel)]="user.age" type="number" autocomplete=”off” class="form-control">
-            </div>
-            <div class="form-group">
-              <label>البلد : </label>
-              <ng-select [required]="user.is_creator == 1"  [items]="countries" [disabled]="!edit.section1"
-                         name="country" [(ngModel)]="user.country">
-              </ng-select>
-            </div>
-          </fieldset>
+
+            <h6 class="section-title">بيانات الحساب</h6>
+            <fieldset [disabled]="!edit.section1">
+                <div class="form-group">
+                    <label for="name">الاسم : </label>
+                    <input id="name" name="name" [(ngModel)]="user.fullname" autocomplete=”off” required
+                           class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الالكتروني : </label>
+                    <input [disabled]="true" id="email" name="email" [(ngModel)]="user.email" autocomplete=”off”
+                           required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="age">السن : </label>
+                    <input id="age" name="age" [(ngModel)]="user.age" type="number" autocomplete=”off”
+                           class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>البلد : </label>
+                    <ng-select [required]="user.is_creator == 1" [items]="countries" [disabled]="!edit.section1"
+                               name="country" [(ngModel)]="user.country">
+                    </ng-select>
+                </div>
+            </fieldset>
 
 
         </div>
 
         <div [ngClass]="{'view-mode': !edit.section2}" class="section relative m-top-30">
-          <div [ngClass]="{'not_valid': edit.section2 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section2')" class="edit-option change-photo">
-            <fieldset [disabled]="!userForm.valid">
-              <div *ngIf="!edit.section2">
-                <img class="edit-img" src="../../../assets/images/edit-icon.png">
-                <span>تعديل</span>
-              </div>
-              <div *ngIf="edit.section2" class="my-success-btn">
-                <img class="edit-img" src="../../../assets/images/edit-icon.png">
-              <span>حفظ</span>
+            <div [ngClass]="{'not_valid': edit.section2 && !userForm.valid}"
+                 (click)="userForm.valid && OnClickSection('section2')" class="edit-option change-photo">
+                <fieldset [disabled]="!userForm.valid">
+                    <div *ngIf="!edit.section2">
+                        <img class="edit-img" src="../../../assets/images/edit-icon.png">
+                        <span>تعديل</span>
+                    </div>
+                    <div *ngIf="edit.section2" class="my-success-btn">
+                        <img class="edit-img" src="../../../assets/images/edit-icon.png">
+                        <span>حفظ</span>
+                    </div>
+                </fieldset>
             </div>
+            <div *ngIf="edit.section2" (click)="reset()" class="custom-btn btn btn-info">
+                <span>الغاء</span>
+            </div>
+            <h6 class="section-title">معلومات عامة</h6>
+            <fieldset [disabled]="!edit.section2">
+                <div class="form-group">
+                    <label for="address">العنوان : </label>
+                    <input id="address" name="address" [(ngModel)]="user.address" autocomplete=”off”
+                           class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="mobile">الهاتف : </label>
+                    <!--<input id="mobile" name="mobile" [required]="user.is_creator == 1" [(ngModel)]="user.mobile" type="number" autocomplete=”off” class="form-control">-->
+                    <input id="mobile" name="mobile" [required]="user.is_creator == 1" [(ngModel)]="user.mobile"
+                           type="tel" autocomplete=”off” class="form-control" placeholder="01234567890"
+                           pattern="[0-9]*">
+                </div>
+                <div class="form-group">
+                    <label for="address">الوظيفة : </label>
+                    <input id="job" name="job" [(ngModel)]="user.job" autocomplete=”off” class="form-control">
+                </div>
+                <div class="form-group" *ngIf="user.is_creator == 1">
+                    <label for="level">حالة المبدع : </label>
+                    <input id="level" name="level" [(ngModel)]="user.level" disabled autocomplete="off"
+                           class="form-control">
+                </div>
             </fieldset>
-          </div>
-          <div *ngIf="edit.section2" (click)="reset()" class="custom-btn btn btn-info">
-            <span>الغاء</span>
-          </div>
-          <h6 class="section-title">معلومات عامة</h6>
-          <fieldset [disabled]="!edit.section2">
-            <div class="form-group">
-              <label for="address" >العنوان : </label>
-              <input id="address" name="address" [(ngModel)]="user.address" autocomplete=”off” class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="mobile" >الهاتف : </label>
-              <input id="mobile" name="mobile" [required]="user.is_creator == 1" [(ngModel)]="user.mobile" type="number" autocomplete=”off” class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="address" >الوظيفة : </label>
-              <input id="job" name="job" [(ngModel)]="user.job" autocomplete=”off” class="form-control">
-            </div>
-            <div class="form-group" *ngIf="user.is_creator == 1">
-              <label for="level">حالة المبدع : </label>
-              <input id="level" name="level" [(ngModel)]="user.level" disabled autocomplete="off" class="form-control">
-            </div>
-          </fieldset>
 
 
-      </div>
+        </div>
 
         <div *ngIf="user.is_creator == 1" [ngClass]="{'view-mode': !edit.section3}" class="section relative m-top-30">
-          <div [ngClass]="{'not_valid': edit.section3 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section3')" class="edit-option change-photo">
-            <fieldset [disabled]="!userForm.valid">
-              <div *ngIf="!edit.section3">
-                <img class="edit-img" src="../../../assets/images/edit-icon.png">
-                <span>تعديل</span>
-              </div>
-              <div *ngIf="edit.section3" class="my-success-btn">
-                <img class="edit-img" src="../../../assets/images/edit-icon.png">
-              <span>حفظ</span>
+            <div [ngClass]="{'not_valid': edit.section3 && !userForm.valid}"
+                 (click)="userForm.valid && OnClickSection('section3')" class="edit-option change-photo">
+                <fieldset [disabled]="!userForm.valid">
+                    <div *ngIf="!edit.section3">
+                        <img class="edit-img" src="../../../assets/images/edit-icon.png">
+                        <span>تعديل</span>
+                    </div>
+                    <div *ngIf="edit.section3" class="my-success-btn">
+                        <img class="edit-img" src="../../../assets/images/edit-icon.png">
+                        <span>حفظ</span>
+                    </div>
+                </fieldset>
             </div>
+            <div *ngIf="edit.section3" (click)="reset()" class="custom-btn btn btn-info">
+                <span>الغاء</span>
+            </div>
+            <h6 class="section-title">روابط مواقع التواصل</h6>
+            <fieldset [disabled]="!edit.section3">
+
+                <div class="form-group">
+                    <label for="facebook">فيس بوك : </label>
+                    <!--<input class="form-control direction-ltr text-left" id="facebook" name="facebook"-->
+                    <!--[(ngModel)]="user.facebook" pattern="^.*(?:facebook|fb\.me).*$" autocomplete=”off”>-->
+                    <input class="form-control direction-ltr text-left" id="facebook" name="facebook"
+                           [(ngModel)]="user.facebook" pattern="https?://.+" autocomplete=”off” placeholder="https://example.com" type="url">
+                </div>
+
+                <div class="form-group">
+                    <label for="twitter">تويتر : </label>
+                    <!--<input class="form-control direction-ltr text-left" id="twitter" name="twitter"-->
+                    <!--[(ngModel)]="user.twitter" pattern="^.*(?:twitter).*$" autocomplete=”off”>-->
+                    <input class="form-control direction-ltr text-left" id="twitter" name="twitter"
+                           [(ngModel)]="user.twitter" pattern="https?://.+" autocomplete=”off” placeholder="https://example.com" type="url">
+                </div>
+
+                <div class="form-group">
+                    <label for="instagram">انستاجرام : </label>
+                    <!--<input class="form-control direction-ltr text-left" id="instagram" name="instagram"-->
+                    <!--[(ngModel)]="user.instagram" pattern="^.*(?:instagram).*$" autocomplete=”off”>-->
+                    <input class="form-control direction-ltr text-left" id="instagram" name="instagram"
+                           [(ngModel)]="user.instagram" pattern="https?://.+" autocomplete=”off” placeholder="https://example.com" type="url">
+                </div>
+
+                <div class="form-group">
+                    <label for="google">جوجل : </label>
+                    <!--<input class="form-control direction-ltr text-left" id="google" name="google"-->
+                    <!--[(ngModel)]="user.google" pattern="^.*(?:google).*$" autocomplete=”off”>-->
+                    <input class="form-control direction-ltr text-left" id="google" name="google"
+                           [(ngModel)]="user.google" pattern="https?://.+" autocomplete=”off” placeholder="https://example.com" type="url">
+                </div>
             </fieldset>
-          </div>
-          <div *ngIf="edit.section3" (click)="reset()" class="custom-btn btn btn-info">
-            <span>الغاء</span>
-          </div>
-          <h6 class="section-title">روابط مواقع التواصل</h6>
-          <fieldset [disabled]="!edit.section3">
 
-            <div class="form-group">
-              <label for="facebook" >فيس بوك : </label>
-              <input class="form-control direction-ltr text-left" id="facebook" name="facebook" [(ngModel)]="user.facebook" pattern="^.*(?:facebook|fb\.me).*$" autocomplete=”off”>
-            </div>
-
-            <div class="form-group">
-              <label for="twitter" >تويتر : </label>
-              <input class="form-control direction-ltr text-left" id="twitter" name="twitter" [(ngModel)]="user.twitter" pattern="^.*(?:twitter).*$" autocomplete=”off”>
-            </div>
-
-            <div class="form-group">
-              <label for="instagram" >انستاجرام : </label>
-              <input class="form-control direction-ltr text-left" id="instagram" name="instagram" [(ngModel)]="user.instagram" pattern="^.*(?:instagram).*$" autocomplete=”off”>
-            </div>
-
-            <div class="form-group">
-              <label for="google" >جوجل : </label>
-              <input class="form-control direction-ltr text-left" id="google" name="google" [(ngModel)]="user.google" pattern="^.*(?:google).*$" autocomplete=”off”>
-            </div>
-          </fieldset>
-
-      </div>
+        </div>
 
         <div [ngClass]="{'view-mode': !edit.section4}" class="section relative m-top-30">
-          <div [ngClass]="{'not_valid': edit.section4 && !userForm.valid}" (click)="userForm.valid && OnClickSection('section4')" class="edit-option change-photo">
-            <fieldset [disabled]="!userForm.valid">
-              <div *ngIf="!edit.section4">
-                <img class="edit-img" src="../../../assets/images/edit-icon.png">
-                <span>تعديل</span>
-              </div>
-              <div *ngIf="edit.section4" class="my-success-btn">
+            <div [ngClass]="{'not_valid': edit.section4 && !userForm.valid}"
+                 (click)="userForm.valid && OnClickSection('section4')" class="edit-option change-photo">
+                <fieldset [disabled]="!userForm.valid">
+                    <div *ngIf="!edit.section4">
+                        <img class="edit-img" src="../../../assets/images/edit-icon.png">
+                        <span>تعديل</span>
+                    </div>
+                    <div *ngIf="edit.section4" class="my-success-btn">
 
-                <img class="edit-img" src="../../../assets/images/edit-icon.png">
-                <span>حفظ</span>
-              </div>
+                        <img class="edit-img" src="../../../assets/images/edit-icon.png">
+                        <span>حفظ</span>
+                    </div>
+
+                </fieldset>
+            </div>
+            <div *ngIf="edit.section4" (click)="reset()" class="custom-btn btn btn-info">
+                <span>الغاء</span>
+            </div>
+            <h6 class="section-title">كلمة السر</h6>
+            <fieldset [disabled]="!edit.section4">
+
+                <div class="form-group" *ngIf="user.no_password">
+                    <label for="cpassword">كلمة السر القديمة : </label>
+                    <label *ngIf="!edit.section4 && !user.cpassword" class="m-right-10">*******</label>
+                    <input id="cpassword" name="cpassword" type="password" [(ngModel)]="user.cpassword"
+                           autocomplete=”off” class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">كلمة السر الجديدة : </label>
+                    <label *ngIf="!edit.section4 && !user.password" class="m-right-10">*******</label>
+                    <input (keyup)="check_password($event)" id="password" name="password" type="password"
+                           [(ngModel)]="user.password" autocomplete=”off” class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="password_confirmation">تأكيد كلمة السر الجديدة : </label>
+                    <label *ngIf="!edit.section4 && !user.password_confirmation" class="m-right-10">*******</label>
+                    <input (keyup)="check_password($event)" id="password_confirmation" name="password_confirmation"
+                           type="password" [(ngModel)]="user.password_confirmation" autocomplete=”off”
+                           class="form-control">
+                </div>
+
+                <div *ngIf="!validatePassword && user.password && user.password_confirmation"
+                     class="alert alert-danger">
+                    كلمة السر غير متطابقة
+                </div>
 
             </fieldset>
-          </div>
-          <div *ngIf="edit.section4" (click)="reset()" class="custom-btn btn btn-info">
-            <span>الغاء</span>
-          </div>
-          <h6 class="section-title">كلمة السر</h6>
-          <fieldset [disabled]="!edit.section4">
 
-            <div class="form-group" *ngIf="user.no_password">
-              <label for="cpassword" >كلمة السر القديمة : </label>
-              <label *ngIf="!edit.section4 && !user.cpassword" class="m-right-10">*******</label>
-              <input id="cpassword" name="cpassword" type="password" [(ngModel)]="user.cpassword" autocomplete=”off” class="form-control">
+            <div class="m-top-20 text-center">
+                <fieldset [disabled]="!userForm.valid">
+                    <div class="close-account" (click)="closeAccount()">اغلاق الحساب</div>
+                </fieldset>
             </div>
-
-            <div class="form-group">
-              <label for="password" >كلمة السر الجديدة : </label>
-              <label *ngIf="!edit.section4 && !user.password" class="m-right-10">*******</label>
-              <input (keyup)="check_password($event)" id="password" name="password" type="password" [(ngModel)]="user.password" autocomplete=”off” class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="password_confirmation" >تأكيد كلمة السر الجديدة : </label>
-              <label *ngIf="!edit.section4 && !user.password_confirmation" class="m-right-10">*******</label>
-              <input (keyup)="check_password($event)" id="password_confirmation" name="password_confirmation" type="password" [(ngModel)]="user.password_confirmation" autocomplete=”off” class="form-control">
-            </div>
-
-            <div *ngIf="!validatePassword && user.password && user.password_confirmation" class="alert alert-danger">
-              كلمة السر غير متطابقة
-            </div>
-
-          </fieldset>
-
-          <div class="m-top-20 text-center">
-            <fieldset [disabled]="!userForm.valid" >
-              <div class="close-account" (click)="closeAccount()">اغلاق الحساب</div>
-            </fieldset>
-          </div>
-      </div>
+        </div>
 
     </form>
 </div>

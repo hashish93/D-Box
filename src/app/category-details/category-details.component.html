@@ -22,12 +22,12 @@
             <div class="pull-left all-videos">
               <a class="red" routerLink="/category-videos" [queryParams]="{page:'category_views','key':category.title,'key_id':category._id}">عرض كل الفيديوهات</a>
             </div>
-            <div class="relative video-playlist-home new-video-frame">
+            <div class="relative video-playlist-home new-video-frame first-video">
               <div class="bg-white width100 inline-block">
 
                 <a routerLink="/video/{{firstVideo._id}}">
                   <div class="image-container relative">
-                    <img *ngIf="firstVideo.thumbnails" src="{{staticEndPoint}}{{firstVideo.thumbnails.small}}">
+                    <img *ngIf="firstVideo.thumbnails" src="{{staticEndPoint}}{{firstVideo.thumbnails.large}}">
 
                   </div>
                   <div class="padding-right-left-10">

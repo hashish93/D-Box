@@ -169,7 +169,7 @@ label {
   display: inline-flex;
   direction: ltr;
 }
-.video-date{direction: ltr !important;color: #171717}
+.video-date{direction: ltr !important;color: #171717;font-size: 10px;}
 .player-icon {
   position: absolute;
   left: 0;
@@ -305,6 +305,16 @@ app-side-menu{
     &:hover{
       background: #c14948;
       color: #fff;
+    }
+  }
+}
+
+@media screen and (min-width: 575px){
+  .first-video{
+    > .bg-white a {
+      .image-container:after{
+        top: 45% !important;
+      }
     }
   }
 }

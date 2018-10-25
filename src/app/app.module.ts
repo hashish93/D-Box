@@ -112,11 +112,11 @@ export function metaFactory(): MetaLoader {
   return new MetaStaticLoader({
     pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
     pageTitleSeparator: ' - ',
-    applicationName: 'piksels',
+    applicationName: '',
     defaults: {
-      title: 'piksels title',
-      description: 'piksels description',
-      'og:image': 'https://d33wubrfki0l68.cloudfront.net/ca0061c3c33c88b2b124e64ad341e15e2a17af49/c8765/images/alligator-logo3.svg',
+      title: 'Piksels | الرئيسية',
+      description: 'Piksels | الرئيسية',
+      // 'og:image': 'https://d33wubrfki0l68.cloudfront.net/ca0061c3c33c88b2b124e64ad341e15e2a17af49/c8765/images/alligator-logo3.svg',
       'og:type': 'website',
       'og:locale': 'en_US',
       'og:locale:alternate': 'en_US,nl_NL,tr_TR'
