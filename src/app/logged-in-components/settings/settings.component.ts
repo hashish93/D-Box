@@ -25,7 +25,7 @@ export class SettingsComponent implements OnInit {
     public frontEndPoint;
 
     constructor(public userService: UserService, public route: ActivatedRoute, public router: Router, public location: Location, /*public titleService: Title*/private readonly meta: MetaService) {
-        // this.titleService.setTitle('الاعدادات');
+        // this.titleService.setTitle('الإعدادات');
     }
 
     ngOnInit() {
@@ -66,10 +66,10 @@ export class SettingsComponent implements OnInit {
     }
 
     public setMeta() {
-        this.meta.setTitle('Piksels | الاعدادات');
-        this.meta.setTag('description', 'Piksels | الاعدادات');
-        this.meta.setTag('og:title', 'Piksels | الاعدادات');
-        this.meta.setTag('og:description', 'Piksels | الاعدادات');
+        this.meta.setTitle('Piksels | الإعدادات');
+        this.meta.setTag('description', 'Piksels | الإعدادات');
+        this.meta.setTag('og:title', 'Piksels | الإعدادات');
+        this.meta.setTag('og:description', 'Piksels | الإعدادات');
         this.meta.setTag('image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image:width', '781');

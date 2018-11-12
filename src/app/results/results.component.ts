@@ -52,7 +52,7 @@ export class ResultsComponent implements OnInit {
                 this.searchKey = params['key'];
                 this.search();
             } else if (params['page'] == 'more_views') {
-                this.pageName = 'الاكثر مشاهدة';
+                this.pageName = 'الأكثر مشاهدة';
                 this.getMoreViews();
             } else if (params['page'] == 'category_views') {
                 this.pageName = 'فيديوهات قائمة ' + params['key'];

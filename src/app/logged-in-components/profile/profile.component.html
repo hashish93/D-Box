@@ -47,18 +47,18 @@
                 </div>
             </div>
             <div *ngIf="edit.section1" (click)="reset()" class="custom-btn btn btn-info">
-                <span>الغاء</span>
+                <span>إلغاء</span>
             </div>
 
             <h6 class="section-title">بيانات الحساب</h6>
             <fieldset [disabled]="!edit.section1">
                 <div class="form-group">
-                    <label for="name">الاسم : </label>
+                    <label for="name">الإسم : </label>
                     <input id="name" name="name" [(ngModel)]="user.fullname" autocomplete=”off” required
                            class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="email">البريد الالكتروني : </label>
+                    <label for="email">البريد الإلكتروني : </label>
                     <input [disabled]="true" id="email" name="email" [(ngModel)]="user.email" autocomplete=”off”
                            required class="form-control">
                 </div>
@@ -93,7 +93,7 @@
                 </fieldset>
             </div>
             <div *ngIf="edit.section2" (click)="reset()" class="custom-btn btn btn-info">
-                <span>الغاء</span>
+                <span>إلغاء</span>
             </div>
             <h6 class="section-title">معلومات عامة</h6>
             <fieldset [disabled]="!edit.section2">
@@ -138,7 +138,7 @@
                 </fieldset>
             </div>
             <div *ngIf="edit.section3" (click)="reset()" class="custom-btn btn btn-info">
-                <span>الغاء</span>
+                <span>إلغاء</span>
             </div>
             <h6 class="section-title">روابط مواقع التواصل</h6>
             <fieldset [disabled]="!edit.section3">
@@ -195,7 +195,7 @@
                 </fieldset>
             </div>
             <div *ngIf="edit.section4" (click)="reset()" class="custom-btn btn btn-info">
-                <span>الغاء</span>
+                <span>إلغاء</span>
             </div>
             <h6 class="section-title">كلمة السر</h6>
             <fieldset [disabled]="!edit.section4">

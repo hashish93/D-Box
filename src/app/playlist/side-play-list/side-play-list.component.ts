@@ -30,7 +30,7 @@ export class SidePlayListComponent implements OnInit {
       this.error = '';
     },error=>{
       this.loading = false;
-      this.error = 'خطأ في تحميل القائمة الخاصة الاكثر مشاهدة'
+      this.error = 'خطأ في تحميل القائمة الخاصة الأكثر مشاهدة'
     })
   }
 }

@@ -10,7 +10,7 @@
       <ul class="list-group">
         <li class="list-group-item" *ngIf="user.is_creator == 1">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'statistics' }" routerLinkActive="active-link">
-            <span class="m-right-10">الاحصائيات</span>
+            <span class="m-right-10">الإحصائيات</span>
             <img src="../../../assets/images/new-icons/statistics.png">
             <img src="../../../assets/images/new-icons/statistics.png">
           </a>
@@ -35,7 +35,7 @@
 
         <li class="list-group-item" *ngIf="user.is_creator == 1">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'revenue' }" routerLinkActive="active-link">
-            <span class="m-right-10">الارباح</span>
+            <span class="m-right-10">الأرباح</span>
             <img src="../../../assets/images/new-icons/revenue.png">
             <img src="../../../assets/images/new-icons/revenue.png">
           </a>
@@ -52,7 +52,7 @@
 
         <li class="list-group-item">
           <a class="black" routerLink="/settings" (click)="showAnchors=false" [queryParams]="{ tab: 'profile' }" routerLinkActive="active-link">
-            <span class="m-right-10">الاعدادات</span>
+            <span class="m-right-10">الإعدادات</span>
             <img src="../../../assets/images/new-icons/settings.png">
             <img src="../../../assets/images/new-icons/settings.png">
           </a>
@@ -69,14 +69,14 @@
 <div class="float-left" *ngIf="user.is_creator == 1">
   <div class="float-left m-left-20 m-top-10">
     <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'upload' }" routerLinkActive="active-link">
-      <span class="orange">اضافة</span>
+      <span class="orange">إضافة</span>
       <img class="normal" src="../../assets/images/new-icons/upload.png">
       <img class="hovered" src="../../assets/images/new-icons/upload.png">
     </a>
   </div>
   <div class="float-left m-left-20 m-top-10">
     <a class="black side-icons" routerLink="/settings" [queryParams]="{tab: 'statistics' }" routerLinkActive="active-link">
-      <span>احصائيات</span>
+      <span>إحصائيات</span>
       <img class="normal" src="../../assets/images/new-icons/statistics.png">
       <img class="hovered" src="../../assets/images/new-icons/statistics.png">
     </a>

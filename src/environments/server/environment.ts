@@ -5,10 +5,10 @@
 
 export const environment = {
     frontEndPoint: 'https://www.piksels.tv',
-    apiEndpoint: 'https://piksels-api.n-stream.tv/api/1.0/portal/',
-    staticFilesEndPoint: 'https://piksels-api.n-stream.tv/',
-    videoEndPoint: 'https://piksels-backend.n-stream.tv/v/',
-    shareEndPoint: 'http:/localhost:4200/',
+    apiEndpoint: 'https://api.piksels.tv/api/v1/portal/',
+    staticFilesEndPoint: 'https://assets.piksels.tv/',
+    videoEndPoint: 'https://assets.piksels.tv/v/',
+    shareEndPoint: 'http://localhost:4200/',
     production: false,
     isServer: true,
     // for prerender

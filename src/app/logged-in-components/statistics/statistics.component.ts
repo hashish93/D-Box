@@ -40,7 +40,7 @@ export class StatisticsComponent implements OnInit {
 
 
     constructor(public creatorService: CreatorService, public userService: UserService, /*public titleService: Title*/public router: Router, private readonly meta: MetaService) {
-        // this.titleService.setTitle('الاحصائيات');
+        // this.titleService.setTitle('الإحصائيات');
     }
 
     ngOnInit() {
@@ -161,10 +161,10 @@ export class StatisticsComponent implements OnInit {
     }
 
     public setMeta() {
-        this.meta.setTitle('Piksels | الاحصائيات');
-        this.meta.setTag('description', 'Piksels | الاحصائيات');
-        this.meta.setTag('og:title', 'Piksels | الاحصائيات');
-        this.meta.setTag('og:description', 'Piksels | الاحصائيات');
+        this.meta.setTitle('Piksels | الإحصائيات');
+        this.meta.setTag('description', 'Piksels | الإحصائيات');
+        this.meta.setTag('og:title', 'Piksels | الإحصائيات');
+        this.meta.setTag('og:description', 'Piksels | الإحصائيات');
         this.meta.setTag('image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image:width', '781');

@@ -41,7 +41,7 @@ export class RecommendedVideosComponent implements OnInit {
       this.error = '';
     },error=>{
       this.loading = false;
-      this.error = 'خطأ في تحميل القائمة الخاصة بالاكثر مشاهدة'
+      this.error = 'خطأ في تحميل القائمة الخاصة بالأكثر مشاهدة'
     })
   }
 

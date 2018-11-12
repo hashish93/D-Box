@@ -7,15 +7,15 @@
       <div class="row margin-0 relative">
         <h6 class="bold m-bottom-20">فيديوهات مقترحة</h6>
         <div class="pull-left more-links">
-          <span class="inline-block m-right-30" [ngClass]="{'active':active=='watchnow'}" (click)="getlatestVideos('watchnow')">الاحدث</span>
-          <span class="inline-block m-right-30" [ngClass]="{'active':active=='trend'}" (click)="getlatestVideos('trend')">الاكثر مشاهدة</span>
-          <span class="inline-block m-right-30" [ngClass]="{'active':active=='recommended'}" (click)="getlatestVideos('recommended')">الاكثر تعليق</span>
+          <span class="inline-block m-right-30" [ngClass]="{'active':active=='watchnow'}" (click)="getlatestVideos('watchnow')">الأحدث</span>
+          <span class="inline-block m-right-30" [ngClass]="{'active':active=='trend'}" (click)="getlatestVideos('trend')">الأكثر مشاهدة</span>
+          <span class="inline-block m-right-30" [ngClass]="{'active':active=='recommended'}" (click)="getlatestVideos('recommended')">الأكثر تعليق</span>
         </div>
 
         <div *ngIf="router.url == '/'" class="btn-group custom-group" style="display: none" dropdown>
           <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                   aria-controls="dropdown-basic">
-            الاحدث <span class="caret"></span>
+            الأحدث <span class="caret"></span>
           </button>
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
               role="menu" aria-labelledby="button-basic">
@@ -42,7 +42,7 @@
                   <div (click)="followCreator(video)" class="follow-holder">
                     <img src="./assets/images/new-icons/follow.png">
                     <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
+                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@
               <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
-                <span class="m-right-5 m-left-5">اعجاب</span>
+                <span class="m-right-5 m-left-5">إعجاب</span>
               </div>
               <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
                 <div (click)="video.share=!video.share">

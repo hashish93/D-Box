@@ -1,6 +1,6 @@
 <div class="tab-container home-more-views">
   <tabset>
-    <tab heading="الاحدث" id="watchnow" (select)="onSelect($event)">
+    <tab heading="الأحدث" id="watchnow" (select)="onSelect($event)">
       <div *ngIf="activeTab=='watchnow'" class="m-top-10 row margin-0">
         <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
 
@@ -17,7 +17,7 @@
                   <div (click)="followCreator(video)" class="follow-holder">
                     <img src="./assets/images/new-icons/follow.png">
                     <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
+                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
                   </div>
                 </div>
               </div>
@@ -42,7 +42,7 @@
               <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
-                <span class="m-right-5 m-left-5">اعجاب</span>
+                <span class="m-right-5 m-left-5">إعجاب</span>
               </div>
               <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
                 <div (click)="video.share=!video.share">
@@ -78,7 +78,7 @@
       </div>
 
     </tab>
-    <tab heading="الاكثر مشاهدة" id="trend" (select)="onSelect($event)">
+    <tab heading="الأكثر مشاهدة" id="trend" (select)="onSelect($event)">
       <div *ngIf="activeTab=='trend'" class="m-top-10 row margin-0">
         <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
@@ -94,7 +94,7 @@
                   <div (click)="followCreator(video)" class="follow-holder">
                     <img src="./assets/images/new-icons/follow.png">
                     <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
+                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
                   </div>
                 </div>
               </div>
@@ -119,7 +119,7 @@
               <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
-                <span class="m-right-5 m-left-5">اعجاب</span>
+                <span class="m-right-5 m-left-5">إعجاب</span>
               </div>
               <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
                 <div (click)="video.share=!video.share">
@@ -171,7 +171,7 @@
                   <div (click)="followCreator(video)" class="follow-holder">
                     <img src="./assets/images/new-icons/follow.png">
                     <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
+                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
                   </div>
                 </div>
               </div>
@@ -196,7 +196,7 @@
               <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
-                <span class="m-right-5 m-left-5">اعجاب</span>
+                <span class="m-right-5 m-left-5">إعجاب</span>
               </div>
               <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
                 <div (click)="video.share=!video.share">
@@ -246,7 +246,7 @@
                   <div (click)="followCreator(video)" class="follow-holder">
                     <img src="./assets/images/new-icons/follow.png">
                     <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">الغاء متابعة</span>
+                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
                   </div>
                 </div>
               </div>
@@ -272,7 +272,7 @@
               <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
-                <span class="m-right-5 m-left-5">اعجاب</span>
+                <span class="m-right-5 m-left-5">إعجاب</span>
               </div>
               <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
                 <div (click)="video.share=!video.share">

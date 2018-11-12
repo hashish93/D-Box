@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
             }, err => {
                 this.loading = false;
                 if (err.error.message)
-                    this.error = 'الاسم المستخدم او كلمة المرور غير صحيحين';
+                    this.error = 'الإسم المستخدم او كلمة المرور غير صحيحين';
                 else
                     this.error = JSON.stringify(err.error);
             })

@@ -5,21 +5,21 @@
             <div class="row">
                 <div class="col-12 col-md-4">
                     <img class="width100 m-top-35 m-bottom-10 main-image" src="./assets/images/innovation.png">
-                    <h6 class="signup-side-title">انشاء حساب مبدع</h6>
+                    <h6 class="signup-side-title">إنشاء حساب مبدع</h6>
                     <p class="signup-side-main-desc">مرحبا بك في موقعنا</p>
-                    <p class="signup-side-small-desc">من فضلك ادخل البيانات للأشتراك</p>
+                    <p class="signup-side-small-desc">من فضلك أدخل البيانات للإشتراك</p>
                     <div class="breaker"></div>
                 </div>
                 <div class="col-12 col-md-8 m-top-20">
                     <div class="form-group">
-                        <label for="name">الاسم / اللقب</label>
+                        <label for="name">الإسم / اللقب</label>
                         <input id="name" name="name" [(ngModel)]="creator.fullname" autocomplete=”off” required
-                               class="form-control" placeholder="الاسم">
+                               class="form-control" placeholder="الإسم">
                     </div>
 
                     <div class="form-group">
-                        <label for="email">البريد الالكتروني</label>
-                        <input id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email"
+                        <label for="email">البريد الإلكتروني</label>
+                        <input id="email" name="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" type="email"
                                email="true" autocomplete=”off” [(ngModel)]="creator.email" required class="form-control"
                                placeholder="email@example.com">
                     </div>
@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password_confirmation">اعادة كلمة السر</label>
+                        <label for="password_confirmation">إعادة كلمة السر</label>
                         <input (keyup)="check_password($event)" id="password_confirmation" name="password_confirmation"
                                type="password" minlength="8" autocomplete=”off”
                                [(ngModel)]="creator.password_confirmation" required class="form-control"
@@ -90,7 +90,7 @@
                     <button
                             type="submit"
                             class="btn block width100 btn-danger m-bottom-20"
-                            [disabled]="!creatorForm.form.valid || !validatePassword || loading">ارسل
+                            [disabled]="!creatorForm.form.valid || !validatePassword || loading">أرسل
                     </button>
 
                     <alert *ngIf="success" type="success" dismissOnTimeout="10000" (onClosed)="success = false">

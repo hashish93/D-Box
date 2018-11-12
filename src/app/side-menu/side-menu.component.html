@@ -12,7 +12,7 @@
         <li>
           <a routerLink="/results" [queryParams]="{page:'more_views'}">
             <img class="m-left-25" src="./assets/images/new-icons/views.png">
-            <p class="inline-block">الاعلى مشاهدة</p>
+            <p class="inline-block">الأعلى مشاهدة</p>
           </a>
         </li>
       </ul>
@@ -29,7 +29,7 @@
       <ul class="no-border join-section">
         <img class="max-width-100 m-bottom-20" src="../../assets/images/new-icons/join2.png">
         <li *ngIf="authService.isAuthenticated()" class="login-desc">شكرا لدخولك لمشاهدة قنواتك المفضلة وتوصياتك</li>
-        <li *ngIf="!authService.isAuthenticated()" class="login-desc">انصم لنا لمشاهدة قنواتك المفضلة وايضا ترشيحاتنا
+        <li *ngIf="!authService.isAuthenticated()" class="login-desc">إنضم لنا لمشاهدة قنواتك المفضلة وأيضا ترشيحاتنا
           المفضلة
         </li>
         <li *ngIf="!authService.isAuthenticated()" class="login-btn-side">
@@ -50,7 +50,7 @@
           </div>
           <div class="col-6 text-right">
             <a class="black" routerLink="/settings">
-              <p class="inline-block">الاعدادات</p>
+              <p class="inline-block">الإعدادات</p>
               <img class="m-left-10" src="./assets/images/new-icons/settings.png">
             </a>
           </div>

@@ -28,7 +28,7 @@
                     <div (click)="followCreator(creator)" class="follow-holder">
                       <img src="./assets/images/new-icons/follow.png">
                       <span *ngIf="!creator.is_followed">متابعة</span>
-                      <span *ngIf="creator.is_followed">الغاء متابعة</span>
+                      <span *ngIf="creator.is_followed">إلغاء متابعة</span>
                     </div>
                     <a routerLink="/creator/{{creator._id}}">
                       <h6 class="m-top-20 black text-right bold">{{creator.title}}</h6>

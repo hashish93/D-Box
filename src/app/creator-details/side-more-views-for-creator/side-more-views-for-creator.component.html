@@ -1,7 +1,7 @@
 <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 <h6 *ngIf="!loading && videos.length == 0">لا يوجد فيديوهات اكثر مشاهدة</h6>
 <div *ngIf="!loading && videos.length > 0" class="more-views-side">
-  <h6>الاكثر مشاهدة</h6>
+  <h6>الأكثر مشاهدة</h6>
   <div class="bg-white more-views-details" *ngFor="let video of videos">
     <div class="item">
       <a routerLink="/video/{{video._id}}">

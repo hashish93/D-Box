@@ -20,7 +20,7 @@ export class ResetPasswordComponent implements OnInit {
     public frontEndPoint;
 
     constructor(public authService: AuthService, public router: Router, public route: ActivatedRoute, /*public titleService: Title*/private readonly meta: MetaService) {
-        // this.titleService.setTitle('اعادة تعيين كلمة السر');
+        // this.titleService.setTitle('إعادة تعيين كلمة السر');
     }
 
     ngOnInit() {
@@ -54,10 +54,10 @@ export class ResetPasswordComponent implements OnInit {
     }
 
     public setMeta() {
-        this.meta.setTitle('Piksels | اعادة تعيين كلمة السر');
-        this.meta.setTag('description', 'Piksels | اعادة تعيين كلمة السر');
-        this.meta.setTag('og:title', 'Piksels | اعادة تعيين كلمة السر');
-        this.meta.setTag('og:description', 'Piksels | اعادة تعيين كلمة السر');
+        this.meta.setTitle('Piksels | إعادة تعيين كلمة السر');
+        this.meta.setTag('description', 'Piksels | إعادة تعيين كلمة السر');
+        this.meta.setTag('og:title', 'Piksels | إعادة تعيين كلمة السر');
+        this.meta.setTag('og:description', 'Piksels | إعادة تعيين كلمة السر');
         this.meta.setTag('image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image:width', '781');
