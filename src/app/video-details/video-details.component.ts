@@ -26,7 +26,9 @@ export class VideoDetailsComponent implements OnInit {
     public videoEndPoint;
     public staticEndPoint;
     public frontEndPoint;
+    public facebookEndPoint;
     url: SafeResourceUrl;
+    facebookURL: SafeResourceUrl;
     public error: String = '';
     public document: any;
 
@@ -43,12 +45,13 @@ export class VideoDetailsComponent implements OnInit {
         this.videoEndPoint = AppSettings.getVideoEndpoint();
         this.staticEndPoint = AppSettings.getStaticEndpoint();
         this.frontEndPoint = AppSettings.getFrontEndpoint();
-
+        this.facebookEndPoint = AppSettings.getFacebookEndPoint();
         this.route.params.subscribe(params => {
             this.video.id = parseInt(params["id"]);
             if (this.video.id) {
                 this.getVideo(this.video.id);
                 this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoEndPoint + '' + this.video.id.toString());
+                this.facebookURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.facebookEndPoint + '' + this.video.id.toString());
             } else {
                 this.router.navigate(['']);
             }

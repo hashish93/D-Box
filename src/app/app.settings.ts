@@ -35,4 +35,7 @@ export class AppSettings {
     return url;
   }
 
+  static getFacebookEndPoint() {
+    return environment.facebookEndPoint;
+  }
 }
