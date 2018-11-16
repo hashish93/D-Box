@@ -8,7 +8,8 @@ export const environment = {
     staticFilesEndPoint: 'https://assets.piksels.tv/',
     videoEndPoint: 'https://assets.piksels.tv/v/',
     shareEndPoint: 'http://localhost:4200/',
-    facebookEndPoint: 'https://assets.piksels.tv/facebook/comments/',
+    // facebookEndPoint: 'https://assets.piksels.tv/facebook/comments/',
+    facebookEndPoint: '/facebook/comments/',
     production: false,
     isServer: false,
     // for prerender

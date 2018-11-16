@@ -3,7 +3,8 @@ export const environment = {
     apiEndpoint: 'https://api.piksels.tv/api/v1/portal/',
     staticFilesEndPoint: 'https://assets.piksels.tv/',
     videoEndPoint: 'https://assets.piksels.tv/v/',
-    facebookEndPoint: 'https://assets.piksels.tv/facebook/comments/',
+    // facebookEndPoint: 'https://assets.piksels.tv/facebook/comments/',
+    facebookEndPoint: '/facebook/comments/',
     shareEndPoint: 'http://piksels.tv/',
     production: true
 };

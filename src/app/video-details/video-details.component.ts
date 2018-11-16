@@ -51,7 +51,7 @@ export class VideoDetailsComponent implements OnInit {
             if (this.video.id) {
                 this.getVideo(this.video.id);
                 this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoEndPoint + '' + this.video.id.toString());
-                this.facebookURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.facebookEndPoint + '' + this.video.id.toString());
+                this.facebookURL = this.sanitizer.bypassSecurityTrustResourceUrl(location.origin + '' + this.facebookEndPoint + '' + this.video.id.toString());
             } else {
                 this.router.navigate(['']);
             }
