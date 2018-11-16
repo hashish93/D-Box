@@ -168,7 +168,8 @@ export function metaFactory(): MetaLoader {
     CreatorsComponent,
     RelatedVideosComponent,
     VideoMoreViewsComponent,
-    DownloadAppsComponent
+    DownloadAppsComponent,
+    MyIFrameComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'my-app' }),
@@ -215,8 +216,6 @@ export function metaFactory(): MetaLoader {
     },
     CookieService
   ],
-  bootstrap: [AppComponent]
-        MyIFrameComponent
 })
 export class AppModule {
 
