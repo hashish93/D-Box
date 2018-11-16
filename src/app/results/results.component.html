@@ -34,7 +34,7 @@
                 </div>
               </div>
 
-              <a routerLink="/video/{{video._id}}">
+              <a routerLink="/video/{{video._id || video.id }}">
                 <div class="image-container relative">
                   <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                   <img *ngIf="!video.thumbnails" src="{{staticEndPoint}}{{video.small}}">
