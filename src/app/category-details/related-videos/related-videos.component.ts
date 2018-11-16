@@ -72,4 +72,16 @@ export class RelatedVideosComponent implements OnInit {
       this.router.navigate(['login'])
     }
   }
+
+  public addToWatchLater(video){
+    if (this.authService.isAuthenticated()) {
+      video.is_watched = !video.is_watched;
+      var id = video._id ? video._id : video.id;
+      this.videoService.addToWatchLater(id).subscribe(data => {
+      })
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
+
 }

@@ -53,6 +53,7 @@ export const routes: Routes = [
       { path: 'tags', component: ResultsComponent},
       { path: 'creator-videos', component: ResultsComponent},
       { path: 'category-videos', component: ResultsComponent},
+      { path: 'watch-later', component: ResultsComponent},
       { path: 'playlist', component: PlaylistComponent},
       { path: 'creators', component: CreatorsComponent}
     ]

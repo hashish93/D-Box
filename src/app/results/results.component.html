@@ -37,11 +37,15 @@
               <a routerLink="/video/{{video._id}}">
                 <div class="image-container relative">
                   <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                  <img *ngIf="!video.thumbnails" src="{{staticEndPoint}}{{video.small}}">
 
                 </div>
                 <div class="padding-right-left-10">
-                  <span class="time-ago">
+                  <span *ngIf="video.time_ago" class="time-ago">
                     {{video.time_ago}}
+                  </span>
+                  <span *ngIf="!video.time_ago" class="time-ago">
+                    {{video.date}}
                   </span>
                   <h3>
                     {{video.title}}
@@ -54,6 +58,7 @@
                 <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
                   <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                   <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
+                  <span class="video-likes" *ngIf="video.counters">{{video.counters.likes || 0  | number:'1.'}}</span>
                   <span class="m-right-5 m-left-5">إعجاب</span>
                 </div>
                 <div (clickOutside)="video.share=false" class="float-right video-extra side-share pointer relative">
@@ -76,11 +81,19 @@
                 <div class="float-right video-extra side-view">
                   <img class="m-left-5 m-right-5" [src]="'./assets/images/new-icons/views.png'">
                   <span class="video-likes" *ngIf="video.counter">{{video.counter.views | number:'1.'}}</span>
+                  <span class="video-likes" *ngIf="video.counters">{{video.counters.views | number:'1.'}}</span>
                   <span class="m-right-5 m-left-5">مشاهدة</span>
                 </div>
 
                 <div class="float-left m-right-5 video-extra-more">
-                  <img [src]="'./assets/images/new-icons/more.png'">
+                  <div class="custom-btn-group btn-group" dropdown>
+                    <img [src]="'./assets/images/new-icons/more.png'" dropdownToggle class="padding-all-10">
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                        role="menu" aria-labelledby="button-basic">
+                      <li *ngIf="!video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">اضافة الى المشاهدة لاحقا</a></li>
+                      <li *ngIf="video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">ازالة من المشاهدة لاحقا</a></li>
+                    </ul>
+                  </div>
                 </div>
 
               </div>

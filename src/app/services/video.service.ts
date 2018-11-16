@@ -144,4 +144,21 @@ export class VideoService {
     let videoData = this.getFormData(myVideo);
     return this.http.post('auth/videos/'+myVideo.id,videoData);
   }
+
+  addToWatchLater(id: number) {
+    return this.http.get('auth/watch/'+id);
+  }
+  public getMyWatchedLater(page?:Number,limit?:Number,pagination?:Number): Observable<any> {
+    let params: string = '';
+    if (page) {
+      params += '?page=' + page
+    }
+    if (limit) {
+      params += '&limit=' + limit
+    }
+    if (pagination) {
+      params += '&pagination=' + pagination
+    }
+    return this.http.get('auth/watched/list' + params);
+  }
 }

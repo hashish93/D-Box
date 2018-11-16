@@ -200,7 +200,8 @@ export function metaFactory(): MetaLoader {
     //HttpClientModule,       // (Required) For share counts
     ProgressbarModule.forRoot(),
     PerfectScrollbarModule,
-    ShareButtonsModule.forRoot()
+    ShareButtonsModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true },
