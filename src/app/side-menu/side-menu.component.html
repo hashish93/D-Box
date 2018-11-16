@@ -15,6 +15,12 @@
             <p class="inline-block">الأعلى مشاهدة</p>
           </a>
         </li>
+        <li *ngIf="authService.isAuthenticated()">
+          <a routerLink="/watch-later" [queryParams]="{page:'watch_later'}">
+            <img class="m-left-25" src="./assets/images/new-icons/watch_later.png">
+            <p class="inline-block">مشاهدة لاحقا</p>
+          </a>
+        </li>
       </ul>
       <ul class="margin-0 bottom-border-child">
         <li *ngFor="let category of categories">

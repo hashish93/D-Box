@@ -117,6 +117,17 @@ export class CreatorDetailsComponent implements OnInit {
         }
     }
 
+  public addToWatchLater(video){
+    if (this.authService.isAuthenticated()) {
+      video.is_watched = !video.is_watched;
+      var id = video._id ? video._id : video.id;
+      this.videoService.addToWatchLater(id).subscribe(data => {
+      })
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
+
     public setMeta() {
         this.meta.setTitle('Piksels | ' + this.creator.title);
         this.meta.setTag('description', 'Piksels | ' + this.creator.title);

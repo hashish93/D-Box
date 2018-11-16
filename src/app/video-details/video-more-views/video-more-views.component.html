@@ -76,7 +76,14 @@
               </div>
 
               <div class="float-left m-right-5 video-extra-more">
-                <img [src]="'./assets/images/new-icons/more.png'">
+                <div class="custom-btn-group btn-group" dropdown>
+                  <img [src]="'./assets/images/new-icons/more.png'" dropdownToggle class="padding-all-10">
+                  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                      role="menu" aria-labelledby="button-basic">
+                    <li *ngIf="!video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">اضافة الى المشاهدة لاحقا</a></li>
+                    <li *ngIf="video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">ازالة من المشاهدة لاحقا</a></li>
+                  </ul>
+                </div>
               </div>
 
             </div>

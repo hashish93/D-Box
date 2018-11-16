@@ -19,7 +19,7 @@ export class RecommendedVideosComponent implements OnInit {
   public error : string = '';
   public videos : Video[];
   public active : string='';
-  private AppSettings: any;
+  public AppSettings: any;
   
   constructor(public videoService : VideoService , public playListService :PlaylistService,public router :Router,
               public userService : UserService, public authService : AuthService , public creatorService : CreatorService) { }
@@ -73,5 +73,17 @@ export class RecommendedVideosComponent implements OnInit {
       this.router.navigate(['login'])
     }
   }
+
+  public addToWatchLater(video){
+    if (this.authService.isAuthenticated()) {
+      video.is_watched = !video.is_watched;
+      var id = video._id ? video._id : video.id;
+      this.videoService.addToWatchLater(id).subscribe(data => {
+      })
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
+
 
 }

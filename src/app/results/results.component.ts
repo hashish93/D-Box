@@ -69,6 +69,10 @@ export class ResultsComponent implements OnInit {
                 this.key_id = params['key_id'];
                 this.getTagsViews();
             }
+            else if (params['page'] == 'watch_later') {
+              this.pageName = 'المشاهدة لاحقا';
+              this.getWatchLater();
+            }
             this.activePage = params['page'];
         });
 
@@ -116,6 +120,19 @@ export class ResultsComponent implements OnInit {
         })
     }
 
+  private getWatchLater() {
+    this.loading = true;
+    this.videoService.getMyWatchedLater(this.current_page, this.limit, 2).subscribe(data => {
+      this.loading = false;
+      this.data = data.data;
+      this.total = data.total;
+      this.error = '';
+    }, err => {
+      this.error = JSON.stringify(err.error);
+      this.loading = false;
+    })
+  }
+
     public getCreatorMoreViews() {
         this.loading = true;
         this.videoService.getVideos(this.limit, 'views', 'desc', {'creator_id': this.key_id}, this.current_page, 2).subscribe(data => {
@@ -160,6 +177,9 @@ export class ResultsComponent implements OnInit {
             case 'tags':
                 this.getTagsViews();
                 break;
+            case 'watch_later':
+                this.getWatchLater();
+                break;
             default:
                 break;
         }
@@ -194,6 +214,20 @@ export class ResultsComponent implements OnInit {
         }
     }
 
+  public addToWatchLater(video){
+    if (this.authService.isAuthenticated()) {
+      video.is_watched = !video.is_watched;
+      var id = video._id ? video._id : video.id;
+      this.videoService.addToWatchLater(id).subscribe(data => {
+        if(this.activePage == 'watch_later'){
+          this.pageChanged(1);
+        }
+      })
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
+
     public setMeta() {
         this.meta.setTitle('Piksels | ' + this.pageName);
         this.meta.setTag('description', 'Piksels | ' + this.pageName);
@@ -206,4 +240,5 @@ export class ResultsComponent implements OnInit {
         this.meta.setTag('og:image:type', 'image/png');
         this.meta.setTag('og:url', this.frontEndPoint + this.router.url);
     }
+
 }

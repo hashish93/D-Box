@@ -10,11 +10,11 @@ export interface VideoPaginated {
 }
 
 export interface Video {
-  id: Number
-  _id:Number,
+  id: number
+  _id:number,
   creator:any,
   title: string,
-  likes: Number,
+  likes: number,
   image: string,
   description: string,
   thumbnail: string,
@@ -32,6 +32,7 @@ export interface Video {
   category_id: number,
   category_name: string,
   is_liked:boolean,
+  is_watched:boolean,
   tags:any,
   file:any,
   num: number,
