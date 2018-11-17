@@ -204,7 +204,7 @@ export class ResultsComponent implements OnInit {
       }else{
         this.filterObj[key]= value;
       }
-
+      this.current_page = 1;
       this.search(this.filterObj);
     }
     public pageChanged(event) {
