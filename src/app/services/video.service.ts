@@ -25,7 +25,9 @@ export class VideoService {
     }
     if(filter){
       if(params){
-        params +="&"+Object.keys(filter)[0]+'='+filter[Object.keys(filter)[0]]
+        for(let key of Object.keys(filter)){
+          params +="&"+key+'='+filter[key];
+        }
       }else{
         params +="?"+Object.keys(filter)[0]+'='+filter[Object.keys(filter)[0]]
       }

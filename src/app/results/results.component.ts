@@ -54,7 +54,6 @@ export class ResultsComponent implements OnInit {
           this.selectedDuration='';
           this.selectedPeriod='';
           this.current_page = 1;
-            console.log(params);
             if (params['page'] == 'search') {
                 this.searchFlag = true;
                 this.pageName = 'البحث عن ' + params['key'];
