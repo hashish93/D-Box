@@ -206,7 +206,11 @@ export class ResultsComponent implements OnInit {
         let id = video.id || video._id;
         if (this.authService.isAuthenticated()) {
             video.is_liked = !video.is_liked;
-            video.is_liked ? video.counter.likes += 1 : video.counter.likes -= 1;
+            if(video.counter){
+              video.is_liked ? video.counter.likes += 1 : video.counter.likes -= 1;
+            }else if(video.counters){
+              video.is_liked ? video.counters.likes += 1 : video.counters.likes -= 1;
+            }
             this.videoService.likeVideo(id).subscribe(data => {
             })
         } else {
@@ -226,6 +230,11 @@ export class ResultsComponent implements OnInit {
     } else {
       this.router.navigate(['login']);
     }
+  }
+
+  public getURL(video){
+    var id = video._id || video.id;
+    return this.AppSettings.getShareEndpoint()+'video/'+id;
   }
 
     public setMeta() {

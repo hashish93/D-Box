@@ -73,7 +73,7 @@
                                    [title]="video.title"
                                    [description]="video.title"
                                    [autoSetMeta]="true"
-                                   [url]="AppSettings.getShareEndpoint()+'video/'+video._id"
+                                   [url]="getURL(video)"
                     ></share-buttons>
                   </div>
                 </div>
