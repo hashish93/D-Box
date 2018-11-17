@@ -29,7 +29,11 @@ export class ResultsComponent implements OnInit {
     public staticEndPoint: string = '';
     public AppSettings: any;
     public frontEndPoint;
-
+    public searchFlag: boolean = false;
+    public filterObj:any = {};
+    public selectedPeriod:string = '';
+    public selectedDuration:string = '';
+    public selectedOrder:string = '';
 
     constructor(public  route: ActivatedRoute, public videoService: VideoService, /*public titleService: Title,*/
                 public authService: AuthService,
@@ -45,9 +49,14 @@ export class ResultsComponent implements OnInit {
         this.staticEndPoint = AppSettings.getStaticEndpoint();
         this.frontEndPoint = AppSettings.getFrontEndpoint();
         this.route.queryParams.forEach(params => {
-            this.current_page = 1;
+          this.searchFlag = false;
+          this.selectedOrder='';
+          this.selectedDuration='';
+          this.selectedPeriod='';
+          this.current_page = 1;
             console.log(params);
             if (params['page'] == 'search') {
+                this.searchFlag = true;
                 this.pageName = 'البحث عن ' + params['key'];
                 this.searchKey = params['key'];
                 this.search();
@@ -81,9 +90,13 @@ export class ResultsComponent implements OnInit {
     }
 
 
-    public search() {
+    public search(filtered_obj ?: object) {
+      var filter : any = '';
+      if(filtered_obj && Object.keys(filtered_obj).length > 0){
+        filter = filtered_obj;
+      }
         this.loading = true;
-        this.videoService.getVideos(this.limit, '', '', '', this.current_page, 2, this.searchKey).subscribe(data => {
+        this.videoService.getVideos(this.limit, '', '', filter, this.current_page, 2, this.searchKey).subscribe(data => {
             this.loading = false;
             this.data = data.data;
             this.total = data.total;
@@ -158,7 +171,43 @@ export class ResultsComponent implements OnInit {
             this.loading = false;
         })
     }
+    public filter(obj){
+      var key = Object.keys(obj)[0];
+      var value = obj[Object.keys(obj)[0]];
+      var remove = false;
+      if(key == 'upload_date'){
+        if(this.selectedPeriod == value){
+          this.selectedPeriod = '';
+          remove = true;
+        }else{
+          this.selectedPeriod = value;
+        }
+      }
+      else if(key =='duration'){
+        if(this.selectedDuration == value){
+          this.selectedDuration = '';
+          remove = true;
+        }else{
+          this.selectedDuration = value;
+        }
+      }
+      else if(key =='order'){
+        if(this.selectedOrder == value){
+          this.selectedOrder = '';
+          remove = true;
+        }else{
+          this.selectedOrder = value;
+        }
+      }
 
+      if(remove){
+        delete this.filterObj[key];
+      }else{
+        this.filterObj[key]= value;
+      }
+
+      this.search(this.filterObj);
+    }
     public pageChanged(event) {
         this.current_page = event;
         switch (this.activePage) {

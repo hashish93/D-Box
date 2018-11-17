@@ -8,6 +8,41 @@
     <div class="col-12 col-lg-12 col-xs-12 text-center m-top-20 m-bottom-20  mid-ad">
       <img src="./assets/images/ad.png">
     </div>
+    <div *ngIf="searchFlag">
+      <h6 class="pointer" (click)="opened =! opened"><i class="fa fa-filter"></i> فلتر</h6>
+      <div class="filtered" [ngClass]="{'open': opened, 'closed': !opened}">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 col-sm-4">
+              <strong>تاريخ الرفع</strong>
+              <ul>
+                <li [class.active]="selectedPeriod === 'hour'"  (click)="filter({upload_date:'hour'})"><span>الساعة السابقة</span></li>
+                <li [class.active]="selectedPeriod === 'today'"  (click)="filter({upload_date:'today'})"><span>اليوم</span></li>
+                <li [class.active]="selectedPeriod === 'week'"  (click)="filter({upload_date:'week'})"><span>الاسبوع الحالي</span></li>
+                <li [class.active]="selectedPeriod === 'month'"  (click)="filter({upload_date:'month'})"><span>الشهر الحالي</span></li>
+                <li [class.active]="selectedPeriod === 'year'"  (click)="filter({upload_date:'year'})"><span>السنة الحالية</span></li>
+              </ul>
+            </div>
+            <div class="col-12 col-sm-4">
+              <strong>المدة</strong>
+              <ul>
+                <li [class.active]="selectedDuration === 'short'"  (click)="filter({duration:'short'})"><span>قصير < 4 دقاثق</span></li>
+                <li [class.active]="selectedDuration === 'long'"  (click)="filter({duration:'long'})"><span>كبير > 20 دقيقة</span></li>
+              </ul>
+            </div>
+            <div class="col-12 col-sm-4">
+              <strong>الترتيب</strong>
+              <ul>
+                <li [class.active]="selectedOrder === 'score'"  (click)="filter({order:'score'})"><span>لها علاقة بالموضوع</span></li>
+                <li [class.active]="selectedOrder === 'date'"  (click)="filter({order:'date'})"><span>تاريخ الرفع</span></li>
+                <li [class.active]="selectedOrder === 'views'"  (click)="filter({order:'views'})"><span>عدد المشاهدات</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
     <div *ngIf="!loading" class="main-section home-more-views">
       <h5 class="text-center" *ngIf="total == 0">لا يوجد فيديوهات</h5>
