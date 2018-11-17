@@ -35,7 +35,7 @@ export class StatisticsComponent implements OnInit {
         }
     ];
 
-    public curve = shape.curveBasisClosed;
+    public curve = shape.curveBasis;
     public frontEndPoint;
 
 

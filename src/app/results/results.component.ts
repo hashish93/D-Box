@@ -56,7 +56,7 @@ export class ResultsComponent implements OnInit {
           this.current_page = 1;
             if (params['page'] == 'search') {
                 this.searchFlag = true;
-                this.pageName = 'البحث عن ' + params['key'];
+                this.pageName = 'البحث عن: ' + params['key'];
                 this.searchKey = params['key'];
                 this.search();
             } else if (params['page'] == 'more_views') {
