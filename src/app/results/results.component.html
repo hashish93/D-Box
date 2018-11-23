@@ -73,7 +73,7 @@
                 <div class="image-container relative">
                   <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                   <img *ngIf="!video.thumbnails" src="{{staticEndPoint}}{{video.small}}">
-
+                  <span class="duration">{{video.duration | duration}}</span>
                 </div>
                 <div class="padding-right-left-10">
                   <span *ngIf="video.time_ago" class="time-ago">

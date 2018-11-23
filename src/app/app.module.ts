@@ -76,6 +76,7 @@ import {DownloadAppsComponent} from './download-apps/download-apps.component';
 import {MyIFrameComponent} from "./iframe-resizer/my-iframe.component";
 // for Router import LoadingBarRouterModule:
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
+import {DurationPipe} from './services/pipes/duration.pipe';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -170,7 +171,8 @@ export function metaFactory(): MetaLoader {
         RelatedVideosComponent,
         VideoMoreViewsComponent,
         DownloadAppsComponent,
-        MyIFrameComponent
+        MyIFrameComponent,
+        DurationPipe
     ],
     imports: [
         BrowserModule.withServerTransition({appId: 'my-app'}),

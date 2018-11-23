@@ -26,6 +26,7 @@
             <a routerLink="/video/{{video._id}}">
               <div class="image-container relative">
                 <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                <span class="duration">{{video.duration | duration}}</span>
               </div>
               <div class="padding-right-left-10">
                 <span class="time-ago">
@@ -115,6 +116,7 @@
             <a routerLink="/video/{{video._id}}">
               <div class="image-container relative">
                 <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                <span class="duration">{{video.duration | duration}}</span>
               </div>
               <div class="padding-right-left-10">
                 <span class="time-ago">
@@ -204,6 +206,7 @@
             <a routerLink="/video/{{video.id}}">
               <div class="image-container relative">
                 <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
+                <span class="duration">{{video.duration | duration}}</span>
               </div>
               <div class="padding-right-left-10">
                 <span class="time-ago">
@@ -291,7 +294,7 @@
             <a routerLink="/video/{{video.id}}">
               <div class="image-container relative">
                 <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
-
+                <span class="duration">{{video.duration | duration}}</span>
               </div>
               <div class="padding-right-left-10">
                 <span class="time-ago">
