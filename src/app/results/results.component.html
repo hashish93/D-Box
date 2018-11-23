@@ -1,6 +1,6 @@
 <div class="row margin-0">
   <div class="col col-lg-2">
-    <div class="m-top-35 custom-top">
+    <div class="m-top-35 m-bottom-10 custom-top">
       <img class="max-width-100" src="./assets/images/test-image.png">
     </div>
   </div>
@@ -8,12 +8,13 @@
     <div class="col-12 col-lg-12 col-xs-12 text-center m-bottom-20  mid-ad">
       <img src="./assets/images/ad.png">
     </div>
+    <h5 class="m-bottom-20 text-center"><strong class="page_title">{{pageName}}</strong></h5>
     <div *ngIf="searchFlag">
       <h6 class="pointer" (click)="opened =! opened"><i class="fa fa-filter"></i> بحث متقدم</h6>
-      <div class="filtered" [ngClass]="{'closed': opened, 'open': !opened}">
+      <div class="filtered" [ngClass]="{'open': !opened, 'closed': opened}">
         <div class="col-12">
           <div class="row">
-            <div class="col-12 col-sm-4">
+            <div class="col-4 col-sm-4 col-xs-4 col-md-4">
               <strong>تاريخ الرفع</strong>
               <ul>
                 <li [class.active]="selectedPeriod === 'hour'"  (click)="filter({upload_date:'hour'})"><span>الساعة السابقة</span></li>
@@ -23,14 +24,14 @@
                 <li [class.active]="selectedPeriod === 'year'"  (click)="filter({upload_date:'year'})"><span>السنة الحالية</span></li>
               </ul>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="col-4 col-sm-4 col-xs-4 col-md-4">
               <strong>المدة</strong>
               <ul>
-                <li [class.active]="selectedDuration === 'short'"  (click)="filter({duration:'short'})"><span>قصير < 4 دقاثق</span></li>
-                <li [class.active]="selectedDuration === 'long'"  (click)="filter({duration:'long'})"><span>كبير > 20 دقيقة</span></li>
+                <li [class.active]="selectedLength === 1"  (click)="filter({length:1})"><span>قصير < 4 دقاثق</span></li>
+                <li [class.active]="selectedLength === 3"  (click)="filter({length:3})"><span>كبير > 20 دقيقة</span></li>
               </ul>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="col-4 col-sm-4 col-xs-4 col-md-4">
               <strong>الترتيب</strong>
               <ul>
                 <li [class.active]="selectedOrder === 'score'"  (click)="filter({order:'score'})"><span>لها علاقة بالموضوع</span></li>
@@ -47,7 +48,7 @@
     <div *ngIf="!loading" class="main-section home-more-views">
       <h5 class="text-center" *ngIf="total == 0">لا يوجد فيديوهات</h5>
       <div *ngIf="total > 0">
-        <h5 class="m-bottom-20 page-title">{{pageName}}</h5>
+        <!--<h5 class="m-bottom-20 page-title">{{pageName}}</h5>-->
         <div class="row m-top-10">
           <div class="col-12 col-sm-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of data | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }">
             <div class="bg-white width100 inline-block">

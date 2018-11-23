@@ -1,4 +1,8 @@
-iframe { margin-bottom: -4px; }
+iframe {
+  margin-bottom: -4px;
+  overflow: scroll;
+}
+
 .sk-fading-circle {
   margin: 100px auto;
   width: 40px;
