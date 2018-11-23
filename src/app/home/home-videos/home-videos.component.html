@@ -2,7 +2,8 @@
   <tabset>
     <tab heading="الأحدث" id="watchnow" (select)="onSelect($event)">
       <div *ngIf="activeTab=='watchnow'" class="m-top-10 row margin-0">
-        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame"
+             *ngFor="let video of videos">
 
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
@@ -15,9 +16,8 @@
                 </div>
                 <div class="float-left top-video-follow-section">
                   <div (click)="followCreator(video)" class="follow-holder">
-                    <img src="./assets/images/new-icons/follow.png">
-                    <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
+                    <img *ngIf="!video.creator.is_followed" src="./assets/images/new-icons/follow.png">
+                    <i *ngIf="video.creator.is_followed" class="fa fa-user-times"></i>
                   </div>
                 </div>
               </div>
@@ -39,7 +39,8 @@
             </a>
 
             <div class="m-bottom-10 inline-block width100 padding-right-left-10">
-              <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
+              <div (click)="likeVideo(video)"
+                   class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">إعجاب</span>
@@ -72,8 +73,12 @@
                   <img [src]="'./assets/images/new-icons/more.png'" dropdownToggle class="padding-all-10">
                   <ul id="dropdown-basic1" *dropdownMenu class="dropdown-menu"
                       role="menu" aria-labelledby="button-basic">
-                    <li *ngIf="!video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">اضافة الى المشاهدة لاحقا</a></li>
-                    <li *ngIf="video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">ازالة من المشاهدة لاحقا</a></li>
+                    <li *ngIf="!video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                     (click)="$event.preventDefault();addToWatchLater(video)">اضافة
+                      الى المشاهدة لاحقا</a></li>
+                    <li *ngIf="video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                    (click)="$event.preventDefault();addToWatchLater(video)">ازالة
+                      من المشاهدة لاحقا</a></li>
                   </ul>
                 </div>
               </div>
@@ -87,7 +92,8 @@
     </tab>
     <tab heading="الأكثر مشاهدة" id="trend" (select)="onSelect($event)">
       <div *ngIf="activeTab=='trend'" class="m-top-10 row margin-0">
-        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame"
+             *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
               <div class="padding-right-left-10">
@@ -99,9 +105,8 @@
                 </div>
                 <div class="float-left top-video-follow-section">
                   <div (click)="followCreator(video)" class="follow-holder">
-                    <img src="./assets/images/new-icons/follow.png">
-                    <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
+                    <img *ngIf="!video.creator.is_followed" src="./assets/images/new-icons/follow.png">
+                    <i *ngIf="video.creator.is_followed" class="fa fa-user-times"></i>
                   </div>
                 </div>
               </div>
@@ -123,7 +128,8 @@
             </a>
 
             <div class="m-bottom-10 inline-block width100 padding-right-left-10">
-              <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
+              <div (click)="likeVideo(video)"
+                   class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">إعجاب</span>
@@ -156,8 +162,12 @@
                   <img [src]="'./assets/images/new-icons/more.png'" dropdownToggle class="padding-all-10">
                   <ul id="dropdown-basic2" *dropdownMenu class="dropdown-menu"
                       role="menu" aria-labelledby="button-basic">
-                    <li *ngIf="!video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">اضافة الى المشاهدة لاحقا</a></li>
-                    <li *ngIf="video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">ازالة من المشاهدة لاحقا</a></li>
+                    <li *ngIf="!video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                     (click)="$event.preventDefault();addToWatchLater(video)">اضافة
+                      الى المشاهدة لاحقا</a></li>
+                    <li *ngIf="video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                    (click)="$event.preventDefault();addToWatchLater(video)">ازالة
+                      من المشاهدة لاحقا</a></li>
                   </ul>
                 </div>
               </div>
@@ -171,7 +181,8 @@
     </tab>
     <tab heading="ترشيحاتنا" id="recommended" (select)="onSelect($event)">
       <div *ngIf="activeTab=='recommended'" class="m-top-10 row margin-0">
-        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame"
+             *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
               <div class="padding-right-left-10">
@@ -183,9 +194,8 @@
                 </div>
                 <div class="float-left top-video-follow-section">
                   <div (click)="followCreator(video)" class="follow-holder">
-                    <img src="./assets/images/new-icons/follow.png">
-                    <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
+                    <img *ngIf="!video.creator.is_followed" src="./assets/images/new-icons/follow.png">
+                    <i *ngIf="video.creator.is_followed" class="fa fa-user-times"></i>
                   </div>
                 </div>
               </div>
@@ -207,7 +217,8 @@
             </a>
 
             <div class="m-bottom-10 inline-block width100 padding-right-left-10">
-              <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
+              <div (click)="likeVideo(video)"
+                   class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">إعجاب</span>
@@ -240,8 +251,12 @@
                   <img [src]="'./assets/images/new-icons/more.png'" dropdownToggle class="padding-all-10">
                   <ul id="dropdown-basic3" *dropdownMenu class="dropdown-menu"
                       role="menu" aria-labelledby="button-basic">
-                    <li *ngIf="!video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">اضافة الى المشاهدة لاحقا</a></li>
-                    <li *ngIf="video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">ازالة من المشاهدة لاحقا</a></li>
+                    <li *ngIf="!video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                     (click)="$event.preventDefault();addToWatchLater(video)">اضافة
+                      الى المشاهدة لاحقا</a></li>
+                    <li *ngIf="video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                    (click)="$event.preventDefault();addToWatchLater(video)">ازالة
+                      من المشاهدة لاحقا</a></li>
                   </ul>
                 </div>
               </div>
@@ -253,7 +268,8 @@
     </tab>
     <tab heading="الحصريات" id="exclusive" (select)="onSelect($event)">
       <div *ngIf="activeTab=='exclusive'" class="m-top-10 row margin-0">
-        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame" *ngFor="let video of videos">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 relative video-playlist-home new-video-frame"
+             *ngFor="let video of videos">
           <div class="bg-white width100 inline-block">
             <div class="width100 inline-block">
               <div class="padding-right-left-10">
@@ -265,9 +281,8 @@
                 </div>
                 <div class="float-left top-video-follow-section">
                   <div (click)="followCreator(video)" class="follow-holder">
-                    <img src="./assets/images/new-icons/follow.png">
-                    <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
+                    <img *ngIf="!video.creator.is_followed" src="./assets/images/new-icons/follow.png">
+                    <i *ngIf="video.creator.is_followed" class="fa fa-user-times"></i>
                   </div>
                 </div>
               </div>
@@ -290,7 +305,8 @@
             </a>
 
             <div class="m-bottom-10 inline-block width100 padding-right-left-10">
-              <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
+              <div (click)="likeVideo(video)"
+                   class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>
                 <span class="m-right-5 m-left-5">إعجاب</span>
@@ -323,8 +339,12 @@
                   <img [src]="'./assets/images/new-icons/more.png'" dropdownToggle class="padding-all-10">
                   <ul id="dropdown-basic4" *dropdownMenu class="dropdown-menu"
                       role="menu" aria-labelledby="button-basic">
-                    <li *ngIf="!video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">اضافة الى المشاهدة لاحقا</a></li>
-                    <li *ngIf="video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">ازالة من المشاهدة لاحقا</a></li>
+                    <li *ngIf="!video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                     (click)="$event.preventDefault();addToWatchLater(video)">اضافة
+                      الى المشاهدة لاحقا</a></li>
+                    <li *ngIf="video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                    (click)="$event.preventDefault();addToWatchLater(video)">ازالة
+                      من المشاهدة لاحقا</a></li>
                   </ul>
                 </div>
               </div>

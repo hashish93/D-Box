@@ -40,9 +40,8 @@
                 </div>
                 <div class="float-left top-video-follow-section">
                   <div (click)="followCreator(video)" class="follow-holder">
-                    <img src="./assets/images/new-icons/follow.png">
-                    <span *ngIf="!video.creator.is_followed">متابعة</span>
-                    <span *ngIf="video.creator.is_followed">إلغاء متابعة</span>
+                    <img *ngIf="!video.creator.is_followed" src="./assets/images/new-icons/follow.png">
+                    <i *ngIf="video.creator.is_followed" class="fa fa-user-times"></i>
                   </div>
                 </div>
               </div>

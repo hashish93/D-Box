@@ -5,17 +5,20 @@
   </div>
   <div *ngIf="total>0">
     <div class="row margin-0">
-      <div class="col-12 col-md-6 col-lg-4 m-top-10 m-bottom-10" *ngFor="let video of data | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }">
+      <div class="col-12 col-md-6 col-lg-4 m-top-10 m-bottom-10"
+           *ngFor="let video of data | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }">
         <div class="relative boxed-favorite">
-          <a *ngIf="video.creator" routerLink="/creator/{{video.creator.id}}" class="black width100 block m-bottom-5 creator-header">
+          <a *ngIf="video.creator" routerLink="/creator/{{video.creator.id}}"
+             class="black width100 block m-bottom-5 creator-header">
             <img class="m-left-5" src="{{staticEndPoint}}{{video.creator.avatar}}">
             <span>{{video.creator.title}}</span>
           </a>
           <a class="black" routerLink="/video/{{video.id}}">
             <div class="image-container relative">
-                <span *ngIf="video.category" [ngStyle]="{'background-color':video.category.color}" class="category-span">{{video.category.name}}</span>
-                <img src="{{staticEndPoint}}{{video.small}}">
-                <span class="fa fa-play player-icon"></span>
+              <span *ngIf="video.category" [ngStyle]="{'background-color':video.category.color}"
+                    class="category-span">{{video.category.name}}</span>
+              <img src="{{staticEndPoint}}{{video.small}}">
+              <span class="fa fa-play player-icon"></span>
             </div>
             <h6 class="title-video">{{video.title}}</h6>
           </a>

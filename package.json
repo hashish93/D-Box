@@ -46,6 +46,7 @@
       "@nguniversal/common": "6.0.0",
       "@nguniversal/express-engine": "6.0.0",
       "@nguniversal/module-map-ngfactory-loader": "6.0.0",
+      "@ngx-loading-bar/router": "^3.0.0",
       "@ngx-meta/core": "6.0.0",
       "@ngx-share/button": "^6.0.1",
       "@ngx-share/buttons": "^6.0.1",

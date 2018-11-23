@@ -21,9 +21,8 @@
                     </div>
                     <div class="col-12 col-md-8">
                       <div (click)="followCreator(creator)" class="follow-holder">
-                        <img src="./assets/images/new-icons/follow.png">
-                        <span *ngIf="!creator.is_followed">متابعة</span>
-                        <span *ngIf="creator.is_followed">إلغاء متابعة</span>
+                        <img *ngIf="!creator.is_followed" src="./assets/images/new-icons/follow.png">
+                        <i *ngIf="creator.is_followed" class="fa fa-user-times"></i>
                       </div>
                       <a routerLink="/creator/{{creator._id}}">
                         <h6 class="m-top-20 black text-right bold">{{creator.title}}</h6>

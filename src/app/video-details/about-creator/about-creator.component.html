@@ -12,9 +12,8 @@
     <p>{{creator.description}}</p>
     <div class="text-center">
       <div (click)="followCreator(creator)" class="inline-block follow-holder">
-        <img src="./assets/images/new-icons/follow.png">
-        <span *ngIf="!creator.is_followed">متابعة</span>
-        <span *ngIf="creator.is_followed">إلغاء متابعة</span>
+        <img *ngIf="!creator.is_followed" src="./assets/images/new-icons/follow.png">
+        <i *ngIf="creator.is_followed" class="fa fa-user-times"></i>
       </div>
     </div>
     <div class="row">

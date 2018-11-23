@@ -146,7 +146,6 @@ export class UploadVideoComponent implements OnInit {
             this.router.navigate(['/settings'], {queryParams: {tab: 'my-videos'}});
         }, err => {
             this.loading = false;
-            // this.error = JSON.stringify(err.error);
             this.error = JSON.stringify(err.error);
         })
     }
