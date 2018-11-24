@@ -3,15 +3,24 @@
   <form #videoForm="ngForm" novalidate autocomplete="off">
     <div class="row margin-0">
       <div class="col-md-4 col-sm-12 col-xs-12">
-        <div class="image-container m-top-10 m-bottom-10">
+        <div class="image-container m-top-10 m-bottom-10 relative">
+          <i *ngIf="fileView" (click)="removeVideo()" class="fa fa-close close-icon"></i>
           <img style="cursor: pointer" *ngIf="!fileView" src="../../../assets/images/upload2.png"
                (click)="fileInput.click()">
           <video style="cursor: pointer" class="width100" *ngIf="fileView" [src]='fileView'
                  (click)="fileInput.click()"></video>
-          <input #fileInput required class="none"
+          <input #fileInput [required]="!this.video.video_url" class="none"
                  name="video"
                  accept="video/mp4,video/x-m4v,video/x-msvideo,video/x-flv,video/x-ms-wmv,video/3gpp,video/mpeg,video/ogg,video/quicktime,video/webm,video/x-matroska,video/x-matroska-3d,video/x-sgi-movie,video/*"
                  (change)="onFileChanged($event)" type="file">
+        </div>
+        <div class="relative ruler">
+          او
+        </div>
+        <div class="form-group">
+          <input name="video_url" class="form-control" type="url"
+                 placeholder="اختار رابط اليوتيوب" [(ngModel)]="video.video_url"
+                 autocomplete="off" [required]="!this.video.file">
         </div>
 
         <div class="image-container">
@@ -62,7 +71,8 @@
         </div>
 
         <div class="m-top-35">
-          <button [disabled]="!videoForm.valid || !video.file || loading" (click)="submit(videoForm)"
+          <button [disabled]="!videoForm.valid || (!video.file && !video.video_url) || loading"
+                  (click)="submit(videoForm)"
                   class="btn btn-success">
             رفع الفيديو
           </button>

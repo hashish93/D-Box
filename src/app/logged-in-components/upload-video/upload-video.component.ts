@@ -97,7 +97,7 @@ export class UploadVideoComponent implements OnInit {
     }
 
     public submit(videoForm) {
-        if (this.video.file.size / 1024 / 1024 > 10)
+        if (this.video.file && this.video.file.size / 1024 / 1024 > 10)
             this.uploadVideoWithChunks();
         else
             this.uploadVideo();
@@ -168,4 +168,10 @@ export class UploadVideoComponent implements OnInit {
         this.meta.setTag('og:image:type', 'image/png');
         this.meta.setTag('og:url', this.frontEndPoint + this.router.url);
     }
+
+  public removeVideo() {
+    this.video.blob = null;
+    this.video.file = null;
+    this.fileView = null;
+  }
 }
