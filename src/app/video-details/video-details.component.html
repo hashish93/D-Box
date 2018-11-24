@@ -23,9 +23,11 @@
                         <h3 class="video-title">
                             {{video.title}}
                         </h3>
-                        <p>
-                            {{video.description}}
-                        </p>
+
+                        <pre>
+                              {{video.description}}
+                        </pre>
+
                         <div class="m-top-20 m-bottom-20" *ngIf="video && video.tags && video.tags.length > 0">
                             <div class="inline-block m-left-10" *ngFor="let tag of video.tags">
                                 <a routerLink="/tags" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}"
