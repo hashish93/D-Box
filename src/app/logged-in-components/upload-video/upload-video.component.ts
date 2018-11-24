@@ -129,7 +129,21 @@ export class UploadVideoComponent implements OnInit {
                     this.uploadVideoWithChunks();
                 } else {
                     this.loading = false;
-                    this.error = JSON.stringify(err.error);
+                    if (err && err.error && err.error.file) {
+                        this.error = JSON.stringify(err.error.file.toString());
+                    } else if (err && err.error && err.error.title) {
+                        this.error = JSON.stringify(err.error.title.toString());
+                    } else if (err && err.error && err.error.description) {
+                        this.error = JSON.stringify(err.error.description.toString());
+                    } else if (err && err.error && err.error.categories) {
+                        this.error = JSON.stringify(err.error.categories.toString());
+                    } else if (err && err.error && err.error.video_url) {
+                        this.error = JSON.stringify(err.error.video_url.toString());
+                    } else if (err && err.error.message) {
+                        this.error = JSON.stringify(err.error.message.toString());
+                    } else {
+                        this.error = JSON.stringify(err.error);
+                    }
                 }
             })
 
@@ -169,9 +183,9 @@ export class UploadVideoComponent implements OnInit {
         this.meta.setTag('og:url', this.frontEndPoint + this.router.url);
     }
 
-  public removeVideo() {
-    this.video.blob = null;
-    this.video.file = null;
-    this.fileView = null;
-  }
+    public removeVideo() {
+        this.video.blob = null;
+        this.video.file = null;
+        this.fileView = null;
+    }
 }
