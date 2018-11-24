@@ -14,9 +14,10 @@
             <div class="relative video-playlist-home new-video-frame">
                 <div class="bg-white width100 inline-block">
 
-          <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true' data-native_fullscreen='true'
-                  allowfullscreen='true' height="550px" frameborder="0" [src]="url"></iframe>
-          <div class="padding-right-left-10">
+                    <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true'
+                            data-native_fullscreen='true'
+                            allowfullscreen='true' height="550px" frameborder="0" [src]="url"></iframe>
+                    <div class="padding-right-left-10">
             <span class="time-ago">
                   {{video.time_ago}}
             </span>
@@ -24,9 +25,7 @@
                             {{video.title}}
                         </h3>
 
-                        <pre>
-                              {{video.description}}
-                        </pre>
+                        <pre>{{video.description}}</pre>
 
                         <div class="m-top-20 m-bottom-20" *ngIf="video && video.tags && video.tags.length > 0">
                             <div class="inline-block m-left-10" *ngFor="let tag of video.tags">
@@ -66,17 +65,21 @@
                             <span class="m-right-5 m-left-5">مشاهدة</span>
                         </div>
 
-            <div class="float-right m-right-5 video-extra-more more-icon">
+                        <div class="float-right m-right-5 video-extra-more more-icon">
 
-              <div class="custom-btn-group btn-group" dropdown>
-                <img [src]="'./assets/images/new-icons/more.png'" dropdownToggle class="padding-all-10">
-                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                    role="menu" aria-labelledby="button-basic">
-                    <li *ngIf="!video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">اضافة الى المشاهدة لاحقا</a></li>
-                    <li *ngIf="video.is_watched" role="menuitem" ><a class="dropdown-item" href="#" (click)="$event.preventDefault();addToWatchLater(video)">ازالة من المشاهدة لاحقا</a></li>
-                </ul>
-              </div>
-            </div>
+                            <div class="custom-btn-group btn-group" dropdown>
+                                <img [src]="'./assets/images/new-icons/more.png'" dropdownToggle class="padding-all-10">
+                                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                                    role="menu" aria-labelledby="button-basic">
+                                    <li *ngIf="!video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                                     (click)="$event.preventDefault();addToWatchLater(video)">اضافة
+                                        الى المشاهدة لاحقا</a></li>
+                                    <li *ngIf="video.is_watched" role="menuitem"><a class="dropdown-item" href="#"
+                                                                                    (click)="$event.preventDefault();addToWatchLater(video)">ازالة
+                                        من المشاهدة لاحقا</a></li>
+                                </ul>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -91,8 +94,8 @@
                             </div>
                             <div class="float-left top-video-follow-section">
                                 <div (click)="followCreator(video)" class="follow-holder">
-                                  <img *ngIf="!video.creator.is_followed" src="./assets/images/new-icons/follow.png">
-                                  <i *ngIf="video.creator.is_followed" class="fa fa-user-times"></i>
+                                    <img *ngIf="!video.creator.is_followed" src="./assets/images/new-icons/follow.png">
+                                    <i *ngIf="video.creator.is_followed" class="fa fa-user-times"></i>
                                 </div>
                             </div>
                         </div>

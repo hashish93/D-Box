@@ -15,12 +15,12 @@
                  (change)="onFileChanged($event)" type="file">
         </div>
         <div class="relative ruler">
-          او
+          أو
         </div>
         <div class="form-group">
           <input name="video_url" class="form-control" type="url" [disabled]="this.video.file"
-                 placeholder="اختار رابط اليوتيوب" [(ngModel)]="video.video_url"
-                 autocomplete="off" [required]="!this.video.file">
+                 placeholder="أدخل رابط اليوتيوب" [(ngModel)]="video.video_url"
+                 autocomplete="off" [required]="!this.video.file" pattern="https?://.+">
         </div>
 
         <div class="image-container">
@@ -70,7 +70,7 @@
           </tag-input>
         </div>
 
-        <div class="m-top-35">
+        <div class="m-top-35 m-bottom-10">
           <button [disabled]="!videoForm.valid || (!video.file && !video.video_url) || loading"
                   (click)="submit(videoForm)"
                   class="btn btn-success">

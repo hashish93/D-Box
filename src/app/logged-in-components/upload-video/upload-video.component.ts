@@ -129,21 +129,7 @@ export class UploadVideoComponent implements OnInit {
                     this.uploadVideoWithChunks();
                 } else {
                     this.loading = false;
-                    if (err && err.error && err.error.file) {
-                        this.error = JSON.stringify(err.error.file.toString());
-                    } else if (err && err.error && err.error.title) {
-                        this.error = JSON.stringify(err.error.title.toString());
-                    } else if (err && err.error && err.error.description) {
-                        this.error = JSON.stringify(err.error.description.toString());
-                    } else if (err && err.error && err.error.categories) {
-                        this.error = JSON.stringify(err.error.categories.toString());
-                    } else if (err && err.error && err.error.video_url) {
-                        this.error = JSON.stringify(err.error.video_url.toString());
-                    } else if (err && err.error.message) {
-                        this.error = JSON.stringify(err.error.message.toString());
-                    } else {
-                        this.error = JSON.stringify(err.error);
-                    }
+                    this.error = JSON.stringify(err.error);
                 }
             })
 
@@ -160,7 +146,21 @@ export class UploadVideoComponent implements OnInit {
             this.router.navigate(['/settings'], {queryParams: {tab: 'my-videos'}});
         }, err => {
             this.loading = false;
-            this.error = JSON.stringify(err.error);
+            if (err && err.error && err.error.file) {
+                this.error = JSON.stringify(err.error.file.toString());
+            } else if (err && err.error && err.error.title) {
+                this.error = JSON.stringify(err.error.title.toString());
+            } else if (err && err.error && err.error.description) {
+                this.error = JSON.stringify(err.error.description.toString());
+            } else if (err && err.error && err.error.categories) {
+                this.error = JSON.stringify(err.error.categories.toString());
+            } else if (err && err.error && err.error.video_url) {
+                this.error = JSON.stringify(err.error.video_url.toString());
+            } else if (err && err.error.message) {
+                this.error = JSON.stringify(err.error.message.toString());
+            } else {
+                this.error = JSON.stringify(err.error);
+            }
         })
     }
 
