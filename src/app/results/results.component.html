@@ -10,13 +10,13 @@
     </div>
     <h5 class="m-bottom-20 text-center"><strong class="page_title">{{pageName}}</strong></h5>
     <div *ngIf="searchFlag">
-      <h6 class="pointer" (click)="opened =! opened"><i class="fa fa-filter"></i> بحث متقدم</h6>
+      <h6 class="pointer filter-title" (click)="opened =! opened"><i class="fa fa-filter"></i> بحث متقدم</h6>
       <div class="filtered" [ngClass]="{'open': !opened, 'closed': opened}">
         <div class="col-12">
           <div class="row">
             <div class="col-4 col-sm-4 col-xs-4 col-md-4">
               <strong>تاريخ الرفع</strong>
-              <ul>
+              <ul class="list-style">
                 <li [class.active]="selectedPeriod === 'hour'"  (click)="filter({upload_date:'hour'})"><span>الساعة السابقة</span></li>
                 <li [class.active]="selectedPeriod === 'today'"  (click)="filter({upload_date:'today'})"><span>اليوم</span></li>
                 <li [class.active]="selectedPeriod === 'week'"  (click)="filter({upload_date:'week'})"><span>الاسبوع الحالي</span></li>
@@ -26,14 +26,14 @@
             </div>
             <div class="col-4 col-sm-4 col-xs-4 col-md-4">
               <strong>المدة</strong>
-              <ul>
+              <ul class="list-style">
                 <li [class.active]="selectedLength === 1"  (click)="filter({length:1})"><span>قصير < 4 دقاثق</span></li>
                 <li [class.active]="selectedLength === 3"  (click)="filter({length:3})"><span>كبير > 20 دقيقة</span></li>
               </ul>
             </div>
             <div class="col-4 col-sm-4 col-xs-4 col-md-4">
               <strong>الترتيب</strong>
-              <ul>
+              <ul class="list-style">
                 <li [class.active]="selectedOrder === 'score'"  (click)="filter({order:'score'})"><span>لها علاقة بالموضوع</span></li>
                 <li [class.active]="selectedOrder === 'date'"  (click)="filter({order:'date'})"><span>تاريخ الرفع</span></li>
                 <li [class.active]="selectedOrder === 'views'"  (click)="filter({order:'views'})"><span>عدد المشاهدات</span></li>

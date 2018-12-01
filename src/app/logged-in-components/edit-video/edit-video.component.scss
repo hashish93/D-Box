@@ -60,3 +60,6 @@ $font-family-brand: 'Helvetica';
 :host ::ng-deep .ng2-tag-input__text-input , :host ::ng-deep tag{
   font-family: $font-family-brand !important;
 }
+.required-filed{
+  color: #e24140;
+}

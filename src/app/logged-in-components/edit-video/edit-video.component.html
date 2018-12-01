@@ -13,7 +13,7 @@
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
     <div class="rtl text-right" >
       <div class="video_upload_container">
-        <h5 class="video-header">تعديل الفيديو</h5>
+        <div class="col-12"><h5 class="video-header">تعديل الفيديو</h5></div>
         <form #videoForm="ngForm" novalidate autocomplete="off">
           <div class="row margin-0">
             <div class="col-md-4 col-sm-12 col-xs-12">
@@ -34,17 +34,17 @@
             <div class="col-md-8 col-sm-12 col-xs-12">
               <div class="form-group">
                 <h6 class="video-header">عنوان الفيديو</h6>
-                <p>الإسم الذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+                <p> عنوان الفيديو الذي سيظهر به الفيديو علي الموقع <span class="bold required-filed">(هذا الحقل مطلوب *)</span></p>
                 <textarea id="title" name="title" [(ngModel)]="video.title" autocomplete=”off” required class="form-control"></textarea>
               </div>
               <div class="form-group">
                 <h6 class="video-header">وصف الفيديو</h6>
-                <p>الإسم الذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+                <p> وصف الفيديو الذي سيظهر به الفيديو علي الموقع <span class="bold required-filed">(هذا الحقل مطلوب *)</span></p>
                 <textarea id="description" name="description" [(ngModel)]="video.description" rows="5" autocomplete=”off” required class="form-control"></textarea>
               </div>
               <div *ngIf="categories" class="form-group">
                 <h6 class="video-header">القسم</h6>
-                <p>الإسم الذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+                <p> أقسام الفيديو الذي سيظهر بها الفيديو علي الموقع <span class="bold required-filed">(هذا الحقل مطلوب *)</span></p>
                 <ng-select required [multiple]="true"
                            name="category" [(ngModel)]="video.categories_names">
                   <ng-option *ngFor="let category of categories"   [value]="category._id" >{{category.title}}</ng-option>
@@ -52,7 +52,7 @@
               </div>
               <div class="form-group">
                 <h6 class="video-header">الوسوم</h6>
-                <p>الإسم الذي سيظهر  به الفيديو  علي الموقع مكون من 20 حرف</p>
+                <p>وسوم الفيديو الذي سيظهر بها الفيديو علي الموقع</p>
                 <!--<input id="tags" name="tags" [(ngModel)]="video.tags" autocomplete=”off” required class="form-control">-->
                 <tag-input class="white-bg" name="tags" [secondaryPlaceholder]="'أضف تاج'" [placeholder]="'أضف تاج'"   (onAdd)="onItemAdded($event)" [(ngModel)]='video.tags'>
                   <tag-input-dropdown [autocompleteObservable]='AutocompleteTags'>

@@ -116,7 +116,6 @@ export class EditVideoComponent implements OnInit {
         this.videoService.editVideo(this.video).subscribe(data => {
             this.loading = false;
             this.notificationService.success("تم التعديل بنجاح ", "", {timeOut: 3000});
-            this.router.navigate(['/']);
         }, err => {
             this.error = JSON.stringify(err.error);
             this.loading = false;
