@@ -13,9 +13,9 @@
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">التاريخ</th>
           <th scope="col">الفيديو</th>
           <th style="width: 40%" scope="col">العنوان</th>
+          <th scope="col">التاريخ</th>
           <th scope="col">الحالة</th>
           <th scope="col">الوسوم</th>
           <th scope="col">الإجراءات</th>
@@ -24,16 +24,16 @@
         <tbody *ngIf="!loading">
         <tr *ngFor="let video of videos | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total}">
           <td scope="row"><input type="checkbox" name="checked" [(ngModel)]="video.checked"></td>
-          <td>{{video.date}}</td>
           <td (click)="openLink(video)" [ngClass]="{'forbidden':video.published == 0 || (video.published == 1 && video.activated == 0) , 'pointer':video.published == 1 && video.activated == 1}" class="image-container relative" >
               <img src="{{staticEndPoint}}/{{video.small}}">
-              <span class="player-icon">
-                  <i class="fa fa-play" aria-hidden="true"></i>
-              </span>
+              <!--<span class="player-icon">-->
+                  <!--<i class="fa fa-play" aria-hidden="true"></i>-->
+              <!--</span>-->
           </td>
           <td (click)="openLink(video)" [ngClass]="{'forbidden':video.published == 0 || (video.published == 1 && video.activated == 0) , 'pointer':video.published == 1 && video.activated == 1}" style="width: 40%">
             <div><a class="black">{{video.title}}</a></div>
           </td>
+          <td>{{video.date}}</td>
           <td [ngClass]="{'orange':video.published == 0 , 'green':video.published == 1 && video.activated == 1, 'red':video.published == 1 && video.activated == 0}">
             <div *ngIf="video.published == 0">جاري المعالجة</div>
             <div *ngIf="video.published == 1 && video.activated == 1">مفعل</div>

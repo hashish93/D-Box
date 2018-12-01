@@ -21,7 +21,7 @@ export class SettingsComponent implements OnInit {
     @ViewChild(TabsetComponent) tabset: TabsetComponent;
     public loading: boolean = false;
     public error: string = '';
-    private user: Creator = {} as Creator;
+    public user: Creator = {} as Creator;
     public frontEndPoint;
 
     constructor(public userService: UserService, public route: ActivatedRoute, public router: Router, public location: Location, /*public titleService: Title*/private readonly meta: MetaService) {

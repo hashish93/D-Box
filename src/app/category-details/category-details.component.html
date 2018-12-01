@@ -49,7 +49,7 @@
                   </div>
                 </a>
 
-                <div class="m-bottom-10 inline-block width100 padding-right-left-10">
+                <div class="inline-block width100 padding-right-left-10">
                   <div (click)="likeVideo(firstVideo)" class="float-right video-extra side-likes pointer relative custom-padding-left">
                     <div class="heart" [ngClass]="{'liked':firstVideo.is_liked}"></div>
                     <span class="video-likes" *ngIf="firstVideo.counter">{{firstVideo.counter.likes || 0  | number:'1.'}}</span>
@@ -169,7 +169,7 @@
               </div>
             </a>
 
-            <div class="m-bottom-10 inline-block width100 padding-right-left-10">
+            <div class="inline-block width100 padding-right-left-10">
               <div (click)="likeVideo(video)" class="float-right video-extra side-likes pointer relative custom-padding-left">
                 <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
                 <span class="video-likes" *ngIf="video.counter">{{video.counter.likes || 0  | number:'1.'}}</span>

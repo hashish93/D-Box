@@ -11,7 +11,7 @@
       <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
 
       <div *ngIf="!loading" class="width100 inline-block rtl text-right">
-        <tabset>
+        <tabset *ngIf="user">
             <tab id="favorites" [active]="selected=='favorites'"  (select)="onSelect($event)">
               <ng-template tabHeading>
                 <img style="top:-1px" class="default" src="../../../assets/images/love-white.png">

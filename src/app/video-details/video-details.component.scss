@@ -80,6 +80,8 @@ a.inner-cat-link {
 //}
 pre{
   font-family: 'Helvetica' !important;
+  overflow-wrap: break-word;
+  white-space: pre-line;
 }
 @media screen and (min-width: 1200px) and (max-width: 1400px){
   .no-padding-right{padding-right: 0}
@@ -92,6 +94,10 @@ pre{
     margin-bottom: 10px;
   }
 }
-
-
+.video-iframe{
+  background-color: #fff!important;
+}
+.video-details {
+    padding: 20px !important;
+}
 

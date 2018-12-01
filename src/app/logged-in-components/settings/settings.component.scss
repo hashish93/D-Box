@@ -32,3 +32,6 @@
 @media screen and (max-width: 400px){
   :host ::ng-deep .nav-tabs li a{padding: 5px 8px;}
 }
+.nav-tabs .nav-item {
+  margin-bottom: 0px !important;
+}

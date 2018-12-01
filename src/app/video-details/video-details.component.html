@@ -12,11 +12,11 @@
         <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
         <div *ngIf="!loading">
             <div class="relative video-playlist-home new-video-frame">
-                <div class="bg-white width100 inline-block">
+                <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true'
+                        data-native_fullscreen='true'
+                        allowfullscreen='true' height="550px" frameborder="0" [src]="url" class="video-iframe"></iframe>
+                <div class="bg-white width100 inline-block video-details">
 
-                    <iframe width="100%" webkitallowfullscreen='true' mozallowfullscreen='true'
-                            data-native_fullscreen='true'
-                            allowfullscreen='true' height="550px" frameborder="0" [src]="url"></iframe>
                     <div class="padding-right-left-10">
             <span class="time-ago">
                   {{video.time_ago}}
@@ -37,7 +37,7 @@
                     </div>
 
 
-                    <div class="m-bottom-10 inline-block width100 padding-right-left-10">
+                    <div class="inline-block width100 padding-right-left-10">
                         <div (click)="likeVideo()"
                              class="float-right video-extra side-likes pointer relative custom-padding-left">
                             <div class="heart" [ngClass]="{'liked':video.is_liked}"></div>
