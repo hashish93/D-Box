@@ -77,6 +77,7 @@ import {MyIFrameComponent} from "./iframe-resizer/my-iframe.component";
 // for Router import LoadingBarRouterModule:
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 import {DurationPipe} from './services/pipes/duration.pipe';
+import {UiSwitchModule} from 'angular2-ui-switch';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -206,7 +207,10 @@ export function metaFactory(): MetaLoader {
         PerfectScrollbarModule,
         ShareButtonsModule.forRoot(),
         BsDropdownModule.forRoot(),
-        LoadingBarRouterModule
+        LoadingBarRouterModule,
+        UiSwitchModule
+
+
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: URLInterceptorService, multi: true},

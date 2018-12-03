@@ -105,6 +105,7 @@ export class EditVideoComponent implements OnInit {
 
     public submit(videoForm: any) {
         this.loading = true;
+      this.video.activated = this.video.activated ? 1 : 0;
         this.video.categories = [];
         for (let category_name of this.video.categories_names) {
             for (let category of this.categories) {

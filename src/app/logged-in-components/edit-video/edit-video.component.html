@@ -60,6 +60,11 @@
                 </tag-input>
               </div>
 
+              <div class="form-group">
+                <h6 class="video-header">التفعيل</h6>
+                <br>
+                <ui-switch name="activated" [(ngModel)]="video.activated"></ui-switch>
+              </div>
               <div class="m-top-35">
                 <button  [disabled]="!videoForm.valid || loading" (click)="submit(videoForm)" class="btn btn-success">
                   حفظ
