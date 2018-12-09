@@ -22,6 +22,7 @@ import {ResultsComponent} from './results/results.component';
 import {CreatorsComponent} from './creators/creators.component';
 import {MetaGuard} from '@ngx-meta/core';
 import {DownloadAppsComponent} from './download-apps/download-apps.component';
+import {PrivacyPolicyComponent} from './static/privacy-policy/privacy-policy.component';
 
 
 export const routes: Routes = [
@@ -56,7 +57,8 @@ export const routes: Routes = [
             {path: 'category-videos', component: ResultsComponent},
             {path: 'watch-later', component: ResultsComponent},
             {path: 'playlist', component: PlaylistComponent},
-            {path: 'creators', component: CreatorsComponent}
+            {path: 'creators', component: CreatorsComponent},
+            {path: 'privacy-policy', component: PrivacyPolicyComponent}
         ]
     },
 
