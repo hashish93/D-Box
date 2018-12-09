@@ -37,9 +37,9 @@
                     <h3>
                       {{firstVideo.title}}
                     </h3>
-                    <p>
+                    <pre>
                       {{firstVideo.description}}
-                    </p>
+                    </pre>
                     <div class="m-top-20 m-bottom-20" *ngIf="firstVideo && firstVideo.tags && firstVideo.tags.length > 0">
                       <div class="inline-block m-left-10" *ngFor="let tag of firstVideo.tags">
                         <a routerLink="/tags" [queryParams]="{page:'tags','key':tag.title,'key_id':tag.id}" class="badge"># {{tag.title}}</a>

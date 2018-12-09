@@ -77,7 +77,7 @@ import {MyIFrameComponent} from "./iframe-resizer/my-iframe.component";
 // for Router import LoadingBarRouterModule:
 import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 import {DurationPipe} from './services/pipes/duration.pipe';
-import {UiSwitchModule} from 'angular2-ui-switch';
+import {UiSwitchModule} from 'ngx-ui-switch';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -208,7 +208,15 @@ export function metaFactory(): MetaLoader {
         ShareButtonsModule.forRoot(),
         BsDropdownModule.forRoot(),
         LoadingBarRouterModule,
-        UiSwitchModule
+        UiSwitchModule.forRoot({
+        size: 'medium',
+        color: '#65c25a',
+        switchColor: '#fff',
+        defaultBgColor: '#e0413f',
+        defaultBoColor : '#d6d6d6',
+        checkedLabel: '',
+        uncheckedLabel: ''
+      })
 
 
     ],
