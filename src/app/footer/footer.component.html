@@ -25,3 +25,13 @@
 
   </div>
 </footer>
+<div class="disclaimer" *ngIf="enable_cookie == false">
+  <strong class="text-white">
+    This website uses cookies to ensure you get the best experience on our website. <a class="text-white" routerLink="privacy-policy">Learn more</a>
+    <div class="actions pull-right inline-block">
+      <span class="pull-right span-btn" (click)="cookieClick(true)">accept</span>
+      <span class="pull-right span-btn" (click)="cookieClick(false)">reject</span>
+    </div>
+
+  </strong>
+</div>

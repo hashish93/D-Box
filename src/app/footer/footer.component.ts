@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-footer',
@@ -8,9 +9,20 @@ import {Router} from "@angular/router";
 })
 export class FooterComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  public enable_cookie: any;
 
-  ngOnInit() {
+  constructor(public router: Router, public cookieService: CookieService) {
   }
 
+  ngOnInit() {
+    console.log(this.cookieService.get('enable_cookie'));
+    this.enable_cookie = this.cookieService.get('enable_cookie');
+    if (this.enable_cookie == null || this.enable_cookie == 'false')
+      this.enable_cookie = false;
+  }
+
+  cookieClick(value) {
+    this.cookieService.set('enable_cookie', value);
+    this.enable_cookie = true;
+  }
 }
