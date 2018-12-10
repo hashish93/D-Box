@@ -10,9 +10,9 @@
     </div>
     <app-loading [error]="error" [loading]="loading" class="width100 block"></app-loading>
     <div *ngIf="!loading" class="main-section">
-      <h5 class="text-center" *ngIf="total == 0">لا يوجد مبدعون</h5>
+      <h5 class="text-center" *ngIf="total == 0">لا يوجد قنوات</h5>
       <div *ngIf="total > 0">
-        <h5 class="m-bottom-20">المبدعون</h5>
+        <h5 class="m-bottom-20">القنوات</h5>
         <div class="row m-top-10">
           <div *ngFor="let creator of data | paginate: { itemsPerPage: limit, currentPage: current_page, totalItems: total }" class="col-12 col-md-6 m-bottom-20">
             <div class="bg-white new-creator-item no-shadow">

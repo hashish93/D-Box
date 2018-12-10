@@ -70,7 +70,7 @@ export class ResultsComponent implements OnInit {
             }
             else if (params['page'] == 'creator_views') {
                 this.searchFlag = true;
-                this.pageName = 'فيديوهات المبدع: ' + params['key'];
+                this.pageName = 'فيديوهات القناة: ' + params['key'];
                 this.key_id = params['key_id'];
                 this.getCreatorMoreViews();
             }

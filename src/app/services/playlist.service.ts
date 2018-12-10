@@ -12,10 +12,10 @@ export class PlaylistService {
 
   public getPlaylistFromTypeLimited(type:string,limit:Number): Observable<any>{
     if(type=='watchnow'){
-      return this.http.get('videos?limit='+limit+'&orderBy=desc');
+      return this.http.get('collections?limit='+limit+'&orderBy=desc');
     }else if(type=='trend'){
-      return this.http.get('videos?limit='+limit+'&order=views&orderBy=desc');
+      return this.http.get('collections?limit='+limit+'&order=views&orderBy=desc');
     }else
-      return this.http.get("playlists/"+type+'?limit='+limit)
+      return this.http.get("collections?limit="+limit)
   }
 }

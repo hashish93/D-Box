@@ -136,12 +136,12 @@
 
 .cover-container > .inner-cover > img {
   width: 100%;
-  min-height: 250px;
+  min-height: 100px;
   border-radius: 5px;
 }
 
 .cover-container > .inner-cover {
-  height: 250px;
+  //height: 250px;
   overflow: hidden
 }
 
@@ -154,10 +154,10 @@
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   .cover-container > .inner-cover > img {
     width: 100%;
-    min-height: 150px;
+    //min-height: 150px;
   }
   .cover-container > .inner-cover {
-    height: 150px;
+    //height: 150px;
     overflow: hidden
   }
 }
@@ -165,10 +165,10 @@
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .cover-container > .inner-cover > img {
     width: 100%;
-    min-height: 150px;
+    //min-height: 150px;
   }
   .cover-container > .inner-cover {
-    height: 150px;
+    //height: 150px;
     overflow: hidden
   }
 }
@@ -176,10 +176,10 @@
 @media screen and (max-width: 768px) {
   .cover-container > .inner-cover > img {
     width: 100%;
-    min-height: 100px;
+    //min-height: 100px;
   }
   .cover-container > .inner-cover {
-    height: 100px;
+    //height: 100px;
     overflow: hidden
   }
   .cover-container .change-photo {

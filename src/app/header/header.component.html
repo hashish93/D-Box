@@ -52,28 +52,29 @@
         </div>
     </div>
     <nav class="navbar navbar-default">
+      <form #searchForm="ngForm" novalidate (ngSubmit)="onFormSubmit(searchForm)" *ngIf="isSearched" class="m-bottom-10">
+        <div class="input-group input-group-sm m-top-7">
+          <input type="text" class="form-control" autocomplete="off" aria-label="Small"
+                 name="search" [(ngModel)]="search" placeholder="ابحث هنا"
+                 aria-describedby="inputGroup-sizing-sm">
+          <div (click)="onFormSubmit(searchForm)" class="input-group-append">
+                        <span class="input-group-text">
+                          <img src="../../assets/images/new-icons/search.png">
+                        </span>
+          </div>
+        </div>
+      </form>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed"
                     aria-expanded="false">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
+            <i class="fa fa-search m-right-20 pull-right m-top-20 custom-search-icon" (click)="isSearched =!isSearched"></i>
             <a class="navbar-brand" routerLink="/">
                 <img src="./assets/images/logo.png">
             </a>
         </div>
         <div class="collapse navbar-collapse" [collapse]="isCollapsed">
-            <form #searchForm="ngForm" novalidate (ngSubmit)="onFormSubmit(searchForm)" class="m-bottom-10">
-                <div class="input-group input-group-sm m-top-7">
-                    <input type="text" class="form-control" autocomplete="off" aria-label="Small"
-                           name="search" [(ngModel)]="search" placeholder="ابحث هنا"
-                           aria-describedby="inputGroup-sizing-sm">
-                    <div (click)="onFormSubmit(searchForm)" class="input-group-append">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">
-                          <img src="../../assets/images/new-icons/search.png">
-                        </span>
-                    </div>
-                </div>
-            </form>
             <!--<h5 class="text-right">الأقسام</h5>-->
             <ul class="nav navbar-nav">
                 <li class="text-right rtl">

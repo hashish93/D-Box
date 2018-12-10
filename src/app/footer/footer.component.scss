@@ -1,10 +1,11 @@
-footer{
-  background-color: #11141c!important;
+footer {
+  background-color: #11141c !important;
   position: absolute;
   bottom: 0px;
   height: 70px;
   line-height: 70px;
 }
+
 .disclaimer {
   position: fixed;
   bottom: 0;
@@ -13,13 +14,30 @@ footer{
   z-index: 111;
   background: #000;
   padding: 10px;
-  line-height: 30px;
+  //line-height: 30px;
 }
+
 .span-btn {
-  background: #ffc107;
+  background: #f1d600;
   color: #000;
   margin: 0 10px;
-  padding: 0 10px;
+  padding: 0 30px;
   border-radius: 3px;
   cursor: pointer;
+}
+
+.refuse-cookie {
+  cursor: pointer;
+}
+@media screen and (max-width: 992px){
+
+  footer{
+    height: auto;
+    .pull-right ,.pull-left{
+      float: none;
+      text-align: center;
+      line-height: 44px;
+    }
+  }
+
 }

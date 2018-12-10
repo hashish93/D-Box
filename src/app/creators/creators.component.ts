@@ -29,7 +29,7 @@ export class CreatorsComponent implements OnInit {
                 public router: Router,
                 public userService: UserService,
                 private readonly meta: MetaService) {
-        // this.titleService.setTitle('المبدعون');
+        // this.titleService.setTitle('القنوات');
     }
 
     ngOnInit() {
@@ -76,10 +76,10 @@ export class CreatorsComponent implements OnInit {
     }
 
     public setMeta() {
-        this.meta.setTitle('Piksels | مبدعون الموقع');
-        this.meta.setTag('description', 'Piksels | مبدعون الموقع');
-        this.meta.setTag('og:title', 'Piksels | مبدعون الموقع');
-        this.meta.setTag('og:description', 'Piksels | مبدعون الموقع');
+        this.meta.setTitle('Piksels | قنوات الموقع');
+        this.meta.setTag('description', 'Piksels | قنوات الموقع');
+        this.meta.setTag('og:title', 'Piksels | قنوات الموقع');
+        this.meta.setTag('og:description', 'Piksels | قنوات الموقع');
         this.meta.setTag('image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image:width', '781');

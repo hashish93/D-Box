@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
     public searchedData: any = [];
     public more: boolean = false;
     public subscription: any;
+    public isSearched: boolean = false;
 
     constructor(public creatorService: CreatorService,
                 public authService: AuthService,
@@ -70,6 +71,7 @@ export class HeaderComponent implements OnInit {
             this.more = false;
             this.searchedData = null;
             this.isCollapsed = true;
+            this.isSearched = false;
             this.router.navigate(['/results'], {queryParams: {'page': 'search', 'key': this.search}});
         }
     }

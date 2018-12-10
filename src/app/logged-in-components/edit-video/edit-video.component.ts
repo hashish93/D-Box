@@ -88,7 +88,7 @@ export class EditVideoComponent implements OnInit {
             var extn = this.video.file.name.split(".").pop();
             if (event.target.files[0].size / 1024 / 1024 > 3)
                 this.notificationService.error("الحد الاقصى للصورة 3 ميجا بايت", '', {timeOut: 3000});
-            if (extn == 'jpg' || extn == 'gif' || extn == 'png') {
+            if (extn == 'jpg' || extn == 'jpeg' || extn == 'gif' || extn == 'png') {
                 var reader = new FileReader();
                 reader.onload = (event: ProgressEvent) => {
                     this.fileView = (<FileReader>event.target).result;

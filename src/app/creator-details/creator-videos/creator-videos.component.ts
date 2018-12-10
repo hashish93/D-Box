@@ -51,7 +51,7 @@ export class CreatorVideosComponent implements OnInit {
       this.error = '';
     },error=>{
       this.loading = false;
-      this.error = 'خطأ في تحميل القائمة الخاصة بفيديوهات المبدع'
+      this.error = 'خطأ في تحميل القائمة الخاصة بفيديوهات القناة'
     })
   }
 

@@ -45,6 +45,39 @@ export class VideoService {
     return this.http.get(this.apiKey+params)
   }
 
+  public getCollections(limit?:Number,order?:String,orderBy?:string,filter?:Object,page?:number,pagination?:number,key?:string): Observable<any>{
+    let params : string = '';
+    if(limit){
+      params +='?limit='+limit
+    }
+    if(order){
+      params +='&order='+order
+    }
+    if(orderBy){
+      params +='&orderBy='+orderBy
+    }
+    if(filter){
+      if(params){
+        for(let key of Object.keys(filter)){
+          params +="&"+key+'='+filter[key];
+        }
+      }else{
+        params +="?"+Object.keys(filter)[0]+'='+filter[Object.keys(filter)[0]]
+      }
+
+    }
+    if(page){
+      params +='&page='+page;
+    }
+    if(pagination){
+      params +='&pagination='+pagination;
+    }
+    if(key){
+      params +='&q='+key
+    }
+    return this.http.get('collections'+params)
+  }
+
   public getVideo(id?:Number): Observable<any>{
     return this.http.get(this.apiKey+'/'+id);
   }

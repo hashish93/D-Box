@@ -21,7 +21,7 @@ export class CreatorSignupComponent implements OnInit {
     public frontEndPoint;
 
     constructor(public creatorService: CreatorService, public router: Router, /*public titleService: Title*/private readonly meta: MetaService) {
-        // this.titleService.setTitle('تسجيل كمبدع');
+        // this.titleService.setTitle('تسجيل كقناة');
     }
 
     ngOnInit() {
@@ -75,10 +75,10 @@ export class CreatorSignupComponent implements OnInit {
     }
 
     public setMeta() {
-        this.meta.setTitle('Piksels | تسجيل كمبدع');
-        this.meta.setTag('description', 'Piksels | تسجيل كمبدع');
-        this.meta.setTag('og:title', 'Piksels | تسجيل كمبدع');
-        this.meta.setTag('og:description', 'Piksels | تسجيل كمبدع');
+        this.meta.setTitle('Piksels | تسجيل كقناة');
+        this.meta.setTag('description', 'Piksels | تسجيل كقناة');
+        this.meta.setTag('og:title', 'Piksels | تسجيل كقناة');
+        this.meta.setTag('og:description', 'Piksels | تسجيل كقناة');
         this.meta.setTag('image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image', this.frontEndPoint + '/assets/images/x-logo.png');
         this.meta.setTag('og:image:width', '781');

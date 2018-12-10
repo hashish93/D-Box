@@ -37,7 +37,7 @@ export class HomeCreatorComponent implements OnInit {
       this.error = '';
     },error=>{
       this.loading = false;
-      this.error = 'خطأ في تحميل القائمة الخاصة بالمبدعون'
+      this.error = 'خطأ في تحميل القائمة الخاصة بالقنوات'
     })
   }
 

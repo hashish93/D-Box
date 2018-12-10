@@ -31,7 +31,7 @@ export class MoreViewsComponent implements OnInit {
     this.loading = true;
     this.error = '';
     this.videos = [];
-    this.videoService.getVideos(6,'views','desc').subscribe(data=> {
+    this.videoService.getCollections(6,'views','desc').subscribe(data=> {
       this.videos = data;
       this.loading = false;
       this.error = '';

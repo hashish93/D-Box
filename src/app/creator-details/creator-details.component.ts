@@ -28,7 +28,7 @@ export class CreatorDetailsComponent implements OnInit {
 
     constructor(public creatorService: CreatorService, public route: ActivatedRoute
         , public router: Router, public videoService: VideoService, public authService: AuthService, public userService: UserService, /*public titleService: Title,*/ private readonly meta: MetaService) {
-        // this.titleService.setTitle('المبدع');
+        // this.titleService.setTitle('القناة');
     }
 
     ngOnInit() {

@@ -47,7 +47,7 @@
               </div>
             </div>
 
-            <a routerLink="/video/{{video.id}}">
+            <a routerLink="/video/{{video._id}}">
               <div class="image-container relative">
                 <img *ngIf="video.thumbnails" src="{{staticEndPoint}}{{video.thumbnails.small}}">
                 <span class="duration">{{video.duration | duration}}</span>
@@ -81,7 +81,7 @@
                                  [title]="video.title"
                                  [description]="video.title"
                                  [autoSetMeta]="true"
-                                 [url]="AppSettings.getShareEndpoint()+'video/'+video.id"
+                                 [url]="AppSettings.getShareEndpoint()+'video/'+video._id"
                   ></share-buttons>
                 </div>
               </div>
